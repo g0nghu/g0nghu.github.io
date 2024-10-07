@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Born-Markov Approximation</title>
+      <link href="/2024/10/07/Born-Markov-Approximation/"/>
+      <url>/2024/10/07/Born-Markov-Approximation/</url>
+      
+        <content type="html"><![CDATA[<h2 id="相互作用表象"><a href="#相互作用表象" class="headerlink" title="相互作用表象"></a>相互作用表象</h2><p>$$H &#x3D; H_S + H_R + g H_{int}$$<br>The evolution for the full system is<br>$$\frac{\mathrm{d}\sigma(t)}{\mathrm{d}t}&#x3D;-i[H,\sigma(t)]$$<br>In the interaction picture<br>$$\sigma_I(t) &#x3D; e^{i(H_S+H_R)t} \sigma(t) e^{-i(H_S+H_R)t}$$</p><p>$$V(t) &#x3D; e^{i(H_S+H_R)t} H_{int} e^{-i(H_S+H_R)t}$$<br>The evolution in the interaction system is controlled by Liouville equation<br>$$<br>\begin{aligned}<br>\frac{\mathrm{d}\sigma_I(t)}{\mathrm{d}t} &#x3D; &amp; ie^{i(H_S+H_R)t} [H_s+H_R, \sigma(t)] e^{-i(H_S+H_R)t} - ie^{i(H_S+H_R)t} [H, \sigma(t)] e^{-i(H_S+H_R)t} \<br>&#x3D; &amp; - ie^{i(H_S+H_R)t} [g H_{int}, \sigma(t)] e^{-i(H_S+H_R)t} \<br>&#x3D; &amp; - i e^{i(H_S+H_R)t} (g H_{int}\sigma(t) - \sigma(t)g H_{int}) e^{-i(H_S+H_R)t} \<br>&#x3D; &amp; -i[gV, \sigma_I]<br>\end{aligned}<br>$$</p><h2 id="约化环境"><a href="#约化环境" class="headerlink" title="约化环境"></a>约化环境</h2><p>$\rho(t) &#x3D; \mathrm{Tr}_R(\sigma(t))$, $\rho_I(t) &#x3D; e^{iH_St}\rho(t)e^{-iH_St} &#x3D; \mathrm{Tr}_R(\sigma_I(t))$.<br>For small $g$, we write the lowest order by assuming $\mathrm{Tr}_R([V(t), \sigma_I(0)])&#x3D;0$<br>$$\begin{aligned}<br>\frac{\mathrm{d}\rho_I(t)}{\mathrm{d}t} &#x3D; &amp; -i \mathrm{Tr}_R([gV(t),\sigma_I(t)]) \<br>&#x3D; &amp; -i \mathrm{Tr}_R([gV(t), -i \int_0^t \mathrm{s}[gV(s), \sigma_I(s)]]) \<br>&#x3D; &amp; -g^2 \int_0^t \mathrm{d}s \mathrm{Tr}_R([V(t),[V(s),\sigma_I(s)]])<br>\end{aligned}$$</p><h2 id="近似"><a href="#近似" class="headerlink" title="近似"></a>近似</h2><h3 id="Born-Approximation-weak-coupling-approximation"><a href="#Born-Approximation-weak-coupling-approximation" class="headerlink" title="Born Approximation(weak coupling approximation)"></a>Born Approximation(weak coupling approximation)</h3><p>The reservoir is large enough and is unaffected by the system<br>$$\sigma(t) \simeq \rho(t) \otimes \varrho_R$$</p><h3 id="Markov-Approximation"><a href="#Markov-Approximation" class="headerlink" title="Markov Approximation"></a>Markov Approximation</h3><p>The evolution of the system does not depends on the history, $\rho_I(s)\rightarrow\rho_I(t)$. We also know that the integrand will vanish as $s \gg \tau_R$, where $\tau_R$ is the timescale for the time correlation function of the reservoir decaying. The integral can be written as<br>$$\begin{aligned}<br>\frac{\mathrm{d}\rho_I(t)}{\mathrm{d}t} &#x3D; -g^2 \int_0^\infty \mathrm{d}s \mathrm{Tr}_R([V(t),[V(t-s),\rho_I(t) \otimes \varrho_R]])<br>\end{aligned}$$<br><strong>Why not use $\rho_I(s)\rightarrow\rho_I(t)$?</strong> In the interaction picture, the density operator varies slower than in the Schrodinger picture.</p><p>By now we have written a markovian form linear map. If the map is positive, it can be written in a Lindblad form.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开放系统 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>体育课杂记</title>
       <link href="/2024/09/30/%E4%BD%93%E8%82%B2%E8%AF%BE%E6%9D%82%E8%AE%B0/"/>
       <url>/2024/09/30/%E4%BD%93%E8%82%B2%E8%AF%BE%E6%9D%82%E8%AE%B0/</url>
