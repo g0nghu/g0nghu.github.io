@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>悲剧01</title>
+      <link href="/2024/10/16/%E6%82%B2%E5%89%A701/"/>
+      <url>/2024/10/16/%E6%82%B2%E5%89%A701/</url>
+      
+        <content type="html"><![CDATA[<p><em>他们必大大蒙羞，就是受永不忘记的羞辱，因为他们行事没有智慧。</em></p><hr><p>吃错药写出这种鬼东西，</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, length, basis_size, operator_dict</span>):</span><br><span class="line">        Block.length = length</span><br><span class="line">        Block.basis_size = basis_size</span><br><span class="line">        Block.operator_dict = operator_dict</span><br></pre></td></tr></table></figure><p>后面发现所有<code>Block</code>对象都是同一个，以为是复制或者赋值之类的问题，加了深拷贝还是错。调了半天，堪称超级大粪。最后才反应过来。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 悲痛欲绝 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>阶跃函数的傅里叶变换</title>
       <link href="/2024/10/10/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
       <url>/2024/10/10/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</url>

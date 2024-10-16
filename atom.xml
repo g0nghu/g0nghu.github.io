@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-10-11T05:25:51.627Z</updated>
+  <updated>2024-10-16T06:45:20.626Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>悲剧01</title>
+    <link href="http://example.com/2024/10/16/%E6%82%B2%E5%89%A701/"/>
+    <id>http://example.com/2024/10/16/%E6%82%B2%E5%89%A701/</id>
+    <published>2024-10-16T06:34:18.000Z</published>
+    <updated>2024-10-16T06:45:20.626Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>他们必大大蒙羞，就是受永不忘记的羞辱，因为他们行事没有智慧。</em></p><hr><p>吃错药写出这种鬼东西，</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, length, basis_size, operator_dict</span>):</span><br><span class="line">        Block.length = length</span><br><span class="line">        Block.basis_size = basis_size</span><br><span class="line">        Block.operator_dict = operator_dict</span><br></pre></td></tr></table></figure><p>后面发现所有<code>Block</code>对象都是同一个，以为是复制或者赋值之类的问题，加了深拷贝还是错。调了半天，堪称超级大粪。最后才反应过来。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;em&gt;他们必大大蒙羞，就是受永不忘记的羞辱，因为他们行事没有智慧。&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;吃错药写出这种鬼东西，&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;sp</summary>
+      
+    
+    
+    
+    <category term="悲痛欲绝" scheme="http://example.com/categories/%E6%82%B2%E7%97%9B%E6%AC%B2%E7%BB%9D/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>阶跃函数的傅里叶变换</title>
