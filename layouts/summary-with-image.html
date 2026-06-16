@@ -1,12 +1,14 @@
 {{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
 <article class="br2 mb3 ba b--black-10 bg-white">
-  <div class="flex-column flex-row-ns flex items-stretch" style="min-height: 200px;">
+  <div class="flex-column flex-row-ns flex items-stretch" style="min-height: 240px;">
     {{ if $featured_image }}
-    <div class="w-100 w-30-ns cover bg-center" style="background-image: url('{{ $featured_image }}');">
-      <a href="{{ .RelPermalink }}" class="db h-100"></a>
+    <div class="w-100 w-30-ns overflow-hidden">
+      <a href="{{ .RelPermalink }}" class="db h-100">
+        <img src="{{ $featured_image }}" class="db h-100 w-100" style="object-fit: cover;" alt="{{ .Title }}">
+      </a>
     </div>
     {{ end }}
-    <div class="w-100{{ if $featured_image }} w-70-ns{{ end }} pa3 pa4-ns flex flex-column justify-between overflow-hidden">
+    <div class="w-100{{ if $featured_image }} w-70-ns{{ end }} pa3 pa4-ns flex flex-column justify-center">
       <h2 class="f3 fw4 mt0 mb2 lh-title">
         <a href="{{ .RelPermalink }}" class="color-inherit no-underline dim">
           {{ .Title }}
