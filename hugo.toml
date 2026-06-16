@@ -26,6 +26,11 @@ paginate = 10
   taxonomy = ['HTML', 'RSS']
   term = ['HTML', 'RSS']
 
+# Image cache (required by official GitHub Pages workflow)
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 # Markup — allow raw HTML and protect KaTeX math from goldmark
 [markup]
   [markup.goldmark]
