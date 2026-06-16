@@ -1,0 +1,393 @@
+---
+title: QSVT
+date: '2026-05-29T14:51:56+08:00'
+categories:
+- 量子信息和量子计算
+featured_image: /images/3be97716cb03434a8adf.jpg
+---
+
+
+
+# Quantum singular value transformation
+
+这是为 [Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics](https://arxiv.org/1806.01838) 所作的笔记, 记录了大概的技术路径和一部分的证明, 详细的内容可以参阅原文.
+
+---
+
+## Qubitization and singular value transformations
+
+### Parametrized SU($2$) unitaries induced by Pauli rotations [^1]
+
+[^1]: Low, Yoder & Chuang.
+
+这一部分工作的核心思想是: 像是下面这样的一串矩阵的乘积 (Quantum signal processing) 可以表示相当丰富的一类幺正算符,
+$$
+\mathrm e^{\mathrm i\phi_0 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_1 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_2 \sigma_z} \cdots \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_k\sigma_z}.
+$$
+
+这里 $\theta$ 可能**未知**. 也可以使用参数 $x = \cos\theta$. 这样
+$$
+W(x) \equiv \begin{pmatrix}
+x & \mathrm i \sqrt{1 - x^2} \\ \mathrm i \sqrt{1 - x^2} & x
+\end{pmatrix} = \mathrm e^{\mathrm i \theta \sigma_x}.
+$$
+
+这种方法的具体表达能力可以使用下面的定理表述.
+
+**Theorem**. 令 $k \in \mathbb N$; 存在 $\Phi = \{\phi_0, \phi_1, \cdots, \phi_k\} \in \mathbb R^{k + 1}$ 使得对于所有的 $x \in [-1, 1]$:
+$$
+\mathrm e^{\mathrm i \phi_0 \sigma_z} \prod_{j = 1}^k \left( W(x) \mathrm e^{\mathrm i \phi_j \sigma_z}\right) = \begin{pmatrix}
+P(x) & \mathrm i Q(x) \sqrt{1 - x^2} \\ i Q^*(x) \sqrt{1 - x^2} & P^*(x)
+\end{pmatrix}.
+$$
+当且仅当如果 $P, Q \in \mathbb C[x]$ 使得
+1. $\deg(P) \leq k$, $\deg(Q) \leq k - 1$;
+2. $P$ 有 parity - ($k\ \mathrm{mod}\ 2$), $Q$ 有 parity - ($k - 1\ \mathrm{mod}\ 2$);
+3. 对 $\forall x \in [-1, 1]: |P(x)|^2 + (1 - x^2)|Q(x)|^2 = 1$. 
+
+*Proof*. "$\Rightarrow$": 考虑 $k = 0$, 那么 $P = \exp(\mathrm i \phi_0)$, $Q = 0$. 假设我们已经证明了对 $k -1$, 有
+$$
+\mathrm e^{\mathrm i \phi_0 \sigma_z} \prod_{j = 1}^{k - 1}\left(W(x) \mathrm e^{\mathrm i \phi_j \sigma_z}\right) = \begin{pmatrix}
+\tilde P(x) & \mathrm i \tilde Q(x) \sqrt{1 - x^2} \\
+\mathrm i \tilde Q^*(x) \sqrt{1 - x^2} & \tilde P^*(x)
+\end{pmatrix},
+$$
+这里 $\tilde P, \tilde Q \in \mathbb C[x]$ 并且满足性质 1, 2. 这样
+$$\begin{aligned}
+\mathrm e^{\mathrm i \phi_0 \sigma_z} \prod_{j = 1}^{k}\left(W(x) \mathrm e^{\mathrm i \phi_j \sigma_z}\right)
+= & \begin{pmatrix}
+\tilde P(x) & \mathrm i \tilde Q(x) \sqrt{1 - x^2} \\
+\mathrm i \tilde Q^*(x) \sqrt{1 - x^2} & \tilde P^*(x)
+\end{pmatrix}\begin{pmatrix}
+\mathrm e^{\mathrm i \phi_k x} & \mathrm i \mathrm e^{-\mathrm i \phi_k}\sqrt{1 - x^2} \\
+\mathrm i \mathrm e^{\mathrm i \phi_k}\sqrt{1 - x^2} & \mathrm e^{-\mathrm i \phi_k} x
+\end{pmatrix} \\
+= & \begin{pmatrix}
+\mathrm e^{\mathrm i \phi_k} \left(x \tilde P(x) + (x^2 - 1) \tilde Q(x)\right) & \mathrm i \mathrm e^{- \mathrm i \phi_k}\left(x \tilde Q(x) + \tilde P(x)\right)\sqrt{1 - x^2} \\
+\mathrm i \mathrm e^{\mathrm i \phi_k}\left(x \tilde Q^*(x) + \tilde P^*(x)\right)\sqrt{1 - x^2} & \mathrm e^{-\mathrm i \phi_k}\left(x\tilde P^*(x) + (x^2 - 1)\tilde Q^*(x)\right)
+\end{pmatrix}.
+\end{aligned}$$
+令
+$$\begin{gathered}
+P(x) = \mathrm e^{\mathrm i \phi_k} \left(x \tilde P(x) + (x^2 - 1) \tilde Q(x)\right), \\
+Q(x) = e^{- \mathrm i \phi_k}\left(x \tilde Q(x) + \tilde P(x)\right),
+\end{gathered}$$
+会发现 $P, Q$ 也满足性质 1, 2. 因为这一串矩阵都是幺正的, 自然性质 3 也得到满足.
+
+"$\Leftarrow$": 假设 $P, Q$ 满足性质 1, 2, 3. 考虑最简单的情况, $\deg(P) = 0$, 一定有 $P \equiv \mathrm e^{\mathrm i \phi_0}$, $Q \equiv 0$. 这种情况下只需要取 $\Phi = \{\phi_0, \pi / 2, -\pi/ 2, \cdots, \pi/ 2, -\pi / 2\}$, 可以得到
+$$
+\mathrm e^{\mathrm i \phi_0 \sigma_z} \prod_{j = 1}^{k / 2} \left(W(x) \mathrm e^{\mathrm i \frac{\pi}{2}\sigma_z} W(x) \mathrm e^{-\mathrm i \frac{\pi}{2}\sigma_z}\right) = \mathrm e^{\mathrm i\phi_0 \sigma_z}.
+$$
+
+假设论断对于 $k - 1$ 是成立的. 假设 $\deg(P) = l \leq k$, 这样一定有 $\deg(Q) = l - 1$, 并且 $|p_l| = |q_{l - 1}|$. 令 $\phi \in \mathbb R$ 使得 $\mathrm e^{\mathrm 2 i \phi_k} = \frac{p_l}{q_{l - 1}}$. 定义
+$$\begin{aligned}
+\begin{pmatrix}
+\tilde P(x) & \mathrm i \tilde Q(x) \sqrt{1 - x^2} \\
+\mathrm i \tilde Q^*(x) \sqrt{1 - x^2} & \tilde P^*(x)
+\end{pmatrix} \equiv & 
+\begin{pmatrix}
+P(x) & \mathrm i Q(x) \sqrt{1 - x^2} \\
+\mathrm i Q^*(x) \sqrt{1 - x^2} & P^*(x)
+\end{pmatrix}\mathrm e^{- \mathrm i \phi_k \sigma_z} W^\dagger(x) \\
+= & \begin{pmatrix}
+\mathrm e^{- \mathrm i \phi_k} x P(x) + \mathrm e^{\mathrm i\phi_k} (1 - x^2) Q(x) & i\tilde Q(x) \sqrt{1 - x^2} \\
+\mathrm i \left(\mathrm e^{- \mathrm i \phi_k} x Q^*(x) - e^{\mathrm i \phi_k}P^*(x)\right)\sqrt{1 - x^2} & \tilde P^*(x)
+\end{pmatrix}.
+\end{aligned}$$
+注意到 $\tilde P, \tilde Q$ 的最高次项都抵消了, 因此 $\deg(\tilde P) = l - 1 \leq k - 1$, $\deg(\tilde Q) = l - 2 \leq k - 2$. 能看出 $\tilde P$ 和 $\tilde Q$ 满足对于 $k - 1$ 的性质 1, 2, 此外性质 3 也由幺正性保证了. 这样我们实际上给出了 $\Phi$ 的**构造路径**: 给定 $P, Q$, 可以确定 $\phi_k$, 并得到 $\tilde P, \tilde Q$ 满足性质 1, 2, 3; 然后 $P \leftarrow \tilde P, Q \leftarrow \tilde Q$, 继续得到 $\phi_{k - 1}$ 并重复此过程. $\square$
+
+这个定理是我们构造 QSVT 的核心, 下面是一些辅助的定理和引理.
+
+**Theorem**. 令 $k \in \mathbb N$. 令 $P \in \mathbb C[x]$, 存在 $Q \in \mathbb C[x]$ 使得 $P, Q$ 满足上一条定理中的性质 1, 2, 3, 当且仅当
+- $\forall x \in [-1, 1]: |P(x) \leq 1|$;
+- $\forall x \in (-\infty, -1] \cup [1, \infty): |P(x)| \geq 1$;
+- 如果 $k$ 是偶数, $\forall x \in \mathbb R$: $P(\mathrm ix)P^*(\mathrm ix) \geq 1$.
+
+类似地, 令 $Q \in \mathbb C[x]$, 存在 $P \in \mathbb C[x]$ 使得 $P, Q$ 满足上一条定理中性质 1, 2, 3, 当且仅当
+- $\forall x \in [-1, 1]: \sqrt{1 - x^2}|Q(x)| \leq 1$;
+- 如果 $k$ 是奇数, $\forall x \in \mathbb R: (1 + x)Q(\mathrm i x)Q^*(\mathrm i x) \geq 1$.
+
+**Theorem**. 令 $k \in \mathbb N$. 令 $\tilde P, \tilde Q \in \mathbb R[x]$, 存在 $P, Q \in \mathbb C[x]$ 满足之前的性质 1, 2, 3 并且 $\tilde P = \mathfrak R[P], \tilde Q = \mathfrak R[Q]$, 当且仅当 $P, Q$ 满足
+- $\forall x \in [-1, 1]: \tilde P(x)^2 + (1 - x^2) \tilde Q^2 \leq 1$.
+
+具体的证明过程参见原文, 上面定理的证明都是构造性的, 主要的困难在于高次代数方程求根. 我们可以以 $\mathcal O(\mathrm{poly}(d, \log(1/\epsilon)))$的时间复杂度得到精度 $\epsilon$ 的根. 如果把之前结论中的 $W(x)$ 换成 $R(x)$:
+$$R(x) \equiv \begin{pmatrix}
+x & \sqrt{1 - x^2} \\
+\sqrt{1 - x^2} & -x
+\end{pmatrix}.$$
+
+**Corollary**. 令 $P\in \mathbb C[x]$ 是一个 $d$ 次多项式, 满足
+- $P$ 有 parity;
+- $\forall x \in [-1, 1]: |P(x)| \leq 1$;
+- $\forall x \in (-\infty, -1]\cup[1, \infty): |P(x)| \leq 1$;
+- 如果 $d$ 是偶数, $\forall x \in \mathbb R: P(\mathrm i x)P^*(\mathrm i x) \geq 1$.
+
+存在 $\Phi \in \mathbb R^d$ 使得
+$$
+\prod_{j = 1}^d \left(\mathrm e^{\mathrm i \phi_j \sigma_z}R(x)\right) = \begin{pmatrix}P(x) & \cdot \\ \cdot & \cdot \end{pmatrix}.
+$$
+
+*Proof*. 我们首先可以给出 $\Phi'\in \mathbb R^d$ 使得
+$$
+\mathrm e^{\mathrm i \phi_0' \sigma_z} \left(\prod_{j = 1}^d W(x)\mathrm e^{\mathrm i \phi_j'\sigma_z}\right) = \begin{pmatrix}
+P(x) & \cdot \\ \cdot & \cdot
+\end{pmatrix}.
+$$
+注意到 $W(x) = \mathrm i \mathrm e^{-\mathrm i \frac{\pi}{4}\sigma_z}R(x) \mathrm e^{\mathrm i \frac{\pi}{4}\sigma_z}$. 只要令
+$$\begin{gathered}
+\phi_1 \equiv \phi_0' + \phi_d' + (d - 1)\frac{\pi}{2},\\
+\phi_j \equiv \phi'_{j - 1} - \frac{\pi}{2} \quad \text{for } j \in {2, 3, \cdots, d},
+\end{gathered}$$
+即可. $\square$
+
+上面对于 $P$ 的限制看起来比较强, 不过 Chebyshev 多项式就满足这些性质, 只要取 $\phi_1 = (1 - d)\frac{\pi}{2}$, 其它 $\phi_i = \frac{\pi}{2}$ 就可以用上面的方法表示 $T_d$.
+
+### Singular value transformation by qubitization
+
+考虑一个有限维的 Hilbert 空间 $\mathcal H_U$, 并且令 $U, \Pi, \tilde \Pi \in \mathrm{End}(\mathcal H_U)$ 是作用在 $\mathcal H_U$ 上的线性算符, $U$ 是幺正算符, $\Pi, \tilde \Pi$ 是正交的投影算符, 令
+$$
+A = \tilde \Pi U \Pi.
+$$
+令 $d = \mathrm{rank}(\Pi), \tilde d = \mathrm{rank}(\tilde \Pi), d_{\min} = \min(d, \tilde d)$. 在两个子空间 $\mathrm{img}(\Pi)$ 和 $\mathrm{img}(\tilde \Pi)$ 中各自存在正交的基 $|\psi_i\rangle$ 和 $|\tilde\psi_i\rangle$ 使得
+$$
+A = \sum_{i = 1}^{d_{\min}} \zeta_i |\tilde \psi_i\rangle\langle \psi_i|.
+$$
+
+然后我们可以定义一些有用的子空间, 令 $r = \mathrm{rank}(A)$, $k = \max\{i \in [d_{\min}]:\zeta_i = 1\}$. 
+- $i \in [k]$, $\mathcal H_i = \mathrm{Span}(|\psi_i\rangle)$, $\tilde{\mathcal H}_i = \mathrm{Span}(|\tilde \psi_i\rangle)$;
+- $i \in [r] \backslash [k]$, $\mathcal H_i = \mathrm{Span}(|\psi_i\rangle, |\psi_i^\perp\rangle)$, 这里 $|\psi_i^\perp \rangle = \frac{(I - \Pi)U^\dagger |\tilde\psi_i\rangle}{\Vert (I - \Pi)U^\dagger |\tilde\psi_i\rangle \Vert} = \frac{(I - \Pi)U^\dagger |\tilde\psi_i\rangle}{\sqrt(1 - \zeta_i^2)}$, 可以类似地定义 $\tilde{\mathcal H}_i$;
+- $i \in [d] \backslash [r]$, $\mathcal H_i^R = \mathrm{Span}(|\psi_i\rangle)$, $\tilde{\mathcal H}_i^R = \mathrm{Span}(U|\psi_i\rangle)$, 可以类似地定义 $\mathcal H_i^L$ 和 $\tilde{\mathcal H}_i^L$.
+
+这些子空间都是正交的, 以及
+$$\begin{gathered}
+\mathcal H_\perp = \left(\oplus_{i\in[r]} \mathcal H_i \oplus_{i\in [d] \backslash [r]} \mathcal H_i^R \oplus_{i \in [\tilde d] \backslash [r]} \mathcal H_i^L\right)^\perp,\\
+\tilde{\mathcal H}_\perp = \left(\oplus_{i\in[r]} \tilde{\mathcal H}_i \oplus_{i\in [d] \backslash [r]} \tilde{\mathcal H}_i^R \oplus_{i \in [\tilde d] \backslash [r]} \tilde{\mathcal H}_i^L\right)^\perp.
+\end{gathered}$$
+但最后这两个子空间并不重要, 在后面的讨论中忽略它们.
+
+我们使用 $[\cdot]_{\mathcal H}^{\mathcal H'}$ 来标记表示一个线性映射 $\mathcal H \rightarrow \mathcal H'$ 的矩阵.
+
+在进入下一步的证明之前, 我们先试图说明这些子空间的含义. 先考虑 $\zeta_i \in (0, 1)$, 对应的右奇异向量是 $|\psi_i\rangle$, 而 $U|\psi_i\rangle$ 中的一部分在 $\mathrm{img}(\tilde \Pi)$ 中, 
+$$
+\tilde \Pi U |\psi_i \rangle = \zeta_i |\tilde \psi_i\rangle,
+$$
+另一部分落在 $\mathrm{img}(\tilde \Pi)^\perp$ 中, 把 $(I - \tilde \Pi)U|\psi_i\rangle$ 归一化之后得到 $|\tilde \psi_i^\perp \rangle$, 这样就是
+$$
+U|\psi_i \rangle = \zeta_i |\tilde \psi_i\rangle + \sqrt{1 - \zeta_i^2} |\tilde \psi_i^\perp \rangle. 
+$$
+类似地定义 $\mathcal H_i = \mathrm{Span}(|\psi_i \rangle, |\psi_i^\perp \rangle)$, 有 $\mathcal H \rightarrow^{U} \tilde{\mathcal H}$.
+
+一种特殊情况是 $\zeta_i = 1$, $U|\psi_i\rangle = |\tilde \psi_i \rangle$. 这两个子空间都是一维的.
+
+另一种特殊情况是 $\zeta_i = 0$, $\tilde \Pi U |\psi\rangle = 0$. $U|\psi_i\rangle \in \mathrm{img}(\tilde \Pi)^\perp$, 有 $\mathcal H_i^R \rightarrow^U \tilde{\mathcal H}_i^R$.
+
+如果 $\mathrm{img}(\tilde \Pi)$ 中有 $A$ 的像覆盖不到的地方, 记作 $\mathcal H_i^L = \mathrm{Span}(U^\dagger |\tilde \psi_i\rangle)$, $i \in [d] \backslash [r]$, 有 $\mathcal H_i^L \rightarrow^U \tilde{\mathcal H}_i^L$.
+
+现在我们给原本的 Hilbert 空间在输入和输出维度上提供了分解:
+$$\begin{aligned}
+\mathcal H_U = & \oplus_i \mathcal H_i \oplus_i \mathcal H_i^R \oplus_i \mathcal H_i^L \oplus \mathcal H_\perp \\
+= & \oplus_i \tilde{\mathcal H}_i \oplus_i \tilde{\mathcal H}_i^R \oplus_i \tilde{\mathcal H}_i^L \oplus \tilde{\mathcal H}_\perp. 
+\end{aligned}$$
+这种子空间分解下, 正如我们之前讨论的, $U$ 成为分块的 (原文中的 Lemma 14). 并且 $2 \Pi - I$ 在二维子空间 $\mathcal H_i$ 上的表示就是 $\sigma_z$, $2 \tilde \Pi - I$ 在 $\tilde{\mathcal H_i}$ 上的表示也是 $\sigma_z$. 相位门 $\mathcal e^{\mathrm i \phi(2\Pi - I)}$ 和 $\mathrm e^{\mathrm i \phi (2\tilde \Pi - I)}$ 在这些二维块中成为 $\mathrm e^{\mathrm i \phi \sigma_z}$, 而在一维块中成为 $\mathrm e^{\pm\mathrm i \phi}$.
+
+现在给定 $\Phi \in \mathbb R^n$ 我们可以写下这样的一串幺正算符,
+$$
+U_\Phi = \begin{cases}
+\mathrm e^{\mathrm i \phi_1(2\tilde \Pi - I)}U \prod_{j = 1}^{(n - 1) / 2}\left(\mathrm e^{\mathrm i\phi_{2j}(2\Pi - I)}U^\dagger \mathrm e^{\mathrm i \phi_{2j + 1}(2\Pi - I)}U\right), &\quad \text{for odd } n, \\
+\prod_{j = 1}^{n/2}\left(\mathrm e^{\mathrm i \phi_{2j - 1}(2\Pi - I)}U^\dagger \mathrm e^{\mathrm i \phi_{2j}(2\tilde \Pi - I)}U\right), &\quad \text{for even } n. 
+\end{cases}
+$$
+这样在每个子块上我们实现了之前所说的 $R(x)$ 和 $\mathrm e^{\mathrm i \phi \sigma_z}$ 交替出现的情况, 这里使用 $U$ 和 $U^\dagger$ 交替出现是为了实现 $\mathcal H_i \rightarrow^U \tilde{\mathcal H_i} \rightarrow^{U^\dagger} \mathcal H_i$.
+
+**Theorem** (Singular value transformation by alternating phase modulation). 给定 $P \in \mathbb C[x]$ 和 $\Phi \in \mathbb R^n$, 这就是前面的 Corollary 中给出的 $\Phi$, 可以实现 $P$ 的 QSVT:
+$$
+P^{(SV)}(\tilde \Pi U \Pi) = \begin{cases}
+\tilde \Pi U_\Phi \Pi, & \quad \text{for odd } n, \\
+\Pi U_\Phi \Pi, & \quad \text{for even } n.
+\end{cases}
+$$
+
+<!-- TODO: 后面的内容是一些在我们已经介绍技术上的拓展, 这里先跳到原文的第四章, 如果有需要的话会回来. --> 
+
+## Matrix Arithmetics using blocks of unitaries
+
+### Block-encoding
+
+所谓 block-encoding 是指把一个 $s$ 个 qubits 上的算符 $A$ 使用额外 $a$ 个ancilla 编码成幺正矩阵 $U$ 的一个子块:
+$$
+U = \begin{pmatrix}
+A / \alpha & \cdot \\
+\cdot & \cdot
+\end{pmatrix} \Rightarrow A = \alpha (\langle 0 | \otimes I) U (|0\rangle \otimes I).
+$$
+如果这个表示和 $A$ 的差的诱导-2 范数小于 $\epsilon$, 称作一个 $(\alpha, a, \epsilon)$-block-encoding
+
+如果 $A \in \mathbb C^{n \times m}$, 可以使用 $s = \max[\log m , \log n]$ 来实现 block-encoding, 使用一个矩阵 $A_e \in \mathbb C^{2^s \times 2^s}$ 来作为 $A$ 的忠实表示. Block-encoding 实际上是之前使用的投影表示 $A = \tilde \Pi U \Pi$ 的一个特殊情况, 因此也可以使用前面发展的 QSVT 的方法, 而原本的 $\mathrm C_\Pi \mathrm{NOT}$ 门现在只是一个作用在 $a + 1$ 个 qubits 上的 Toffoli 门.
+
+### Constructing block-encodings
+
+首先作为最简单的情况, 一个幺正矩阵是它本身的一个 $(1, 0, 0)$-block-encoding. 下面是一些非平凡的例子.
+
+#### Block-encoding of density operators[^2]
+[^2]: Low & Chuang.
+
+假设 $\rho$ 是一个 $s$-qubit 的密度矩阵, $G$ 是作用在 $a + s$ 个 qubits 的幺正算子, 并且给出一个 $\rho$ 的纯化: $G |0\rangle |0\rangle = |\rho\rangle$, $\mathrm{Tr}_a |\rho\rangle\langle \rho|$. 那么
+$$
+(G^\dagger \otimes I_s)(I_a \otimes \mathrm{SWAP}_s)(G \otimes I_s)
+$$
+一个 $\rho$ 的 $(1, a + s, 0)$-block-encoding.
+
+*Proof*. 令 $r = \mathrm{rank}(\rho)$. $|\psi_k\rangle, k\in[2^s]$ 是一组正交基, $|\phi_k\rangle, k\in[r]$ 是另一组正交基, 它们给出 $\rho$ 的一个纯化 $|\rho\rangle = \sum_{k = 1}^r \sqrt{p_k} |\phi_k\rangle |\psi_k\rangle$, 或者说 $|\rho\rangle$ 的是一个 Schmidt 分解, 并且 $p_l = 0 (l\in [2^s]\backslash[r])$.
+
+$\forall i, j \in [2^s]$, 可以给出
+$$\begin{aligned}
+& \langle 0|^{\otimes a + s} \langle \psi_i|
+(G^\dagger \otimes I_s)(I_a \otimes \mathrm{SWAP}_s)(G \otimes I_s)
+| 0 \rangle^{\otimes a + s} |\psi_j \rangle \\
+= & \langle \rho | \langle \psi_i| I_a \otimes \mathrm{SWAP}_s |\rho \rangle |\psi_j \rangle \\
+= & \left(\sum_{k = 1}^r \sqrt{p_k}\langle \phi_k|\langle \psi_k|\right) \langle \psi_i| I_a \otimes \mathrm{SWAP}_s \left(\sum_{l = 1}^r \sqrt{p_l} |\phi_l\rangle |\psi_l \rangle \right) |\psi_j \rangle \\
+= & \left(\sum_{k = 1}^r \sqrt{p_k}\langle \phi_k|\langle \psi_k| \langle \psi_i| \right)
+\left(\sum_{l = 1}^r \sqrt{p_l} |\phi_l\rangle  |\psi_j\rangle |\psi_l \rangle\right) \\
+= & \sqrt{p_i p_j} \delta_{ij} = \langle \psi_i |\rho| \psi_j \rangle. \quad \square
+\end{aligned}$$
+
+#### Block-encoding of POVM operators[^3]
+[^3]: Apeldoorn & Gilyen.
+
+假设 $U$ 是一个 $(a + s)$-qubit 幺正算符, 其以 $\epsilon$ 的精度表示一个作用在 $s$ 个 qubits 上的 POVM 算符: $\forall s\text{-qubit }\rho$, 
+$$
+\left| \tr(\rho M) - \tr(U(|0\rangle \langle 0|^{\otimes a} \otimes \rho)U^\dagger(|0\rangle \langle 0 | \otimes I_{a + s -1 })) \right| \leq \epsilon.
+$$
+那么
+$$
+(I_1 \otimes U^\dagger)(\mathrm{CNOT} \otimes I_{a + s - 1})(I_1 \otimes U)
+$$
+是一个 $M$ 的 $(1, 1 + a, \epsilon)$-block-encoding.
+
+*Proof*. 
+
+$$\begin{aligned}
+& \tr[U(|0\rangle \langle 0|^{\otimes a} \otimes \rho)U^\dagger(|0\rangle \langle 0 | \otimes I_{a + s -1 })] \\
+= & \tr[U (|0\rangle^{\otimes a} \otimes I) \rho (\langle 0 |^{\otimes a} \otimes I) U^\dagger (|0\rangle \langle 0 | \otimes I_{a + s - 1})] \\
+= & \tr[\rho (\langle 0 |^{\otimes a} \otimes I) U^\dagger (|0\rangle \langle 0 | \otimes I_{a + s - 1}) U (|0\rangle^{\otimes a} \otimes I)]
+\end{aligned}$$
+
+也就是说 $\forall \rho$, 
+$$
+\left|\tr\left[
+    \rho\left( M - (\langle 0 |^{\otimes a} \otimes I) U^\dagger (|0\rangle \langle 0 | \otimes I_{a + s - 1}) U (|0\rangle^{\otimes a} \otimes I)\right)
+\right]\right| \leq \epsilon.
+$$
+这实际上等价于 (考虑 $\rho$ 是纯态, 就是它右边的算符的最大本征态的情况)
+$$
+\Vert
+M - (\langle 0 |^{\otimes a} \otimes I) U^\dagger (|0\rangle \langle 0 | \otimes I_{a + s - 1}) U (|0\rangle^{\otimes a} \otimes I)
+\Vert \leq \epsilon.
+$$
+而 (这里 $\mathrm{CNOT}$ 的第一个 qubit 是目标 qubit)
+$$
+(\langle 0 |^{\otimes a} \otimes I) U^\dagger (|0\rangle \langle 0 | \otimes I_{a + s - 1}) U (|0\rangle^{\otimes a} \otimes I)
+= (\langle 0 |^{\otimes 1 + a} \otimes I) I_1 \otimes U^\dagger (\mathrm{CNOT} | \otimes I_{a + s - 1}) I_1 \otimes U (|0\rangle^{\otimes 1 + a} \otimes I). \quad \square
+$$
+
+#### Block-encoding of Gram matrices by state preparation unitaries
+
+$U_L$ 和 $U_R$ 是两个在 $a + s$ 个 qubits 上的态制备算符:
+$$\begin{gathered}
+U_L: |0\rangle |i \rangle \rightarrow |\psi_i\rangle,\\
+U_R: |0 \rangle |j \rangle \rightarrow |\phi_j\rangle.
+\end{gathered}$$
+那么 $U = U_L^\dagger U_R$ 是 Gram 矩阵 $A_{ij} = \langle \psi_i | \phi_j \rangle$ 的 $(1, a , 0)$-block-encoding.
+
+#### Block-encoding of sparse-access matrices
+
+$A \in \mathbb C^{2^w \otimes 2^w}$ 的行列稀疏度分别是 $s_r$ 和 $s_c$, 并且 $\max|A_{ij}|\leq 1$. 假设我们有了下面的两个 oracles,
+$$\begin{gathered}
+O_r: |i\rangle |k\rangle \rightarrow |i\rangle |j(i, k)\rangle,
+O_c: |k\rangle |j\rangle \rightarrow |i(j, k)\rangle |j \rangle,
+\end{gathered}$$
+分别表示查询第 $i$ 行的第 $k$ 个非零元的列指标和查询第 $j$ 列的第 $k$ 个非零元的行指标. 如果 $k$ 超过了可能的非零元个数, 则返回 $k + 2^w$. 此外还有
+$$
+O_A: |i\rangle |j \rangle |0\rangle^{\otimes b} \rightarrow |i\rangle |j\rangle |a_{ij}\rangle.
+$$
+$b$ 是用于 2 进制表示 $A$ 的元素的比特位数. 那么我们可以实现 $A$ 的一个 $(\sqrt{s_rs_c}, w + 3, \epsilon)$-block-encoding, 使用一次 $O_r$ 和 $O_c$, 两次 $O_A$.
+
+*Proof*. 首先我们以 $\mathcal O(w)$ 个门和 $\mathcal O(1)$ 个 ancilla 实现作用在 $w + 1$ 个 qubits 上的 $D_s: |0\rangle \rightarrow \sum_{k = 1}^s |k\rangle / \sqrt s$.
+
+$D_s$ 可以如何实现? 如果 $s$ 是 $2$ 的幂, 那么对前 $\log s$ 个 qubits 做 Hadamard 即可. 如果 $s$ 不是 $2$ 的幂, 如果我们已经制备了好了 prefix, 在当前 prefix 下, 有 $N$ 个整数在 $s$ 以内, 而 $N_0$, $N_1$ 分别表示这些整数中下一位是 $0$ 和 $1$ 的个数. 只要对下一位上作用 $|0\rightarrow \sqrt{N_0 / N}|0\rangle + \sqrt{N_1 / N}|1\rangle$ 就可以了.
+
+然后考虑作用在 $2 (w + 1)$ 个 qubit 上的幺正算符 $V_L = O_r(I_{w + 1} \otimes D_{s_r})\mathrm{SWAP}_{w + 1}$, 这样
+$$
+V_L: |0\rangle^{w + 2} |i\rangle \rightarrow \sum_{k = 1}^{s_r} \frac{|i\rangle |j(i, k)\rangle}{\sqrt{s_r}}, \quad \forall i \in [2^w] - 1.
+$$
+类似地, 有 $V_R = O_c(D_{s_c} \otimes I_{w + 1}): |0\rangle^{w + 2}|j\rangle \sum_{l = 1}^{s_c} \frac{|i(j, k)\rangle|j\rangle}{\sqrt{s_c}}$. 根据前面 Gram 矩阵的 block-encoding, 我们得到
+$$
+\langle 0|^{w + 2} \langle i | V_L^\dagger V_R |0\rangle^{w + 2}|j\rangle = \frac{1}{\sqrt{s_c s_r}} \text{ for } a_{ij} \neq 0 \text{ else } 0.
+$$
+
+我们用 $U_R$ 表示 $I_1 \otimes V_R$ 之后跟一些额外操作. 首先是作用 $O_A$, 我们会得到矩阵元 $a_{ij}$. 在这个矩阵元下做受控旋转, 会对第一个 bit 做变换 $a_{ij}|0\rangle + \sqrt{1 - |a_{ij}|^2}|1\rangle$, 精度是 $\mathcal O(\operatorname{poly}\left(\frac{\epsilon}{s_r s_c}\right))$. $U_R$ 整体的效果是:
+$$
+|0\rangle^{\otimes w + 3} |j\rangle \rightarrow \frac{1}{\sqrt{s_c}} \sum_{l=1}^{s_c}\left(
+    a_{i(j, k)j}|0\rangle + \sqrt{1 - |a_{i(j, k)j}|^2} |1\rangle
+\right)|i(j, k)\rangle |j\rangle.
+$$
+而 $U_L$ 还是 $I_1 \otimes V_L$. 这样 $U_L$ 和 $U_R$ 给出了一个 Gram 矩阵的 block-encoding, 矩阵元是 $\frac{a_{ij}}{\sqrt{s_r s_c}}$. $\square$
+
+缩放因子 $\sqrt{s_rs_c}$ 可能很大, 在 $U_R$ 和 $U_L$ 使用一些 QSVT, 我们可以把这个缩放因子控制到 $\sqrt{2 n_rn_c}$, 这里 $n_r$ 和 $n_c$ 和行列范数有关, 这一改进在部分非零元很小的时候可能有用, 具体见 Lemma 49.
+
+### Linear combination of block-encoded matrices[^4]
+[^4]: First introduced by Berry et al. for Hamiltionian simulation. Then adapted by Childs et al. for quantum linear equation solving.
+
+首先介绍**态制备对 (state preparation pair)**. 令 $y \in \mathbb C^m$, $\Vert y \Vert_1 \leq \beta$, 一对幺正算符 $(P_L, P_R)$ 被称作一个 $(\beta, b, \epsilon)$ 态制备对, 如果 $P_L |0\rangle^b = \sum_{j = 0}^{2^b - 1} c_j|j\rangle$, $P_R|0\rangle^b = \sum_{j = 1}^{2^b - 1}d_j|j\rangle$ 使得 $\sum_{j = 0}^{m - 1}|\beta(c_j^* d_j) - y_j| \leq \epsilon$ 并且 $\forall j \in m, \cdots, 2^b - 1$ 有 $c_j^* d_j = 0$.
+
+考虑 $m$ 个算符的线性组合 $A = \sum_{j = 1}^m y_j A_j$, 作用在 $s$ 个 qubits 上, $(P_L, P_R)$ 是 $y$ 的一个 $(\beta, b, \epsilon_1)$-态制备对, $W = \sum_{j = 0}^{m - 1}|j\rangle \langle j | \otimes U_j + ((I - \sum_{j = 0}^{m - 1}|j\rangle \langle j|)\otimes I_a \otimes I_s)$ 是作用在 $s + a + b$ 个 qubits 上的幺正算符, 其中 $U_j$ 是 $A_j$ 的 $(\alpha, a, \epsilon_2)$-block-encoding. 那么我们可以给出 $A$ 的一个 $(\alpha\beta, a + b, \alpha \epsilon_1 + \beta \epsilon_2)$-block-encoding[^5], 仅使用一次 $W, P_R, P_L^\dagger$:
+$$
+\tilde W = (P_L^\dagger \otimes I_a \otimes I_s) W (P_R \otimes I_a \otimes I_s).
+$$
+
+[^5]: 这里和原文中的结果不同, 原文中给出的误差是 $\alpha \epsilon_1 + \alpha \beta \epsilon_2$ (通过修改 block-encoding 的误差定义可以给出这个结果), 但是使用原文的 block-encoding 误差定义这里第二项是没有 $\alpha$ 因子的, 应该是原文在处理第二项的时候出错了, 不过这个比较无关紧要.
+
+*Proof*. 
+$$\begin{aligned}
+& \Vert A - \alpha \beta (\langle 0 |^b \otimes \langle 0 |^a \otimes I) \tilde W (|0 \rangle^b \otimes |0 \rangle^a \otimes I) \Vert \\
+= & \Vert A - \alpha \sum_{j = 0}^{m - 1} \beta (c_j^* d_j)(\langle 0|^a \otimes I) U_j (|0\rangle^a \otimes I)\Vert \\
+\leq & \alpha \epsilon_1 + \Vert A - \alpha \sum_{j = 0}^{m - 1} y_j (\langle 0 |^a \otimes I) U_j (|0\rangle^a \otimes I)  \Vert \\
+\leq & \alpha \epsilon_1 + \sum_{j = 0}^{m - 1} y_j \Vert A_j - (\langle 0|^a \otimes I)U_j(|0\rangle \otimes I)\Vert \\
+\leq & \alpha \epsilon_1 + \sum_{j = 0}^{m - 1} y_j \epsilon_2 \\
+\leq & \alpha \epsilon_1 + \beta \epsilon_2. \square 
+\end{aligned}$$
+
+### Multiplication
+
+两个矩阵乘积的 block-encoding 简单地由它们的 block-encoding 的乘积给出, 误差是两个 block-encoding 的和, 由下面的引理描述:
+
+**Lemma**. (Product of block-encoded matrices) $U$ 是 $s$-qubit 算符 $A$ 的 $(\alpha, a, \delta)$-block-encoding, $V$ 是 $s$-qubit 算符 $B$ 的 $(\beta, b, \epsilon)$-block-encoding, 它们使用各自的 ancilla. 那么 $(I_b\otimes U)(I_a \otimes V)$ 是 $AB$ 的一个 $(\alpha\beta, a + b, a\epsilon + \beta\delta)$-block-encoding.
+
+*Proof*.
+$$\begin{aligned}
+& \Vert AB - \alpha\beta (\langle 0|^{a + b} \otimes I)(I_b \otimes U) (I_a \otimes V)(|0\rangle ^{a + b}\otimes I) \Vert \\
+= & \Vert AB - \alpha (\langle 0 |^a \otimes I) U (|0\rangle ^ a \otimes I) \beta (\langle 0 |^b \otimes I) V (|0\rangle^b \otimes I) \Vert = \Vert AB - \tilde A \tilde B \Vert\\
+= & \Vert AB - \tilde A B + \tilde A B - \tilde A \tilde B \Vert \\
+\leq & \Vert A - \tilde A \Vert \beta + \alpha \Vert B - \tilde B \Vert \\
+\leq & \alpha \epsilon + \beta \delta. \qquad \square
+\end{aligned}$$
+
+如果 block-encoded 的两个矩阵是幺正的, 我们可以重复使用它们的 ancilla, 代价是有额外的误差项, 由下面的引理给出:
+
+**Lemma**. (Product of two block-encoded unitaries) 和前一个引理相同的描述, 只是 $A, B$ 是幺正的, $\alpha = \beta = 1$, 有相同的 ancilla 数 $a$, 那么 $UV$ 是一个 $AB$ 的 $(1, a, \delta + \epsilon + 2\sqrt{\delta \epsilon})$-block-encoding.
+
+*Proof*. 对于任意的两个 $s$-qubit 态 $|\phi\rangle, |\psi\rangle$, 有
+$$\begin{aligned}
+& \langle \phi | (\langle 0|^a \otimes I) UV (|0\rangle ^a \otimes I) |\psi \rangle \\
+= & \langle \phi |(\langle 0|^a \otimes I) U (|0 \rangle^a \otimes I) (\langle 0|^a \otimes I) U (|0 \rangle^a \otimes I) |\psi\rangle \\
+\quad & + \langle \phi |(\langle 0|^a \otimes I) U ((I - |0\rangle \langle 0|^a) \otimes I) U (|0 \rangle^a \otimes I) |\psi\rangle.
+\end{aligned}$$
+应用上一个引理的证明, 第一项和 $AB$ 的差的范数 $\leq \delta + \epsilon$. 第二项的范数
+$$\begin{aligned}
+& |\langle \phi |(\langle 0|^a \otimes I) U ((I - |0\rangle \langle 0|^a) \otimes I) U (|0 \rangle^a \otimes I) |\psi\rangle| \\
+\leq & |\langle \phi |(\langle 0|^a \otimes I) U ((I - |0\rangle \langle 0|^a) \otimes I)^2 U (|0 \rangle^a \otimes I) |\psi\rangle| \\
+\leq & \Vert ((I - |0\rangle \langle 0 |^a)\otimes I) U (|0\rangle^a \otimes I) |\phi\rangle \Vert \cdot \Vert ((I - |0\rangle \langle 0 |^a)\otimes I) V (|0\rangle^a \otimes I) |\psi\rangle \Vert \\
+= & \sqrt {1 - \Vert (|0\rangle \langle 0 |^a \otimes I) U (|0\rangle^a \otimes I) |\phi \rangle\Vert^2} \cdot \sqrt {1 - \Vert (|0\rangle \langle 0 |^a \otimes I) V (|0\rangle^a \otimes I) |\psi \rangle\Vert^2} \\
+\leq & \sqrt{1 - (1 - \delta)^2} \cdot \sqrt{1 - (1 - \epsilon)^2} \\
+\leq & 2\sqrt{\delta \epsilon}. \qquad \square
+\end{aligned}$$

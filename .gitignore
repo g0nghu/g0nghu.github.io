@@ -1,0 +1,12 @@
+# Hugo
+public/
+.hugo_build.lock
+resources/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Scripts (optional — remove if you want to version them)
+# download_images.py
+# convert.py

@@ -1,0 +1,63 @@
+# Hugo Configuration
+baseURL = 'https://g0nghu.github.io/'
+locale = 'zh-CN'
+title = '酒客临时委员会'
+timeZone = 'Asia/Shanghai'
+theme = 'ananke'
+paginate = 10
+
+# Author
+[author]
+  name = 'g0nghu'
+
+# Permalinks — match Hexo :year/:month/:day/:title/
+[permalinks]
+  posts = '/:year/:month/:day/:slug/'
+
+# Taxonomies
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+# Output formats for RSS
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']
+  term = ['HTML', 'RSS']
+
+# Markup — allow raw HTML and protect KaTeX math from goldmark
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      typographer = false
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['$$', '$$']]
+        inline = [['$', '$']]
+  [markup.highlight]
+    lineNos = false
+    wrap = true
+
+# Ananke theme parameters
+[params]
+  description = '谓经海底问无由，恍惚使人愁'
+
+  [params.ananke]
+    show_recent_posts = true
+    show_categories = true
+    copy_code = true
+
+    [params.ananke.home]
+      content_alignment = 'center'
+
+    [params.ananke.social.follow]
+      networks = ['github']
+
+    custom_css = ['/css/katex-custom.css']
+
+  github = 'g0nghu'
+  default_featured_image = '/images/top.jpg'

@@ -1,0 +1,11 @@
+/* KaTeX display math — allow horizontal scroll for long equations */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5em 0;
+}
+
+/* Ensure KaTeX renders at a readable size alongside Chinese text */
+.katex {
+    font-size: 1.1em;
+}

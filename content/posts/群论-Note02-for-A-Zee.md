@@ -1,0 +1,613 @@
+---
+title: 群论 Note02 for A.Zee.
+date: '2025-03-22T13:12:18+08:00'
+categories:
+- notes
+featured_image: /images/758240185ad647cbaee9.jpg
+---
+
+
+
+3.20: 今天看见一个小孩, 在路上只走某一种地砖(两种地砖交错地铺成路面), "如果我踩到那个就会死".
+
+---
+
+## Group theory in a quantum world
+
+### Quantum mechanics and group theory: parity, Bloch's theorem, and the Brillouin zone
+
+#### From degeneracy to group repre
+
+简并度为$d$的本征态$\psi^a$支持了一个$d$维的对称群$G$不可约表示.
+
+#### Connection to Schur's lemma: what group theory can and cannot tell you
+
+Schur's lemma在我们考虑量子力学的本征态问题时有非常直观的体现, $H$和所有$d\times d$的表示矩阵对易, 这样, 这样我们要求$H$在一组基下是纯量阵, 事实正是如此. 如果有一个更大的可约表示, 在这一组基下, $H$应该是一些纯量阵的直和, 这样就提供了一种对角化$H$的方法.
+
+群论并不能直接给出能量的值, 改变$H$而不改变对称性, 简并仍然存在.
+
+#### Parity
+
+$\mathrm Z_2$有两个不可约表示, 分别对应$\psi(x) = \psi(-x)$和$\psi(x) = -\psi(-x)$.
+
+#### Bloch's theorem and Brillouin zone
+
+$1D$情况下, 晶体的平移变换构成群$\{\cdots, T^{-1}, I, T, T^2\}$. 这是一个阿贝尔群, 所以只能有$1$维表示, 这样$\psi'(x) = T\psi(x) = \zeta \psi(x)$. 从波函数的归一化要求, $\zeta = e^{ika}$.
+
+#### Ray or projective representation
+
+波函数可以有一个任意的相位因子, 因此如果把对称群的群元$T$映射为矩阵$D(T)$, 并不一定是同态, 可以满足关系$D(T_2T_1) = e^{i\alpha(T_2, T_1)}D(T_2)D(T_1)$, 这种映射叫做投影表示.
+
+### Group theory and harmonic motion: zero modes
+
+#### Harmonic systems of springs and masses
+
+一个经典的线性系统的运动方程可以被写成
+$$
+\frac{\mathrm d^2 x^i_a}{\mathrm dt^2} = - H^{ia, jb}x^{j}_b.
+$$
+求解这个方程完全变成一个特征值问题. 考虑$D$维有$N$个粒子的问题, $H$是一个$ND$维的矩阵. 某个对称性$G$应该以$ND$维表示矩阵的形式作用在$H$上. 之后我们可以把$D(g)$分解成$G$的不可约表示, 如果每个不可约表示$r$出现$n_r$次, 应该有
+$$\begin{gathered}
+\sum_c n_c \chi^*(c)\chi(c) = |G|\sum_r n_r^2, \\
+\sum_c n_c \chi^{*(r)}(c)\chi(c) = |G|n_r.
+\end{gathered}$$
+某个振动频率$\omega_r$下的模式数是$d_r$, 这样可以得到$n_r$, 表示这种简并的频率的个数.
+
+#### Zero mode
+
+考虑一根弹簧相相连的两个质点的运动, 有
+$$
+H = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}.
+$$
+系统的对称群是$S_2$, 有两个一维表示. 两个群元的表示矩阵分别是
+$$\begin{aligned}
+D(I) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, & & D((12)) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.
+\end{aligned}$$
+在这一组基下, $H$应该被对角化为($\mathrm{Tr} H = 2, \det H = 0$)
+$$
+H = \begin{pmatrix} 0 & 0 \\ 0 & 2 \end{pmatrix}.
+$$
+能看到对应于相对质心不动的zero mode, 实际上$\det H = 0$就预言这个模式的存在.
+
+考虑一个更复杂的情况, 有三个质点通过弹簧连成一个等边三角形, 这个系统的对称群是$S_3$. 这个系统的运动支持了一个$6$维的表示, 对应三个类($I, \mathrm Z_3, \mathrm Z_2$)的特征标是$\chi(c) = (6, 0, 2)$. 可以算出$\sum_r n_r^2 = 8$, $n_1 = 2, n_{\bar{1}} = 0, n_2 = 2$. 
+
+## Tensor, covering and manifold
+
+### Tensors and representations of the rotation groups SO$(N)$
+
+这一节的主要内容已经在遥远的去年写过了. 要看的话往前翻翻.
+
+#### Restriction ot a subgroup
+
+群$G$的不可约表示对于它的子群$H$来说可能是可约的. 令$G = \mathrm{SO}(4), H = \mathrm{SO}(3)$. 首先$G$的$4$维defining representation可以被分解成$4 = 3\oplus 1$. 二维的反对称张量荷载了$\mathrm{SO}(4)$的一个不可约的$6$维表示, 限制在$\mathrm{SO}(3)$上时有$6 = 3\oplus 3$, 分别表示在前三个轴之间的旋转以及把前三个轴转到第四个轴上. 这和电磁场破缺成电场和磁场有关.
+
+$\mathrm{SO}(4)$还有一个被二阶无迹对称张量荷载的$9$维对称张量. 对于$SO(3)$来说, 首先$S^{44}$构成一个$1$维表示, $S^{a4}$构成一个$3$维表示, 剩下的部分是$\mathrm{SO}(3)$的$5$维表示.
+
+#### The adjoint representation and the Jacobi identity
+
+$\mathrm{SO}(3)$的生成元可以写成$(J_a)_{bc} = -i\epsilon_{abc}$, 完全由结构因子表达, 这是一个普遍的规律吗? 并非普遍, 结构因子的每个指标有$(N-1)N/2$, 而$(J_a)_{bc}$的第一个指标有$(N-1)N/2$个取值, 后两个指标有$N$个取值, 这是一个在$3$维下的特殊情况.
+
+Jacobi identity:
+$$
+[[A, B], C] + [[B, C], A] + [[C, A], B] = 0.
+$$
+将结构因子的关系带入, 可以得到
+$$
+f^{abc}f^{dcg} + f^{bcd}f^{dag} + f^{cad}f^{bdg} = 0.
+$$
+我们可以定义一组矩阵$(T^b)^{cd} = -if^{bcd}$. 可以看出这样的矩阵满足对应群的生成元的关系, 它们生成的矩阵群称作adjoint representation, 维数和生成元的个数相同.
+
+#### The adjoint of SO$(N)$
+
+$N\times N$的反对称二阶张量$T^{ij}$是$N(N-1)/2$维的线性空间, 基是$SO(N)$的生成元, $T^{ij} = A_a\mathcal J^{ij}_a$. 来考察$A_a$的变换, 对于无穷小变换$R = I + \theta_a \mathcal J_a$, $T' = T + \theta_a [\mathcal J_a, T] = T + \theta_a A_b [\mathcal J_a, \mathcal J_b] = T + \theta_a A_b f_{abc}\mathcal J_c$. 这样就有$\delta A_c = f_{abc}\theta_a A_b$. 通过$A_a$荷载的表示就是伴随表示.
+
+### Lie algebra of SO$(3)$ and ladder operators: creation and annihilation
+
+#### Representing the Lie algebra of SO$(3)$
+
+考虑SO$(3)$的李代数满足$[J_i, J_j] = i\epsilon_{ijk}J_k$. 这是这个代数在$3\times 3$的defining representation中的表示, 实际上我们知道无迹的对称有$j$个指标的张量荷载了一个群SO$(3)$的$2j+1$维不可约表示, 希望能找到对应的代数的表示. 注意应该把算子和它们的矩阵表示区分开.
+
+#### Climbing up and down on a ladder
+
+这三个生成元不是对易的, 我们可以选择对角化其中一个, 比如选择$J_3$. 可以定义
+$$\begin{aligned}
+[J_z, J_\pm] = \pm J_\pm, && [J_+, J_-] = 2J_z.
+\end{aligned}$$
+这样就得到了升降算符.
+
+#### Requiring the ladder to terminate
+
+表示应该是有限维的, 所以升降算符不能一直作用. 之后的分析懒得写了. 总之我们通过张量或者李代数的方法, 得到了同样维度的表示 (不过目前还局限在$j\in \mathbb Z$). $J_\pm$的作用会带来一个因子$c_m = \sqrt{(j+1-m)(j+m)}$.
+
+#### Mysterious appearance of the half integers
+
+如果$j=1/2$我们就有一个二维表示, 但是前面对于$SO(3)$的分析中并没有看出$2$维表示的存在.
+
+#### Multiplying two SO$(3)$ representations together
+
+先从一个简单的情况出发, 考虑一个对称无迹张量$S^{ij}$和一个向量$T^k$, 分别荷载了SO$(3)$的$5$和$3$维不可约表示. 考虑这两个张量的张量积$P^{ijk} = S^{ij}T^k$有$15$个独立分量.
+
+我们可以构造对称张量$U^{ijk} = S^{ij}T^k + S^{jk}T^i + S^{ki}T^j$, 它的迹是$U^k = 2S^{ik}T^k$. 然后可以从$U$中拿出迹, 定义$\tilde{U}^{ijk} = U^{ijk} - \frac{1}{5}(\delta^{ij}U^k + \delta^{jk}U^i + \delta^{ki}U^j)$. 这是对称无迹张量，荷载了一个$7$维不可约表示.
+
+然后考虑$U$的反对称部分, 我们定义$V^{il} = S^{ij}T^k \epsilon^{jkl}$. 这个张量是无迹的, $V^{ii} = S^{ij}T^k \epsilon^{ijk} = 0$ (在这个求和中, $ij$在$S$上是对称的, 在$\epsilon$上是反对称的), 有$8$个独立分量. 考虑它的对称和反对称部分, 反对称部分可以通过乘上$\epsilon^{ijk}$成为一个$1$阶张量, 或者说这就是$S^{ijk}$的迹, 构成$3$维不可约表示. 对称部分是$W^{il} = S^{ij}T^k \epsilon^{jkl} + S^{lj}T^k \epsilon^{jki}$是无迹的对称张量, 荷载一个$5$维表示. 这样我们就得到
+$$
+5 \otimes 3 = 7 \oplus 5 \oplus 3.
+$$
+
+现在来考虑更一般的情形, 对于$S^{i_1\cdots i_j}$和$T^{k_1\cdots k_{j'}}$, 先对称化并消除它的迹, 这样就得到了一个$j + j'$个指标的对称无迹张量. 然后来考虑剩余的部分, 给上边的乘积和$\epsilon^{ikl}$相乘, $i$和$k$分别是$S$和$T$上的指标(这种做法可以看成是消除了这两个指标的对称成分, 因为如果是对称的, 在这个求和下是$0$). 这样就构成了一个$j + j' -1$维的无迹矩阵, 之后对称化就得到标记为$j + j' -1$的表示. 不妨假设$l \geq l'$, 这样这一过程会在标记为$j - j'$时结束, 这时$T$上没有指标可供缩并了. 这样我们就得到了
+$$
+j \otimes j' = (j+j') \oplus (j + j' - 1) \oplus \cdots \oplus |j - j'|.
+$$
+
+#### Casimir invariant
+
+$\delta \vec{J} = \vec{\theta} \otimes \vec{J}$, 给出$J^2$在旋转下不变, 称作SO$(3)$的Casimir不变量, 事实上$[J^2, J_i] = 0$. 之后可以根据这一关系得到$J^2|j, m\rangle = j(j+1)|j, m\rangle$.
+
+#### Legendre polynomials and spherical harmonics
+
+如果定义一些微分算子$L_i = i\epsilon_{ijk} (x_j\frac{\partial}{\partial x_k})$, 它们也是SO$(3)$的生成元. 球谐函数表示了SO$(3)$的代数, $Y_l^m(\theta, \varphi)$.
+
+有一种方法可以把Legendre多项式和张量联系起来. 考虑单位矢量$V^i$, 在球坐标下$V^3 = \cos\theta = P_1(\cos\theta)$, $V^{1\pm i2}$和$V^3$实际上对应$Y_1^{\pm 1}$和$Y_1^0$. 考虑对称无迹张量$T^{ij} = V^i V^j - \frac{1}{3}\delta^{ij}$. 这样有$V^{33} = P_2(\cos\theta) = \cos^2\theta - \frac{1}{3}$. 第$n$阶的对称无迹张量的$3$-分量对应了$P_n(\cos\theta)$.
+
+#### The Jordan-Schwinger construction of the angular momentum algebra
+
+考虑两组相互对易的算符$a, b$满足$[a, b] = 0,[a^\dagger, b] = 0$并且$[a, a^\dagger] = [b, b^\dagger] = 1$. 那么有
+$$\begin{gathered}
+[a^\dagger a - b^\dagger b, a^\dagger b] = 2a^\dagger b,\\
+[a^\dagger a - b^\dagger b, b^\dagger b] = -2b^\dagger a, \\
+[a^\dagger b, b^\dagger a] = a^\dagger a - b^\dagger b.
+\end{gathered}$$
+它们构成SO$(3)$的生成元,
+$$\begin{aligned}
+J_z \leftrightarrow \frac{1}{2}(a^\dagger a - b^\dagger b), && J_+ \leftrightarrow a^\dagger b, && J_- \leftrightarrow b^\dagger a.
+\end{aligned}$$
+
+这种构造方式可以这样理解, 考虑$1/2$自旋粒子, $a$表示朝上的湮灭算符, $b$表示朝下的湮灭算符. $J_z$表示了自旋的净分量, 其他两个算符表示了翻转自旋.
+
+#### The Dirac construction of the angular momentum algebra
+
+写下$|+\rangle$和$|-\rangle$满足$\langle + | + \rangle = 1$和$\langle + | - \rangle = 0$. 构造
+$$\begin{gathered}
+J_z = \frac{1}{2}(|+\rangle\langle +| - | - \rangle \langle - |), \\
+J_+ = | + \rangle \langle - |,\\
+J_- = | - \rangle \langle + |.
+\end{gathered}$$
+
+### Angular momentum and Clebsch-Gordan decomposition
+
+#### Multiplying two ladders together
+
+SO$(3)$代数$J_i$作用在$|j, m\rangle$上会把某个$m$变成其他$m$的线性组合. 现在来考虑$|j, m\rangle \otimes |j', m'\rangle$, 有$(2j+1)(2j'+1)$个独立分量, 构成生成元的$(2j+1)(2j'+1)$维不可约表示,  并且是可约的(分块对角的).
+
+$|j, m\rangle$有$2j+1$个, 对应$2j + 1$维的对称无迹张量. 当生成元作用在$|j, m\rangle \otimes |j', m'\rangle$上时, 先后作用在$|j, m\rangle$和$j', m'\rangle$上. 考虑绕$z$的无限小转动, $W = I  + i\theta J_z$. 这样就有
+$$
+|j, m\rangle \otimes |j', m'\rangle \rightarrow R |j, m\rangle \otimes R |j', m'\rangle
+= (1 + i\theta (m + m'))|j, m\rangle \otimes |j', m'\rangle.
+$$
+这样就得到了$J_z$作用在$|j, m\rangle \otimes |j', m'\rangle$上会给出$m + m'$. 由于最大的$J_z$特征值是$j+j'$, 应该对应态$|j, j', j, j'\rangle$.
+
+#### The Clebsch-Gordan decompostion
+
+角动量合成的系数,
+$$
+|J, M\rangle = \sum_m \sum_{m'} |j, j', m, m'\rangle \langle j, j', m, m'|J, M\rangle.
+$$
+CG系数是一种对于完备性的叙述.
+
+群表示的乘法, 对应于生成元的加法.
+
+#### Wigner-Eckart theorem
+
+我们有球谐张量$\mathcal O_{JM}$, 如果这个张量在旋转变换下和$|J, M\rangle$是一样的.
+
+**Thm.** 
+$$\begin{aligned}
+& \langle \alpha', j', m'|\mathcal O_{JM} |\alpha, j, m\rangle =
+\langle j', m' | J, j, M, m \rangle \langle \alpha', j'||O_J||\alpha, j\rangle.
+\end{aligned}$$
+$\langle \alpha', j'||O_J||\alpha, j\rangle$称作$\mathcal O$的约化矩阵元.
+
+### Tensors and representations of the special unitary groups SU(N)
+
+#### The group $U(N)$
+
+$U(N)$是由满足$U^\dagger U = 1$的$N\times N$矩阵组成的.
+
+#### $SU(N)$ as a subgroup of $U(N)$
+
+因为$U(N)$是复矩阵构成的, 对于$U$来说, 行列式要满足的条件是$\det U = e^{i\alpha}$. 我们可以加上限制$\det U = 1$来构成$U(N)$的一个子群$SU(N)$. 或者说$U(1)$是$U(N)$的一个正规子群, $SU(N) = U(N)/U(1)$.
+
+#### The $\Omega^-$ and counting with our fingers
+
+考虑一个rank$-3$的完全对称张量$\varphi^{ijk}$, 它有$10$个独立分量, 这样我们给出了$SU(3)$的一个$10$维表示.
+
+#### The trace for $SU(N)$
+
+考虑上面的张量的迹$\delta^{ij}\varphi^{ijk}$在$U$下的变换, $\delta^{ij}\varphi^{ijk} \rightarrow \delta^{ij}U^{if}U^{jg}U^{kh}\varphi^{fgh} = (\delta^{ij}U^{if}U^{jg})(U^{kh}\varphi^{fgh})$. 前面的第一部分$(\delta^{ij}U^{if}U^{jg}) = (U^T U)^{fg} \neq \delta^{fg}$. 这里我们写出的迹并不满足$U$不变, 并没有去掉迹构成的不可约表示.
+
+接下来的问题是我们能否定义类似于迹的量?
+
+#### Moving downstairs
+
+定义$\psi_i = \psi^{i*}$. 之前的求和中无所谓指标的上下, 现在要求重复的一上一下指标求和. 一个复矢量$U$给出的变换是$\psi^{i} = U^{i}_{\ j}\psi^j, \psi_i = (U^{\dagger})^i_{\ j}\psi_i$.
+
+#### Tensors with upper and lower indices
+
+张量的每个上指标和下指标各自按照$U$和$U^\dagger$变换. 现在可以缩并一个上指标和一个下指标取迹$\delta^k_j \varphi^{ij}_k$. 现在迹的变换是
+$$
+\varphi^{ij}_j \rightarrow U^i_kU^j_l(U^\dagger)^g_j \varphi^{kl}_g = U^i_k \varphi^{kl}_l.
+$$
+
+现在可以知道无迹的张量荷载了$SU(N)$的表示. 当我们考虑张量是否对称的时候, 只关心上指标或者下指标之间的交换.
+
+#### Moving indices up and down stairs
+
+实际上现在还没有使用$\det U = 1$的条件. 这一条件可以写成
+$$
+\epsilon_{i_1i_2\cdots i_N} U^{i_1}_1\cdots U^{i_N}_N = 1.
+$$
+或者说
+$$
+\epsilon_{i_1i_2\cdots i_N} U^{i_1}_{j_1}\cdots U^{i_N}_{j_N} = \epsilon_{j_1 j_2 \cdots j_N}.
+$$
+现在可以通过$\epsilon$来升降指标.
+
+#### From group to algebra
+
+对于一个无穷小变换, $U = 1 + iH$, $U^\dagger U = 1$要求$H^\dagger = H$, 同时有$U = e^{iH}$. 现在来看另一个条件$\det U = e^{\mathrm{Tr}\ln U} = e^{i\mathrm{Tr}H} = 1$(最简单的证法是把$H$对角化), 给出$\mathrm{Tr} H = 0$.
+
+对于$N = 2$, 所有无迹的厄米阵就是Pauli矩阵$\sigma_i$. 这样我们可以把满足要求的$U$写成$U = e^{\frac{1}{2}\theta_a \sigma_a}$. $SU(3)$的生成元有$8$个, 称作Gell-Mann矩阵$\lambda_a$.
+
+现在来考虑$SU(N)$应该有几个生成元. 首先是对角元, 这都是实数, 考虑到无迹的条件, 可以有$N - 1$个独立分量. 非对角元有$N(N-1)/2$个, 但是因为有实部和虚部, 给出的生成元数量是两倍. 总的生成元数量是$N^2 - 1$. 生成元记作$(T^a)^b_c$.
+
+#### The structure constant of the Lie algebra
+
+$U = e^{iH} = e^{i\theta^a T^a}$, $T^a$是厄米无迹的. 两个生成元的交换子是反厄米且无迹的, 因此可以成为生成元的线性组合, 给出结构因子
+$$
+[T^a, T^b] = if^{abc}T^c.
+$$
+结构因子对于前两个指标是交换反对称的(实际上是完全反对称的). 根据群的表示, 我们可以写下相应的对于生成元的表示, 一般来说模糊地不做区分.
+
+来考虑一个张量$\varphi$它的独立部分荷载了一个$d$维的不可约表示. 这样它的变换就可以写成$\varphi \rightarrow (I + i\theta^a T^a)\varphi$, 有$\delta \phi^p = i\theta^a (T^a)^p_q \varphi^p_q$. 这里的每个指标$p$指一个形状比较复杂的张量的某个独立分量, $T^a$实际上是对应的生成元的表示.
+
+#### The adjoint representation of $SU(N)$
+
+现在来考虑结构因子, 对于一个$(1, 1)$型张量$\varphi^i_j$. 变换是$\varphi '^i_j = U^i_l \varphi^l_n (U^\dagger)^n_j$, 或者写成$\varphi' = U\varphi U^\dagger$. 我们要求$\varphi$是厄米无迹的, 在变化下还保持这两个性质. 与此同时, 可以把$\varphi$按照$SU(N)$的生成元线性表达, $\varphi_j^i = A^a(T^a)_j^i$. 考虑无穷小变换$U = 1 + i\theta^a T^a$,
+$$
+\varphi' = \varphi + i\theta^a [T^a, \varphi] = \varphi + \delta\varphi.
+$$
+来看$A^a$的变换方式,
+$$
+(\delta A^b)T^b = i\theta^a [T^a, A^c T^c] = i\theta^a A^c [T^a, T^c] = i\theta^a A^c i f^{abc}T^b,
+$$
+这样就有$\delta A^b = - \theta^a f^{acb} A^c$. 另一种表达$\delta A^b$的方法是$\delta A^b = -\theta^a (T^a)^b_c A^c$, 给出
+$$
+(T^a)^{bc} = -if^{abc}.
+$$
+
+#### Multiplying representations together
+
+给出两个$SU(N)$的$(m, n)$型张量$\varphi$和$(m', n')$型$\eta$. 考虑一个$(m + m', n + n')$型张量$T$以和$\varphi \eta$相同的方式变换. 我们同样通过对称(反对称化), 消除迹等方式来把这个比较大的表示分开较小的不可约表示.
+
+### $SU(2)$: double covering and the spinor
+
+#### $SU(2)$ is locally isomorphic to $SO(3)$
+
+任何无迹的厄米阵都可以写成Pauli矩阵的线性组合, $X = \vec{x} \cdot \vec{\sigma}$, 这里$\vec{x}$是实的数组, 也就是
+$$
+X = \begin{pmatrix}z & x - iy \\ x + iy & -z\end{pmatrix}.
+$$
+$X$的行列式是$\det X = -\vec{x}^2$, 这时一个在$SU(2)$的变换下不变的值. 考虑这一变换, 变换矩阵$U\in SU(2)$, 有$X' = U^\dagger X U = \vec{x'} \cdot \vec{\sigma}$. 行列式不变要求$\vec{x}^2 = \vec{x}'^2$, 这样就给出了一个旋转变换, 这个旋转变换被$U$参数化, 应该可以连续地过渡到$1$, 所以应该是$SO(3)$中的变换. 这样我们就给出了一个映射$f: U \rightarrow R$. 这个映射是保乘法的.
+
+#### $SU(2)$ covers $SO(3)$ twice
+
+从上面对于映射$f$的定义, $f(-U) = f(U)$, 所以这个映射是$2$对$1$的, 我们说$SU(2)$二重覆盖了$SO(3)$.
+
+我们说这个映射是一个$SU(2)$到$SO(3)$的局部同构, 因为$U$在$I$附近, 但$-U$在$-I$附近, 这样在单位元附近, 这两个群是同构的.
+
+#### Properties of the Pauli matrices
+
+Pauli矩阵的性质有
+$$\begin{gathered}
+[\sigma_i, \sigma_j] = \sigma_i\sigma_j - \sigma_i\sigma_j = 2i\epsilon_{ijk}\sigma_k \\
+\{\sigma_i, \sigma_j\} = \sigma_i\sigma_j + \sigma_i\sigma_j = 0 (i \neq j).
+\end{gathered}$$
+综合起来得到
+$$
+\sigma_i \sigma_j = \delta_{ij}I + i\epsilon_{ijk}\sigma_c.
+$$
+如果我们选择$\sigma_i/2$作为生成元, 对应的结构因子就是$\epsilon_{ijk}$. 这样看$SO(3)$和$SU(2)$有相同的李代数, 这也说明它们局部是同构的.
+
+#### Representing the Lie algebra of $SU(2)$
+
+我们有了上面的代数, 就可以定义升降算符. 现在可以说明$SU(2)$的表示是$(2j + 1)$维, 这里的$j$可以是整数或者半整数.
+
+#### The group elements of $SU(2)$
+
+可以证明
+$$
+(\vec{u}\cdot \vec{\sigma})(\vec{v}\cdot \vec{\sigma}) = u^a v^b \sigma_a \sigma_b = u^a v^b (\delta_{ab}I + i\epsilon_{abc}\sigma_c) = (\vec{u}\cdot \vec{v}) I + i(\vec{u}\times \vec{v})\cdot \vec{\sigma}.
+$$
+
+另外一种证明$SU(2)$是$SO(3)$二重覆盖的方法是考虑$X^2 = \vec{x}^2$不变.
+
+可以把$SU(2)$参数化成$U = e^{i\varphi_a \sigma_a/2}$. 可以展开成
+$$
+U = e^{i\vec{\varphi}\cdot \vec{\sigma}/2} = \cos{\frac{\varphi}{2}}I + i\hat{\varphi}\cdot \vec{\sigma}\sin \frac{\varphi}{2}.
+$$
+
+对于一个一般的$2\times 2$的复矩阵, 参数化可以考虑考虑polar分解成一个厄米阵和一个幺正矩阵, 写成$M = (t + \vec{x}\cdot \sigma)e^{i\theta}e^{i\frac{\vec{\varphi}}{2}\cdot \vec{\sigma}}$.
+
+#### How the half angles become full angles
+
+考虑$U = e^{i\varphi \sigma_3/2}$, 作用在厄米的无迹阵$X$上有$U^\dagger X U$. 首先考虑在不同Pauli矩阵上的作用, $U^\dagger \sigma_3 U = \sigma_3$, $U^\dagger \sigma_a U = (I\cos \varphi/2 - i\sigma_3 \sin\varphi/2)\sigma_a (I\cos \varphi/2 + i\sigma_3 \sin\varphi/2)$, 有$U^\dagger \sigma_1 U = \cos\varphi \sigma_1 + \sin \varphi \sigma_2$, $U^\dagger \sigma_2 U = -\sin \varphi \sigma_1 + \cos \varphi \sigma_2$. 如果$X = \vec{x} \cdot \vec{\sigma}$, 那么$U^\dagger X U = (\cos \varphi x - \sin \varphi y, \sin\varphi x + \cos \varphi y, z)\cdot \vec{\sigma}$.
+
+#### Quantum mechanics and the double covering
+
+注意$U(2\pi) = e^{i2\pi \sigma_3/2} = -I$, $U(4\pi) = I$. 参数化$SU(2)$的参数空间是$SO(3)$的两倍大.
+
+#### $SU(2)$ does not have a downstairs, and its upstairs is all symmetric
+
+就像$SO(3)$有着一般的$SO(N)$没有的特征, $SU(2)$也有着一般$SU(N)$没有的特点.
+
+对称的无迹张量$T^{i_1i_2\cdots i_m}_{j_1j_2\cdots j_m}$荷载了$SU(N)$的表示. 对$SU(2)$来说, $\epsilon_{ij}$只有两个指标, 这样我们就可以去掉左右的下指标. 比如考虑$T^{ijk}_{mn}$, 就可以写下$T^{pqijk} = \epsilon^{pm}\epsilon^{qn}T^{ijk}_{mn}$, 这样我们就可以完全不考虑有下指标的张量.
+
+甚至可以进一步只考虑上指标完全对称的张量. 对于一个反对称的张量$A^{ijkl} = T^{ijkl} - T^{kjil}$, $\epsilon_{ik}A^{ijkl}$是两个指标的张量. 这样我们就只需要考虑只有上指标的对称张量.
+
+#### Dimension of $SU(2)$ irreducible representations
+
+有$m$个上指标的对阵张量, 有$(m+1)$个独立分量, 可以令$m = 2j$.
+
+#### Not complex, only pseudoreal
+
+对于$SU(2)$我们只关心$(m, 0)$型张量荷载的表示, 意味着对于$SU(2)$来说, $\psi^i$和$\psi^{i*}$的变换方式是相同的.
+
+Defining representation是$e^{i\vec{\varphi}\cdot \vec{\sigma}/2}$, 它的共轭表示是$e^{-i\vec{\varphi}\cdot \vec{\sigma}/2}$, 满足$\sigma_2 e^{-i\vec{\varphi}\cdot \vec{\sigma}/2} \sigma_2 = e^{i\vec{\varphi}\cdot \vec{\sigma}/2}$, 这说明defining representation是非复的. 并且变换矩阵$S = \sigma_2$是反对称的, 进一步说明是伪实的.
+
+#### The groups $U(N)$ and $SU(N)$
+
+我们前面说了$U(N) = SU(N) \otimes U(1)$. 但这个其实不太对. 实际上$U(1)$中的元素$e^{i2\pi k/N}I$的行列式也是$1$, 这些元素构成了$Z_N$. 所以实际上$U(N) = SU(N)/Z_N \otimes U(1)$. 而且$Z_N$是$SU(N)$的中心(center).
+
+不过在考虑李代数的时候, 这个$Z_N$是没有影响的, 因为李代数是对单位元附近的要求.
+
+### The electron spin and Kramer's degeneracy
+
+#### Time reversal and antiunitary operator
+
+Schrodinger方程是$i\frac{\partial }{\partial t}\Psi(t) = H \Psi(t)$. 取时间反演变换$t' = -t$, 希望找到满足$i\frac{\partial}{\partial t'}\Psi(t') = H\Psi'(t')$的波函数$\Psi'(t') = T\Psi(t)$, 或者说希望找到这样的算符$T$, 使得满足$i\frac{\partial}{\partial -t} T\Psi(t)= H T \Psi(t)$. 对于这个方程, 两边乘上$T$的逆, 并考虑$H$是时间反演不变的$T^{-1}HT = H$, 得到$T^{-1}(-i)T\frac{\partial}{\partial t}\Psi(t) = H \Psi(t)$, 这样我们要求$T^{-1} (-i) T = i$.
+
+可以要求$T = UK$, 其中$K$是取复共轭算符, 满足$K^2 = i$, 这样就有$T^{-1} = KU^{-1}$, 这样就有$U^{-1} i U = i$, 所以$U$是正常的幺正算符.
+
+#### Kramer's degeneracy
+
+自旋的观测值是$\vec{S} = \psi^\dagger \frac{1}{2}\vec{\sigma} \psi$, 对$\psi$作上面的变换, 希望能给出$-\vec{S}$, 这要求$U = \eta \sigma_y$. 但是考虑对于自旋$1/2$作用两次上面的变换, 给出$T^2 = -1$.
+
+电场不会破坏时间反演对称性, 这样$\Psi$和$T\Psi$是能量相同的态. 并且由于$T^2 = -1$, $\Psi$和$T\Psi$必须是不同的两个态.
+
+### Integration over continuous groups, topology, coset manifold and $SO(4)$
+
+#### The character of rotation
+
+考虑绕$z$轴的旋转, 通过$|j, m\rangle$构成的表示, 这样旋转矩阵是$e^{i\psi J_3} = e^{im\phi}$,  求和就得到$SO(3)$的不可约表示的特征标$\chi(j, \psi) = \frac{\sin (j + 1/2)\psi}{\sin \psi/2}$. 对于$SU(2)$的不可约表示, 只需要允许$j$是整数或者半整数.
+
+#### Group manifolds
+
+$SO(2)$是一个圆, $R(2\pi) = R(0)$. 我们希望在群流形上定义度规来确定两个群元之间有多接近, 一种可能的方式是考虑$g_1^{-1}g_2$有多接近$I$.
+
+来看$SO(3)$可以通过$R(\vec{n}, \psi)$, 这样$SO(3)$成为一个球, 但是需要把表面上的对径点粘起来. 对于$SO(3)$来说, 两个旋转只要是角度相同, 就是等价的. 对于$SO(2)$, 每个角度都是一个等价类.
+
+#### Integration measure
+
+希望可以在群上定义积分. 我们的目标是把之前有限群表示论中的结论迁移无限群中, 之前在有限群中一个重要的操作是构造$A = \sum_g D(g)^\dagger X D(g)$这样的量, 现在需要把$\sum_g$换成$\int \mathrm d\mu(g)$, 依旧构造$A = \int \mathrm d\mu(g) D^\dagger(g) X D(g)$, 满足$D^\dagger(g)A D(g) = A$.
+
+这一条件的左半边可以写成
+$$
+D^\dagger(g)\left(\int \mathrm d\mu(g_1) D^\dagger(g_1)X D(g_1)\right) D(g) = \int \mathrm d\mu(g_1) D^\dagger(g_1g)X D(g_1 g) = \int \mathrm d\mu(g_2 g^{-1}) D^\dagger(g_2)X D(g_2).
+$$
+这样可以得到$\mathrm d \mu(g_2) = \mathrm d \mu(g_2g^{-1})$, 考虑这里元素选取的任意性, 实际上有
+$$
+\mathrm d \mu(g) = \mathrm d \mu(g').
+$$
+那么我们可以作最特别的选择$\mathrm d \mu(g) = \mathrm d \mu(I)$. 这意味着我们在每个群元$g$处选择相同的度量.
+
+考虑积分$\int_G \mathrm d\mu(g) 1$, 有时也称作$G$的体积$V(G)$, 对于有限群来说, 就是$|G|$. 不过在前面的积分中, 我们没有给出一个归一化的方式.
+
+#### Invariant measures on group manifolds: some examples
+
+来给出一些例子, 对于$SO(2)$来说, 直觉给出积分测度是$\mathrm d\theta$.
+
+另一个例子是Lorentz群$SO(1, 1)$, 它的测度是$\mathrm d\varphi$.
+
+#### Compact versus noncompact
+
+紧致的群有幺正表示, 而非紧致的群没有(比如Lorentz群).
+
+测度可以写成$\mathrm dy^1 \mathrm dy^2 \cdots \mathrm dy^D \rho(y^1, y^2, \cdots, y^D)$, 希望在不同位置处相同, 那么对于一个变换$y' = y'(y)$, 要求密度$\rho(y)$相差一个Jacobian, $\rho(y) = \rho(y')|\frac{\partial y'}{\partial y}|$.
+
+#### The measure of the $SO(3)$ group manifold
+
+这样写下$SO(3)$的测度, $\mathrm d\mu(g) = \mathrm d\theta \mathrm d\varphi \sin \theta \mathrm d\psi f(\psi)$. 现在需要确定$f(\psi)$的形式, 考虑到$SO(3)$局部上是$\mathbb R^3$, 应该有局部地, $f(\psi)\propto\psi^2$.
+
+考虑在单位元附近的无限小转动
+$$R(\delta, \epsilon, \sigma) = I + \begin{pmatrix}
+0 & -\delta & \sigma \\
+\delta & 0 & -\epsilon \\
+-\sigma & \epsilon & 0
+\end{pmatrix} = I + A,$$
+在单位元附近, 应该足够接近$\mathbb R^3$, 测度是$\mathrm d\delta \mathrm d\delta \epsilon \mathrm d\sigma$.
+
+这是在单位元附近, 如果是在$R(\vec{n}, \psi)$附近, 特别地, 考虑$R(\vec{n}', \psi') = R(\hat{z}, \psi)R(\delta, \epsilon, \sigma) = R(\hat{z}, \psi) + R(\hat{z}, \psi)A$. 算一算特征向量可以给出旋转轴的方向, 那么旋转的角度应该是$\psi' = \psi + \delta$, 这一步可以通过求迹实现.
+
+现在来把$\psi'$附近的坐标写成$x^i$, 这样有$(x^1, x^2, x^3) = \psi'(n_1, n_2, n_3)$. 可以算出Jacobian $J = \det(\frac{\partial (x^1, x^2, x^3)}{\partial(\epsilon, \sigma, \delta)})= \frac{(\psi/2)^2}{\sin\frac{\psi}{2}^2}$. 那么有$\mathrm d\epsilon \mathrm d\sigma \mathrm d \delta = \mathrm dx^1 \mathrm dx^2 \mathrm dx^2 / J = \psi^2 \mathrm d\psi \sin\theta \mathrm d\theta \mathrm d\varphi / J = \mathrm d\Omega \mathrm d\psi \sin^2(\psi/2)$. 这样我们就得到了$f(\psi) = \sin^2(\psi/2)$.
+
+如果某个函数$F$只依赖于类, 也就是说只依赖于$\psi$, 那么对$\mathrm d \Omega$的积分是一个常数, 只需要考虑$\int_{SO(3)}\mathrm d\mu(g)F(g) = \int_0^\pi \mathrm d\psi \sin^2(\psi/2) F(\psi)$.
+
+#### Character orthogonality
+
+对于$j$表示的不可约表示, 特征标是$\chi(j, \psi) = \frac{\sin(j+1/2)\psi}{\sin\psi/2}$. 现在可以写下特征标之间的正交关系
+$$
+\int_{SO(3)}\mathrm d\mu(g) \chi(k, \psi)^*\chi(j, \psi) = \frac{\pi}{2}\delta_{jk}.
+$$
+从另一个方面来说, 可以从特征标的正交关系得到$f$的形式.
+
+#### Fourier series
+
+另一个例子是$U(1)$, $e^{i\theta}$可以被表示成$e^{ij\theta}$, 这个数也是特征标, 满足
+$$
+\int_0^{2\pi} \mathrm d\theta (e^{ik\theta})^*e^{ij\theta} = 2\pi\delta_{jk}.
+$$
+确实给出了正交的要求, 另一方面这就是傅里叶变换.
+
+#### Clebsch-Gordan decomposition
+
+两个不可约表示的张量积的特征标是这两个不可约表示的特征标的乘积, 另一方面, 这个张量积写成一些不可约表示的直和, 特征标是分解出的不可约表示的和, 有$\chi(k)\chi(l) = \sum_l \chi(l)$.
+
+考虑$SO(3)$, $\chi(j, \psi) = \frac{\sin(j+1/2)\psi}{\sin\psi/2}$, 令$\zeta = e^{i\psi}$, 那么有
+$$
+\chi(j) = \sum_{k = -j}^j \zeta^k = \frac{\zeta^{j+1} - \zeta^{-j}}{\zeta - 1}.
+$$
+这样
+$$
+\chi(k)\chi(j) = \frac{\zeta^{j+1} - \zeta^{-j}}{\zeta - 1}\sum_{n = -k}^k \zeta^n = \frac{\sum_{n = j - k}^{j + k} (\zeta^{n + 1} - \zeta^{-n})}{\zeta - 1} = \sum_{n = j - k}^{j + k} \chi(n).
+$$
+这样我们就给出了之前的Clebsch-Gordan分解$k\otimes j = (j + k)\oplus \cdots \oplus |j - k|$. 这对于$SO(3)$和$SU(2)$都成立.
+
+#### The group manifold of $SO(3)$
+
+来考虑$SO(3)$基本群, 如果从原点出发的曲线不穿过球面的话, 可以连续收缩回原点, 如果穿过原点则不可以, 这样$\pi_1(SO(3)) = Z_2$.
+
+#### The group manifold of $SU(2)$
+
+考虑$2\times 2$的矩阵$U = t + i\vec{x}\cdot \vec{\sigma}$, 如果要求是幺正的并且行列式是$1$, 应该有$t^2 + \vec{x}^2 = 1$. 所以$SU(2)$同构于$S^3$, $\pi_1(SU(2)) = \emptyset$.
+
+#### The group manifold $SU(2)$ and its integration measure
+
+现在如果要确定在$SU(2)$上积分时的测度, 只需要在$S^3$上确定即可. 可以取$t = \cos \zeta$, 那么$x^2 + y^2 + z^2 = \sin^\zeta$, 这样测度写成$\mathrm d\zeta \mathrm d\theta \mathrm d\varphi \sin\theta \sin^2\zeta$.
+
+对于沿着$z$轴的"旋转", 可以写出$U = \cos\zeta + i\sin\zeta \sigma_z$, 旋转的角度是$\psi = 2\zeta$. 对于类函数的积分可以去掉$\mathrm d\Omega$的部分, 只贡献一个常数.
+
+虽然$SU(2)$和$SO(3)$的基本群不同, 但是测度是局部性质, 它们的测度是相同的.
+
+#### How does the sphere appear in group theory?
+
+球面$S^2$并不是群流形, 但是可以成为陪集流形.
+
+在无限群中$g_1$和$g_2$可以很接近, 这样对于两个陪集$g_1H$和$g_2H$也看作是很接近的. 这样我们规定了商集的拓扑, 使得可以成为流形.
+
+令$G = SO(3)$, $H = SO(2)$, 令$H$包含所有绕$z$轴的旋转, 这种陪集实际上给出了所有绕不同轴的旋转, 那么$S^2 = SO(3)/SO(2)$.
+
+#### $SO(4)$ is locally isomorphic to $SU(2)\otimes SU(2)$
+
+考虑三个$SU(2)$的群元, $U, V, W$, $W$通过之前的方法被参数化为$S^3$上的点$(t, \vec{x})$, 变换$W' = U^\dagger W V$给出了$S^3$上的另一个点, 这样$U, V$诱导了一个$SO(4)$变换, 或者说确定了一个映射: $SU(2)\times SU(2) \rightarrow SO(4)$. 这样给出了$SU(2)\times SU(2)$和$SO(4)$之间的局部同构, 此外通过看它们的李代数也可获得这一结果. 
+
+$(U, V)$和$(-U, -V)$诱导的$SO(4)$变换是相同的, 所以差一个$Z_2$.
+
+### Symplectic groups and their algebras
+
+#### Symplectic groups: $Sp(2n, \mathbb R)$ and $Sp(2n, \mathbb C)$
+
+我们说一个$2n\times 2n$的矩阵是辛的, 如果它满足$R^T J R = J$, 其中
+$$
+J = \begin{pmatrix}0 & I \\ -I & 0 \end{pmatrix}.
+$$
+固定尺寸的新矩阵构成了一个群$Sp(2n, \mathbb R)$, 这个定义已经要求了$\det J = 1$, 并不需要额外规定. 同时上面的定义对于每个实矩阵的$(2n)^2$个元素给出了$2n(2n - 1)/2$个限制, 因为方程的左半边是反对称的.
+
+类似地, 我们可以定义复的新矩阵, 满足$C^T J C = J$, 这样的$C$构成的群记作$Sp(2n, \mathbb C)$, 它的自由度是实矩阵的两倍大.
+
+实际上经典的哈密顿力学就有辛结构, $Z = (x, p)^T$满足的正则方程是$\dot{Z_a} = J_{ab}\frac{\partial H}{\partial Z_b}$.
+
+#### $U Sp(2n)$
+
+如果更严格地在上面地定义中加入幺正的要求, $U^T J U = J$, $U$就构成了群$USp(2n) = U(2n) \cap Sp(2n, \mathbb C) \subset U(2n)$ (这里书上写得有问题吗?).
+
+现在考虑$U Sp(2n)$有多少自由度, 每个元素首先是一个幺正矩阵$U = I + iH$, 然后满足$H^T = J H J$. 考虑把$H$写成$H = \begin{pmatrix} P & W^\dagger \\ W & Q \end{pmatrix}$的形式, 上面的条件给出$Q = -P^T, W^T = W$. 因为$W$是对称的, 给出$n + n(n-1)/2$个复参数, $P$作为复的厄米阵有$2n^2$个实参数, 那么$H$一共有$n(2n + 1)$个实参数, 并且是无迹的.
+
+根据参数的数目, 我们可以局部地给出$USp(2) \cong SU(2) \cong SO(3)$, 并且$USp(4) \cong SO(5)$. 作为最简单的情况, 可以直接验证$SU(2)$生成元Pauli矩阵是满足$\sigma^T = J \sigma J$的.
+
+在量子场论中, 有时需要考虑有$2n$个分量的场$\psi = (\chi, \xi)^T$, 这样$\psi^T J \psi = \chi^T \xi - \xi^T \chi$在一个$USp(2n)$群变换$\psi \rightarrow U \psi$下不变.
+
+#### Symplectic algebras
+
+可以把上面的$J$写成$J = I\otimes i\sigma_2$, $\otimes$表示Kronecker积. 我们考虑这些$2n \times 2n$的无迹厄米阵: $iA \otimes I, S_1 \otimes \sigma_1, S_2 \otimes \sigma_2, S_3 \otimes \sigma_3$, 其中$A$是实的反对称矩阵, $S_i$都是实的对称阵, 这些矩阵是$USp(2n)$的李代数的生成元, 可以验证独立分量的个数是对的, 并且commuter都是封闭的.
+
+$I \otimes iA$和$\sigma_3 \otimes S$的线性组合形如$\begin{pmatrix}S + iA & 0 \\ 0 & -(S - iA)\end{pmatrix}$ ($S + iA$是任意的厄米阵), 是$U(n) \cong SU(n) \otimes U(1)$的生成元的$n\oplus n^*$可约表示. 那么$U(n)$的代数构成$USp(2n)$的子代数.
+
+### Multiplying irreducible representations of finite groups: return to the tetrahedral group
+
+#### Descent from the rotation group to the tetrahedral group
+
+对于$SO(3)$或者$SU(2)$来说, 表示的乘积会给出Clebsch-Gordan分解, 我们希望对于有限群也实行这一过程.
+
+最简单的情况是, 如果关心的有限群是连续群的子群, 比如$T = A_4 \subset A_4$, 四面体群, 它有$4$个不可约表示, $1, 1', 1'', 3$, 考虑它的一个可约的表示$3\otimes 3$. 对$SO(3)$来说$3\otimes 3 = 1\oplus 3 \oplus 5$. 不过$T$并没有$5$这个不可约表示, $5$的两个可能的分解是$5= 3\oplus 1 \oplus 1$或者$5= 3\oplus 1' \oplus 1''$, 这里由于$5$是实表示, 如果它的分解包含一个复表示, 那一定包含其共轭表示.
+
+对于$SO(3)$来说, 我们可以直接构造这个分解, $u\times v$荷载了一个$3$-表示, 完全对称的分量$u_1v_2 + v_1u_2, u_2v_3 + u_3v_2, u_1v_3 + v_1u_3$和对角元素的组合$2u_1v_1 - u_2v_2 - u_3v_3, u_2v_2 - u_3v_3$荷载了表示$5$.
+
+对于$T$来说, 有一个子群$Z_3$, 作用得到$u_1 \rightarrow u_2 \rightarrow u_3$, 那么对于$5$来说, 其中的对称分量构成$3$, 其他两个对角项组成的在变换下并不回到自身, 所以给出$5 = 3 \oplus 1' \oplus 1''$, 那么完整的分解就是
+$$
+3\otimes 3 = 1 \oplus 1' \oplus 1'' \oplus 3 \oplus 3.
+$$
+把这两个$1'$和$1''$具体地写下来应该是
+$$\begin{gathered}
+1' \sim q' = u_1 v_1 + \omega u_2 v_2 + \omega^2 u_3 v_3, \\
+1'' \sim q'' = u_1 v_1 + \omega^2 u_2 v_2 + \omega u_3 v_3.
+\end{gathered}$$
+
+#### Decomposition of the product using characters
+
+利用特征标来产生这个分解可能是更标准的做法, 
+$$\begin{gathered}
+\sum_c n_c \chi^*(c)\chi(c) = |G|\sum_r n_r^2, \\
+\sum_c n_c \chi^{*(r)}(c)\chi(c) = |G|n_r.
+\end{gathered}$$
+只依靠第一个等式就可以得到$\sum_r n_r^2 = 7$, 两种可能的分解是$1 + 1 + 1 + 1 + 1 + 1 + 1$和$1 + 1 + 1 + 2^2$. 利用第二个表达式可以得到包含$1$个$1$, $1$个$1'$, $1$个$1''$, $2$个$3$.
+
+### Crystal field splitting
+
+#### An impurity atom in a lattice
+
+当一个群$G$被限制在它的一个子群$H$上的时候, 它的不可约表示可能回变成$H$的一些不可约表示的直和, 我们上面分析的四面体群就是这个情况. 晶体场劈裂就是这种情况, 作为一个例子, 我们考虑把原子实放在四面体的顶角上, 这样提供了一个具有四面体群对称性的晶体场.
+
+#### Using characters to find how irreducible representations break up
+
+考虑$2j + 1$维的不可约表示, 作为$T= A_4$的可约表示, 它的特征标是$\chi(j, \psi) = \sum_{m = -j}^{j}e^{im\psi} = \frac{\sin (j + 1/2)\psi}{\sin \psi / 2}$(这里需要注意, 因为特征标只是类的函数, 所以只用关心$z$方向的旋转, 对角元$e^{i\psi S_z}|j, m\rangle = e^{i\psi m}|j, m \rangle$).
+
+四面体群中包含对应$\psi = 0$的单位元, $\chi(j, 0) = 2j + 1$; 此外包含$\psi = \pi$的旋转(对应$(12)(34)$), $\chi(j, \pi) = (-)^j$. 这是两个类. 其他两个类, 对应$(123)$和$(132)$, 特征标满足$\chi(j, 2\pi/3) = \chi(j-1, 2\pi/3) + \omega^j + \omega^{*j}$. 那么$\chi(j, 2\pi/3) = 0, -1, 1, 0, -1, 1, \cdots.$
+
+之后的分解只需要利用特征标的正交性, 或者由于表示的直和, 对应特征标的和, 可以求解线性方程组.
+
+### Group theory and special functions
+
+#### The Euclidean group $E(2)$
+
+二维平面的旋转和平移操作$g(R, \vec{a})$构成了一个群$E_2$, 二维的欧几里得空间在$E(2)$作用下保持不变. 平移群和$SO(2)$都是子群, 并且平移群是一个正规子群.
+
+#### The Lie algebra of the plane
+
+$E(2)$的历代数可以通过$R = e^{-i\theta J}$和$T = e^[-i\vec{a}\cdot \vec{P}]$. 定义$P_\pm = P_1 \pm P_2$, 那么有$[J, P_\pm] = \pm P_\pm$, 并且$[J, P^2] = 0$, 可以同时对角化$J$和$P^2$. 那么可以写下$P^2 |p, m\rangle = p^2 |p, m\rangle, J|pm\rangle = m |pm\rangle$.
+
+#### Infinite-dimensional representations of the Euclidean algebra
+
+$J P_\pm |p, m\rangle = (P_\pm J + [J, P_\pm])|p, m\rangle = (m \pm 1)P_\pm|p, m\rangle$, 给出$P_\pm|p, m\rangle = \mp i p|p, m \pm 1\rangle$(这里的系数求内积就可以, 前面的$\mp i$是手加的相位因子, 为了和后面的Bessel函数对应上). 可以给出
+$$\begin{gathered}
+\langle p, m' | J | p, m \rangle = m \delta_{m, m'}, \\
+\langle p, m' | P_\pm |p, m\rangle = \mp ip \delta_{m', m \pm 1}.
+\end{gathered}$$
+
+这样就有了$E(2)$代数的表示. 现在来表示群元, 
+$$
+D^{(p)}(\theta, \vec{a})_{m', m} \equiv \langle p, m' | g(R, \vec{a}) | p, m \rangle
+= \langle p, m' |T(\vec{a})R |p, m\rangle = \langle p, m' |T(\vec{a}) |p, m\rangle e^{-im\theta}.
+$$
+一个平移$T(\vec{a})$在旋转变换下, 总是可以要求$\vec{a} = (a, 0)$, $e^{-i\varphi J}T(\vec{a} = (a, 0))e^{i\varphi J} = T(\vec{a})$. 这样$\langle p, m' |T(\vec{a}) |p, m\rangle = e^{i(m - m')\varphi}\langle p, m' |e^{-iaP_1}| p, m \rangle$. 现在有一个断言$\langle p, m| e^{-a P_1} |p, m\rangle = J_{m - m'}(pa)$, 其中$J_n$是$n$阶Bessel函数.
+
+简单的证明如下: $e^{-iaP_1} = e^{-ia(P_+ + P_-)/2} = e^{-iaP_+/2}e^{-iaP_-/2}$, 把这两个指数展开成多项式, 我们需要考虑这种矩阵元$\langle p m' | P^{n_+}_+ P^{n_-}_- | p, m \rangle$, 只在$m - m' = n_+ - n_-$时非零, 现在就给出了一个级数, 实际上就是Bessel函数.
+
+#### Induced representation
+
+可以另外使用一组不同的基来得到表示, 这里使用$P_1, P_2$的共同本征值, 本征态记作$| \vec{p} \rangle = | p, \varphi \rangle$. 这些态构成平移算符的本征态$T(\vec{a}) | \vec{p} \rangle = e^{-i \vec{a}\cdot \vec{p}}|\vec{p} \rangle$, 并且在旋转算符作用下$R(\theta)| p, \varphi \rangle = |p, \theta + \varphi \rangle$.
+
+$|p, \varphi\rangle$和$|p, m \rangle$之间差一个F.T., 
+$$
+|p, m\rangle = c_m \int_0^{2\pi}\frac{\mathrm\varphi}{2\pi}e^{im\varphi}|p, \varphi\rangle.
+$$
+将这个关系带入$\langle p, m' | e^{-iaP_1} | p, m \rangle$就得到Bessel函数的积分表达式$J_n(z) = \int_0^{2\pi} \frac{\mathrm d\varphi}{2\pi}e^{i(n\varphi - z\sin \varphi)}$.
