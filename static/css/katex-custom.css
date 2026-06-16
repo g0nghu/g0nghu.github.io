@@ -9,3 +9,17 @@
 .katex {
     font-size: 1.1em;
 }
+
+/* Wider content area for Chinese text */
+.measure-wide {
+    max-width: 42em;
+}
+.nested-copy-line-height p {
+    line-height: 1.8;
+}
+
+/* Hide images in post summaries */
+.summary img,
+article.bb img {
+    display: none;
+}

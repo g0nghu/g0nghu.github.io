@@ -65,4 +65,5 @@ paginate = 10
     custom_css = ['/css/katex-custom.css']
 
   github = 'g0nghu'
+  favicon = '/images/favicon.png'
   default_featured_image = '/images/top.jpg'
