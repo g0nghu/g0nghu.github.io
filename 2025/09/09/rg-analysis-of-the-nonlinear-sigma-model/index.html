@@ -1,0 +1,95 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>RG analysis of the nonlinear sigma model | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A note for Chap 6.4 of Alexander Altland & Ben Simons' Condensed Matter Field Theory.
+
+如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.
+考虑如下模型
+
+$$\begin{gathered}
+\mathcal Z = \int \mathcal Dg e^{-S[g]},\\
+S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),
+\end{gathered}$$
+其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).
+在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$."><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/><meta property="og:url" content="https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="RG analysis of the nonlinear sigma model"><meta property="og:description" content="A note for Chap 6.4 of Alexander Altland & Ben Simons' Condensed Matter Field Theory.
+如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.
+考虑如下模型 $$\begin{gathered}\mathcal Z = \int \mathcal Dg e^{-S[g]},\\S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),\end{gathered}$$ 其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).
+在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-09-09T09:28:48+08:00"><meta property="article:modified_time" content="2025-09-09T09:28:48+08:00"><meta itemprop=name content="RG analysis of the nonlinear sigma model"><meta itemprop=description content="A note for Chap 6.4 of Alexander Altland & Ben Simons' Condensed Matter Field Theory.
+如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.
+考虑如下模型 $$\begin{gathered}\mathcal Z = \int \mathcal Dg e^{-S[g]},\\S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),\end{gathered}$$ 其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).
+在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$."><meta itemprop=datePublished content="2025-09-09T09:28:48+08:00"><meta itemprop=dateModified content="2025-09-09T09:28:48+08:00"><meta itemprop=wordCount content="554"><meta itemprop=keywords content="多体系统的量子场论"><meta name=twitter:card content="summary"><meta name=twitter:title content="RG analysis of the nonlinear sigma model"><meta name=twitter:description content="A note for Chap 6.4 of Alexander Altland & Ben Simons' Condensed Matter Field Theory.
+如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.
+考虑如下模型 $$\begin{gathered}\mathcal Z = \int \mathcal Dg e^{-S[g]},\\S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),\end{gathered}$$ 其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).
+在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$."></head><body class="ma0 avenir bg-near-white production is-page is-page page-RG-analysis-of-the-nonlinear-sigma-model"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/56e09d7bd5b247b19b52.png)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">RG analysis of the nonlinear sigma model</div></div></div></header><main class=pb7 role=main><article class="page-RG-analysis-of-the-nonlinear-sigma-model flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">RG analysis of the nonlinear sigma model</h1><time class="f6 mv4 dib tracked" datetime=2025-09-09T09:28:48+08:00>September 9, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A note for Chap 6.4 of Alexander Altland & Ben Simons' <em>Condensed Matter Field Theory</em>.</p><hr><p>如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.</p><p>考虑如下模型</p>$$\begin{gathered}
+\mathcal Z = \int \mathcal Dg e^{-S[g]},\\
+S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),
+\end{gathered}$$<p>其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).</p><p>在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$.</p><h2 id=field-integrals-over-groups>Field integrals over groups</h2><p>如果涨落比较小, 一种常用的处理是使用生成元来表示群元素, 称作指数表示(exponential representation), 即$g = \exp(W)$, $W = i\sum^a \pi^a T_a$, $T_a$是厄米的生成元. 这样我们就把对于群的积分变成了对于坐标$\pi^a$的积分. 不过考虑到Haar测度, 我们也可以不在单位元附近展开, 而是使用$g = h\exp (W)$. 在我们的RG中, 我们往往使用一个慢变的场附近的展开($h = g_s$).</p><p>这些生成元之间可以定义内积$\langle W | W' \rangle \equiv \mathrm{Tr}(WW')$, 我们可以选择这些生成元之间是正交的, 并且通过$\langle T^a | T^b \rangle = c\delta^{ab}$归一化. 对于$U(N)$, $SU(N)$和$O(N)$, $c$分别通常取$1/2$, $1/2$, $1$.</p><p>现在我们把$g$按$W$展开, $g = 1 + W + W^2 / 2 + \cdots$, 那么对应地得到$S = \sum_n S^{(n)}$. 其中二阶(最低阶)单独拿出来是</p>$$\begin{aligned}
+S^{(2)}[W] = & -\frac{1}{\lambda} \int \mathrm d^d r \mathrm{Tr}(\nabla W \nabla W) \\
+= & \frac{1}{\lambda} \int \mathrm d^d r \nabla\pi^a \nabla \pi^b \mathrm{Tr}(T^a T^b) \\
+= & \frac{1}{\lambda} \int \mathrm d^d r \nabla \pi^a \nabla \pi^a \\
+= & \frac{1}{2}\int (\mathrm dq)\pi^a_p \Pi^{-1}_{p} \pi^a_{-p},
+\end{aligned}$$<p>其中$\Pi_p = \lambda / 2p^2$表示场$\pi^a$的传播子.</p><p>我们可能需要计算一些形如$\langle \mathrm{Tr}(F(W)) \mathrm{Tr}(G(W)) \rangle$的量, 这里$\langle \cdots \rangle = \mathcal N \int \mathcal D \pi \exp(-S^{(2)}[\pi])(\cdots).$ 首先我们为了方便积分的计算需要把Haar测度变成对应$\pi$的测度, $\mathrm d_\mu g \rightarrow \prod_a\mathrm d\pi^a J(\pi)$. 对于指数表示$g \rightarrow \exp(\pi^a T^a)$来说, $J(\pi) = 1 + \mathcal O(\pi^4)$. 这样对于单圈积分来说, 可以不用考虑这个Jacobian. 此外我们需要使用一些生成元的完备性关系:</p>$$\begin{gathered}
+\sum_{a = 1}^{N^2} T^{a}_{ij}T^a_{kl} = \frac{1}{2}\delta_{il}\delta_{jk}, \quad U(N),\\
+\sum_{a = 1}^{N^2 - 1} T^{a}_{ij}T^a_{kl} = \frac{1}{2}\delta_{il}\delta_{jk} - \frac{1}{2N}\delta_{ij}\delta_{kl}, \quad SU(N),\\
+\sum_{a = 1}^{N(N - 1)/2} T^{a}_{ij}T^a_{kl} = \delta_{il}\delta_{jk} - \delta_{ij}\delta_{kl}, \quad O(N).
+\end{gathered}$$<p>现在作为一个例子, 可以计算对于$G = O(N)$,</p>$$\begin{aligned}
+& \langle \mathrm{Tr}(AW_p)\mathrm{Tr}(A'W_{p'})\rangle \\
+= & - \langle \pi^a_{p}\pi^{a'}_{p'} \rangle \mathrm{Tr}(AT^a)\mathrm{Tr}(A'T^{a'}) \\
+= & - \delta_{p, -p'}\Pi_p \mathrm{Tr}(AT^a)\mathrm{Tr}(A'T^a) \\
+= & - \delta_{p, -p'}\Pi_p(\mathrm{Tr}(AA') - \mathrm{Tr}(AA'^T)).
+\end{aligned}$$<h2 id=one-loop-expansion>One-loop expansion</h2><p><strong>Step I</strong>: 首先把场的高能和低能部分区分开, 定义$g(r) = g_s(r)g_f(r)$, 动量的范围被确定在$[0, \Lambda b^{-1}]$和$[\Lambda b^{-1}, \Lambda]$内. 接下来可以作用量也分开:</p>$$
+S[g_sg_f] = S[g_s] + S[g_f] + S[g_s, g_f].
+$$<p>前两项的形式和$S[g]$是相同的, 最后一项的形式是</p>$$
+S[g_s, g_f] = \frac{2}{\lambda}\int \mathrm d^d r \mathrm{Tr}\left(
+g_s^{-1}\nabla g_s g_f \nabla g_s^{-1}
+\right).
+$$<p><strong>Step II</strong>: 接下来需要积分掉$g_f$的自由度. 按照$g_f$的生成元展开成$g_f = e^{W}$. 总的来说, 我们需要考虑的作用量形式总是$\int \mathrm{Tr} (XW^n)$, 其中$X$完全由慢场的自由度表示. 考虑到动量守恒, $n = 1$对应的积分一定是零. 按二阶来展开$g_f = 1 + W + W^2 / 2$就有:</p>$$
+S[g_f, W] = \frac{1}{\lambda} \int \mathrm d^d r \mathrm{Tr}(\Phi_\mu[\nabla_\mu W, W])
+= - \frac{2i}{\lambda}\int(\mathrm dq)(\mathrm dp) p_\mu \mathrm{Tr}(\Phi_{\mu, -q}W_pW_{-p}),
+$$<p>其中$\Phi_\mu = g_s^{-1}\partial_\mu g_s$, 并且考虑了$p + q \sim p$.</p><p>我们还需要把$e^{S}$按阶展开, 但是考虑到每个$S$中都含有一个对于$g_s$的微分, 而二阶以上的微分是不相关的, 所以按阶展开的时候最高只需要考虑到二阶. 只考虑单圈, 现在得到</p>$$
+S[g] \rightarrow S[g_s] - \ln \left(
+1 + \frac{1}{2}\langle S[g_s, W]^2 \rangle_W
+\right) \approx S[g_s] - \frac{1}{2} \langle S[g_s, W]^2 \rangle_W.
+$$<p>继续计算:</p>$$\begin{gathered}
+\langle S[g_s, W]^2 \rangle_W = \int (\mathrm dq)(\mathrm dq') (\mathrm dp)(\mathrm dp')
+\langle \mathrm{Tr}(A_{q, p}W_pW_{-p}) \mathrm{Tr}(A_{q', p'}W_{p'}W_{-p'})\rangle_W,
+\end{gathered}$$<p>其中$A_{p, q} = -2i L^d \lambda^{-1} p_\mu \Phi_{\mu, -q}$.
+这里这个复杂的平均值, 如果是$O(N)$的场结果是$(N - 2)\Pi_p \Pi_{p + q} \mathrm{Tr}(A_{p, q}(A_{-p, p + q} - A_{-q, -p}))$, 最终可以得到</p>$$\begin{gathered}
+\langle S[g_s, W]^2 \rangle_W \approx C\lambda S[g_s], \\
+C = \frac{2(N - 2)\Omega^d(\Lambda^{d - 2} - (\Lambda / b)^{d - 2})}{(2\pi)^2 d (d - 2)}
+\overset{d = 2 + \epsilon}{\approx} \frac{(N - 2)\ln b}{2\pi}.
+\end{gathered}$$<p><strong>Step III</strong>: 最后进行尺度变换, 得到</p>$$
+S[g] \rightarrow \left(1 - \frac{(N - 2)\ln b \lambda}{4\pi}\right)S[g_s] \rightarrow \left(1 - \frac{(N - 2)\ln b \lambda}{4\pi}\right)b^{\epsilon}S[g].
+$$<p>可以看到这个RG过程整体上减小了耦合系数,</p>$$
+\lambda_r = \left(1 - \frac{(N - 2)\ln b \lambda}{4\pi}\right)^{-1} b^{-\epsilon}\lambda
+\approx \lambda + \lambda\left(\frac{(N - 2)\lambda}{4\pi} - \epsilon\right)\ln b.
+$$<p>现在我们得到对$O(N)$的场的RG方程:</p>$$
+\frac{\mathrm d\lambda}{\mathrm d\ln b} = - \epsilon\lambda + \frac{(N - 2)\lambda^2}{4\pi} + \mathcal O(\lambda^3, \epsilon^2, \lambda^2\epsilon).
+$$<ul class=pa0><li class="list di"><a href=/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">多体系统的量子场论</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>概要 on 酒客临时委员会</title><link>https://g0nghu.github.io/tags/%E6%A6%82%E8%A6%81/</link><description>Recent content in 概要 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 30 Mar 2026 09:42:17 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/tags/%E6%A6%82%E8%A6%81/index.xml" rel="self" type="application/rss+xml"/><item><title>Measurement Induced Phase Transitions (MIPT)</title><link>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</link><pubDate>Mon, 30 Mar 2026 09:42:17 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</guid><description>&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;B. Skinner, Introduction to random unitary circuits and measurements (lecture notes, 2023)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;MIPT 是在随机幺正演化的线路上, 以一定的概率$p$对中间线路的结果进行测量. 一般来说, 一个幺正演化会倾向于使得系统中的纠缠增加, 而测量则会即时地把系统投影到一个直积态上从而降低系统的纠缠. 这两种机制之间的竞争使得在某个$p = p_c$的临界概率上, 系统可能会发生一个由体积率到面积率之间纠缠相变.&lt;/p&gt;
+&lt;h2 id="random-unitary-operators-and-minimal-cut"&gt;Random unitary operators and minimal cut&lt;/h2&gt;
+&lt;p&gt;在接下来的讨论中, 我们会使用 Renyi-$0$ 熵, 其被定义为
+&lt;/p&gt;
+$$
+S_0 = \log (\text{\# nonzero terms in the Schmidt decomposition of } |\psi\rangle).
+$$&lt;p&gt;
+尽管这个值对于态的变化并不连续, 但它实际上给其他的 Renyi 熵提供了一个上界和行为上的参考.&lt;/p&gt;
+&lt;p&gt;一个对于随机幺正线路 (RUC) 的问题是: 为什么研究这个系统? 一个比较普遍的回答是, 通过研究随机幺正线路, 我们希望能获得对于一般系统纠缠增长的普适结论, 即使存在一些特例. 这些对于纠缠增长的了解有助于我们进一步了解热化的发生以及控制计算成本.&lt;/p&gt;
+&lt;h3 id="the-minimal-cut"&gt;The minimal cut&lt;/h3&gt;
+&lt;p&gt;对于一个 RUC 来说, 一个可能的对于子系统 A, B 的切割 (cut) 按照下图给出,
+&lt;img src="https://g0nghu.github.io/images/c162cafbacb446c0badb.png" alt=""&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>量子信息和量子计算 on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/%E9%87%8F%E5%AD%90%E4%BF%A1%E6%81%AF%E5%92%8C%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/</link><description>Recent content in 量子信息和量子计算 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 29 May 2026 14:51:56 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/%E9%87%8F%E5%AD%90%E4%BF%A1%E6%81%AF%E5%92%8C%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml"/><item><title>QSVT</title><link>https://g0nghu.github.io/2026/05/29/qsvt/</link><pubDate>Fri, 29 May 2026 14:51:56 +0800</pubDate><guid>https://g0nghu.github.io/2026/05/29/qsvt/</guid><description>&lt;h1 id="quantum-singular-value-transformation"&gt;Quantum singular value transformation&lt;/h1&gt;
+&lt;p&gt;这是为 &lt;a href="https://arxiv.org/1806.01838"&gt;Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics&lt;/a&gt; 所作的笔记, 记录了大概的技术路径和一部分的证明, 详细的内容可以参阅原文.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="qubitization-and-singular-value-transformations"&gt;Qubitization and singular value transformations&lt;/h2&gt;
+&lt;h3 id="parametrized-su-unitaries-induced-by-pauli-rotations"&gt;Parametrized SU($2$) unitaries induced by Pauli rotations &lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;这一部分工作的核心思想是: 像是下面这样的一串矩阵的乘积 (Quantum signal processing) 可以表示相当丰富的一类幺正算符,
+&lt;/p&gt;
+$$
+\mathrm e^{\mathrm i\phi_0 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_1 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_2 \sigma_z} \cdots \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_k\sigma_z}.
+$$&lt;p&gt;这里 $\theta$ 可能&lt;strong&gt;未知&lt;/strong&gt;. 也可以使用参数 $x = \cos\theta$. 这样
+&lt;/p&gt;</description></item></channel></rss>

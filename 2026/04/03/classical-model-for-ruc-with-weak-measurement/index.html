@@ -1,0 +1,92 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Classical model for RUC with weak measurement | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Ref:
+
+Yimu Bao, Soonwon Choi, & Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019.
+
+
+Weak measurement
+最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.
+
+具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制:
+
+$$
+\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},
+$$
+其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$."><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/><meta property="og:url" content="https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Classical model for RUC with weak measurement"><meta property="og:description" content="Ref:
+Yimu Bao, Soonwon Choi, & Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019. Weak measurement 最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.
+具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制: $$\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},$$ 其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-03T15:25:25+08:00"><meta property="article:modified_time" content="2026-04-03T15:25:25+08:00"><meta property="article:tag" content="MIPT"><meta itemprop=name content="Classical model for RUC with weak measurement"><meta itemprop=description content="Ref:
+Yimu Bao, Soonwon Choi, & Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019. Weak measurement 最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.
+具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制: $$\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},$$ 其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$."><meta itemprop=datePublished content="2026-04-03T15:25:25+08:00"><meta itemprop=dateModified content="2026-04-03T15:25:25+08:00"><meta itemprop=wordCount content="845"><meta itemprop=keywords content="MIPT"><meta name=twitter:card content="summary"><meta name=twitter:title content="Classical model for RUC with weak measurement"><meta name=twitter:description content="Ref:
+Yimu Bao, Soonwon Choi, & Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019. Weak measurement 最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.
+具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制: $$\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},$$ 其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$."></head><body class="ma0 avenir bg-near-white production is-page is-page page-Classical-model-for-RUC-with-weak-measurement"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/808d6b104d9044cda88c.jpg)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">Classical model for RUC with weak measurement</div></div></div></header><main class=pb7 role=main><article class="page-Classical-model-for-RUC-with-weak-measurement flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Classical model for RUC with weak measurement</h1><time class="f6 mv4 dib tracked" datetime=2026-04-03T15:25:25+08:00>April 3, 2026</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Ref:</p><ol><li>Yimu Bao, Soonwon Choi, & Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019.</li></ol><hr><h2 id=weak-measurement>Weak measurement</h2><p>最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.</p><p><img src=/images/13c450e1459e404d8b5f.png alt></p><p>具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制:</p>$$
+\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},
+$$<p>其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$.</p><p>当 $\alpha = 0$, $\hat R_{\alpha}$ 并没有把辅助 qudit 和系统 qudit 纠缠起来, 所以相当于没有测量. 当 $\alpha = \pi / 2$, 如果系统 qudit 处在 $|i\rangle_s$, 就把辅助 qudit 投影到 $|i\rangle_m$, 这样一来, 测量辅助 qudit 得到不同态的概率就和系统 qudit 给出的 Born 概率完全相同, 并且测量同时会把系统 qudit 也投影到相同的测量结果上, 这实际上就对应了投影测量.</p><p>定量的解释基于如果我们在测量之后给辅助 qudit 作用一个 dephasing 门 $\mathcal N_\phi [\rho] = \sum_i |i\rangle_m \langle i|_m \rho | i\rangle_m \langle i |_m$,</p>$$
+\mathcal N_\phi [\hat R_\alpha (\rho_\text{in} \otimes |0\rangle_m \langle 0 |_m)\hat R_\alpha^\dagger]
+= (1 - p) \rho_\text{in} \otimes |0\rangle_m \langle 0 |_m +
+p \sum_i \hat P_i \rho_\text{in} \hat P_i \otimes |i \rangle_m \langle i|_m,
+$$<p>对于系统的约化密度矩阵来说, 总的量子信道和一个概率为 $p = \sin^2 \alpha$ 的投影测量的信道是相同的.</p><h2 id=observable>Observable</h2><p>希望用于观测 MIPT 发生的物理量是 von Neumann 熵</p>$$
+S[\rho_A] = - \mathrm{Tr}[\rho_A \log \rho_A]
+$$<p>和 Fisher 信息. 前者描述了系统的两个部分 (subregion $A$ 和它的补 $\bar{A}$) 之间的纠缠, 后者表述了当线路的初态发生改变, 线路输出的概率分布会在多大程度上发生改变, 也就是说, 系统传递信息的能力如何. Fisher 信息的定义依赖于所谓的 Kullback-Leibler (KL) divergence (relative entropy)</p>$$
+D_\text{KL}(P_0 || P_\theta) = {\sum_x} P_0(x) \log \left(\frac{P_0(x)}{P_\theta(x)}\right),
+$$<p>Fisher 信息被定义为其二阶导</p>$$
+\mathcal F \equiv \partial_\theta^2 D_\text{KL}(P_0 || P_\theta)|_{\theta = 0}.
+$$<p>这里不使用一阶导的原因是因为 $D_\text{KL}(P_0 || P_\theta) \geq 0$ 并且 $D_\text{KL}(P_0 || P_0) = 0$, 因此一阶导在 $\theta = 0$ 处总是 $0$.</p><p>希望使用 Fisher 信息来探测这个纠缠相变的原因是因为 Fisher 信息的获取只需要得到线路最终的概率分布即可, 相比于纠缠熵需要完全确定量子轨迹 (quantum trajectory) 下的多次测量来说, 在实验上的测量要简单很多.</p><p>当然在这个问题下, 我们要考虑对所有线路中测量结果的可能性 $\langle\cdot\rangle = \sum_{i_M} p_{i_M}$ 和整个 Haar 矩阵的系综 $\bar \cdot$:</p>$$\begin{gathered}
+\overline{\langle S_A(\mathcal U)\rangle} = \overline{\sum_{i_M}p_{i_M}S[\rho_A(\mathcal U, i_m)]}, \\
+D_\text{KL}(P_0||P_\theta) = \overline{\sum_x P_0(x) \log \left( \frac{P_0(x)}{P_\theta(x)}\right)},
+\end{gathered}$$<p>这里 KL divergence 表达式中对 $x$ 的求和涉及线路中所有测量的结果.</p><h3 id=replica-trick>Replica trick</h3><p>$\mathrm{Tr}(\rho \log \rho)$ 这样的量一般是很难计算的, 常见的处理方法是使用 replica trick: $\mathrm{Tr}(\rho \log \rho) = \lim_{n \rightarrow 1}\frac{\mathrm {\log (\mathrm{Tr}(\rho^n))}}{n - 1}$.</p><p>我们在这里计算的 von Neumann 熵还有额外的困难, 来源于我们还需要对可能的 Harr unitary $\mathcal U$ 和所有可能的测量结果 $i_M$ 取平均. 所以处理的第一步是试图去掉对于 $i_M$ 的平均:</p>$$
+\overline{\langle S_A(\mathcal U) \rangle} = \overline{\tilde{S}(A|M)} \equiv \overline{S[\tilde{\rho}_{AM}]} - \overline{S[\tilde{\rho}_{M}]}.
+$$<p>这里的 $\tilde \rho_X = \mathrm{Tr}_{\bar X} \mathcal N_\phi[\rho]$, 这一步把 $p_{i_M}$ 以密度矩阵的形式也写进表达式中了, 也就避免了对 $i_M$ 求平均. 利用 replica trick 则需要计算:</p>$$
+\tilde S^{(n)}(A | M) \equiv \frac{\log (\overline{\mathrm{Tr}\tilde \rho_{AM}^n}) - \log (\overline{\mathrm{Tr}\tilde \rho_{M}^n})}{1 - n}.
+$$<p>对于 KL divergence 和 Fisher 信息, 使用相同的处理, 要计算的量实际上变成</p>$$\begin{gathered}
+D^{(n)}(P_0 || P_\theta) \equiv \frac{\log (\overline{\mathrm{Tr}(\tilde \rho_{M, 0} \tilde \rho_{M, \theta}^{n - 1})}) - \log\overline{\mathrm{Tr(\tilde \rho_{M, 0}^n)}}}{1 - n}, \\
+\mathcal F^{(n)} \equiv \partial_\theta^2 D^{(n)}(P_0 || P_\theta)|_{\theta = 0}.
+\end{gathered}$$<h2 id=mapping-to-spin-models>Mapping to spin models</h2><p>不论是计算 von Neumann 熵还是 Fisher 信息, 都要计算一些矩</p>$$
+\mu_{AM}^{(n)} = \mathrm{Tr}(\tilde \rho_{AM, 1} \tilde \rho_{AM, 2} \cdots \tilde \rho_{AM, n}).
+$$<p>的平均值. 我们希望能将其映射成一个统计模型 $\overline{\mu_{AM}^{(n)}} = \mathcal Z_{AM}^{(n)}$.</p><h3 id=case-of-2-order-for-von-neumann-entropy>Case of 2-order for von Neumann entropy</h3><p>我们展示如何处理平均局域纯度 $\overline{\mu_{AM}^{(2)}} = \overline{\mathrm{Tr}(\tilde \rho_{AM}^2)}$. 如果引入 SWAP 算符则有</p>$$
+\mu_{AM}^{(2)} = \mathrm{Tr}\left(
+\left(\mathcal C^{(2)}_A \otimes \mathcal I_B^{(2)} \otimes \mathcal C_M^{(2)}\right)
+\left(\tilde \rho_{ABM} \otimes \tilde \rho_{ABM}\right)
+\right),
+$$<p>这里的 $\mathcal C^{(n)}_X$ 是作用在子区域 $A$ 上的 cyclic 置换.</p><p><img src=/images/2046d3b9b31e4226b423.png alt></p><p>可以把整个 $\overline{\mu_{AM}}$ 表示成子图 (a) 的形式. 其中 $\mathcal T$ 表示作用在两组 ket 和 bra 上的 $U \otimes U^* \otimes U \otimes U^*$, 对它作 Haar 测度下的平均给出</p>$$
+\overline{T^{2}_{\bm{ab};\bm{cd}}} = \sum_{\sigma, \tau = \pm 1} w_g^{(2)}(\sigma, \tau) \hat\tau_{\bm{ab}} \hat\sigma_{\bm{cd}},
+$$<p>其中 $w_g^{(2)}(\sigma, \tau)$ 是 Weingarten 函数, $\hat \sigma_{\bm{ab}}$ 被定义成</p>$$
+\hat \sigma_{\bm{ab}} = \begin{cases}
+\delta_{a_1b_1}\delta_{a_2b_2}, & \text{if } \sigma = +1, \\
+\delta_{a_1b_2}\delta_{a_2b_1}, & \text{if } \sigma = -1.
+\end{cases}
+$$<p>这个过程如子图 (c) 和 (d) 所示, 现在已经初步在层的每个门的位置处放置了两个格点 $\tau$ 和 $\sigma$, 它们之间通过权重 $w_g^{(2)}(\sigma, \tau)$ 连接. 层与层之间的连接依赖于不同的 $\mathcal T^{(2)}$ 之间的 $\mathcal M^{(2)}$. $\mathcal M^{(2)}$ 实际上是作用在两组 ket 和 bra 上的 $R_{\alpha}^*$ 和两个 dephasing 门 $\mathcal N_\phi$. 这个信道和两边的 $\sigma$ 和 $\tau$ 收缩之后会给出 $w_d(\sigma, \tau)$, 见子图 (f).</p><p>注意到所有的 $w$ 对于 $\sigma$ 和 $\tau$ 都是对称的, 只依赖于相对置换 $\tau^{-1} \sigma$.</p><p>现在整个"配分函数" (其实不一定是, 因为其中有的项不一定是非负的) 可以写成</p>$$
+\overline{\mu_{AM}^{(2)}} = \sum_{\sigma_r, \tau_r} W_\text{top} W_\text{bottom} \prod_{\langle r, r' \rangle} w^{(2)}(\sigma_r, \tau_{r'}).
+$$<p>上边界最终要和 $\mathcal C^{(2)}_A \otimes \mathcal I_B^{(2)}$ 收缩, 所以对于上边界中 subregion $A$ 中的 $\sigma$ 取 $-1$, 而 subregion $B = \bar A$ 中的 $\sigma$ 取 $+1$. 下边界是系统的初态, 对于 von Neumann 熵的计算来说总有 $W_\text{bottom} = 1$, 而如果是计算 Fisher 信息的话, 如果下边界的置换把 $1$ 置换成其他元素, $W_\text{bottom}$ 取 $|\langle \psi_0| \delta U(\theta) | \psi_0 \rangle|$, 否则取 $1$. 对于这里 $n = 2$ 的情况, 相当于增加了一个在边界上的磁场 $h (1 - \sigma_{x_0, 1})$.</p><h3 id=description>Description</h3><p>$\tilde S^{(n)}(A|M)$ 现在可以被看成是在边界上引入一个 domain wall 需要的自由能, 而 $\tilde D^{(n)}_\text{KL}$ 则是在边界引入磁场消耗的自由能, 对应的 $\mathcal F^{(n)}$ 和边界磁化的热力学期望有关.</p><p>这个系统的纠缠相变可以通过这个类 Potts ($n = 2$ 就是 Ising 模型) 来解释, 系统处于铁磁相的时候, 引入 domain wall 会导致引入和系统尺寸成正比的能量消耗, 也就是体积律, 而在顺磁相的时候几乎只影响局域, 所以只有一个常数的消耗.</p><h3 id=classical-ising-model>Classical Ising model</h3><p>尽管 $w_g^{(2)}(\sigma, \tau)$ 可能小于 $0$, 但可以积掉 $\tau$ 自由度, 变成一个真正的统计模型, 如子图 (c):</p>$$
+\beta \mathcal H = \sum_{\langle r, r' \rangle_d} J_d \sigma_r \sigma_{r'} + \sum_{\langle r, r'\rangle} J_h \sigma_r \sigma_{r'}.
+$$<p>在这个模型中总有 $J_d + J_h \leq 0$, 这个模型是精确可解的, 在</p>$$
+2 \mathrm e^{2J_h} = -2\sinh(2J_d)
+$$<p>处发生铁磁到顺磁的相变.</p><h3 id=standard-potts-model>Standard Potts model</h3><p>在 $q \rightarrow \infty$ 时, $J_h \rightarrow 0$. 统计模型变成一个在正方格点上的 Potts 模型, 这个模型也是精确可解的. 进一步的如果取 $n \rightarrow 1$ 的极限, 从 Potts 模型出发可以进一步变成一个 percolation 问题.</p><h2 id=non-local-measurement>Non-local measurement</h2><p>如果系统中的弱测量不是局域的, 系统一定在有限时间内被纯化, 也就是说非局域测量会导致这个纠缠相变的消失. 非局域性反映在统计模型中, 就是不作用 dephasing 门, 这导致了统计模型中的置换对称性被破坏, 如果时间足够长, 系统在边界的磁化可以预期总是 $1$, 也就是 Fisher 信息是 $0$, 系统在长时间下末态基本与初态无关. 这种行为可以看作是非局域测量总能破环了通过幺正演化传播的信息, 而局域测量则需要一定强度才能破坏这些已经被传递到周围的信息.</p><ul class=pa0><li class="list di"><a href=/categories/mipt/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">MIPT</a></li></ul><ul class=pa0><li class="list di"><a href=/tags/mipt/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">MIPT</a></li></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Gaussian model | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Gaussian model
+The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.
+The initial $\varphi^4$ theory is
+
+$$
+S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).
+$$
+Expand it near the saddle point. For $T > T_{c0}$, it is just
+
+$$
+S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)
+$$
+For $T < T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included.
+"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/02/05/gaussian-model/><meta property="og:url" content="https://g0nghu.github.io/2025/02/05/gaussian-model/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Gaussian model"><meta property="og:description" content="Gaussian model The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.
+The initial $\varphi^4$ theory is $$S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).$$ Expand it near the saddle point. For $T > T_{c0}$, it is just $$S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)$$ For $T < T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-05T21:37:02+08:00"><meta property="article:modified_time" content="2025-02-05T21:37:02+08:00"><meta itemprop=name content="Gaussian model"><meta itemprop=description content="Gaussian model The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.
+The initial $\varphi^4$ theory is $$S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).$$ Expand it near the saddle point. For $T > T_{c0}$, it is just $$S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)$$ For $T < T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included."><meta itemprop=datePublished content="2025-02-05T21:37:02+08:00"><meta itemprop=dateModified content="2025-02-05T21:37:02+08:00"><meta itemprop=wordCount content="1044"><meta itemprop=keywords content="Notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="Gaussian model"><meta name=twitter:description content="Gaussian model The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.
+The initial $\varphi^4$ theory is $$S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).$$ Expand it near the saddle point. For $T > T_{c0}$, it is just $$S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)$$ For $T < T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included."></head><body class="ma0 avenir bg-near-white production is-page is-page page-Gaussian-model"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-Gaussian-model flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Gaussian model</h1><time class="f6 mv4 dib tracked" datetime=2025-02-05T21:37:02+08:00>February 5, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id=gaussian-model>Gaussian model</h1><p>The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.</p><p>The initial $\varphi^4$ theory is</p>$$
+S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).
+$$<p>Expand it near the saddle point. For $T > T_{c0}$, it is just</p>$$
+S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)
+$$<p>For $T < T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included.</p>$$
+\begin{aligned}
+S[\bm \varphi] = & \int \mathrm d^dr \left(\frac{r_0}{2}(\sum_{i=2}^N\varphi_i'^2(\bm r) + (\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r))^2) + \frac{u_0}{4!}\bm \varphi^4 + \frac{1}{2}(\nabla \bm \varphi'(\bm r))^2\right) \\
+= & S_{MF} + \int \mathrm d^dr \left(-r_0 \varphi_1'(\bm r)^2 + (\nabla \bm \varphi'(\bm r))^2\right) \\
+= & S_{MF} + \frac{1}{2}\sum_{\bm p} \left[|\varphi_1'(\bm p)|^2(\bm p^2 - 2r_0) + \sum_{i=2}^N |\varphi_i'(\bm p)|^2 \bm p^2 \right]
+\end{aligned}
+$$<h2 id=correlation-functions>Correlation functions</h2><p>The correlation functions in the momentum space when $T > T_{c0}$ (disordered phase) are</p>$$
+G_\parallel(\bm p) = G_{\perp}(\bm p) = \frac{1}{\bm p^2 + \xi^{-2}}.
+$$<p>And for $T < T_{c0}$ (ordered phase),</p>$$\begin{gathered}
+G_\parallel(\bm p) \frac{1}{\bm p^2 + \xi^{-2}} \\
+G_\perp(\bm p) = \frac{1}{\bm p^2}
+\end{gathered}.$$<p>The two correlation length are different. The Gaussian fluctuations do not change the value of the order parameter and the transition temperature. Now we want to get the correlation functions in the real space.</p><p>The $G(\bm r)$ of $1/\bm p^2$ is satisfies the equation</p>$$
+-\nabla^2G(\bm r) = \delta(\bm r).
+$$<p>The solution is direct:</p>$$
+G(\bm r) = \begin{cases}
+\frac{1}{(d-2)S_d r^{d-2}} & \text{if} & d > 2 \\
+-\frac{1}{2\pi}\ln r + \text{const} & \text{if} & d = 2
+\end{cases}.
+$$<p>The $G(\bm r) = G(r)$ for $1/(\bm p^2 + \xi^{-2})$ satisfies</p>$$
+(-\nabla^2 + \xi^{-2})G(\bm r) = (-\frac{\partial^2}{\partial r^2} - \frac{d-1}{r}\frac{\partial}{\partial r} + \xi^{-2})G(r) = \delta(\bm r).
+$$<p>A trial solution is $e^{-r/\xi}/r^p$ at large distance.</p>$$
+\left(p(p+1)-p(d-1)\frac{1}{r^2}\right)\frac{1}{r^2} + \left(\frac{2p}{\xi}-\frac{d-1}{\xi}\right)\frac{1}{r} = 0
+$$<p>For $r \ll \xi$, $p = d - 2$. The $r$ dependence is logarithmic when $d=2$ and the assumption is not right. for $r \gg \xi$, $p = (d-1)/2$. The exact solution is the second kind of modified Bessel function.</p><h2 id=goldstones-theorem>Goldstone's theorem</h2><p>In the broken-symmetry phase, $G_\perp(\bm p) = \frac{1}{\bm p^2}$ and the uniform transverse susceptibility $\chi_\perp = \beta G_\perp(\bm p = 0)$ is infinite. It requires an infinitesimal field to rotate the direction of the magnetization. The reason is the soft modes: field configurations $\bm \varphi(\bm p)$ whose action $S[\varphi]$ vanishes in the long-wavelength limit $\bm p \rightarrow 0$.</p><p>This can be considered as a manifestation of Goldstone's theorem: a spontaneously broken continuous symmetry implies the existence of a low-energy mode whose energy $\omega_{\bm p}$ vanishes for $\bm p \rightarrow 0$. For the $\varphi^4$ theory with O($N$) symmetry, there are $N-1$ Goldstone modes.</p><p>The fluctuation gives the change of the action (transverse fluctuation)</p>$$
+S[\delta \bm \varphi_\perp] = \frac{\rho_s}{2}\sum_{\bm p}\delta \bm \varphi_\perp(-\bm p)G^{-1}_\perp \delta \bm \varphi_\perp(\bm p) = \frac{\rho_s}{2}\int \mathrm d^dr (\nabla \delta \bm \varphi_\perp)^2,
+$$<p>from which we know the transverse correlation function is</p>$$
+G_\perp(\bm p) = \frac{m^2}{\rho_s \bm p^2}.
+$$<p>Any spatial variation of the order parameter in the direction perpendicular to the ordering raises the energy of the system.</p><h2 id=mermin-wagner-theorem---lower-critical-dimension>Mermin-Wagner theorem - Lower critical dimension</h2><p>The transverse fluctuation is described by $\delta \bm \varphi_\perp = m \delta \tilde{\bm \varphi}_\perp$ and</p>$$
+\langle \delta \bm \varphi_\perp (\bm r) \rangle^2 = (N-1)\int\frac{\mathrm d^dp}{(2\pi)^d}G_\perp(\bm p) = (N-1)\frac{S_d}{(2\pi)^d}\int_0^\Lambda \frac{\mathrm dp}{p^{3-d}}.
+$$<p>When $d \leq 2$, the integral is infrared divergent and the assumption of SSB is wrong. Thermally excited transverse fluctuations destroy long-rangle order. This is Mermin-Wagner theorem: no SSB of continuous symmetry in 2D.</p><p>For the case of $N = 1$, the symmetry is discrete. For Ising model, the ground state is all-spin-down. Suppose the linear size of the system is $N$ and there is a droplet of spin-up with linear size $L$. The energy cost is $\sim 2JL^{d-1}$ and the entropy is $\sim \ln L$. The critical dimension is $1$.</p><p>By now we get two critical dimension $d_c^-$ and $d_c^+$. Below $d_c^-$ there is no ordered phase. Between the two value, there is order phase but the critical behavior is not described by mean-field theory. The mean-filed theory is correct with dimension higher than $d_c^+$.</p><h2 id=breakdown-of-mean-field-theory---upper-critical-dimension>Breakdown of mean-field theory - Upper critical dimension</h2><p>Here we want to discuss the reason for breakdown of mean-field theory with $d_c^- < d < d_c^+$.</p><h3 id=fluctuation-corrections-to-the-specific-heat---ginzburg-criterion>Fluctuation corrections to the specific heat - Ginzburg criterion</h3><p>For the disordered phase, the partition function is</p>$$
+Z = \prod_{\bm p}(r_0 + \bm p^2)^{-N/2}.
+$$<p>The specific heat is</p>$$\begin{aligned}
+c_V = & -T\frac{\partial^2 f}{\partial T^2} = -\frac{T\bar{r_0}^2}{V}\frac{\partial^2}{\partial r_0^2}\left(-(\frac{r_0}{\bar{r_0}}+T_{c0})\ln Z\right) \\
+= & \frac{NT\bar{r_0^2}}{2V}\left(T\sum_{\bm p}\frac{1}{(\bm p^2 + r_0)^2} - \frac{1}{\bar{r_0}}\sum_{\bm p}\frac{1}{r_0 + \bm p^2}\right).
+\end{aligned}$$<p>Near the critical point $r_0 \rightarrow 0$ so the first term is the most singular part.</p>$$
+c_V^{\text{sing}} = \frac{N}{2}T^2 \bar{r_0}^2 K_d \int_0^{\infty}\mathrm dp \frac{p^{d-1}}{(\bm p^2 + r_0)^2} = \frac{N}{2}T^2 \bar{r_0}^2 K_d \xi^{4-d} I(\Lambda \xi),
+$$<p>where $K_d = S_d / (2\pi)^d$ and $I(\Lambda \xi) = \int_0^{\Lambda \xi}\mathrm dx\frac{x^{d-1}}{(1+x^2)^2}$. If $d>4$ the integral is dominated bu the upper cutoff. We get the singular part of the specific heat,</p>$$
+c_V^{\text{sing}} \approx \frac{N}{2}T^2 \bar{r_0}^2 K_d \times \begin{cases}
+\frac{\Lambda^{d-4}}{d-4} & \text{if} & d>4, \\
+\ln(\Lambda \xi)& \text{if} & d=4, \\
+I\xi^{4-d}\ \text{independent of $\Lambda$} & \text{if} & d<4.
+\end{cases}
+$$<p>A similar analysis can be made below $T_{c0}$. The specific heat is</p>$$
+c_V^{\text{sing}} \approx c_{V,MF}^{\text{sing}} + 2T^2 \bar{r_0}^2 K_d \times \begin{cases}
+\frac{\Lambda^{d-4}}{d-4} & \text{if} & d>4, \\
+\ln(\Lambda \xi)& \text{if} & d=4, \\
+I\xi^{4-d}\ \text{independent of $\Lambda$} & \text{if} & d<4.
+\end{cases}
+$$<p>The Ginzburg criterion decides the temperature region the mean-field approximation is correct, $\Delta c_{V,MF} \sim c_{V, fl}$. Or we can rescale the action to make the variables to be dimensionless.</p>$$
+S[\tilde{\bm \varphi}] = \int \mathrm d^dr \left[\frac{1}{2}(\nabla_{\tilde{\bm r}}\tilde{\bm \varphi})^2 + \frac{1}{2}\tilde{\bm \varphi}^2 + \frac{\tilde{u_0}}{4!}\tilde{\bm \varphi}^4\right],
+$$<p>where $\tilde{\bm r} = \bm r / \xi$, $\tilde{\bm \varphi} = \xi^{(d-2)/2}\bm \varphi$, $\tilde{u_0} = \xi^{4-d}u_0$. In dimension $d > 4$, near the critical point $\tilde{u_0} \rightarrow 0$ and the theory becomes increasingly accurate. For $d < 4$ the perturbation becomes meaningless. The Ginzburg criterion can also be gotten from $\tilde {u_0} \sim 1$.</p><ul class=pa0><li class="list di"><a href=/categories/notes/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Notes</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

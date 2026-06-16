@@ -1,0 +1,184 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Applications of the path integral formulation | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A note for Sec 2.4 for 文小刚's 多体系统的量子场论.
+
+Applications of the path integral formulation
+Tunneling through a barrier
+我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).
+如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子
+
+$$\begin{gathered}
+\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\
+\langle x_0 | e^{-TH} | -x_0 \rangle  = 0.
+\end{gathered}$$如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.
+我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做instanton. 那么实际上的稳定路径可以有多个instanton."><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/><meta property="og:url" content="https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Applications of the path integral formulation"><meta property="og:description" content="A note for Sec 2.4 for 文小刚's 多体系统的量子场论.
+Applications of the path integral formulation Tunneling through a barrier 我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).
+如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子 $$\begin{gathered}\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\\langle x_0 | e^{-TH} | -x_0 \rangle = 0.\end{gathered}$$如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.
+我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做instanton. 那么实际上的稳定路径可以有多个instanton."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-04-10T15:26:42+08:00"><meta property="article:modified_time" content="2025-04-10T15:26:42+08:00"><meta itemprop=name content="Applications of the path integral formulation"><meta itemprop=description content="A note for Sec 2.4 for 文小刚's 多体系统的量子场论.
+Applications of the path integral formulation Tunneling through a barrier 我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).
+如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子 $$\begin{gathered}\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\\langle x_0 | e^{-TH} | -x_0 \rangle = 0.\end{gathered}$$如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.
+我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做instanton. 那么实际上的稳定路径可以有多个instanton."><meta itemprop=datePublished content="2025-04-10T15:26:42+08:00"><meta itemprop=dateModified content="2025-04-10T15:26:42+08:00"><meta itemprop=wordCount content="1314"><meta itemprop=keywords content="多体系统的量子场论"><meta name=twitter:card content="summary"><meta name=twitter:title content="Applications of the path integral formulation"><meta name=twitter:description content="A note for Sec 2.4 for 文小刚's 多体系统的量子场论.
+Applications of the path integral formulation Tunneling through a barrier 我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).
+如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子 $$\begin{gathered}\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\\langle x_0 | e^{-TH} | -x_0 \rangle = 0.\end{gathered}$$如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.
+我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做instanton. 那么实际上的稳定路径可以有多个instanton."></head><body class="ma0 avenir bg-near-white production is-page is-page page-Applications-of-the-path-integral-formulation"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/611c39a5001a4fe5b97c.png)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">Applications of the path integral formulation</div></div></div></header><main class=pb7 role=main><article class="page-Applications-of-the-path-integral-formulation flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Applications of the path integral formulation</h1><time class="f6 mv4 dib tracked" datetime=2025-04-10T15:26:42+08:00>April 10, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A note for Sec 2.4 for 文小刚's <em>多体系统的量子场论</em>.</p><hr><h2 id=applications-of-the-path-integral-formulation>Applications of the path integral formulation</h2><h3 id=tunneling-through-a-barrier>Tunneling through a barrier</h3><p>我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).</p><p>如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子</p>$$\begin{gathered}
+\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\
+\langle x_0 | e^{-TH} | -x_0 \rangle = 0.
+\end{gathered}$$<p>如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.</p><p>我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做<em>instanton</em>. 那么实际上的稳定路径可以有多个instanton.</p><p>当我们计算传播子的时候, 需要考虑所有的可能的稳定路径. 如果我们计算从$x_0$到$x_0$的传播子, 那么那些包含偶数个instanton的路径都应该被考虑:</p>$$\begin{aligned}
+\langle x_0 | e^{-TH} | x_0 \rangle = & e^{-T\omega_0/2}\sum_{n=\text{even}}
+\int_0^T \mathrm d\tau_n \cdots \int_0^{\tau_2} \mathrm d\tau_1 (Ke^{-S_0})^{n} \\
+= & e^{-T\omega_0/2}\sum_{n = \text{even}} \frac{T^n}{n!}(Ke^{-S_0})^n \\
+= & e^{-T\omega_0/2} \frac{1}{2} \left(e^{TKe^{-S_0}} + e^{-TKe^{-S_0}}\right)\\
+= & e^{-T\omega_0/2} \cosh (TKe^{-S_0}).
+\end{aligned}$$<p>上面的$e^{-T\omega_0/2}$的来自于路径的主要部分还是静止在极值点, $S_0$是稳定路径中instanton的作用量, 而$K$是在其周围的路径导致的微扰, 在这里应该有一个和频率相同的量纲, 很粗略的说, 大概是粒子撞上势垒的频率. 这里对$n$个$\tau_i$的积分来源于每个instanton出现的时间是不确定的. 那么类似的, 我们也可以得到</p>$$\begin{aligned}
+\langle x_0 | e^{-TH} | -x_0 \rangle = & e^{-T\omega_0/2}\sum_{n=\text{odd}}
+\int_0^T \mathrm d\tau_n \cdots \int_0^{\tau_2} \mathrm d\tau_1 (Ke^{-S_0})^{n} \\
+= & e^{-T\omega_0/2} \sinh (TKe^{-S_0}).
+\end{aligned}$$<p>那么考虑对称或者反对称的态$|\psi_\pm\rangle = (|x_0\rangle \pm |-x_0\rangle)/\sqrt 2$. 有</p>$$
+\langle \psi_\pm | e^{-TH} | \psi_\pm \rangle = \exp(-T(\frac{\omega_0}{2} \pm Ke^{-S_0})).
+$$<p>那么$|\psi_\pm\rangle$是两个能量是$\frac{\omega_0}{2}\pm Ke^{-S_0}$的本征态(大概, 起码是对称或者反对称的).</p><p>计算$S_0$, 虚时下经典的路径是$\dot{x} = \sqrt{2V(x)/m}$, 那么可以得到</p>$$
+S_0 = \int_{-\infty}^{\infty}\mathrm d\tau \left(\frac{1}{2}m\dot{x}^2 + V(x)\right)
+= \int_{-x_0}^{x_0}\mathrm dx \sqrt{2mV(x)}.
+$$<p>那么因为隧穿导致的能量修正是$\Delta E = 2K \exp(\int_{-x_0}^{x_0}\mathrm dx\sqrt{2mV(x)})$, 这就是WKB近似给出的结果. 但相比于WKB近似, 因为我们给出了一个路径, 因此可以估计隧穿的时间.</p><h3 id=fate-of-a-meta-stable-state>Fate of a meta-stable state</h3><p>现在我们来考虑一个势, 在最中间有一个势垒, 左边会掉到负无穷, 右边先下降到$0$($x_0$), 然后上升到正无穷, 形成一个势阱, 负半轴上的零点是$x_1$.</p><p>有一个粒子, 开始在$x_0$处, 我们关心它如何逐渐泄露出这个势阱. 为了描述这个隧导致的衰减, 我们需要计算$\langle x_0 |e^{-iTH}| x_0 \rangle$并希望它随时间衰减. 如果考虑虚时的路径积分的话, 除了路径$x_c(t) = x_0$, 还有其他的稳定路径, 从$x_0$出发, 经过整数个和$x_1$之间的instanton回到$x_0$. 和上一节讨论的类似,</p>$$
+\langle x_0 |e^{-iTH}| x_0 \rangle = e^{-T(\frac{\omega_0}{2} - Ke^{-S_0})}.
+$$<p>为了在做一个Wick旋转之后得到衰减的结果, 要求$K$应该是虚的, 我们接下来来说明这一点.</p><p>现在粒子的在虚时下的运动是由$-V(x)$确定的, 现在我们说的一个instanton是指从$x_0$出发到$x_1$又回到$x_0$, 或者叫一个bounce, 把包含一个bounce这个路径叫做$x_c(\tau)$. 那么$Ke^{-S_0}$应该是在$x_c$附近和$x(t) = x_0$附近的路径积分的比值,</p>$$
+Ke^{-S_0} = \frac{\int_{x_c}\mathcal D\delta x e^{-S}}{\int_{x=x_0}\mathcal D\delta x e^{-S}}.
+$$<p>具体地, 在$x_c$附近</p>$$
+S = S_0 + \int \mathrm d\tau \delta x \frac{1}{2}\left[-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c(\tau))\right]\delta x,
+$$<p>在$x_0$附近</p>$$
+S = \int d\tau \delta x \frac{1}{2}\left[-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_0)\right]\delta x.
+$$<p>上面三个表达式是由于: 首先在$x=x_0$上的积分是$0$, 然后我们要计算的是$Ke^{-S_0}$, 这个值只有在instanton上的贡献, 所以我们要除掉平凡路径$x_0$的贡献. 现在得到</p>$$
+K = \left(\frac{\det(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_0))}{\det(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c))}\right).
+$$<p>问题是上面的表达式的分母上的矩阵, 实际上有零特征值. 如果我们考虑路径$x_c(\tau)$和一个按时间平移一点的路径$x_c(\tau + \eta)$, 它们都是稳定路径, 满足对应的运动方程</p>$$
+-m\frac{\mathrm d^2 x_c(\tau)}{\mathrm d\tau^2} + V'(x_c(\tau)) =
+-m\frac{\mathrm d^2 x_c(\tau + \eta)}{\mathrm d\tau^2} + V'(x_c(\tau + \eta)) = 0.
+$$<p>这样我们就得到</p>$$
+\left[-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c)\right]\dot{x_c}(\tau) = 0.
+$$<p>这说明$\dot{x_c}(\tau)$是一个特征值为零的路径, 并且依赖于$bounce$发生的位置. 那么之间的讨论是有问题的, 正确的表达式是</p>$$
+\int \mathrm d\tau_1 Ke^{-S_0} = \frac{\int_{x_c}\mathcal D\delta x e^{-S}}{\int_{x=x_0}\mathcal D\delta x e^{-S}},
+$$<p>需要积分掉bounce在时间轴上出现的位置. 现在来仔细地讨论这个表达式: 首先给出$-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c)$的第$n$个归一化的特征向量是$x_n$, 那么有$\delta x = \sum_n c_n x_n$, 我们可以定义如下的截断的配分函数</p>$$\begin{aligned}
+Z_N(x_c) \equiv & A_N \int \prod_1^N \frac{\mathrm dc_n}{\sqrt{2\pi}} e^{-\int \mathrm d\tau \delta x \frac{1}{2}\left[-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c(\tau))\right]\delta x} \\
+= & A_N \left(\det_N\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c(\tau))\right)\right)^{-1/2}.
+\end{aligned}$$<p>这里$\det_N$表示前$n$个特征值的乘积, 取$N\rightarrow \infty$就得到真正的配分函数. 由于零模$x_1$的存在, 上式需要重写为</p>$$
+Z_N(x_c) = A_N\int \frac{\mathrm dc_1}{\sqrt{2\pi}}\left(\det'_N\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c(\tau))\right)\right),
+$$<p>$\det'$表示不计入零特征值. 对$c_1$表示零模的自由度, 实际上就是$\tau_1$, 表示bounce发生的时间, $\mathrm d\tau_1 = \frac{\mathrm dc_1}{\sqrt{S_0/m}}$, 这一点可以按如下推导看出,</p>$$
+\frac{m}{2}\frac{\mathrm d}{\mathrm d\tau}(\dot{x_c})^2 = \frac{\mathrm d}{\mathrm d\tau}V(x_c),
+$$<p>如果$V(x_0) = 0$, 就有$\frac{m}{2}\dot{x_c}^2 = V(x_c)$. 计算一个bounce导致的作用量是</p>$$
+S_0 = \int \mathrm d\tau \left[\frac{1}{2}m\dot{x_c}^2 + V(x_c)\right] = \int \mathrm d\tau m\dot{x_c}^2.
+$$<p>由此我们得到归一化的零模是</p>$$
+x_1(\tau) = \frac{\dot{x_c}(\tau)}{\sqrt{S_0/m}}.
+$$<p>那么现在在$x_c$附近一个$\delta x = c_1x_1$的扰动, 实际上是相当于把$x_c(\tau)$的时间平移$\mathrm d\tau = \frac{c_1}{\sqrt{S_0/m}}$. 现在有</p>$$
+Z_N(x_c) = A_N\int \mathrm d\tau_1 \sqrt{\frac{S_0}{2\pi m}}\left(\det'_N\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c(\tau))\right)\right)^{-1/2}.
+$$<p>类似地可以写下</p>$$
+Z_N(x_0) = A_N\left(\det_N\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_0)\right)\right)^{-1/2}.
+$$<p>现在得到</p>$$
+\int \mathrm d\tau K = \lim_{N\rightarrow\infty}\frac{Z_N(x_c)}{Z_N(x_0)},
+$$<p></p>$$
+K = \sqrt{\frac{S_0}{2\pi m}}\left(\frac{\det\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_0)\right)}{\det'\left(-m\frac{\mathrm d^2}{\mathrm d\tau^2} + V''(x_c)\right)}\right)^{1/2}.
+$$<p>分子和分母相差一个特征值给出了$K$的量纲和频率相同. 分子上的矩阵的特征值都是正的, 分母上的算符, 我们已知它有一个有一个node的零模, 那么一定有一个唯一的负特征值没有node, 这导致$K$是虚数.</p><p>我们上一节讨论的隧穿也可以用类似的方法处理, 但这种情况下$x_c(t)$没有node, 所以没有一个更小负特征值, $K$是实数.</p><h3 id=quantum-theory-of-friction>Quantum theory of friction</h3><p>摩擦是一种耗散, 我们需要考虑一个开放系统来描述这个现象. 考虑下面的系统</p>$$
+Z = \mathrm{const}\times \int \mathcal D[x(t)] \mathcal D[h_i(t)]
+\exp\left[i\int \mathrm dt \left(
+\frac{1}{2}m\dot{x}^2 + \sum_i\left(\frac{1}{2}\dot{h_i}^2 - \frac{1}{2}\left(\Omega_i h_i + g_i x\right)^2\right)
+\right)\right].
+$$<p>这描述了一个和环境谐振子耦合的谐振子. 如果这个系统有平移对阵性的话, 我们可以积掉$h_i$的自由度,</p>$$
+Z = \mathrm{const}\times \int \mathcal D[x(t)]\exp\left[
+i\int \mathrm dt \frac{m}{2}\dot{x}^2 + i \int \mathrm dt \mathrm dt'
+\frac{1}{4}G_{os}(t - t')(x(t) - x(t'))^2.
+\right]
+$$<p>这里的$G_{os}$应该是按照耦合系数的平方加权,</p>$$\begin{aligned}
+G_{os}(t - t') = & \sum_i \Omega_i^2 g_i^2 (-i) \langle h_i(t)h_i(0) \rangle \\
+= & -i \sum_i \frac{g_i^2 \Omega_i}{2}e^{-i|t - t'|\Omega_i} \\
+= & -i \int_0^\infty \mathrm d\Omega n(\Omega) \frac{\Omega g^2(\Omega)}{2}e^{-i|t - t'|\Omega}.
+\end{aligned}$$<p>这里$n(\Omega) = \sum_i \delta(\Omega - \Omega_i)$是态密度, $g^2(\Omega) = \sum_i g_i^2 \delta(\Omega - \Omega_i) / \sum_i \delta(\Omega - \Omega_i)$.</p><p>上面我们给出的有效理论可以给出运动方程, 这种有两个时间的运动方程之前没有处理过, 所以写得详细一点, 对这个作用量变分可以得到(过程中涉及一次交换$t$和$t'$)</p>$$
+m\ddot{x} = \int \mathrm dt' G_{os}(t - t')(x(t) - x(t')).
+$$<p>右边第一项积分是$G_{os}(\omega)$, 第二项是$G_{os}(t)$和$x(t)$的卷积, F.T.得到</p>$$
+-\omega^2 m x_\omega = -(G_{os}(\omega) - G_{os}(0))x_\omega.
+$$<p>这是一个描述了阻尼的系统的运动方程,</p>$$\begin{aligned}
+-\omega^2 m^* x_\omega = & - (-i\omega)\gamma x_\omega,\\
+m* = m - \frac{\mathrm{Re}(G_{os}(\omega) - G_{os}(0))}{\omega^2}, \ \ \ & \gamma = -\frac{\mathrm{Im}G_{os}(\omega)}{\omega}.
+\end{aligned}$$<p>上面描述的理论有一个问题: 如果$\mathrm{Im}G_{os}(\omega) < 0$, 那么$\omega > 0$时$\gamma > 0$, 但$\omega < 0$时$\gamma < 0$, 这时不合理的. 注意到在我们最开始的理论是满足时间反演不变的, 如果$\omega > 0$对应了衰减, 那$\omega < 0$就对应衰减的反过程.</p><p>现在我们希望能找到一个破环时间反演的形式. 在这个系统中, $t = -\infty$的态$|0_-\rangle$和$t = \infty$的态$|0_+\rangle$是正交的, 粒子被环境减速, 环境部分被激发到高能的态上. 这样我们计算$\langle 0 | U(\infty, -\infty) | 0 \rangle$是零, 只能用来描述这种耗散系统的平衡性质. 一种改进的办法是考虑Schwinger-Keldysh形式, 一个封闭路径积分$Z_{\text{close}} = \langle 0 |U(-\infty, \infty)U(\infty, -\infty)| 0 \rangle$.</p><p>或者利用我们之前说的, 把运动方程中的时序关联函数换成响应函数就可以, 利用$\mathrm{Im}D(\omega) = \mathrm{sgn}(\omega)\mathrm{Im}R(\omega)$, 我们就可以得到合法的阻尼系数</p>$$
+\gamma = \frac{\pi}{2}n(|\omega|)g^2(|\omega|).
+$$<p>实际系统中$\Omega$的频率应该是截断的, 如果选取$n(\Omega)g^2(\Omega) = n_0 g_0 e^{-\Omega^2/\Omega_0^2}$, 那么系统的运动由如下作用量描述</p>$$
+S = \int \mathrm dt \frac{m}{2}\dot{x}^2
++i \int \mathrm dt \mathrm dt' \frac{\gamma(x(t) - x(t'))^2}{4\pi(t - t')^2}.
+$$<h3 id=quantum-theory-of-an-rcl-circuit>Quantum theory of an RCL circuit</h3><p>如果引入$\hat{q}|q\rangle = q|q\rangle$, 电容的Hamiltonian是$\frac{\hat{q}^2}{2C}$, 如果把$\hat{q}$对应动量, 那对应的Lagrangian是$\frac{1}{2}C\dot{x}^2$. 如果考虑一个CL电路, 总的Lagrangian是</p>$$
+L_{CL} = \frac{C}{2}\dot{x}^2 - \frac{1}{2L}x^2,
+$$<p>给出运动方程</p>$$
+C\frac{\mathrm d^2 x}{\mathrm dt^2} = -\frac{x}{L}.
+$$<p>我们现在可以使用一组共轭的变量$[\hat{q}, \hat{x}] = i$, 写下CL电路形如谐振子的Hamiltonian,</p>$$
+H = \frac{1}{2C}\hat{q}^2 + \frac{1}{2L}\hat{x}^2.
+$$<p>如果考虑并联一个电阻, 实际上相当于阻尼, 运动方程变成</p>$$
+C\frac{\mathrm d^2 x}{\mathrm dt^2} = -\frac{x}{L} - \frac{1}{R}\frac{\mathrm dx}{\mathrm dt}.
+$$<p>那么我们可以使用下面的作用量来描述这个并联RLC电路</p>$$
+S_{\text{RLC}} = \int \mathrm dt \left(\frac{1}{2}C\dot{x}^2 - \frac{1}{2L}x^2\right)
++i\int \mathrm dt\mathrm dt' \frac{(x(t) - x(t'))^2}{4\pi R(t - t')^2}.
+$$<p>如果要考虑电荷的量子化, $q = e^* \times \text{integer}$, 因为我们说电量对应于动量, 动量的量子化表明$x$是周期边界的, 周期是$\frac{2\pi}{e^*}$. 这时我们需要把上面的作用量周期化, 最简单的做法是</p>$$
+S_{\text{RLC}} = \int \mathrm dt \left(\frac{1}{2}C\dot{x}^2 - \frac{1 - \cos(e^* x)}{Le^{*2}}\right)
++i\int \mathrm dt \mathrm dt' \frac{\sin^2(\frac{e^*}{2}(x(t) - x(t')))}{\pi R e^{*2}(t - t')^2}.
+$$<p>在$e^*\rightarrow 0$的极限下回到之前没有周期化的作用量.</p><h3 id=relationship-between-dissipation-and-fluctuation>Relationship between dissipation and fluctuation</h3><p>考虑一个经典的涨落$x(t)$, 定义它的总功率是</p>$$
+P_{\text{tot}} = \int_0^\infty \mathrm dt |x(t)|^2 / t_\infty = 2\int_0^\infty \frac{\mathrm d\omega}{2\pi}x_{-\omega}x_\omega / t_\infty.
+$$<p>$x_{-\omega}x_\omega / t_\infty$是功率谱. 那么对于量子涨落, 它的功率谱被定义为</p>$$
+P(\omega) = 2\langle x_{-\omega}x_\omega \rangle / t_\infty = -2\mathrm{Im}G_\omega.
+$$<p>利用$\mathrm{Im}G(\omega) = \frac{\mathrm{Im}D(\omega)}{\tanh(\beta\omega / 2)}$, 可以从响应函数得到功率谱.</p><p>考虑一个带有阻尼的系统</p>$$
+m\ddot{x} = - K x - \gamma \dot{x} + f(t).
+$$<p>这个系统的解可以写成</p>$$
+x(t) = - \frac{1}{-m \frac{\mathrm d^2}{\mathrm dt^2} - \gamma \frac{\mathrm d}{\mathrm dt} - K}f.
+$$<p>这个解可以看成是对于$\delta H = -f(t)x$的响应, $x(t) = \int \mathrm dt' D(t - t')f(t) \equiv -Df$. 这样有</p>$$
+D = \frac{1}{-m \frac{\mathrm d^2}{\mathrm dt^2} - \gamma \frac{\mathrm d}{\mathrm dt} - K}.
+$$<p>$D$描述了耗散, $G$描述了涨落, 根据之前关联函数之间的关系, 我们把这两种现象联系在一起. 此外由于$D$对温度没有依赖, 所以</p>$$
+P^V(\omega) = \frac{1}{\tanh(\hbar \omega/ 2T)}P_0^V(\omega).
+$$<p>和经典涨落的谱之间有如下关系, 对于简谐系统都是适用的,</p>$$
+P^V(\omega) = \frac{\hbar \omega}{2T\tanh(\hbar \omega / 2T)}.
+$$<h3 id=path-integral-description-of-a-random-differential-equation>Path integral description of a random differential equation</h3><p>在之前我们考虑的带有阻尼的运动方程中, 如果取$f = 0$, 在足够长时间之后, $x=0$. 但是因为有阻尼的存在, 实际上我们需要考虑系统的涨落, 一种处理方式是考虑一个随机分布的$f(t)$. 为了验证这种假设的合理性, 我们计算平均关联函数</p>$$
+\langle x(t_b)x(t_a) \rangle = \int \mathcal D[f(t)] \mathcal D[x(t)]
+x(t_b)x(t_a) P[f(t)] \delta [x(t) - x^f(f)],
+$$<p>其中$x = \mathcal K^{-1}f$是在$f(t)$下的运动方程, 因为$\mathcal K$不依赖于$f$, 我们有</p>$$
+\delta(x(t) - x^f(t)) \propto \delta(\mathcal K x(t) - f(t)).
+$$<p>这个关联函数可以被重写成</p>$$\begin{aligned}
+\langle x(t_b)x(t_a) \rangle = & \frac{\int \mathcal D[f(t)] \mathcal D[x(t)]
+x(t_b)x(t_a) P[f(t)] \delta(\mathcal K x(t) - f(t))}{\int \mathcal D[f(t)] \mathcal D[x(t)] P[f(t)] \delta(\mathcal K x(t) - f(t))} \\
+= & \frac{\int \mathcal D[f(t)] \mathcal D[x(t)] \mathcal D[\lambda(t)]
+x(t_b)x(t_a) P[f(t)] e^{i\int \lambda[\mathcal K x - f]}}{\int \mathcal D[f(t)] \mathcal D[x(t)] \mathcal D[\lambda(t)] P[f(t)] e^{i\int \lambda[\mathcal K x - f]}}.
+\end{aligned}$$<p>通过引入一个新的场, 我们把这个(热)平均值写成了路径积分的形式. 如果$f(t)$的分布是Gaussian的,</p>$$\begin{gathered}
+P[f(t)] \propto e^{-\frac{1}{2}\int f\mathcal V f},\\
+\int f\mathcal V f = \int \mathrm dt\mathrm dt' f(t')\mathcal V(t, t')f(t),
+\end{gathered}$$<p>我们可以积掉这个路径积分</p>$$\begin{aligned}
+\langle x(t_b)x(t_a) \rangle = & \frac{\mathcal D[x(t)]\mathcal D[\lambda(t)]
+x(t_b)x(t_a)e^{\int i\lambda \mathcal K x - \frac{1}{2}\lambda \mathcal V^{-1} \lambda}}
+{\mathcal D[x(t)]\mathcal D[\lambda(t)]
+e^{\int i\lambda \mathcal K x - \frac{1}{2}\lambda \mathcal V^{-1} \lambda}} \\
+= & \frac{\mathcal D[x(t)] x(t_b)x(t_a) e^{-\int \frac{1}{2}x\mathcal K^T \mathcal V \mathcal K x}}
+{\mathcal D[x(t)] e^{-\int \frac{1}{2}x\mathcal K^T \mathcal V \mathcal K x}}\\
+= & (\mathcal K^T\mathcal V \mathcal K)^{-1}(t_b - t_a).
+\end{aligned}$$<p>这里$\mathcal K^T\mathcal V \mathcal K$的逆就是$\mathcal K^T\mathcal V \mathcal K(t)\mathcal G(t - t') = \delta(t - t')$的解. 由此也可以看出$\langle x(t_b)x(t_a) \rangle = \langle x(t_a)x(t_b) \rangle$, 这样它的F.T.就是实的并且等于一半的功率谱. 为了产生合适的$x$的涨落, 要求</p>$$
+\mathcal K^{T} \mathcal V \mathcal K = \frac{\tanh(\omega \hbar / 2T)[(-m\omega^2 + K)^2 + \omega^2\gamma^2]}{\gamma \omega \hbar},
+$$<p>或者说</p>$$
+\mathcal V = \frac{\tanh(\omega \hbar / 2T)}{\gamma\omega\hbar}.
+$$<p>现在我们成功地用一个经典随机方程模拟了量子涨落.</p><ul class=pa0><li class="list di"><a href=/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">多体系统的量子场论</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

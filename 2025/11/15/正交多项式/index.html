@@ -1,0 +1,117 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>正交多项式 | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.
+正交多项式
+在区间$[a, b]$上定义函数内积
+
+$$
+(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.
+$$
+其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.
+正交多项式的三项关系
+对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.
+证明: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有
+
+$$
+0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).
+$$
+其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$."><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/11/15/%E6%AD%A3%E4%BA%A4%E5%A4%9A%E9%A1%B9%E5%BC%8F/><meta property="og:url" content="https://g0nghu.github.io/2025/11/15/%E6%AD%A3%E4%BA%A4%E5%A4%9A%E9%A1%B9%E5%BC%8F/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="正交多项式"><meta property="og:description" content="最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.
+正交多项式 在区间$[a, b]$上定义函数内积 $$(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.$$ 其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.
+正交多项式的三项关系 对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.
+证明: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有 $$0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).$$ 其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-11-15T14:08:00+08:00"><meta property="article:modified_time" content="2025-11-15T14:08:00+08:00"><meta itemprop=name content="正交多项式"><meta itemprop=description content="最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.
+正交多项式 在区间$[a, b]$上定义函数内积 $$(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.$$ 其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.
+正交多项式的三项关系 对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.
+证明: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有 $$0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).$$ 其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$."><meta itemprop=datePublished content="2025-11-15T14:08:00+08:00"><meta itemprop=dateModified content="2025-11-15T14:08:00+08:00"><meta itemprop=wordCount content="605"><meta itemprop=keywords content="Notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="正交多项式"><meta name=twitter:description content="最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.
+正交多项式 在区间$[a, b]$上定义函数内积 $$(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.$$ 其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.
+正交多项式的三项关系 对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.
+证明: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有 $$0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).$$ 其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$."></head><body class="ma0 avenir bg-near-white production is-page is-page page-正交多项式"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/f47b389306b84381b8bb.jpg)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">正交多项式</div></div></div></header><main class=pb7 role=main><article class="page-正交多项式 flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">正交多项式</h1><time class="f6 mv4 dib tracked" datetime=2025-11-15T14:08:00+08:00>November 15, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.</p><h2 id=正交多项式>正交多项式</h2><p>在区间$[a, b]$上定义函数内积</p>$$
+(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.
+$$<p>其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.</p><h2 id=正交多项式的三项关系>正交多项式的三项关系</h2><p>对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.</p><p><strong>证明</strong>: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有</p>$$
+0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).
+$$<p>其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$.</p><p>而且可以确定具体的表达式, 如果取首项系数为$1$, $b_n = 1$, 此外</p>$$\begin{gathered}
+0 = (P_n, P_{n+1}) = a_n(P_n, P_n) + (P_n, xP_n),\\
+0 = (P_{n-1}, P_{n+1}) = (P_{n-1}, xP_n) + c_n(P_{n-1}, P_{n-1}).
+\end{gathered}$$<p>给出</p>$$\begin{gathered}
+a_n = -\frac{(xP_n, P_n)}{(P_n, P_n)},\\
+c_n = -\frac{(P_n, xP_{n-1})}{(P_{n-1}, P_{n-1})}.
+\end{gathered}$$<p>也就是对于首项为$1$的正交多项式, 三项关系是:</p>$$
+P_{n+1}(x) = \left(x - \frac{(xP_n, P_n)}{(P_n, P_n)}\right)P_n(x) - \frac{(P_n, xP_{n-1})}{(P_{n-1}, P_{n-1})}P_{n-1}(x).
+$$<p>如果考虑的是<strong>规范正交多项式</strong>, 如果$n$次表达式是$P_n^*(x) = k_n x^n + s_n x^{n-1} + \cdots$, 三项关系假设为$P_{n+1}^*(x) = (a_nx + b_n)P_n^*(x) - c_n P_{n-1}^*{x}$.</p>$$\begin{aligned}
+0 = & (P_{n+1}^*, P_n^*) = a_n(xP_n^*, P_n^*) + b_n(P_n^*, P_n^*) - c_n(P_{n-1}^*, P_n^*) \\
+= & a_n k_n (x^{n+1}, P_n^*) + a_n s_n (x^n, P_n^*) + b_n k_n(x^n, P_n^*)\\
+= & a_n \frac{k_n}{k_{n + 1}}(k_{n+1}x^{n+1} + s_{n+1}x^n, P^*_{n}) + (-a_n \frac{k_n}{k_{n+1}}s_{n+1} + a_ns_n)(x^n, P_n^*) + b_n k_n(x^n, P_n^*)\\
+= & \left(-\frac{a_nk_ns_{n+1}}{k_{n+1}} + a_ns_n + b_n k_n\right)(x^n, P^*_n),
+\end{aligned}$$<p>给出</p>$$
+b_n = a_n(\frac{s_{n+1}}{k_{n+1}} - \frac{s_n}{k_n}).
+$$<p>此外</p>$$\begin{aligned}
+0 = & (P_{n+1}^*, P_{n - 1}^*) = a_n(xP_n^*, P_{n-1}^*) - c_n(P_{n-1}^*, P_{n-1}^*)\\
+= & a_n (P_n^*, k_{n-1}x^n) - c_n k_{n-1} (x^{n-1}, P_{n-1})\\
+= & a_n \frac{k_{n-1}}{k_n}(P_n^*, P_n^*) - c_n \frac{k_{n-1}}{k_{n-1}}(P_{n-1}^*, P_{n-1}^*),
+\end{aligned}$$<p>给出</p>$$
+c_n = \frac{k_n}{k_{n-1}}a_n = \frac{k_{n+1}k_{n-1}}{k_n^2}.
+$$<h2 id=chebyshev多项式>Chebyshev多项式</h2><p>Chebeshev多项式定义在$[-1, 1]$上,</p>$$
+T_n(x) = \cos(n\arccos x).
+$$<p>首先可以证明它确实是多项式, 考虑</p>$$\begin{gathered}
+T_{n+1}(x) = \cos((n+1)\arccos x) =T_n(x) - \sin(n\arccos x)\sin x,\\
+T_{n-1}(x) = \cos((n-1)\arccos x) = T_n(X) + \sin(n\arccos x) \sin x.
+\end{gathered}$$<p>那么不同的$T_n$之间满足:</p>$$
+T_{k+1}(x) = 2xT_{k}(x) - T_{k-1}(x).
+$$<p>结合$T_0(x) = 1$, $T_1(x) = x$, $T_n$确实都是多项式. $T_n(x)$的权重是$1/\sqrt{1 - x^2}$.</p><p>Chebyshev多项式的一个重要用途是用于Lagrange插值: Chebyshev多项式的零点</p>$$
+x_k = \cos\frac{(2k - 1)\pi}{2n}
+$$<p>给出了是的Lagrange插值余项最小的插值节点. 这一性质的来源是, 定义在$[-1, 1]$上的首项为$1$的$n$次多项式$p_n$, 其无穷范数$||p_n||_\infty = \max_{-1\leq x\leq 1}|p_n(x)|\geq 2^{1-n}$, 而Chebyshev多项式恰好给出了这个下界. Lagrange插值的余项取决于多项式$\omega(x) = \prod_k(x - x_k)$的无穷范数, 其中$x_k$是插值节点. $\omega(x)$的无穷范数也应该满足上面的不等式, 为了使余项尽可能小, 就把插值节点选作Chebyshev多项式的零点, 这样$\omega(x)$成为Chebyshev多项式, 给出余项无穷范数的下界.</p><h3 id=用于谱函数的计算>用于谱函数的计算</h3><p>Ref: <a href=https://doi.org/10.1103/PhysRevResearch.5.023026>PhysRevResearch.5.023026</a></p><p>希望计算如下的谱函数:</p>$$
+G(\omega) = \langle \psi_0 | \hat O^\dagger \delta(\omega - \hat{H} + E_0)\hat O | \psi_0\rangle.
+$$<p>首先Dirac函数可以按Chebyshev多项式展开为:</p>$$
+\delta(y-x) = \frac{1}{\pi \sqrt{1 - x^2}}\left(1 + 2\sum_{n=1}^{\infty}T_n(x)T_n(y)\right).
+$$<p>这个表达式可以被简单的验证:</p>$$\begin{aligned}
+\frac{T_n(x)}{\sqrt{1-x^2}} = & \int_0^1\frac{1}{\sqrt{1-y^2}}\delta(x - y)T_n(y)\mathrm dy
+\end{aligned}$$<p>当$n = 0$时, $(T_n, T_n) = \pi$, $n\neq 0$时, $(T_n, T_n) = \pi / 2$, 这给出了展开系数. 此外注意到上面的表达式对于$x, y$是对称的.</p><p>再重新定义频率的取值将其限制在$[-1, 1]$上之后, 现在我们可以把谱函数展开成:</p>$$
+G(\omega) = \frac{1}{a\pi\sqrt{1 - \omega^2}}\left(\mu_0 + 2\sum_{n=1}^{\infty}\mu_nT_n(\omega)\right),
+$$<p>其中$a$是缩放的倍数, $H' = H-E_0$, 而</p>$$
+\mu_n = \langle \psi_0 | \hat O^\dagger T_n(\hat H') \hat O | \psi_0 \rangle.
+$$<p>考虑Chebyshev多项式的三项关系,</p>$$\begin{aligned}
+\mu_{n+1} = & \langle \psi_0 | \hat O^\dagger T_{n+1}(\hat H') \hat O | \psi_0 \rangle \\
+= & \langle \psi_0 |\hat O^\dagger (2\hat{H'}T_{n}(\hat H') - T_{n-1}(\hat H'))O^\dagger|\psi_0\rangle,
+\end{aligned}$$<p>那么确定$\mu_{n+1}$, 只需要进行如下计算,</p>$$\begin{gathered}
+|t_0\rangle = \hat O |\psi_0\rangle, \\
+|t_1\rangle = \hat H' |t_0\rangle, \\
+|t_{n+1}\rangle = 2\hat H' |t_n\rangle - |t_{n-1} \rangle,\\
+\mu_n = \langle t_0 | t_n \rangle.
+\end{gathered}$$<p>当考虑的多项式次数无穷大的时候, 上面的展开是精确的, 但是在实际计算中我们总是要在某个次数$N_c$上截断. 对于多项式逼近来说, 如果被逼近的函数并不光滑, 在间断点处逼近的效果比较差, Dirac函数就是这样, 下图给出了$N_c = 4, 8, 20, 50, 100$对于$\delta(x - 1/2)$的结果:
+<img src=/images/174ebadff1d845519431.png alt="Truncated Chebyshev">
+可以看到在间断点附近出现明显的振荡, 而且随着考虑的次数增加甚至越来振幅增大, 为了减小这一Gibbs振荡的影响, 可以考虑给各次的Chebyshev多项式乘上一个阻尼系数, 一个选择是Jackson阻尼:</p>$$
+g_n = \frac{(N_c - n + 1)\cos\frac{\pi n}{N_c + 1} + \sin \frac{\pi n}{N_c + 1}\cot \frac{\pi}{N_c + 1}}{N_c + 1}.
+$$<p>在考虑了这一阻尼之后, 逼近的效果就会好很多:
+<img src=/images/8ed8b6fed57f4a8d9bb5.png alt="Truncated Chebyshev with Jackson damping"></p><p>另一个问题是为什么使用Chebyshev多项式而不是其他的正交多项式, 我猜测原因可能是Chebyshev多项式的三项关系其实只有两项, 如果采用别的正交多项式, 就需要计算</p>$$\begin{aligned}
+\mu_{n+1} = & \langle t_0 | P_{n+1}(\hat H) | t_0 \rangle \\
+= & \langle t_0 | \alpha_n \hat H P_{n} + \beta_n P_n + \gamma_n P_{n-1}|t_0\rangle,
+\end{aligned}$$<p>需要迭代计算的态就是</p>$$
+|t_{n+1}\rangle = P_{n+1}(\hat H)|t_0\rangle = (\alpha_n\hat H + \beta_n)P_n(\hat H)|t_0\rangle + \gamma_n P_{n-1}|t_0\rangle = (\alpha_n\hat H + \beta_n)|t_n\rangle + \gamma_n |t_{n-1}\rangle.
+$$<p>这里相比Chebyshev多项式的计算多出一项, 需要额外的计算开销.</p><ul class=pa0><li class="list di"><a href=/categories/notes/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Notes</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

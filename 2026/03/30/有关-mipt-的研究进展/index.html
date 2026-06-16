@@ -1,0 +1,74 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>有关 MIPT 的研究进展 | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.
+这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.
+当然文档多数时候是未完成的.
+
+Measurement-Induced Phase Transitions in the Dynamics of Entanglement
+Phys. Rev. X 9, 031009 – Published 22 July, 2019
+Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum
+已完成:
+
+理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的;
+使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率;
+使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率;
+附录中给出了拟合标度率以及经典计算 percolation 问题的方法.
+
+未完成:
+
+连续时间演化下的结果;
+大 $q$ (局域自由度)近似的验证;
+任何对于高维结果的数值验证;
+高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$;
+不同 subregion 的纠缠熵.
+
+后续:"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/><meta property="og:url" content="https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="有关 MIPT 的研究进展"><meta property="og:description" content="写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.
+这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.
+当然文档多数时候是未完成的.
+Measurement-Induced Phase Transitions in the Dynamics of Entanglement Phys. Rev. X 9, 031009 – Published 22 July, 2019
+Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum
+已完成:
+理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的; 使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率; 使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率; 附录中给出了拟合标度率以及经典计算 percolation 问题的方法. 未完成:
+连续时间演化下的结果; 大 $q$ (局域自由度)近似的验证; 任何对于高维结果的数值验证; 高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$; 不同 subregion 的纠缠熵. 后续:"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-03-30T14:18:48+08:00"><meta property="article:modified_time" content="2026-03-30T14:18:48+08:00"><meta property="article:tag" content="研究进展"><meta property="article:tag" content="MIPT"><meta itemprop=name content="有关 MIPT 的研究进展"><meta itemprop=description content="写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.
+这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.
+当然文档多数时候是未完成的.
+Measurement-Induced Phase Transitions in the Dynamics of Entanglement Phys. Rev. X 9, 031009 – Published 22 July, 2019
+Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum
+已完成:
+理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的; 使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率; 使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率; 附录中给出了拟合标度率以及经典计算 percolation 问题的方法. 未完成:
+连续时间演化下的结果; 大 $q$ (局域自由度)近似的验证; 任何对于高维结果的数值验证; 高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$; 不同 subregion 的纠缠熵. 后续:"><meta itemprop=datePublished content="2026-03-30T14:18:48+08:00"><meta itemprop=dateModified content="2026-03-30T14:18:48+08:00"><meta itemprop=wordCount content="434"><meta itemprop=keywords content="研究进展,MIPT"><meta name=twitter:card content="summary"><meta name=twitter:title content="有关 MIPT 的研究进展"><meta name=twitter:description content="写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.
+这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.
+当然文档多数时候是未完成的.
+Measurement-Induced Phase Transitions in the Dynamics of Entanglement Phys. Rev. X 9, 031009 – Published 22 July, 2019
+Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum
+已完成:
+理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的; 使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率; 使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率; 附录中给出了拟合标度率以及经典计算 percolation 问题的方法. 未完成:
+连续时间演化下的结果; 大 $q$ (局域自由度)近似的验证; 任何对于高维结果的数值验证; 高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$; 不同 subregion 的纠缠熵. 后续:"></head><body class="ma0 avenir bg-near-white production is-page is-page page-有关-MIPT-的研究进展"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/1053d9d79aa24752978f.png)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">有关 MIPT 的研究进展</div></div></div></header><main class=pb7 role=main><article class="page-有关-MIPT-的研究进展 flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">有关 MIPT 的研究进展</h1><time class="f6 mv4 dib tracked" datetime=2026-03-30T14:18:48+08:00>March 30, 2026</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.</p><p>这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.</p><p>当然文档多数时候是未完成的.</p><hr><h3 id=measurement-induced-phase-transitions-in-the-dynamics-of-entanglement><a href=https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009>Measurement-Induced Phase Transitions in the Dynamics of Entanglement</a></h3><p>Phys. Rev. X 9, 031009 – Published 22 July, 2019</p><p>Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum</p><p>已完成:</p><ul><li>理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的;</li><li>使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率;</li><li>使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率;</li><li>附录中给出了拟合标度率以及经典计算 percolation 问题的方法.</li></ul><p>未完成:</p><ul><li>连续时间演化下的结果;</li><li>大 $q$ (局域自由度)近似的验证;</li><li>任何对于高维结果的数值验证;</li><li>高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$;</li><li>不同 subregion 的纠缠熵.</li></ul><p>后续:</p><ul><li>计算 2D percolation 问题给出的 $p_c$ 和 $\nu$, 也许 Tropical TNs 会有用;</li><li>连续 1D 时间演化;</li><li>考虑验证 1D 的大 $q$ 极限, 但不是很有意义;</li><li>更普遍的 entanglement feature (EF) 的行为, 依旧可以使用经典 percolation 模拟.</li></ul><h3 id=theory-of-the-phase-transition-in-random-unitary-circuits-with-measurements><a href=https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.104301>Theory of the phase transition in random unitary circuits with measurements</a></h3><p>Phys. Rev. B 101, 104301 – Published 3 March, 2020</p><p>Authors: Yimu Bao, Soonwon Choi, and Ehud Altman</p><p>已完成:</p><ul><li>对于每个 qudit 引入了一个 ancilla, 通过对 ancilla 的测量实现对于投影测量的推广;</li><li>使用 replica trick, 把 von Neumann 熵 $S_1$ 和 Fisher 信息 $\mathcal F$ 映射到一个三角晶格的类 Potts 模型上, 说明了这两个量服从同一个相变, 说明了对混态的纯化和纠缠的增长也共享这个相变, 区别仅在于统计模型的边界不同;</li><li>建立了统计模型到张量网络的映射;</li><li>通过 CFT 给出了 $n = 2$ ($n$ 是 replica trick 中使用的副本数) 下任意 $n$ 的相变点和临界指数;</li><li>在大 $q$ 极限下, 把 $n \geq 2$ 的统计模型映射成方晶格上的标准 Potts 模型, 给出相变点和临界指数;</li><li>在大 $q$ 极限下, 把 $n \rightarrow 1$ 的关于 von Neumann 熵的模型从标准 Potts 模型出发映射到 percolation 问题上, 给出了 $p_c = 1/2$ 和 $\nu = 4/3$ 的结果;</li><li>使用类似 MPS 时间演化计算了 $q = 2$的数值结果, 和 Phys. Rev. X 9, 031009 中给出的临界点和临界指数基本相同, 计算量 Renyi-$k$ 对不同 $k$ 服从用一个相变;</li><li>数值验证了在非局域的测量会破坏相变, 有限时间内一定解缠.</li></ul><p>未完成:</p><ul><li>还没有说明大 $q$ 极限下的结果实际上来源于大 $q$ 极限下 $S_n$ 和 $S_0$ 的行为相同.</li></ul><p>后续:</p><ul><li>设计统计模型的时候引入了对于 Haar random unitary 的平均, 这一步可以和 EF 或者 local scrambled circuit 的理论结合起来.</li></ul><h3 id=measurement-induced-criticality-in-random-quantum-circuits><a href=https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.104302>Measurement-induced criticality in random quantum circuits</a></h3><p>Phys. Rev. B 101, 104302 – Published 3 March, 2020</p><p>Authors: Chao-Ming Jian, Yi-Zhuang You, Romain Vasseur, and Andreas W. W. Ludwig</p><p>已完成:</p><ul><li>和上一篇基本相同.</li></ul><h3 id=measurement-induced-criticality-in-21-dimensional-hybrid-quantum-circuits><a href=https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.014315>Measurement-induced criticality in (2+1)-dimensional hybrid quantum circuits</a></h3><p>Phys. Rev. B 102, 014315 – Published 30 July, 2020</p><p>Authors: Xhek Turkeshi, Rosario Fazio, and Marcello Dalmonte</p><p>已完成:</p><ul><li>使用对于 Clifford 线路和 stabilizer 态的模拟;</li><li>测试了 2D 下 1-site 和 2-site projector 下的 MIPT, 给出了临界点和临界指数, 说明了这两种相变是同一个普适类;</li><li>结果和 3D percolation 问题的普适类行为不同.</li></ul><p>未完成:</p><ul><li>没有给出超过 Clifford 线路的情形, 因为对于 stabilizer 态 Renyi-$n$ 熵的值相同, 实际上相当于只测试了 $S_0$;</li><li>但在 1D 情形下, 不同 $n$ 的临界指数不同, 应该给出不同的, 需要考虑更一般的演化;</li><li>后来更精确的计算指出仅看临界指数其实和 3D percolation 的结果相同, 这篇文章中不同的结果应该是使用二分纠缠熵不够精确导致的计算错误.</li></ul><h3 id=measurement-induced-criticality-and-entanglement-clusters-a-study-of-one-dimensional-and-two-dimensional-clifford-circuits><a href=https://journals.aps.org/prb/abstract/10.1103/PhysRevB.104.155111>Measurement-induced criticality and entanglement clusters: A study of one-dimensional and two-dimensional Clifford circuits</a></h3><p>Phys. Rev. B 104, 155111 – Published 7 October, 2021</p><p>Authors: Oliver Lunt, Marcin Szyniszewski, and Arijeet Pal</p><p>已完成:</p><ul><li>使用 tripartite 信息 $I_3$ 探测纠缠相变, 同样研究 Clifford 电路;</li><li>测试了 1D 和 2D 下 MIPT 的相变点和临界指数, 说明了仅看 bulk 的行为, 确实和 percolation 一致;</li><li>通过引入 ancilla 测试了 MIPT 的边界临界行为, 和 percolation 不同;</li><li>研究了测量横场 Ising 模型 (PTFIM), 这个模型和 3D percolation 有简单的几何映射, bulk 和边界临界指数也和 percolation 的相同;</li></ul><p>未完成:</p><ul class=pa0></ul><ul class=pa0><li class="list di"><a href=/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">研究进展</a></li><li class="list di"><a href=/tags/mipt/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">MIPT</a></li></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

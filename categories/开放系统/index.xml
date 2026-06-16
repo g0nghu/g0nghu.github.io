@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开放系统 on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/%E5%BC%80%E6%94%BE%E7%B3%BB%E7%BB%9F/</link><description>Recent content in 开放系统 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 07 Oct 2024 23:31:57 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/%E5%BC%80%E6%94%BE%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>Born-Markov Approximation</title><link>https://g0nghu.github.io/2024/10/07/born-markov-approximation/</link><pubDate>Mon, 07 Oct 2024 23:31:57 +0800</pubDate><guid>https://g0nghu.github.io/2024/10/07/born-markov-approximation/</guid><description>&lt;h2 id="相互作用表象"&gt;相互作用表象&lt;/h2&gt;
+$$H = H_S + H_R + g H_{int}$$&lt;p&gt;
+The evolution for the full system is
+&lt;/p&gt;
+$$\frac{\mathrm{d}\sigma(t)}{\mathrm{d}t}=-i[H,\sigma(t)]$$&lt;p&gt;
+In the interaction picture
+&lt;/p&gt;
+$$\sigma_I(t) = e^{i(H_S+H_R)t} \sigma(t) e^{-i(H_S+H_R)t}$$$$V(t) = e^{i(H_S+H_R)t} H_{int} e^{-i(H_S+H_R)t}$$&lt;p&gt;
+The evolution in the interaction system is controlled by Liouville equation
+&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{\mathrm{d}\sigma_I(t)}{\mathrm{d}t} = &amp; ie^{i(H_S+H_R)t} [H_s+H_R, \sigma(t)] e^{-i(H_S+H_R)t} - ie^{i(H_S+H_R)t} [H, \sigma(t)] e^{-i(H_S+H_R)t} \\
+= &amp; - ie^{i(H_S+H_R)t} [g H_{int}, \sigma(t)] e^{-i(H_S+H_R)t} \\
+= &amp; - i e^{i(H_S+H_R)t} (g H_{int}\sigma(t) - \sigma(t)g H_{int}) e^{-i(H_S+H_R)t} \\
+= &amp; -i[gV, \sigma_I]
+\end{aligned}
+$$&lt;h2 id="约化环境"&gt;约化环境&lt;/h2&gt;
+&lt;p&gt;$\rho(t) = \mathrm{Tr}_R(\sigma(t))$, $\rho_I(t) = e^{iH_St}\rho(t)e^{-iH_St} = \mathrm{Tr}_R(\sigma_I(t))$.
+For small $g$, we write the lowest order by assuming $\mathrm{Tr}_R([V(t), \sigma_I(0)])=0$
+&lt;/p&gt;</description></item></channel></rss>

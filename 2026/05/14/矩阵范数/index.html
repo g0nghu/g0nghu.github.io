@@ -1,0 +1,61 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>矩阵范数 | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:
+
+正定性: $\Vert A \Vert \leq 0$;
+齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$;
+三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$;
+次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$.
+
+两种常见的矩阵范数分别是诱导范数和 Schatten 范数.
+向量范数诱导的矩阵范数
+给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为
+
+$$
+\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.
+$$1 - 范数: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$,  表示列的绝对值的最大和."><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2026/05/14/%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/><meta property="og:url" content="https://g0nghu.github.io/2026/05/14/%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="矩阵范数"><meta property="og:description" content="矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:
+正定性: $\Vert A \Vert \leq 0$; 齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$; 三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$; 次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$. 两种常见的矩阵范数分别是诱导范数和 Schatten 范数.
+向量范数诱导的矩阵范数 给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为 $$\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.$$1 - 范数: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$, 表示列的绝对值的最大和."><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-05-14T16:38:20+08:00"><meta property="article:modified_time" content="2026-05-14T16:38:20+08:00"><meta itemprop=name content="矩阵范数"><meta itemprop=description content="矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:
+正定性: $\Vert A \Vert \leq 0$; 齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$; 三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$; 次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$. 两种常见的矩阵范数分别是诱导范数和 Schatten 范数.
+向量范数诱导的矩阵范数 给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为 $$\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.$$1 - 范数: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$, 表示列的绝对值的最大和."><meta itemprop=datePublished content="2026-05-14T16:38:20+08:00"><meta itemprop=dateModified content="2026-05-14T16:38:20+08:00"><meta itemprop=wordCount content="317"><meta itemprop=keywords content="便利贴"><meta name=twitter:card content="summary"><meta name=twitter:title content="矩阵范数"><meta name=twitter:description content="矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:
+正定性: $\Vert A \Vert \leq 0$; 齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$; 三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$; 次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$. 两种常见的矩阵范数分别是诱导范数和 Schatten 范数.
+向量范数诱导的矩阵范数 给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为 $$\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.$$1 - 范数: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$, 表示列的绝对值的最大和."></head><body class="ma0 avenir bg-near-white production is-page is-page page-矩阵范数"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-矩阵范数 flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">矩阵范数</h1><time class="f6 mv4 dib tracked" datetime=2026-05-14T16:38:20+08:00>May 14, 2026</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:</p><ol><li>正定性: $\Vert A \Vert \leq 0$;</li><li>齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$;</li><li>三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$;</li><li>次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$.</li></ol><p>两种常见的矩阵范数分别是诱导范数和 Schatten 范数.</p><h2 id=向量范数诱导的矩阵范数>向量范数诱导的矩阵范数</h2><p>给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为</p>$$
+\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.
+$$<p><strong>1 - 范数</strong>: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$, 表示列的绝对值的最大和.</p><p><strong>2 - 范数</strong>: $\Vert A \Vert _2 = s_{\max}(A) = \sqrt{\lambda_{\max}(A^\dagger A)}$, 也叫谱范数, 表示了 $A^\dagger A$ 的谱半径.</p><p><strong>inf - 范数</strong>: $\Vert A \Vert _\infty = \sum_{i} \sum_j |A_{ij}|$, 表示行的绝对值的最大和.</p><h2 id=schatten-范数>Schatten 范数</h2><p>把矩阵的奇异值看作一个向量, 这个向量的 $p$ - 范数, 就是矩阵的 Schatten - $p$ 范数.</p>$$
+\Vert A \Vert_p = \left(\sum_i s_i^p\right)^{1/p} = \left(\mathrm{Tr} \vert A\vert ^p \right)^{1/p}.
+$$<p>这里 $|A| = \sqrt {A^\dagger A}$.</p><p><strong>1 - 范数</strong>: $\Vert A \Vert_1 = \mathrm{Tr}\vert A \vert$. 也叫 Trace 范数, 给出了 $A$ 的奇异值之和.</p><p><strong>2 - 范数</strong>: $\Vert A \Vert_2 = \sqrt{ \mathrm{Tr} A^\dagger A } = \sqrt{ \sum_{ij} \vert A_{ij} \vert^2 }$. 也叫 Frobenius 范数或者 Hilbert - Schmidt 范数.</p><p><strong>inf - 范数</strong>: $\Vert A \Vert_\infty = s_{\max} (A)$. 也叫 operator 范数. 实际上就是诱导 2 - 范数.</p><p>Schatten 范数满足下面的不等式:</p>$$\begin{gathered}
+\Vert AB \Vert_p \leq \Vert A \Vert_p \Vert B \Vert_\infty,\\
+\Vert AB \Vert_p \leq \Vert A \Vert_\infty \Vert B \Vert_p.
+\end{gathered}$$<p>$p \geq 1$ 时有, $\Vert A \Vert_p \leq \Vert A \Vert_\infty$. 这给出在 $p \geq 1$ 时的次可乘性: $\Vert AB \Vert_p \leq \Vert A \Vert_p \Vert B \Vert_p$.</p><p>上述都是 Schatten 适用的 Holder 不等式的特殊情况. 更一般的描述是, 对于 $\frac{1}{r} = \frac{1}{p} + \frac{1}{q}$,</p>$$
+\Vert AB \Vert_r \leq \Vert A \Vert_p \Vert B \Vert_q.
+$$<p>在基变换下, Schatten 范数不变, 在量子信息的语境中一般使用的都是 Schatten 范数.</p><h2 id=diamond-范数>Diamond 范数</h2><p>对于一个 quantum channel $\Phi$, 可以定义它的 diamond 范数是</p>$$
+\Vert \Phi \Vert_\diamond = \sup_{X\neq 0} \frac{\Vert \Phi[X] \Vert_1}{\Vert X\Vert_1}.
+$$<p>实际上是从密度矩阵的 Schatten - 1 范数诱导出来的.</p><p>通过这个诱导的形式很容易看出来 Diamond 范数的次可乘性.</p><ul class=pa0><li class="list di"><a href=/categories/%E4%BE%BF%E5%88%A9%E8%B4%B4/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">便利贴</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

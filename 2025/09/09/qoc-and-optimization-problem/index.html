@@ -1,0 +1,92 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>QOC and optimization problem | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.
+GRAPE algorithm
+考虑一个系统, 其Hamiltonian可以写成如下的形式:
+
+$$
+H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.
+$$
+一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k > 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.
+QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.
+这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标:
+
+$$
+\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).
+$$首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符,
+
+$$
+U_j = \exp \left[
+    -i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)
+\right].
+$$
+最后时间演化得到的态就是
+"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/09/09/qoc-and-optimization-problem/><meta property="og:url" content="https://g0nghu.github.io/2025/09/09/qoc-and-optimization-problem/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="QOC and optimization problem"><meta property="og:description" content="这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.
+GRAPE algorithm 考虑一个系统, 其Hamiltonian可以写成如下的形式: $$H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.$$ 一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k > 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.
+QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.
+这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标: $$\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).$$首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符, $$U_j = \exp \left[-i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)\right].$$ 最后时间演化得到的态就是"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-09-09T16:59:18+08:00"><meta property="article:modified_time" content="2025-09-09T16:59:18+08:00"><meta itemprop=name content="QOC and optimization problem"><meta itemprop=description content="这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.
+GRAPE algorithm 考虑一个系统, 其Hamiltonian可以写成如下的形式: $$H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.$$ 一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k > 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.
+QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.
+这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标: $$\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).$$首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符, $$U_j = \exp \left[-i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)\right].$$ 最后时间演化得到的态就是"><meta itemprop=datePublished content="2025-09-09T16:59:18+08:00"><meta itemprop=dateModified content="2025-09-09T16:59:18+08:00"><meta itemprop=wordCount content="428"><meta itemprop=keywords content="Notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="QOC and optimization problem"><meta name=twitter:description content="这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.
+GRAPE algorithm 考虑一个系统, 其Hamiltonian可以写成如下的形式: $$H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.$$ 一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k > 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.
+QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.
+这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标: $$\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).$$首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符, $$U_j = \exp \left[-i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)\right].$$ 最后时间演化得到的态就是"></head><body class="ma0 avenir bg-near-white production is-page is-page page-QOC-and-optimization-problem"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-QOC-and-optimization-problem flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">QOC and optimization problem</h1><time class="f6 mv4 dib tracked" datetime=2025-09-09T16:59:18+08:00>September 9, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.</p><h2 id=grape-algorithm>GRAPE algorithm</h2><p>考虑一个系统, 其Hamiltonian可以写成如下的形式:</p>$$
+H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.
+$$<p>一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k > 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.</p><p>QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.</p><p>这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标:</p>$$
+\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).
+$$<p>首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符,</p>$$
+U_j = \exp \left[
+-i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)
+\right].
+$$<p>最后时间演化得到的态就是</p>$$
+\rho(T) = U_N \cdots U_1 \rho_0 U_1^\dagger \cdots U_N^\dagger.
+$$<p>相应的fidelity是</p>$$
+\Phi_0 = \langle C | U_N \cdots U_1 \rho_0 U_1^\dagger \cdots U_N^\dagger \rangle =
+\langle U_{j + 1}^\dagger \cdots U_N^\dagger C U_N \cdots C_{j + 1}^\dagger | U_j \cdots U_1 \rho_0 U_1^\dagger \cdots U_j^\dagger \rangle.
+$$<p>把这个表达式的左右两部分记作$\lambda_j$和$\rho_j$, 分别表示目标态和初始态反向和正向演化到第$j$个时间步的时候的态.</p><p>现在考虑把某个控制参数改变一点$u_k(j) \rightarrow u_k(j) + \delta u_k(j)$, fidelity会如何变化, 首先利用$\frac{\mathrm d}{\mathrm d x}\left. e^{A + xB}\right|_{x = 0} = e^A\int_0^1 e^{A\tau}B e^{-A\tau}\mathrm d\tau$, 可以得到$U_j$的变化是</p>$$\begin{gathered}
+\delta U_j = -i \Delta t \bar H_k \delta u_k(j) U_j, \\
+\bar H_k \Delta t = \int_0^{\Delta t} U_j(\tau) H_k U_j(-\tau) \mathrm d \tau, \\
+U_j(\tau) = \exp\left[-i\tau \left(H_0 + \sum_{k = 1}^m u_k(j)H_k\right)\right].
+\end{gathered}$$<p>不过在$\Delta t$很小的时候, $\bar H_k \approx H_k$, 进一步可以得到fidelity的变化是</p>$$
+\delta\Phi_0 = \langle \lambda_i | (\delta U_j U_j^\dagger \rho_j + \rho_j U_j \delta U_j^\dagger)\rangle =
+-i\Delta t \langle \lambda_j | [H_k, \rho_j]\rangle \delta u_k(j).
+$$<p>最简单的GRAPE (gradient ascent pulse engineering)算法就是根据这个梯度直接进行梯度下降, 直到给出满意的$\Phi_0$. GRAPE还有一些其他的变种, 但是总的想法是不变的, 根据情况可能会选用一些不同的fidelity.</p><h2 id=direct-quantum-optimal-control>Direct quantum optimal control</h2><p>系统的时间演化算符服从$\frac{\partial U}{\partial t} = - i H[\bm u(t)] U$, 上面的QOC问题的另一种形式是</p>$$\begin{gathered}
+\max_{\{\bm u_j\}_{j = 1}^n} \mathcal F(U_n, U_{\mathrm{target}}), \\
+\text{subject to} \quad U_n = \prod_{j = 1}^n \exp(-i H(\bm u(j))\Delta t).
+\end{gathered}$$<p>这样的表示意味着Schrodinger方程在这里实际上是提供了我们参数化$U_n$的方式, 这种情况下, 不论在优化过程中$\bm u(j)$的值如何变化, $U_j$都是物理的. 但这种方式把优化空间局限在了服从Schrodinger方程的子空间中, 可能会影响优化的效果, 或者是把结果限制在局部最小值中. 一种改进的做法是考虑把Schrodinger方程作为一个约束, 但并不限制$U_j$的形式:</p>$$\begin{gathered}
+\max_{\{\bm u_j, U_j\}_{j = 1}^n} \mathcal F(U_n, U_{\mathrm{target}}), \\
+\text{subject to} \quad U_{j + 1} = \exp(-iH(\bm u(j))\Delta t)U_j.
+\end{gathered}$$<p>在实践中, $U_j$和$\bm u(j)$一起作为待优化的参数, 而把Schrodinger方程作为Lagrange乘子放进目标函数中. 这种做法允许$U_j$出现非物理的跳变, 探索更大的参数空间, 有助于克服局部最小值的限制.</p><h2 id=optimization-for-ground-state>Optimization for ground state</h2><p>上面所述的两种算法, 其目的都是为把初始态按照参数化的演化方式, 变成一个预期的态. 另一种常见的情景是, 目标态并不清楚, 比如基态的优化, 我们希望能通过这种参数化的方式给出一个Hamiltonian的基态.</p><p>这里介绍一种叫做QOCA的方法, 但其他方法基本也是类似的, 区别主要在于参数化目标态的方式. 如果我们希望求解基态的Hamiltonian是$H_{\mathrm{prob}} = \sum_j H_j$, 在使用QOCA时, 需要引入另一组控制用的drive Hamiltonian $\{H_k\}$. 而目标态参数化成</p>$$\begin{gathered}
+|\psi(\bm \theta, \bm \delta) \rangle = U_{\text{QOCA}}(\bm \theta, \bm \delta)|\psi_0 \rangle, \\
+U_{\text{QOCA}}(\bm \theta, \bm \delta) = \prod_d \left(
+\prod_j e^{i\theta_{j, d}H_j} \prod_k e^{i\delta_{k, d}H_k}
+\right).
+\end{gathered}$$<p>上式中$d$表示线路深度, $\bm \theta$和$\bm \delta$是希望优化的参数. 现在只要把目标函数设定成能量, 就可以实现基态的求解. 在这种变分拟设下, 初态$|\psi_0\rangle$的选取一般是重要的, 只是在这个QOCA的算法中, 其影响不至于使得算法不收敛.</p><p>此外, 我们引入了额外的driving Hamiltonian, 这使得在优化过程中, 目标态不会局限在某个给定的sector中, 这有助于寻找对称性破缺的基态.</p><h2 id=discussion>Discussion</h2><p>根据Ref[2]指出, 想要实现一个任意的unitary, 我们只要少数全局控制Hamiltonian, 那么在上面的拟设中, 是不是可以写下与具体模型无关, 只和系统几何构型以及对称性有关的一些driving Hamiltonian就可以求解基态.</p><p><del>Direct optimization相对于GRAPE来说是一个进步, 因为它本身解除了GRAPE对于使用到的$U_j$的限制, 使得目标态可以探索一些非物理的空间.</del></p><p><del>但是在基态求解的问题中, 本来就没有这种限制, 如果考虑了破坏对称性的一些driving Hamiltonian的话, 可以近似任何的unitary. 所以Ref[2]给出的新算法, 可能并不能给基态优化在算法上提出一些改进, 但是可以帮助我们写下一些更普适的ansatz.</del></p><p>我们可以按照Ref[2]给出的结果, 写下一些比较普适的ansatz, 并按照给出的direct optimization, 不限制$U_j$的形式, 把这部分作为约束(Lagrange乘子)放进目标函数里.</p><hr><p>References:</p><ol><li>Optimal control of coupled spin dynamics: design of NMR pulse sequences by gradient ascent algorithms, Journal of Magnetic Resonance 172 (2005) 296–305.</li><li>Universal Dynamics with Globally Controlled Analog Quantum Simulators, arXiv:2508.19075.</li><li>Quantum-optimal-control-inspired ansatz for variational quantum algorithms, arXiv:2008.01098.</li></ol><ul class=pa0><li class="list di"><a href=/categories/notes/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Notes</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

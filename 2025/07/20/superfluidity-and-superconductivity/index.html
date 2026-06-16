@@ -1,0 +1,179 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Superfluidity and superconductivity | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A note for Sec 3.7 for 文小刚's 多体系统的量子场论.
+
+Superfluidity and superconductivity
+Coupling to a gauge field and conserved current
+一个简单的玻色子模型如下:
+
+$$
+L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -
+\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$
+这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有
+
+$$
+L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -
+\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$
+如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)
+"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/><meta property="og:url" content="https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Superfluidity and superconductivity"><meta property="og:description" content="A note for Sec 3.7 for 文小刚's 多体系统的量子场论.
+Superfluidity and superconductivity Coupling to a gauge field and conserved current 一个简单的玻色子模型如下: $$L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有 $$L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-07-20T12:39:34+08:00"><meta property="article:modified_time" content="2025-07-20T12:39:34+08:00"><meta itemprop=name content="Superfluidity and superconductivity"><meta itemprop=description content="A note for Sec 3.7 for 文小刚's 多体系统的量子场论.
+Superfluidity and superconductivity Coupling to a gauge field and conserved current 一个简单的玻色子模型如下: $$L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有 $$L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)"><meta itemprop=datePublished content="2025-07-20T12:39:34+08:00"><meta itemprop=dateModified content="2025-07-20T12:39:34+08:00"><meta itemprop=wordCount content="1387"><meta itemprop=keywords content="多体系统的量子场论"><meta name=twitter:card content="summary"><meta name=twitter:title content="Superfluidity and superconductivity"><meta name=twitter:description content="A note for Sec 3.7 for 文小刚's 多体系统的量子场论.
+Superfluidity and superconductivity Coupling to a gauge field and conserved current 一个简单的玻色子模型如下: $$L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有 $$L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.$$ 如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)"></head><body class="ma0 avenir bg-near-white production is-page is-page page-Superfluidity-and-superconductivity"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/83fc097e91f0406a8308.png)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">Superfluidity and superconductivity</div></div></div></header><main class=pb7 role=main><article class="page-Superfluidity-and-superconductivity flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Superfluidity and superconductivity</h1><time class="f6 mv4 dib tracked" datetime=2025-07-20T12:39:34+08:00>July 20, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A note for Sec 3.7 for 文小刚's <em>多体系统的量子场论</em>.</p><hr><h1 id=superfluidity-and-superconductivity>Superfluidity and superconductivity</h1><h2 id=coupling-to-a-gauge-field-and-conserved-current>Coupling to a gauge field and conserved current</h2><p>一个简单的玻色子模型如下:</p>$$
+L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -
+\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$<p>这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有</p>$$
+L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -
+\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$<p>如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)</p>$$
+L(\varphi, A_\mu) = i\frac{1}{2}(\varphi^* (\partial_0 + iA_0)\varphi - \varphi(\partial_0 - iA_0)\varphi^*) -
+\frac{1}{2m}|(\partial_i + iA_i)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$<p>这个Lagrangian在如下的规范变换下是不变的:</p>$$\begin{gathered}
+\varphi \rightarrow \tilde{\varphi} = e^{if(\bm x, t)}\varphi, \\
+A_\mu \rightarrow \tilde{A}_\mu = A_\mu - \partial_\mu f.
+\end{gathered}$$<p>我们得到的是最简单的满足$U(1)$规范不变性的Lagrangian, 并且说它具有最小耦合(minimal coupling). 如果令$A_\mu \rightarrow A_\mu + g\partial_\nu F_{\mu\nu}$, $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$, 就得到另一种满足要求的Lagrangian, 这是因为$F_{\mu\nu}$本身是规范不变的.</p><p>上面的Lagrangian实际上只描述了电磁场是如何和玻色系统耦合的, 完整的Lagrangian应该还要把电磁场自身加进去:</p>$$\begin{aligned}
+L(\varphi, A_\mu) = & i\frac{1}{2}(\varphi^* (\partial_0 + iA_0)\varphi - \varphi(\partial_0 - iA_0)\varphi^*) -
+\frac{1}{2m}|(\partial_i + iA_i)\varphi|^2 \\ & +
+\mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4 +
+\frac{1}{8\pi e^2}\left(\frac{1}{c}\bm E^2 - c\bm B^2\right),
+\end{aligned}$$<p>其中$E_i = \partial_0 A_i - \partial_i A_0$, $B_i = \epsilon_{ijk}\partial_j A_k = \frac{1}{2}\epsilon_{ijk}F_{jk}$.</p><p>我们知道一个$U(1)$规范理论应该有一个守恒荷, 接下来我们来寻找它. 考虑$\varphi_c(\bm x, t)$给出经典的运动方程, 那么$S(e^{if(\bm x, t)}\varphi_c, A_\mu) = S(\varphi_c, A_\mu) + \mathcal O(f^2)$, 这样就有</p>$$\begin{aligned}
+S(\varphi_c, A_\mu) = & S(\varphi_c, A_\mu - \partial_\mu f) + \mathcal O(f^2)\\
+= & S(\varphi_c, A_\mu) + \int \mathrm d^d\bm x\mathrm dt \partial_\mu f J^{\mu}(\varphi_c, A_\mu) + \mathcal O(f^2),
+\end{aligned}$$<p>其中$J^\mu(\varphi, A_\mu) \equiv - \partial_{A_\mu}L(\varphi, A_\mu)$. 这说明如果$\varphi$满足经典的运动方程, 那么有$\int \mathrm d^d\bm x\mathrm dt \partial_\mu f J^{\mu}(\varphi_c, A_\mu) = 0$, 因为$f$是任意的, 这意味这一个守恒方程</p>$$
+\partial_\mu J^\mu = \partial_t \rho + \partial_i J^i = 0.
+$$<p>当然这个守恒方程对于$A_\mu = 0$也是成立的.</p><p>对于我们上面给出的玻色子模型来说, 守恒流是</p>$$\begin{gathered}
+J^0 = \rho = \varphi^* \varphi,\\
+J^i = - \frac{i}{2m}(\varphi^*\partial_i\varphi - \varphi \partial_i \varphi^*) + A_i |\varphi|^2.
+\end{gathered}$$<h2 id=current-correlation-functions-and-electromagnetic-responses>Current correlation functions and electromagnetic responses</h2><p>我们希望知道当系统和一个外界的规范势场耦合的时候的响应. 首先定义</p>$$\begin{gathered}
+j^0 = \rho, \\
+j^i = - \frac{i}{2m}(\varphi^* \partial_i \varphi - \varphi \partial_i \varphi^*).
+\end{gathered}$$<p>系统的Lagrangian(没有考虑电磁场自己的部分)可以重新写成,</p>$$
+L(\varphi, A_\mu) = L(\varphi) - A_0j^0 - A_ij^i - \frac{1}{2m}(A^i)^2\rho.
+$$<p>可以看到规范势和我们关心的流是线性耦合的, 那么根据线性响应理论应该有</p>$$
+\langle J^\mu(\bm x, t) \rangle = \langle j^\mu(\bm x, t) \rangle + (1 - \delta^{\mu 0})A^\mu \langle\rho\rangle = \int \mathrm d^d \bm x \mathrm dt \Pi^{\mu\nu}(\bm x, t; \bm x', t')A_\nu(\bm x', t'),
+$$<p>其中的这些响应函数应该由下式给出:</p>$$\begin{gathered}
+\Pi^{00}(\bm x, t; \bm x', t') = -i \Theta(t - t')\langle [\rho(\bm x, t), \rho(\bm x', t')] \rangle, \\
+\Pi^{0i}(\bm x, t; \bm x', t') = -i \Theta(t - t') \langle [\rho(\bm x, t), j^i(\bm x', t')] \rangle, \\
+\Pi^{i0}(\bm x, t; \bm x', t') = -i \Theta(t - t') \langle [j^i(\bm x, t), \rho(\bm x', t')] \rangle, \\
+\Pi^{ij}(\bm x, t; \bm x', t') = -i \Theta(t - t') \langle [j^i(\bm x, t), j^j(\bm x', t')]\rangle + \delta^{ij}\delta(\bm x - \bm x')\delta(t - t')\langle \rho \rangle.
+\end{gathered}$$<p>如果定义$\pi^{\mu\nu}(\bm x, t;, \bm x', t') = -i \Theta(t - t')\langle [j^\mu(\bm x, t), j^\nu(\bm x', t')] \rangle$, 那么有</p>$$
+\Pi^{\mu\nu} = \pi^{\mu\nu} + \delta^{\mu\nu}(1 - \delta^{\mu 0})(1 - \delta^{\nu 0})\delta(\bm x - \bm x')\delta(t - t')\langle \rho \rangle.
+$$<p>注意到$(\Pi^{\mu\nu}(\bm x, t; \bm x', t'))^* = \Pi^{\nu\mu}(\bm x', t';, \bm x, t)$, 那么$(\Pi^{\mu\nu}_{k_\lambda})^* = \Pi^{\nu\mu}_{-k_\lambda}$. 考虑到守恒流的存在, 这些响应函数之间并不是完全独立的, 应该满足</p>$$
+k_\lambda \Pi^{\mu\nu}_{k_\lambda} = 0.
+$$<p>现在$\Pi$的所有分量都只要从$\Pi^{ij}$确定即可,</p>$$\begin{gathered}
+\Pi^{0i}_{k_\lambda} = (\Pi^{i0}_{-k_\lambda})^\dagger = -\frac{k_j}{\omega}\Pi^{ji}_{k_\lambda}, \\
+\Pi^{00}_{k_\lambda} = -\frac{k_j}{\omega}\Pi^{0j}_{\lambda} = \frac{k_i k_j}{\omega^2} \Pi^{ij}_{k_\lambda}.
+\end{gathered}$$<p>如果系统是旋转不变的, 我们还可以进一步写成横向和纵向分量,</p>$$
+\Pi^{ij}_{k_\lambda} = \frac{k_ik_j}{\bm k^2} \Pi^{||}_{k_\lambda} + (\delta_{ij} - \frac{k_ik_j}{\bm k^2})\Pi^\perp_{k_\lambda}.
+$$<p>$\pi^{ij}$和$\Pi^{ij}$的表达是类似的, 现在</p>$$\begin{gathered}
+\Pi^{0i}_{k_\lambda} = -k_i \Pi^{||}_{k_\lambda}, \\
+\Pi^{00}_{k_\lambda} = \frac{\bm k^2}{\omega^2}\Pi^{||}_{k_\lambda}.
+\end{gathered}$$<p>并且有</p>$$\begin{gathered}
+\Pi^{||}_{k_\lambda} = \pi^{||}_{k_\lambda} + \langle \rho \rangle, \\
+\Pi^{\perp}_{k_\lambda} = \pi^{\perp}_{k_\lambda} + \langle \rho \rangle.
+\end{gathered}$$<p><strong>这些响应函数都对应一些重要的物理量</strong>:</p><p>当$\omega \rightarrow 0$时, 有$\delta \rho(\bm k) = \Pi^{00}_{0, \bm k}A_0(\bm k)$(这时$\Pi^{00}$比$\Pi^{0i}$要大一个量级), 这给出$-\Pi^{00}_{0, \bm k} = \chi(\bm k)$就是系统的压缩系数. 此外还能得到$\Pi^{||}_{k_\lambda} = -\chi(\bm k)\frac{\omega^2}{\bm k^2}$, 这要在$\omega\rightarrow 0$时, $\pi^{||}_{k_\lambda}$和$\langle \rho \rangle$要相互抵消并以$\omega^2$的方式趋于零($\chi(k)$应该是有限的).</p><p>然后考虑$\omega\rightarrow 0$时的$\Pi^{\perp}$的行为, 可以猜测他应该是某种横场的响应函数, 比如和磁化率相关. 如果取$A_0 = 0$, 有</p>$$\begin{aligned}
+i\epsilon^{ijk}k_jM_k = & -j^i = -\Pi^{ij}A_j = - (\delta^{ij}\mathrm k^2 - k^ik^j)A_j\frac{\Pi^{\perp}_{k_\lambda}}{\bm k^2} \\
+= & \epsilon^{imn}\epsilon^{nlj}k_mk_l A_j \frac{\Pi^{\perp}_{k_\lambda}}{\bm k^2}
+= - i\epsilon^{ijk}k_jB_k\frac{\Pi^{\perp}_{k_\lambda}}{\bm k^2}.
+\end{aligned}$$<p>这样就得到$M_i = -\frac{\Pi^{\perp}_{k_\lambda}}{\bm k^2}B_i$, 那么我们就得到磁化率是$-\Pi^{\perp}_{k_\lambda}/\bm k^2$.</p><p>当$|\bm k|\rightarrow \omega$时, 电磁场看作几乎是均匀的, 会在背景上产生一个方向由$A_i$决定波矢由$\bm k$决定的电流:</p>$$
+J^i(\omega) = \lim_{\bm k \rightarrow 0} \frac{\Pi^{ij}}{-i\omega}(-i\omega)A_{j, (\omega, \bm k)}.
+$$<p>当$\bm k\rightarrow 0$时, $\Pi^{ij}_{k_\lambda}$应该是各向同性的, 这要求$\Pi^{||}_{k_\lambda} = \Pi^{\perp}_{k_\lambda}$, 那么根据上面的表达式我们得到各向同性的电导率</p>$$
+\sigma(\omega) = \frac{\Pi^{||}_{\omega, 0}}{-i\omega} = \frac{\Pi^{\perp}_{\omega, 0}}{-i\omega}.
+$$<p>其实部给出了电导率</p>$$
+\mathrm{Re}\sigma(\omega) = -\mathrm{Im}\frac{\Pi^{||}_{\omega, 0}}{\omega} = \mathrm{Im}\frac{\Pi^{\perp}_{\omega, 0}}{\omega},
+$$<p>虚部给出系统的介电常数</p>$$
+\epsilon(\omega) = - \frac{\mathrm{Im}\sigma(\omega)}{\omega} = \mathrm{Re}\frac{\Pi^{||}_{\omega, 0}}{\omega^2} = \mathrm{Re}\frac{\Pi^{\perp}_{\omega, 0}}{\omega^2}.
+$$<p>这样在$\omega \gg |\bm k|$的情况下, 有</p>$$
+\Pi^{||}_{\omega, 0} = \Pi^{\perp}_{\omega, 0} = i\omega \mathrm{Re}\sigma(\omega) + \omega^2\epsilon(\omega).
+$$<p>这个结果可以从另一个角度看待, 由$\partial_{\bm x}\cdot \bm P = -\delta \rho$,</p>$$
+ik_iP^i = -\delta \rho = - \Pi^{00}A_0 = -\frac{\bm k^2}{\omega^2}\Pi^{||}_{k_\lambda}A_0 = i\frac{\Pi^{||}_{k_\lambda}}{\omega^2}k_i E_i,
+$$<p>和上面给出的介电常数是一致的.</p><p>现在来考虑对于我们的玻色系统这些响应函数是什么. 这个理论的低能部分应该是一个耦合了规范场的XY模型,</p>$$
+L = \frac{\chi}{2}((\partial_0\theta + A_0)^2 - v^2(\partial_i\theta + A_i)^2).
+$$<p>并且有</p>$$\begin{gathered}
+j^0 = -\chi \partial_0\theta,\\
+j^i = \chi v^2 \partial_i \theta.
+\end{gathered}$$<p>那么就有</p>$$
+\pi^{00} = \chi^2(-i\omega)(i\omega)\langle \theta_{\omega, \bm k}\theta_{-\omega, -\bm k}\rangle = \chi \frac{\omega^2}{\omega^2 - v^2 \bm k^2 + i0^+\mathrm{sgn}(\omega)}.
+$$<p>类似地可以得到其他分量, 最终可以得到</p>$$\begin{gathered}
+\Pi^{||} = \chi v^2\left(
+\frac{v^2\bm k^2}{\omega^2 - v^2\bm k^2 + i0^+\mathrm{sgn}(\omega)} + 1
+\right),\\
+\Pi^{\perp} = \chi v^2.
+\end{gathered}$$<p>那么对于这个系统来说, 压缩系数$-\Pi^{00}_{0, \bm k} = \chi$, 磁化率$-\chi v^2/c\bm k^2$. 电导率是</p>$$
+\mathrm{Re}\sigma(\omega) = \pi \frac{\rho}{m}\delta(\omega).
+$$<p>对于有限频率来说, 电导率是零.</p><p>如果我们取Coulomb规范$\partial_{\bm x}\bm A = 0$, 那么电流和规范势之间有着简单的关系,</p>$$
+\bm J = \Pi^\perp A = \frac{\rho}{m}\bm A.
+$$<p>这就是London方程, 用于唯象地描述超导体的一些性质.</p><h2 id=superfluidity-and-finite-temperature-effects>Superfluidity and finite-temperature effects</h2><p>首先考虑一个玻色系统, 在低温下, 激发是比较稀疏的, 我们可以假设这些激发之间是没有相互作用的. 如果这个系统被放置在自由空间中, 它在Galileo变换下应该是不变的. 现在有一个在基态上的单激发$(\epsilon, \bm k)$, 现在系统总的能动量是$(E = E_G + \epsilon, \bm P = \bm k)$. 如果对这个系统作一个速度是$\bm v$的boost, 总的动量和能量变成$(E = E_G + \epsilon + \frac{1}{2}Nmv^2 + \bm v \cdot \bm k, \bm P = \bm k + Nm\bm v)$, 这样我们得到在boost之后这个激发所具有的能量是</p>$$
+\epsilon_{\bm v}(\bm k) = \epsilon(\bm k) + \bm v \cdot \bm k.
+$$<p>在有限温度下, 激发态的占据数由玻色分布$n_B(\epsilon)$决定, 这给出系统在有限温度下, boost之后的能动量是</p>$$\begin{gathered}
+\tilde{E} = E_G + \sum_{\bm k} \epsilon_{\bm v}(\bm k)n_B(\epsilon(\bm k)) + \frac{1}{2}Nmv^2,\\
+\tilde{\bm P} = \sum_{\bm k}\bm k n_B(\epsilon(\bm k)) + Nm\bm v = Nm\bm v
+\end{gathered}$$<p>这个结果说明系统并没有处在热平衡中, 在热平衡下的系统应该具有的能动量是</p>$$\begin{gathered}
+E_{\bm v} = E_G + \sum_{\bm k}\epsilon_{\bm v}(\bm k)n_B(\epsilon_{\bm v}(\bm k)) + \frac{1}{2}Nmv^2,\\
+\bm P_{\bm v} = \sum_{\bm k} \bm k n_B(\epsilon_{\bm v}(\bm k)) + Nm\bm v.
+\end{gathered}$$<p>对于很小的$\bm v$, 可以写成</p>$$\begin{aligned}
+E_{\bm v} & = E_G + \sum_{\bm k}(\epsilon(\bm k) + \bm v\cdot \bm k)n_B(\epsilon(\bm k)) +
+\sum_{\bm k}(\epsilon(\bm k) + \bm v\cdot \bm k)
+\left((\bm v \cdot \bm k)n'_B(\epsilon(\bm k)) + \frac{1}{2}(\bm v \cdot \bm k)^2 n''_B(\epsilon(\bm k))\right) + \frac{1}{2}Nmv^2\\
+& = E_G + \sum_{\bm k} \epsilon(\bm k)n_B(\epsilon(\bm k)) + \sum_{\bm k}(\bm v\cdot \bm k)^2
+\left(n_B'(\epsilon(\bm k)) + \frac{1}{2}\epsilon(\bm k)n_B''(\epsilon(\bm k))\right) + \frac{1}{2}Nmv^2\\
+& = E_G - \frac{1}{2}\mathcal Vm\rho_n v^2 + \frac{1}{2d}v^2 \sum_{\bm k}k^2\frac{\mathrm d}{\mathrm d\epsilon(\bm k)}[\epsilon(\bm k)n_B'(\epsilon(\bm k))] + \frac{1}{2}Nmv^2\\
+& = E_G + \frac{1}{2}\left(Nm - \mathcal V(\rho_n m + \delta \rho_n m)\right)v^2,
+\end{aligned}$$<p>其中</p>$$\begin{gathered}
+\rho_n = -\frac{1}{md}\int \frac{\mathrm d^d \bm k}{(2\pi)^d}k^2n_B'(\epsilon(\bm k)),\\
+\delta \rho_n = - \frac{1}{md}\int\frac{\mathrm d^d \bm k}{(2\pi)^d}k^2\frac{\mathrm d}{\mathrm d\epsilon(\bm k)}(\epsilon(k)n_B'(\epsilon(k))).
+\end{gathered}$$<p>此外动量是</p>$$
+\bm P_{\bm v} = (Nm - \mathcal V\rho_n m)\bm v.
+$$<p>如果我们的激发是线性色散的$\epsilon(\bm k)\propto k$, 那么在温度不高时$\rho_n \propto T^{d+1}$.</p><p>上面的计算说明, 如果我们让这些激发进行弛豫, 最终系统的总动量并不会弛豫到零, 在热平衡时, 这些玻色子依旧在运动, 这就是超流性的来源. 在对称性破缺的相中, 玻色子场写成</p>$$
+\varphi = \varphi_0 + \delta \varphi.
+$$<p>当我们boost这个系统的时候, 原本的周期边界条件$\varphi(L) = \varphi(0)$成为$\varphi(L) = e^{imvL}\varphi(0)$, 并且玻色子场的凝聚部分成为$\varphi_0 \rightarrow e^{imvx}\varphi_0$. 但现在系统依然需要遵守周期边界条件, 这要求$mvL \in 2\pi \mathbb Z$. 这就使得在不同$v$的取值中, $\varphi_0$只要不为零, 就不能随意变动. 一种使得$\varphi_0$的相位归零的方式是一些vortex的产生和移动. 这说明即使移动中的超流体有较高的能量, 它也不能轻易弛豫到基态上, 在二者之间有着一个较高的势垒. 当然最终会非常缓慢地停下来.</p><p>另一方面, 涨落的部分$\delta\varphi$并没有这些限制, 它的值可以随意地取到零, 所以涨落会轻易地弛豫到平衡.</p><p>上面的讨论说明了超流体中有两种组分, 一种对应于凝聚的部分, 这一部分是超流的, 另一部分是对应于激发的正常态. 要保持超流, $\bm v$不能太大, 否则$\epsilon_{\bm v}(\bm k)$的取值可能成为负的, 导致不稳定性, 从而破坏超流. 临界速度是$v_c = \min(\epsilon(\bm k)/k)$.对于自由玻色子来说, $v_c = 0$, 尽管这个系统有长程序, 也不构成超流体.</p><p>我们可以定义系统的超流密度是</p>$$
+\rho_s = \frac{\bm P_{\bm v}}{\mathcal V m\bm v} = \rho - \rho_n.
+$$<p>如果这些玻色子是带电的, 并且和一个电磁规范场$A_\mu$耦合在仪器, 那么一个twisted但没有场的情况$(\bm A = 0, e^{im\bm v \cdot \bm x}\varphi_0)$和一个untwisted的并且和场耦合在一起的情形$(\bm A = m\bm v, \varphi_0)$是等价的, 在这种情况下, 系统的总动量可以重新写成</p>$$
+\bm j = \frac{\bm P_{\bm v}}{m\mathcal V} = \frac{\rho_s}{m}\bm A.
+$$<p>这就是London方程.</p><h2 id=anderson-higgs-mechanism>Anderson-Higgs mechanism</h2><p>我们的玻色子和规范场耦合在一起之后, 完整的配分函数应该是</p>$$
+Z = \int \mathcal D\varphi \mathcal D A_\mu \exp\left[
+i\int \mathrm dt\mathrm d^d \bm x \left(L(\varphi, A_\mu) + \frac{1}{8\pi e^2}(\bm E^2 - \bm B^2)\right)
+\right].
+$$<p>对于经典的运动方程, 如果$\varphi(\bm x, t), A_\mu(\bm x, t)$是一组解, 那么对其作规范变换之后$\tilde{\varphi}(\bm x, t), \tilde{A}_\mu(\bm x, t)$也是一组解, 也就是说, $(\varphi, A_\mu)$到真实的物理情景是多对一的对应的.</p><p>在对称性破缺的相中, $|\varphi(\bm x, t)|\neq 0$, 我们可以取规范使得$\varphi$的虚部为零, 把这个结果记作$\phi(\bm x, t)$. 在取定了规范之后, 现在运动方程的解和物理情景是一一对应的. 在这个规范下, $\phi = \varphi_0 + \delta \phi$, 只会有密度的涨落, 没有相位的涨落, 将密度涨落积分后我们得到对应的低能有效理论:</p>$$
+L_{\text{eff}} = \frac{1}{2V_0}(A_0)^2 - \frac{\rho}{2m}(A_i)^2 + \frac{1}{8\pi e^2}(\bm E^2 - \bm B^2).
+$$<p>注意到</p>$$
+\bm E^2 = (\partial_0A_i)^2 + (\partial_i A_0)^2 - 2\partial_i A_0 \partial_0 A_i.
+$$<p>Lagrangian中不包含有$A_0$的时间导数, 所以$A_0$不是动力学的, 积掉$A_0$自由度得到</p>$$
+L_{\text{eff}} = \partial_0 A_h\left(\frac{1}{8\pi e^2}\delta_{ij} + \frac{1}{2}\frac{V_0}{(4\pi e^2)^2}\partial_j\partial_i\right)\partial_0 A_i - \frac{\rho}{2m}A_i^2 - \frac{1}{8\pi e^2}\bm B^2.
+$$<p>引入横纵场</p>$$
+A_i = \hat{k}_iA^{||} + \hat{n}_a A_a^{\perp}.
+$$<p>这里$\hat{k}, \hat{n}_1, \hat{n}_2$构成一组局部正交坐标架. 现在可以把Lagrangian重新写成</p>$$
+L_{\text{eff}} = \frac{1}{8\pi e^2}\left((\partial_0 A_a^\perp)^2 - (\partial_i A_a^\perp)^2\right) -
+\frac{\rho}{2m}(A_a^\perp)^2 + \frac{1}{8\pi e^2}\partial_0 A^{||}\left(
+1 + \frac{V_0}{4\pi e^2}(\partial_i)^2
+\right)\partial_0 A^{||} - \frac{\rho}{2m}(A^{||})^2.
+$$<p>这三个自由度都有一个相同的能隙$\Delta = e\sqrt{4\pi \rho/m}$. 也就是说, 无能隙的规范自由度和无能隙的Nambu-Goldstone模式的耦合, 会导致能隙的打开, 这一现象称作Anderson-Higgs机制.</p><ul class=pa0><li class="list di"><a href=/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">多体系统的量子场论</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>酒客临时委员会</title><link>https://g0nghu.github.io/</link><description>Recent content on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 29 May 2026 14:51:56 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>QSVT</title><link>https://g0nghu.github.io/2026/05/29/qsvt/</link><pubDate>Fri, 29 May 2026 14:51:56 +0800</pubDate><guid>https://g0nghu.github.io/2026/05/29/qsvt/</guid><description>&lt;h1 id="quantum-singular-value-transformation"&gt;Quantum singular value transformation&lt;/h1&gt;
+&lt;p&gt;这是为 &lt;a href="https://arxiv.org/1806.01838"&gt;Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics&lt;/a&gt; 所作的笔记, 记录了大概的技术路径和一部分的证明, 详细的内容可以参阅原文.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="qubitization-and-singular-value-transformations"&gt;Qubitization and singular value transformations&lt;/h2&gt;
+&lt;h3 id="parametrized-su-unitaries-induced-by-pauli-rotations"&gt;Parametrized SU($2$) unitaries induced by Pauli rotations &lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;这一部分工作的核心思想是: 像是下面这样的一串矩阵的乘积 (Quantum signal processing) 可以表示相当丰富的一类幺正算符,
+&lt;/p&gt;
+$$
+\mathrm e^{\mathrm i\phi_0 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_1 \sigma_z} \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_2 \sigma_z} \cdots \mathrm e^{\mathrm i \theta \sigma_x} \mathrm e^{\mathrm i \phi_k\sigma_z}.
+$$&lt;p&gt;这里 $\theta$ 可能&lt;strong&gt;未知&lt;/strong&gt;. 也可以使用参数 $x = \cos\theta$. 这样
+&lt;/p&gt;</description></item><item><title>矩阵范数</title><link>https://g0nghu.github.io/2026/05/14/%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/</link><pubDate>Thu, 14 May 2026 16:38:20 +0800</pubDate><guid>https://g0nghu.github.io/2026/05/14/%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/</guid><description>&lt;p&gt;矩阵范数是指这样一个映射 $\Vert \cdot \Vert: \mathbb C ^ {m \times n} \rightarrow \mathbb R$, $\mathcal M$ 是矩阵空间, 并且满足下面的性质:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;正定性: $\Vert A \Vert \leq 0$;&lt;/li&gt;
+&lt;li&gt;齐次性: $\Vert \alpha A \Vert = |\alpha| \Vert A\Vert$;&lt;/li&gt;
+&lt;li&gt;三角不等式: $\Vert A + B \Vert \leq \Vert A \Vert + \Vert B \Vert$;&lt;/li&gt;
+&lt;li&gt;次可乘性: $\Vert A B \Vert \leq \Vert A \Vert \Vert B \Vert$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;两种常见的矩阵范数分别是诱导范数和 Schatten 范数.&lt;/p&gt;
+&lt;h2 id="向量范数诱导的矩阵范数"&gt;向量范数诱导的矩阵范数&lt;/h2&gt;
+&lt;p&gt;给出一个向量范数 $\Vert \cdot \Vert$, 它会诱导一个矩阵范数, 定义为
+&lt;/p&gt;
+$$
+\Vert A \Vert = \max_{\Vert x \Vert = 1}\Vert Ax \Vert.
+$$&lt;p&gt;&lt;strong&gt;1 - 范数&lt;/strong&gt;: $\Vert A \Vert _1 = \max_{j} \sum_i |A_{ij}|$, 表示列的绝对值的最大和.&lt;/p&gt;</description></item><item><title>补一下裤子</title><link>https://g0nghu.github.io/2026/04/04/%E8%A1%A5%E4%B8%80%E4%B8%8B%E8%A3%A4%E5%AD%90/</link><pubDate>Sat, 04 Apr 2026 19:31:16 +0800</pubDate><guid>https://g0nghu.github.io/2026/04/04/%E8%A1%A5%E4%B8%80%E4%B8%8B%E8%A3%A4%E5%AD%90/</guid><description>&lt;p&gt;补一下我的裤子。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/5c6078e3719744be9b9f.jpg" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/58e2fcd995b14535b6c7.jpg" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;被扎了一下手，坏。&lt;/p&gt;</description></item><item><title>Classical model for RUC with weak measurement</title><link>https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/</link><pubDate>Fri, 03 Apr 2026 15:25:25 +0800</pubDate><guid>https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/</guid><description>&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Yimu Bao, Soonwon Choi, &amp;amp; Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="weak-measurement"&gt;Weak measurement&lt;/h2&gt;
+&lt;p&gt;最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/13c450e1459e404d8b5f.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制:
+&lt;/p&gt;
+$$
+\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},
+$$&lt;p&gt;
+其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$.&lt;/p&gt;</description></item><item><title>有关 MIPT 的研究进展</title><link>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</link><pubDate>Mon, 30 Mar 2026 14:18:48 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</guid><description>&lt;p&gt;写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.&lt;/p&gt;
+&lt;p&gt;这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.&lt;/p&gt;
+&lt;p&gt;当然文档多数时候是未完成的.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="measurement-induced-phase-transitions-in-the-dynamics-of-entanglement"&gt;&lt;a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009"&gt;Measurement-Induced Phase Transitions in the Dynamics of Entanglement&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Phys. Rev. X 9, 031009 – Published 22 July, 2019&lt;/p&gt;
+&lt;p&gt;Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum&lt;/p&gt;
+&lt;p&gt;已完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的;&lt;/li&gt;
+&lt;li&gt;使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率;&lt;/li&gt;
+&lt;li&gt;使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率;&lt;/li&gt;
+&lt;li&gt;附录中给出了拟合标度率以及经典计算 percolation 问题的方法.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;未完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;连续时间演化下的结果;&lt;/li&gt;
+&lt;li&gt;大 $q$ (局域自由度)近似的验证;&lt;/li&gt;
+&lt;li&gt;任何对于高维结果的数值验证;&lt;/li&gt;
+&lt;li&gt;高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$;&lt;/li&gt;
+&lt;li&gt;不同 subregion 的纠缠熵.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续:&lt;/p&gt;</description></item><item><title>Measurement Induced Phase Transitions (MIPT)</title><link>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</link><pubDate>Mon, 30 Mar 2026 09:42:17 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</guid><description>&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;B. Skinner, Introduction to random unitary circuits and measurements (lecture notes, 2023)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;MIPT 是在随机幺正演化的线路上, 以一定的概率$p$对中间线路的结果进行测量. 一般来说, 一个幺正演化会倾向于使得系统中的纠缠增加, 而测量则会即时地把系统投影到一个直积态上从而降低系统的纠缠. 这两种机制之间的竞争使得在某个$p = p_c$的临界概率上, 系统可能会发生一个由体积率到面积率之间纠缠相变.&lt;/p&gt;
+&lt;h2 id="random-unitary-operators-and-minimal-cut"&gt;Random unitary operators and minimal cut&lt;/h2&gt;
+&lt;p&gt;在接下来的讨论中, 我们会使用 Renyi-$0$ 熵, 其被定义为
+&lt;/p&gt;
+$$
+S_0 = \log (\text{\# nonzero terms in the Schmidt decomposition of } |\psi\rangle).
+$$&lt;p&gt;
+尽管这个值对于态的变化并不连续, 但它实际上给其他的 Renyi 熵提供了一个上界和行为上的参考.&lt;/p&gt;
+&lt;p&gt;一个对于随机幺正线路 (RUC) 的问题是: 为什么研究这个系统? 一个比较普遍的回答是, 通过研究随机幺正线路, 我们希望能获得对于一般系统纠缠增长的普适结论, 即使存在一些特例. 这些对于纠缠增长的了解有助于我们进一步了解热化的发生以及控制计算成本.&lt;/p&gt;
+&lt;h3 id="the-minimal-cut"&gt;The minimal cut&lt;/h3&gt;
+&lt;p&gt;对于一个 RUC 来说, 一个可能的对于子系统 A, B 的切割 (cut) 按照下图给出,
+&lt;img src="https://g0nghu.github.io/images/c162cafbacb446c0badb.png" alt=""&gt;&lt;/p&gt;</description></item><item><title>Transport in mesoscopic systems</title><link>https://g0nghu.github.io/2026/01/18/transport-in-mesoscopic-systems/</link><pubDate>Sun, 18 Jan 2026 11:23:23 +0800</pubDate><guid>https://g0nghu.github.io/2026/01/18/transport-in-mesoscopic-systems/</guid><description>&lt;p&gt;Ref: &lt;em&gt;Many-body Quantum Theory in Condensed Matter Physics&lt;/em&gt;, Henrik Bruus &amp;amp; Karsten Flensberg. Chap 7.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我们在这里考虑的介观系统, 是在低温下($50\mathrm{mK}\sim 4\mathrm{K}$), 满足如下尺度关系的系统:
+&lt;/p&gt;
+$$
+a_0 \ll \lambda_F \lesssim l_0 &lt; \mathcal L &lt; l_\phi &lt; l_\text{in},
+$$&lt;p&gt;
+从左到右分别表示Bohr半径, 费米波长, 碰撞平均自由程, 系统线度, 相干长度, 能量弛豫长度. 这种系统可以在二维电子气 (2DEG) 或者分子系统中通过加上不同的栅极电压实现.&lt;/p&gt;
+&lt;h2 id="the-s-matrix-and-scattering-states"&gt;The S-matrix and scattering states&lt;/h2&gt;
+&lt;p&gt;我们考虑这样的系统: 一块小样品, 两边接电极形成桥 (lead), 桥两边各自接大的电子源, 电子源很大, 负责为系统提供热化好的电子, 两个电子源之间加上一定的电压. 对于这样的系统, 我们将给出 &lt;em&gt;Landauer-Buttiker&lt;/em&gt; 公式.&lt;/p&gt;
+&lt;h3 id="definition-of-the-s-matrix"&gt;Definition of the S-matrix&lt;/h3&gt;
+&lt;p&gt;把左右桥分别记作$\alpha = L, R$. 每个桥有着处处相同的截面$\Omega$, 对应的截面是$\partial \Omega$. 在桥中, 我们使用坐标$(x, \bm r_\perp)$ 表示坐标. 桥中的电子波函数本征态$\phi^{\pm}_{\alpha n E}$应该满足下面这一组方程:
+&lt;/p&gt;</description></item><item><title>Entanglement Features</title><link>https://g0nghu.github.io/2026/01/11/entanglement-features/</link><pubDate>Sun, 11 Jan 2026 13:54:06 +0800</pubDate><guid>https://g0nghu.github.io/2026/01/11/entanglement-features/</guid><description>&lt;p&gt;arXiv: 1910.11351&lt;/p&gt;
+&lt;h2 id="entanglement-features"&gt;Entanglement Features&lt;/h2&gt;
+&lt;p&gt;Two ways to generate random unitary evolutions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;random unitary dynamics&lt;/em&gt;: lack of energy conservation;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;random Hamiltonian dynamics&lt;/em&gt;: $U = e^{-\mathrm i H t}$ generated by time-independent random Hamiltonians.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A &lt;em&gt;random Hamiltonian dynamics&lt;/em&gt; is described by a Gaussian unitary ensemble (GUE):
+&lt;/p&gt;
+$$
+P(H) \propto e^{-\frac{D}{2}\mathrm{Tr}H^2}, \quad \mathcal E(t) = \left\{U(t) = e^{-\mathrm i Ht | H \in \text{GUE}}\right\}.
+$$&lt;p&gt;To represent Renyi-2 EE $S_A^{(2)} = -\log \mathrm{Tr}_A \rho_A$ in different subregions $A$, we map the subregion $A$ to a spin-$1/2$ configuration $\bm \sigma$, if $i \in A$, then $\sigma_i = \downarrow$, otherwise $\sigma_i = \uparrow$. We also define a permutation operator $\mathcal X_{\sigma_i}$ acting on the local duplicated Hilbert space, which swaps the configurations of the two Hilbert space if $\sigma_i = \downarrow$. And $\mathcal X_{\bm \sigma} = \otimes_{i=1}^L \mathcal X_{\sigma_i}$ for a $L$-qudit system.&lt;/p&gt;</description></item><item><title>梦（一）</title><link>https://g0nghu.github.io/2026/01/09/%E6%A2%A6%E4%B8%80/</link><pubDate>Fri, 09 Jan 2026 13:24:01 +0800</pubDate><guid>https://g0nghu.github.io/2026/01/09/%E6%A2%A6%E4%B8%80/</guid><description>&lt;p&gt;有同学告诉我我的鼻毛从鼻孔里伸出来了，但我却完全没有意识到。过了一会照了下镜子，发现有一根异常粗的鼻毛。在思索了5分钟之后，我意识到这应该是我卫衣上的带子，于是我把手伸进嘴里，把卫衣的袋子从鼻腔里拉出来，瞬间感觉到鼻子通气了。&lt;/p&gt;</description></item><item><title>摄月实践一则（一）</title><link>https://g0nghu.github.io/2025/12/27/%E6%91%84%E6%9C%88%E5%AE%9E%E8%B7%B5%E4%B8%80%E5%88%99%E4%B8%80/</link><pubDate>Sat, 27 Dec 2025 21:55:33 +0800</pubDate><guid>https://g0nghu.github.io/2025/12/27/%E6%91%84%E6%9C%88%E5%AE%9E%E8%B7%B5%E4%B8%80%E5%88%99%E4%B8%80/</guid><description>&lt;ul&gt;
+&lt;li&gt;时间：2025/12/27；&lt;/li&gt;
+&lt;li&gt;地点：情人坡；&lt;/li&gt;
+&lt;li&gt;设备：Nikon Z50II；&lt;/li&gt;
+&lt;li&gt;镜头：铭匠56mm f1.8。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/4fa9d507c3804b92a37b.jpg" alt=""&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;神秘的$141\mathrm{px}\times141\mathrm{px}$照片，堆了大概240张，放大看应该能看到像素毛边，说明这个焦距下基本已经到传感器极限了，要改进就要加焦距。修的时候发现其实紫边还是比较大的，不过也应该只有几个像素，把紫色和洋红的饱和度亮度拉低就基本变成白色亮边了。&lt;/p&gt;
+&lt;p&gt;等什么时候买了50250再试一次吧。&lt;/p&gt;</description></item><item><title>说的故事</title><link>https://g0nghu.github.io/2025/11/28/%E8%AF%B4%E7%9A%84%E6%95%85%E4%BA%8B/</link><pubDate>Fri, 28 Nov 2025 10:10:09 +0800</pubDate><guid>https://g0nghu.github.io/2025/11/28/%E8%AF%B4%E7%9A%84%E6%95%85%E4%BA%8B/</guid><description>&lt;h2 id="染指"&gt;染指&lt;/h2&gt;
+&lt;p&gt;楚人献鼋于郑灵公。公子宋与子家将见。子公之食指动，以示子家，曰：「他日我如此，必尝异味。」及入，宰夫将解鼋，相视而笑。公问之，子家以告，及食大夫鼋，召子公而弗与也。子公怒，染指于鼎，尝之而出。公怒，欲杀子公。子公与子家谋先。子家曰：「畜老，犹惮杀之，而况君乎？」反谮子家，子家惧而从之。夏，弑灵公。书曰：「郑公子归生弑其君夷。」权不足也。君子曰：「仁而不武，无能达也。」凡弑君，称君，君无道也；称臣，臣之罪也。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ref&lt;/em&gt;: 《左传》宣公·宣公四年&lt;/p&gt;
+&lt;h2 id="大唐宝帐镜花墨书题记"&gt;大唐宝帐镜花墨书题记&lt;/h2&gt;
+&lt;p&gt;弟子崔子琼所从
+宝帐将迎释弁(牟)尼佛真
+身。心中一切愿力速得成就。先愿
+……曹氏同生一处，一切先世父母眷
+……属唯告解脱。我发无边愿，愿一切
+……众生，惟(谁)愿一切诸如来襄祐。
+愿我诸愿早就，济渡诸众
+脱离生死海。
+大唐咸通十二年岁
+次辛卯十一月，造此宝帐镜花。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ref&lt;/em&gt;: 千年遗墨大愿无边——法门寺《大唐宝帐镜花墨书题记》评析;毛小平;中国书法,2012(1),p.197-208&lt;/p&gt;
+&lt;p&gt;这篇发愿文起码在87年发掘法门寺地宫就已经被发现，被作为书法作品评析也已经是12年的事情了，但今年突然有一些媒体又发觉了这个话题，甚至有以此为题的音乐作品，但提供的原文恐怕并不准确，故记录之。&lt;/p&gt;</description></item><item><title>正交多项式</title><link>https://g0nghu.github.io/2025/11/15/%E6%AD%A3%E4%BA%A4%E5%A4%9A%E9%A1%B9%E5%BC%8F/</link><pubDate>Sat, 15 Nov 2025 14:08:00 +0800</pubDate><guid>https://g0nghu.github.io/2025/11/15/%E6%AD%A3%E4%BA%A4%E5%A4%9A%E9%A1%B9%E5%BC%8F/</guid><description>&lt;p&gt;最近看文章遇到和Chebyshev多项式有关的内容, 其中有很神秘的公式, 我凭借我残存的记忆猜出来和正交多项式有关系, 但具体已经记不清了. 只能说学了就忘是生物的本能. 写点东西正好复习一下.&lt;/p&gt;
+&lt;h2 id="正交多项式"&gt;正交多项式&lt;/h2&gt;
+&lt;p&gt;在区间$[a, b]$上定义函数内积
+&lt;/p&gt;
+$$
+(f, g) = \int_a^b \rho(x)f(x)g(x)\mathrm dx.
+$$&lt;p&gt;
+其中$\rho(x) \geq 0(x\in[a, b])$是权重函数, 可以验证这确实是一个内积. 一组多项式$\{P_n(x)\}$在此内积$(\cdot, \cdot)$下正交, 称作一组正交多项式. 进一步, 如果$(P_i, P_j) = \delta_{ij}$, 称作规范正交多项式.&lt;/p&gt;
+&lt;h2 id="正交多项式的三项关系"&gt;正交多项式的三项关系&lt;/h2&gt;
+&lt;p&gt;对于一组正交多项式$\{P_n\}$, 组成的线性空间是$\mathbb{P}_n$, 显然$P_n$可以通过$x^n$和$P_{n-1}, \cdots, P_0$的线性组合实现, 但实际上这个表达式可以更简单, 只需要$P_{n-1}$和$P_{n}$就可以确定$P_{n+1}$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;: 假设$P_{n+1}(x) = a_nP_n(x) + b_n xP_n(x) + c_nP_{n-1}(x) + \sum_{k=0}^{n - 2}d_kP_k(x)$. 对于$k\in[0, \cdots, n-2]$, 有
+&lt;/p&gt;
+$$
+0 = (P_{n+1}, P_k) = (b_n x P_n, P_k) + d_k(P_k, P_k).
+$$&lt;p&gt;
+其中$(xP_n, P_k) = (P_n, xP_k) = 0$, 那么$d_k(P_k, P_k) = 0$, 给出$d_k = 0$.&lt;/p&gt;</description></item><item><title>QOC and optimization problem</title><link>https://g0nghu.github.io/2025/09/09/qoc-and-optimization-problem/</link><pubDate>Tue, 09 Sep 2025 16:59:18 +0800</pubDate><guid>https://g0nghu.github.io/2025/09/09/qoc-and-optimization-problem/</guid><description>&lt;p&gt;这篇笔记给出了GRAPE算法, 以及如何把这种QCO的算法应用于寻找给定Hamiltonian的基态.&lt;/p&gt;
+&lt;h2 id="grape-algorithm"&gt;GRAPE algorithm&lt;/h2&gt;
+&lt;p&gt;考虑一个系统, 其Hamiltonian可以写成如下的形式:
+&lt;/p&gt;
+$$
+H(t) = H_0 + \sum_{k = 1}^m u_k(t) H_k.
+$$&lt;p&gt;
+一般来说, $H_0$是这个系统本身的Hamiltonian, 其他的$H_{k &gt; 0}$是实验中加在系统上的控制, 比如说激光, 随时变的参数$u_k(t)$表示了我们如何操控这些外加的相互作用.&lt;/p&gt;
+&lt;p&gt;QOC (Quantum optimal control)关心的是, 对于上述受参控的系统, 我们如何给出$u_k(t)$的具体形式, 使得一个初始态$\rho_0$可以演化到需求的目标态$C$上.&lt;/p&gt;
+&lt;p&gt;这个问题可以变分地解决, 为了简单起见, 考虑$\rho_0$和$C$都厄米的情况, 这时我们可以定义fidelity作为优化的目标:
+&lt;/p&gt;
+$$
+\Phi_0 = \langle C|\rho(T)\rangle = \mathrm{Tr}(C^\dagger \rho(T)).
+$$&lt;p&gt;首先把时间离散化, $\Delta t = T/N$, 在第$j$个$\Delta t$的时间间隔中, 认为$u_k(t)$是不变的, 并记作$u_k(j)$. 现在可以写下在每个$\Delta t$中的时间演化算符,
+&lt;/p&gt;
+$$
+U_j = \exp \left[
+ -i \Delta t \left( H_0 + \sum_{k = 1}^m u_k(j)H_k \right)
+\right].
+$$&lt;p&gt;
+最后时间演化得到的态就是
+&lt;/p&gt;</description></item><item><title>RG analysis of the nonlinear sigma model</title><link>https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/</link><pubDate>Tue, 09 Sep 2025 09:28:48 +0800</pubDate><guid>https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/</guid><description>&lt;p&gt;A note for Chap 6.4 of Alexander Altland &amp;amp; Ben Simons' &lt;em&gt;Condensed Matter Field Theory&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.&lt;/p&gt;
+&lt;p&gt;考虑如下模型
+&lt;/p&gt;
+$$\begin{gathered}
+\mathcal Z = \int \mathcal Dg e^{-S[g]},\\
+S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),
+\end{gathered}$$&lt;p&gt;
+其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).&lt;/p&gt;
+&lt;p&gt;在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$.&lt;/p&gt;</description></item><item><title>巴斯克实践一则</title><link>https://g0nghu.github.io/2025/07/25/%E5%B7%B4%E6%96%AF%E5%85%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E5%88%99/</link><pubDate>Fri, 25 Jul 2025 20:27:08 +0800</pubDate><guid>https://g0nghu.github.io/2025/07/25/%E5%B7%B4%E6%96%AF%E5%85%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E5%88%99/</guid><description>&lt;p&gt;简单地实践了一下巴斯克，应该说是小获成功吧。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/1af8320d7c814978b633.jpg" alt="巴斯克完整"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/a73a7ea833d649fd8c07.jpg" alt="巴斯克切角"&gt;&lt;/p&gt;
+&lt;p&gt;味道还是很不错的，照的这么难绷的原因除了我的拍照水平很大份之外，还有我刚切了蛋糕就摸了把镜头。&lt;/p&gt;
+&lt;p&gt;说是小获成功的原因是我已经按照六寸的配方做到就差进烤箱了，然后惊喜的发现家里的模具是八寸的。后面又凭感觉补了点，还好没有翻车。但说实在的这种东西配方又简单又好，难以想象人类会做出来无法食用的东西。&lt;/p&gt;
+&lt;p&gt;除此之外的瑕疵就是家里没有筛，最后的蛋糕液还是不够绵密。如果有油纸的话还是用油纸吧，用锡纸巴斯卡全粘在上面脱不下来了，但我感觉以前做戚风蛋糕就没有这个问题。&lt;/p&gt;
+&lt;p&gt;下面是今天打的12台黎明死星：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/99cc0ec0f42b4733bab7.jpg" alt="12台黎明死星"&gt;&lt;/p&gt;
+&lt;p&gt;感觉寒气套和黑龙套在煌黑这个题材上孔位差距并不显著，因为要出火强六，黑龙套的孔位也比较坏坏，好处是属性太刀的会心率都比较高，不用挖空心思搞会心。相比之下黄昏黑星使用寒气套就非常惬意，自带冰强六和专福三，还有一条白送的寒气槽。&lt;/p&gt;</description></item><item><title>Superfluidity and superconductivity</title><link>https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/</link><pubDate>Sun, 20 Jul 2025 12:39:34 +0800</pubDate><guid>https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/</guid><description>&lt;p&gt;A note for Sec 3.7 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="superfluidity-and-superconductivity"&gt;Superfluidity and superconductivity&lt;/h1&gt;
+&lt;h2 id="coupling-to-a-gauge-field-and-conserved-current"&gt;Coupling to a gauge field and conserved current&lt;/h2&gt;
+&lt;p&gt;一个简单的玻色子模型如下:
+&lt;/p&gt;
+$$
+L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -
+\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$&lt;p&gt;
+这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有
+&lt;/p&gt;
+$$
+L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -
+\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$&lt;p&gt;
+如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)
+&lt;/p&gt;</description></item><item><title>Boson superfluid to Mott insulator transition</title><link>https://g0nghu.github.io/2025/07/17/boson-superfluid-to-mott-insulator-transition/</link><pubDate>Thu, 17 Jul 2025 18:58:04 +0800</pubDate><guid>https://g0nghu.github.io/2025/07/17/boson-superfluid-to-mott-insulator-transition/</guid><description>&lt;p&gt;A note for Sec 3.6 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一个玻色超流系统的低能行为可以用XY模型来描述. 零温下的$1 + 1$-D量子XY模型, 可以被一个$2-$D的XY模型描述(如果取$v = 1$), $S = \int \mathrm d^2x \chi (\partial \theta)^2$. 在虚时下的vortices可以看作是在实时下的一些instantons, 如果$\chi &lt; \pi / 2$, 那么这些instantons (vortices)会破坏系统的长程序, 这意味这系统会打开一个能隙. 但是上面的讨论并不符合事实, 对于一个超流体来说, 应该总是有无能隙的密度波的激发才对.&lt;/p&gt;
+&lt;p&gt;为了讨论这个问题, 先考虑在超流体中的两种激发, 局域激发和全局激发(粒子数的变动, Galileo boost). 以自由玻色子为例, 基态是$| k_1, k_2, \cdots, k_n \rangle = |0, 0, \cdots, 0\rangle$, 如果把其中一些$k$的值变成非零值, 这就是一个局域激发; 如果在其中添加一些或者移除一些玻色子, 就是全局激发, 另一种全局激发是让所有$k$偏离一点, 称作Galileo boost. 一种Galileo boost的方法就是把波函数从$\varphi(x) = \varphi_0$变成$\varphi(x) = e^{i2\pi nx/L}\varphi_0$.&lt;/p&gt;
+&lt;p&gt;最小的Galileo boost就是按$k = 2\pi/L$平移所有的$k$, 这会给出一个总的动量是$K_1 = 2\pi N / L = 2\pi \rho$, 总的能量是$E_1 = K_1^2 / 2mN$. 能看出一个Galileo boost对于动量的贡献要比对于能量的贡献显著很多, 说明Galileo boost并不是声波的起源. 那么这个系统的谱就是在不同的Galileo boost附近的声波所贡献的.&lt;/p&gt;</description></item><item><title>The geometric approach to gravitational waves</title><link>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</link><pubDate>Wed, 28 May 2025 15:29:07 +0800</pubDate><guid>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</guid><description>&lt;p&gt;A note for Chap 1-4, Vol 1 of Michele Maggioore's &lt;em&gt;Gravitational waves&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="the-geometric-approach-to-gws"&gt;The geometric approach to GWs&lt;/h1&gt;
+&lt;h2 id="expansion-around-flat-space"&gt;Expansion around flat space&lt;/h2&gt;
+&lt;p&gt;一个引力系统的作用量是$S = S_E + S_M$, 其中
+&lt;/p&gt;
+$$
+S_E = \frac{c^3}{16\pi G} \int \mathrm d^4 x \sqrt{-g}R
+$$&lt;p&gt;
+是Einstein作用量, $S_M$表示物质的作用量. 如果我们考虑度规的一个小变化, 这会导致$S_M$出现一个对应的小变化(关于下面的表达式: 实际上这是$T^{\mu\nu}$的定义),
+&lt;/p&gt;
+$$
+\delta S_M = \frac{1}{2c}\int \mathrm d^4 x \sqrt{-g} T^{\mu\nu}\delta g_{\mu\nu}.
+$$&lt;p&gt;
+那么对于度规$g_{\mu\nu}$的变分给出Einstein场方程
+&lt;/p&gt;
+$$
+R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = \frac{8\pi G}{c^4}T_{\mu\nu}.
+$$&lt;p&gt;
+上面的理论有一个很大的规范对称性, 对应于任意一个坐标变换(应该是一个微分同胚)$x^\mu \rightarrow x'^{\mu}(x)$.&lt;/p&gt;
+&lt;p&gt;现在我们的目标是得到波动方程, 一个想法是&lt;strong&gt;线性化&lt;/strong&gt;Einstein方程, 我们把度规在平直空间附近展开,
+&lt;/p&gt;</description></item><item><title>Path integral approach to interacting boson systems</title><link>https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/</link><pubDate>Wed, 23 Apr 2025 17:24:35 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/</guid><description>&lt;p&gt;A note for Sec 3.3 &amp;amp; 3.4 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="path-integral-approach-to-interacting-boson-systems"&gt;Path integral approach to interacting boson systems&lt;/h2&gt;
+&lt;h3 id="path-integral-representation-of-interacting-boson-systems"&gt;Path integral representation of interacting boson systems&lt;/h3&gt;
+&lt;p&gt;对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成
+&lt;/p&gt;
+$$
+\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt
+[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))
+-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)
+-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.
+$$&lt;p&gt;
+如果需要引入相互作用, 只需要在作用量里加入
+&lt;/p&gt;</description></item><item><title>代码注意事项</title><link>https://g0nghu.github.io/2025/04/10/%E4%BB%A3%E7%A0%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link><pubDate>Thu, 10 Apr 2025 21:20:10 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/10/%E4%BB%A3%E7%A0%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid><description>&lt;p&gt;把写代码的时候遇见的一些问题和感受贴在这里.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="python中类class的使用"&gt;Python中类(class)的使用&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;定义类的时候应该使用&lt;code&gt;self&lt;/code&gt;关键字而不是类的名字, 典型的错误就是:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Block&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self, length, basis_size, operator_dict):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;length &lt;span style="color:#f92672"&gt;=&lt;/span&gt; length
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;basis_size &lt;span style="color:#f92672"&gt;=&lt;/span&gt; basis_size
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;operator_dict &lt;span style="color:#f92672"&gt;=&lt;/span&gt; operator_dict&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;写出这种东西家里真要请哈基高了.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;关于&lt;code&gt;classmethod&lt;/code&gt;和&lt;code&gt;staticmethod&lt;/code&gt;
+回答参考了&lt;a href="https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner/12179752#12179752"&gt;Meaning of @classmethod and @staticmethod for beginner&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Date&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self, day&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, month&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, year&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;day &lt;span style="color:#f92672"&gt;=&lt;/span&gt; day
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;month &lt;span style="color:#f92672"&gt;=&lt;/span&gt; month
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; year
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;@classmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;from_string&lt;/span&gt;(cls, date_as_string):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; day, month, year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; map(int, date_as_string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;split(&lt;span style="color:#e6db74"&gt;&amp;#39;-&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; date1 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cls(day, month, year)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; date1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;@staticmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;is_date_valid&lt;/span&gt;(date_as_string):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; day, month, year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; map(int, date_as_string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;split(&lt;span style="color:#e6db74"&gt;&amp;#39;-&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; day &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;31&lt;/span&gt; &lt;span style="color:#f92672"&gt;and&lt;/span&gt; month &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; &lt;span style="color:#f92672"&gt;and&lt;/span&gt; year &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3999&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;在&lt;code&gt;__init__()&lt;/code&gt;中, 我们使用了&lt;code&gt;self&lt;/code&gt;作为参数, 表示了对于一个新创建的&lt;strong&gt;实例&lt;/strong&gt;的引用.&lt;/p&gt;</description></item><item><title>Applications of the path integral formulation</title><link>https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/</link><pubDate>Thu, 10 Apr 2025 15:26:42 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/</guid><description>&lt;p&gt;A note for Sec 2.4 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="applications-of-the-path-integral-formulation"&gt;Applications of the path integral formulation&lt;/h2&gt;
+&lt;h3 id="tunneling-through-a-barrier"&gt;Tunneling through a barrier&lt;/h3&gt;
+&lt;p&gt;我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).&lt;/p&gt;
+&lt;p&gt;如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子
+&lt;/p&gt;
+$$\begin{gathered}
+\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\
+\langle x_0 | e^{-TH} | -x_0 \rangle = 0.
+\end{gathered}$$&lt;p&gt;如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.&lt;/p&gt;
+&lt;p&gt;我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做&lt;em&gt;instanton&lt;/em&gt;. 那么实际上的稳定路径可以有多个instanton.&lt;/p&gt;</description></item><item><title>Rotating Black Holes</title><link>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</link><pubDate>Wed, 09 Apr 2025 10:57:35 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</guid><description>&lt;p&gt;A note for Chap 15 of James.B.Hartle's &lt;em&gt;An Introduction to Einstein's General Relativity&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="rotating-black-holes"&gt;Rotating black holes&lt;/h1&gt;
+&lt;p&gt;Schwarzchild黑洞并非是广义相对论预言的最普遍的黑洞, Schwarzchild黑洞只有一个参数$M$. Roy Kerr在1963年给出了Einstein场方程的另一个真空解, 可以描述另一种更一般的黑洞, 它有两个参数质量$M$和角动量$J$, 叫做Kerr黑洞.&lt;/p&gt;
+&lt;h2 id="the-kerr-geometry"&gt;The Kerr Geometry&lt;/h2&gt;
+&lt;p&gt;我们使用单位制$c = G = 1$. 这样Kerr度规可以写成
+&lt;/p&gt;
+$$
+\mathrm ds^2 = - \left(1 - \frac{2Mr}{\rho^2}\right) \mathrm dt^2
+-\frac{4Mar\sin^2\theta}{\rho^2}\mathrm d\phi \mathrm dt
++\frac{\rho^2}{\Delta}\mathrm dr^2
++\rho^2 \mathrm d\theta^2
++\left(r^2 + a^2 + \frac{2Mra^2\sin^2\theta}{\rho^2}\right)\sin^2\theta\mathrm d\phi^2,
+$$&lt;p&gt;
+其中
+&lt;/p&gt;
+$$\begin{gathered}
+a \equiv J/M, \\
+\rho^2 \equiv r^2 + a^2 \cos^2\theta,\\
+\Delta \equiv r^2 - 2Mr + a^2.
+\end{gathered}$$&lt;p&gt;
+这里$a$称作&lt;em&gt;Kerr参数&lt;/em&gt;, 量纲是$1$, 使用的坐标称作&lt;em&gt;Boyer-Lindquist-coordinates坐标&lt;/em&gt;. 我们接下来考察Kerr几何的一些性质:&lt;/p&gt;</description></item><item><title>哈基诗一首</title><link>https://g0nghu.github.io/2025/03/26/%E5%93%88%E5%9F%BA%E8%AF%97%E4%B8%80%E9%A6%96/</link><pubDate>Wed, 26 Mar 2025 20:15:04 +0800</pubDate><guid>https://g0nghu.github.io/2025/03/26/%E5%93%88%E5%9F%BA%E8%AF%97%E4%B8%80%E9%A6%96/</guid><description>&lt;p&gt;喔 哈基米 那些假期我都听通知&lt;/p&gt;
+&lt;p&gt;但你不是哈基米&lt;/p&gt;
+&lt;p&gt;于是基米不再&lt;/p&gt;
+&lt;p&gt;哈基&lt;/p&gt;</description></item><item><title>群论 Note02 for A.Zee.</title><link>https://g0nghu.github.io/2025/03/22/%E7%BE%A4%E8%AE%BA-note02-for-a.zee./</link><pubDate>Sat, 22 Mar 2025 13:12:18 +0800</pubDate><guid>https://g0nghu.github.io/2025/03/22/%E7%BE%A4%E8%AE%BA-note02-for-a.zee./</guid><description>&lt;p&gt;3.20: 今天看见一个小孩, 在路上只走某一种地砖(两种地砖交错地铺成路面), &amp;quot;如果我踩到那个就会死&amp;quot;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="group-theory-in-a-quantum-world"&gt;Group theory in a quantum world&lt;/h2&gt;
+&lt;h3 id="quantum-mechanics-and-group-theory-parity-blochs-theorem-and-the-brillouin-zone"&gt;Quantum mechanics and group theory: parity, Bloch's theorem, and the Brillouin zone&lt;/h3&gt;
+&lt;h4 id="from-degeneracy-to-group-repre"&gt;From degeneracy to group repre&lt;/h4&gt;
+&lt;p&gt;简并度为$d$的本征态$\psi^a$支持了一个$d$维的对称群$G$不可约表示.&lt;/p&gt;
+&lt;h4 id="connection-to-schurs-lemma-what-group-theory-can-and-cannot-tell-you"&gt;Connection to Schur's lemma: what group theory can and cannot tell you&lt;/h4&gt;
+&lt;p&gt;Schur's lemma在我们考虑量子力学的本征态问题时有非常直观的体现, $H$和所有$d\times d$的表示矩阵对易, 这样, 这样我们要求$H$在一组基下是纯量阵, 事实正是如此. 如果有一个更大的可约表示, 在这一组基下, $H$应该是一些纯量阵的直和, 这样就提供了一种对角化$H$的方法.&lt;/p&gt;
+&lt;p&gt;群论并不能直接给出能量的值, 改变$H$而不改变对称性, 简并仍然存在.&lt;/p&gt;
+&lt;h4 id="parity"&gt;Parity&lt;/h4&gt;
+&lt;p&gt;$\mathrm Z_2$有两个不可约表示, 分别对应$\psi(x) = \psi(-x)$和$\psi(x) = -\psi(-x)$.&lt;/p&gt;
+&lt;h4 id="blochs-theorem-and-brillouin-zone"&gt;Bloch's theorem and Brillouin zone&lt;/h4&gt;
+&lt;p&gt;$1D$情况下, 晶体的平移变换构成群$\{\cdots, T^{-1}, I, T, T^2\}$. 这是一个阿贝尔群, 所以只能有$1$维表示, 这样$\psi'(x) = T\psi(x) = \zeta \psi(x)$. 从波函数的归一化要求, $\zeta = e^{ika}$.&lt;/p&gt;</description></item><item><title>群论 Note01 for A.Zee.</title><link>https://g0nghu.github.io/2025/03/02/%E7%BE%A4%E8%AE%BA-note01-for-a.zee./</link><pubDate>Sun, 02 Mar 2025 17:52:13 +0800</pubDate><guid>https://g0nghu.github.io/2025/03/02/%E7%BE%A4%E8%AE%BA-note01-for-a.zee./</guid><description>&lt;p&gt;2025/2/22:
+希望能结束数次翻开群论又合上的操作。&lt;/p&gt;
+&lt;p&gt;2025/3/2:
+写太长了预览起来有点卡，分开写把。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="groups-discrete-or-continuous-finite-or-infinite"&gt;Groups: discrete or continuous, finite or infinite&lt;/h2&gt;
+&lt;h3 id="symmetry-and-group"&gt;Symmetry and group&lt;/h3&gt;
+&lt;h4 id="cyclic-subgroups"&gt;Cyclic subgroups&lt;/h4&gt;
+&lt;p&gt;对于某个有限群$G$，可以被拆成一些循环群。&lt;/p&gt;
+&lt;h4 id="lagranges-theorem"&gt;Lagrange's theorem&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Thm.&lt;/strong&gt; $|G| = n$, $H\subset G$, $|H| = m$ $\Rightarrow$ $n/m \in \mathbf Z^+$.&lt;/p&gt;
+&lt;p&gt;假设$\exist g_1 \in G$, $g_1 \notin H$. 可以定义集合$Hg_1 = \{h_1g_1,\cdots, h_mg_1\}$. 首先$Hg_1$不构成一个群，因为没有单位元，如果有的话，$g_1$就会成为某个$h$的逆，和$g\notin H$矛盾。第二，$Hg_1$中元素和$H$是一一对应的，并且$Hg_1 \cap H = \emptyset$，假设并非如此，那么一定有$hg_1 = h'$，和$g_1\notin H$矛盾。&lt;/p&gt;
+&lt;p&gt;现在可以找到某个$g_2\in G$, $g_2\notin H$, $g_2\notin Hg_1$。那么$Hg_2$应该有相似的性质，并且$Hg_2\cap Hg_1 = \emptyset$，假设并非如此，有$hg_2=h'g_1$，和$g_2\notin H_1$矛盾。这个过程可以不断做下去，得到对于$G$的分解，$G = \cup_{i=0}^{k}Hg_i$，称作陪集分解。&lt;/p&gt;
+&lt;h4 id="multiplication-table"&gt;Multiplication table&lt;/h4&gt;
+&lt;p&gt;对于有限群，表中的每一行或者每一列每个群元素出现且只出现一次。利用这一要求，对于$n=4$的有限群，我们可以写下所有的结果，它一定是$\mathrm Z_4$或者$\mathrm Z_2\otimes \mathrm Z_2$.&lt;/p&gt;</description></item><item><title>The scaling hypothesis</title><link>https://g0nghu.github.io/2025/02/06/the-scaling-hypothesis/</link><pubDate>Thu, 06 Feb 2025 15:24:43 +0800</pubDate><guid>https://g0nghu.github.io/2025/02/06/the-scaling-hypothesis/</guid><description>&lt;h1 id="the-scaling-hypothesis"&gt;The scaling hypothesis&lt;/h1&gt;
+&lt;h2 id="scaling-form-of-the-correlation-function"&gt;Scaling form of the correlation function&lt;/h2&gt;
+&lt;p&gt;Consider the propagator $G(\bm p) = \langle \varphi(\bm p)\varphi(-\bm p) \rangle$ in the $\varphi^4$ theory with a one-component field. $S[\varphi]$ should be dimensionless. So $[\varphi(\bm r)] = d/2 - 1$ and $[G(\bm p )] = -2$. We write $G(\bm p)$ in a dimensionless form (scaling form)
+&lt;/p&gt;
+$$
+G(\bm p) = \frac{1}{\bm p^2}\mathcal G(p\xi, \frac{a}{\xi}),
+$$&lt;p&gt;
+where $a$ is a characteristic length which does not diverge at the transition ($\Lambda^{-1}$).&lt;/p&gt;</description></item><item><title>Gaussian model</title><link>https://g0nghu.github.io/2025/02/05/gaussian-model/</link><pubDate>Wed, 05 Feb 2025 21:37:02 +0800</pubDate><guid>https://g0nghu.github.io/2025/02/05/gaussian-model/</guid><description>&lt;h1 id="gaussian-model"&gt;Gaussian model&lt;/h1&gt;
+&lt;p&gt;The Landau theory (or the mean-field theory) take the only value of the field. A simple improvement is to take into account Gaussian fluctuations.&lt;/p&gt;
+&lt;p&gt;The initial $\varphi^4$ theory is
+&lt;/p&gt;
+$$
+S = \int \mathrm d^d r \left(\frac{r_0}{2}\varphi^2 + \frac{1}{2}(\nabla \varphi)^2 + \frac{u_0}{4!}\varphi^4\right).
+$$&lt;p&gt;
+Expand it near the saddle point. For $T &gt; T_{c0}$, it is just
+&lt;/p&gt;
+$$
+S[\bm \varphi] = \frac{1}{2}\sum_{\bm p, i}|\varphi(\bm p)|^2(\bm p^2 + r_0)
+$$&lt;p&gt;
+For $T &lt; T_{c0}$, $\bm \varphi(\bm r) = \left(\sqrt{\frac{-6r_0}{u_0}}+\varphi_1'(\bm r)\right)\bm e_1 + \sum_{i=2}^N\varphi_i'(\bm r)\bm e_i$. At the saddle point the first order term must vanish and only second order should be included.
+&lt;/p&gt;</description></item><item><title>Landau's theory of phase transitions</title><link>https://g0nghu.github.io/2025/02/04/landaus-theory-of-phase-transitions/</link><pubDate>Tue, 04 Feb 2025 15:14:12 +0800</pubDate><guid>https://g0nghu.github.io/2025/02/04/landaus-theory-of-phase-transitions/</guid><description>&lt;p&gt;A note for Nicolas Dupuis's book &lt;em&gt;Field theory of condensed matter and ultracold gases&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id="landaus-theory-of-phase-transitions"&gt;Landau's theory of phase transitions&lt;/h1&gt;
+&lt;h2 id="landaus-theory-as-a-mean-field-theory"&gt;Landau's theory as a mean-field theory&lt;/h2&gt;
+&lt;h3 id="microscopic-landaus-theory"&gt;Microscopic Landau's theory&lt;/h3&gt;
+&lt;p&gt;The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes
+&lt;/p&gt;</description></item><item><title>笑话一则</title><link>https://g0nghu.github.io/2025/01/21/%E7%AC%91%E8%AF%9D%E4%B8%80%E5%88%99/</link><pubDate>Tue, 21 Jan 2025 20:39:28 +0800</pubDate><guid>https://g0nghu.github.io/2025/01/21/%E7%AC%91%E8%AF%9D%E4%B8%80%E5%88%99/</guid><description>&lt;p&gt;一个乐队走入livehouse，分别是saki，soyo，三角初华，睦头人和一条狗，saki对一位tomorin说：“我们的举动非常有趣，您应当扮成我们。”
+tomorin回答，“抱歉，我不能扮演乐队成员。他们有点太可爱了。”
+soyo说，“先生，您得看看我们的举动，我知道您会扮成我们的。”tomorin回答，“好吧，好吧，我会看看的。”
+saki给自己戴上一顶上书“tomorin”的高帽，soyo穿上saki的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+tomorin回答，“抱歉，我不能扮演乐队成员。他们有点太可爱了。”
+三角初华（扮成soyo）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+tomorin回答，“好吧，好吧，我会看看的。”
+三角初华给自己戴上一顶上书“tomorin”的高帽，睦头人穿上saki的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+tomorin回答，“抱歉，我不能扮演乐队成员。他们有点太可爱了。”
+saki（扮成三角初华）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+tomorin回答，“好吧，好吧，我会看看的。”
+睦头人给自己戴上一顶上书“tomorin”的高帽，狗穿上saki的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮演我们。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;今天听到老同学纯爱故事，有感而发。真是长跑冠军啊。&lt;/p&gt;</description></item><item><title>网球计分规则</title><link>https://g0nghu.github.io/2024/12/23/%E7%BD%91%E7%90%83%E8%AE%A1%E5%88%86%E8%A7%84%E5%88%99/</link><pubDate>Mon, 23 Dec 2024 09:42:40 +0800</pubDate><guid>https://g0nghu.github.io/2024/12/23/%E7%BD%91%E7%90%83%E8%AE%A1%E5%88%86%E8%A7%84%E5%88%99/</guid><description>&lt;h2 id="网球计分规则"&gt;网球计分规则&lt;/h2&gt;
+&lt;p&gt;网球计分通常分为四个层次：分、局、盘和场。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分：每局开始时，双方的得分为零。比赛中得分的顺序为0、15、30、40，取得四分的一方赢得该局。如果比分达到40-40，则称为平分（Deuce），此后必须领先对手两分才能赢得该局。&lt;/li&gt;
+&lt;li&gt;局：每盘比赛中，选手须赢得至少六局（并且领先两局）才能赢得这一盘。如果双方各赢六局，则进入抢七局。&lt;/li&gt;
+&lt;li&gt;盘：比赛分为多个盘，单打比赛通常为三盘两胜或五盘三胜，而双打则通常为三盘两胜。&lt;/li&gt;
+&lt;li&gt;场：整场比赛由多个盘组成。&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>居然可以看见山</title><link>https://g0nghu.github.io/2024/12/09/%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E8%A7%81%E5%B1%B1/</link><pubDate>Mon, 09 Dec 2024 09:55:19 +0800</pubDate><guid>https://g0nghu.github.io/2024/12/09/%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E8%A7%81%E5%B1%B1/</guid><description>&lt;p&gt;周六做实验在六教8楼，只在8楼就能看见西山（是西山吗，总之是西边的山），让人想起住在秦岭下边的时候能模糊地向南看见山，印象里也没有这么清晰，但可能只是离得不够近。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/c5817a9086df40158db8.jpg" alt="中午"&gt;&lt;/p&gt;
+&lt;p&gt;到现在在学校里进了四回剧院，算上路边发的免费演出有六七回了，这回的《等待戈多》是我最喜欢的一次。台词也好演出也好很多给我很深的印象，台词估计我自己会重复很多次的，“咱们走吧”。看的时候我不止一次想起很久之前在怪东西里看见的笑话，不过想不起来有什么联系&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;一个家庭走入人才中介所，分别是父亲，母亲，儿子，女儿和一条狗，父亲对一位人才代理商说：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+母亲说，“先生，您得看看我们的举动，我知道您会扮成我们的。”代理商回答，“好吧，好吧，我会看看的。”
+父亲给自己戴上一顶上书“人才代理商”的高帽，母亲穿上父亲的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+儿子（扮成母亲）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+儿子给自己戴上一顶上书“人才代理商”的高帽，女儿穿上父亲的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+父亲（扮成儿子）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+女儿给自己戴上一顶上书“人才代理商”的高帽，狗穿上父亲的服装，走到他身旁说道：“我们的举动非常有趣，您应当扮演我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+狗（扮成母亲）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+母亲给自己戴上一顶上书“人才代理商”的高帽，父亲穿上女儿的外衣，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+母亲（扮成父亲）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+狗给自己戴上一顶上书“人才代理商”的高帽，母亲穿上儿子的外衣，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+父亲（扮成母亲）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+儿子给自己戴上一顶上书“人才代理商”的高帽，父亲穿上儿子的外衣，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+狗（扮成女儿）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+狗给自己戴上一顶上书“人才代理商”的高帽，狗穿上儿子的外衣，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+狗（扮成狗）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+人才代理商给自己戴上一顶上书“家人”的高帽，父亲穿上扮演儿子时穿着的父亲的外衣，走到他身旁说道：“我们的举动非常有趣，您应当扮成我们。”
+代理商回答，“抱歉，我不能扮演家庭成员。他们有点太可爱了。”
+人才代理商（扮成他自己）说道：“先生，您得看看我们的举动，我知道您会扮成我们的。”
+代理商回答，“好吧，好吧，我会看看的。”
+代理商无伦次地喃喃自语.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/2e4b31e0c9d84dab982f.jpg" alt="等待"&gt;&lt;/p&gt;</description></item><item><title>beamer简单设置</title><link>https://g0nghu.github.io/2024/12/03/beamer%E7%AE%80%E5%8D%95%E8%AE%BE%E7%BD%AE/</link><pubDate>Tue, 03 Dec 2024 22:26:11 +0800</pubDate><guid>https://g0nghu.github.io/2024/12/03/beamer%E7%AE%80%E5%8D%95%E8%AE%BE%E7%BD%AE/</guid><description>&lt;p&gt;简单的beamer设置&lt;/p&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-tex" data-lang="tex"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\documentclass&lt;/span&gt;{beamer}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;[UTF8]&lt;/span&gt;{ctex}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usetheme&lt;/span&gt;{Madrid}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;% \usefonttheme[onlymath]{serif}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usefonttheme&lt;/span&gt;{serif}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;[T1]&lt;/span&gt;{fontenc}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{palatino}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{mathrsfs}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{calligra}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{bm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{amsmath,amsthm,amsfonts,amssymb}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{extarrows}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{booktabs}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{multirow}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{multicol}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{hyperref}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\hypersetup&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; colorlinks=true,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; linkcolor=,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; filecolor=blue,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; urlcolor=blue,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; citecolor=cyan,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{graphicx}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\graphicspath&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {./figure/}{./figures/}{./image/}{./images/}{./graphic/}{./graphics/}{./picture/}{./pictures/}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\usepackage&lt;/span&gt;{subcaption}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\title&lt;/span&gt;{科学作为天职}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\author&lt;/span&gt;{宝多六十花}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\date&lt;/span&gt;{2024.12.03}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\begin&lt;/span&gt;{document}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\maketitle&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;\end&lt;/span&gt;{document}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;最近老做梦。&lt;/p&gt;</description></item><item><title>Broken Symmetry (Weinberg 5.8)</title><link>https://g0nghu.github.io/2024/11/27/broken-symmetry-weinberg-5.8/</link><pubDate>Wed, 27 Nov 2024 13:15:04 +0800</pubDate><guid>https://g0nghu.github.io/2024/11/27/broken-symmetry-weinberg-5.8/</guid><description>&lt;p&gt;Consider the parity symmetry in $1$-D case, $V(x) = -V(-x)$. If $\psi(x)$ is a solution for Schrodinger equation with energy $E$, $\psi(-x)$ must be another solution with energy $E$. In a degenerated case, we can find two state with the same energy $E$ and determined parity $1$ and $-1$, respectively.&lt;/p&gt;
+&lt;p&gt;Consider the potential when we talk about SSB, i.e. with a high thick barrier centered at $x=0$. If the barrier is infinitely high and thick, there will be two degenerated energy eigenstates with $E_0$, one with a wave function $\psi_0(x)$ that is non-zero only for $x&gt;0$, and the other with a wave function $\psi_0(-x)$ that's non-zero only for $x&lt;0$. We could form even or odd solution by the linear combination $(\psi_0(x)\pm \psi_0(-x))/\sqrt 2$. However, if the barrier is only &lt;strong&gt;finite&lt;/strong&gt; high and thick, the even and odd solutions are not degenerated anymore, but with a small energy difference. But the odd and even solutions should still be eigenstates.&lt;/p&gt;</description></item><item><title>Quantum Monte Carlo for Spins and Bosons</title><link>https://g0nghu.github.io/2024/11/26/quantum-monte-carlo-for-spins-and-bosons/</link><pubDate>Tue, 26 Nov 2024 11:36:41 +0800</pubDate><guid>https://g0nghu.github.io/2024/11/26/quantum-monte-carlo-for-spins-and-bosons/</guid><description>&lt;p&gt;我配置的katex居然无法渲染&lt;code&gt;\ket{\psi}&lt;/code&gt;，只能全部改成&lt;code&gt;|\psi \rangle&lt;/code&gt;这种东西。更奇怪的是居然到现在才第一次遇到这个问题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="quantum-monte-carlo-for-spin-and-bosonic-systems"&gt;Quantum Monte Carlo for spin and bosonic systems&lt;/h1&gt;
+&lt;h2 id="world-line-qmc"&gt;World line QMC&lt;/h2&gt;
+&lt;p&gt;The partition function
+&lt;/p&gt;
+$$Z = \sum_{\text{path}} \langle{\alpha_0}|e^{-\Delta_\tau H}| \alpha_{L-1}\rangle \cdots \langle \alpha_2 | e^{-\Delta_\tau H} |\alpha_{1}\rangle \langle{\alpha_1} | e^{-\Delta_\tau H}|\alpha_{0}\rangle$$&lt;p&gt;
+in which $e^{-\Delta_\tau H} = 1 - \Delta_\tau H$.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;path periodic path&lt;/strong&gt;
+&lt;/p&gt;
+$$\alpha_0 \rightarrow \alpha_1 \rightarrow \cdots \rightarrow \alpha_{L-1} \rightarrow \alpha_0$$&lt;p&gt;A purely kinetic energy Hamiltonian for hard-core bosons ($n_i = a_i^\dagger a_i \in \{0,1\}$) is
+&lt;/p&gt;
+$$H = K = -\sum_{&lt;i,j&gt;}K_{i,j} = -\sum_{&lt;i,j&gt;}(a_i^\dagger a_j + a_j^\dagger a_i)$$&lt;p&gt;
+which can be written as a $S = 1/2$ XY model
+&lt;/p&gt;</description></item><item><title>Metropolis algorithm for classical Ising model</title><link>https://g0nghu.github.io/2024/11/24/metropolis-algorithm-for-classical-ising-model/</link><pubDate>Sun, 24 Nov 2024 10:34:55 +0800</pubDate><guid>https://g0nghu.github.io/2024/11/24/metropolis-algorithm-for-classical-ising-model/</guid><description>&lt;h2 id="metropolis-hasting-algorithm"&gt;Metropolis-Hasting algorithm&lt;/h2&gt;
+&lt;h3 id="algorithm"&gt;Algorithm&lt;/h3&gt;
+&lt;p&gt;Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.&lt;/p&gt;
+&lt;p&gt;The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.&lt;/p&gt;
+&lt;p&gt;Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$&lt;/p&gt;</description></item><item><title>低能散射理论</title><link>https://g0nghu.github.io/2024/11/20/%E4%BD%8E%E8%83%BD%E6%95%A3%E5%B0%84%E7%90%86%E8%AE%BA/</link><pubDate>Wed, 20 Nov 2024 17:24:11 +0800</pubDate><guid>https://g0nghu.github.io/2024/11/20/%E4%BD%8E%E8%83%BD%E6%95%A3%E5%B0%84%E7%90%86%E8%AE%BA/</guid><description>&lt;p&gt;考虑弹性散射，入射平面波$\ket{\bm{k}}$，会出射一个球面波形式的波函数，总的波函数是$e^{ikz}+f(\theta, \varphi)\frac{e^{ikr}}{r}$，在无穷远处我们要求波函数成为这个形式，这时无穷远处的边界条件。这个波函数满足定态薛定谔方程，同时还给出能量$E_{\bm{k}} = \frac{\hbar^2 k^2}{2m}$。$|f(\theta, \varphi)|^2$确定微分散射截面$\sigma(\theta, \varphi)$，对于波包的分析会给出相同的结果，因此我们只考虑平面波（&lt;em&gt;这个结论是否依赖于波包近似?&lt;/em&gt;）。&lt;/p&gt;
+&lt;h2 id="中心势的分波法"&gt;中心势的分波法&lt;/h2&gt;
+&lt;p&gt;对于有心势$V(r)$，对于$z$轴有旋转对称，可以不考虑坐标$\varphi$。总的波函数可以展开成
+&lt;/p&gt;
+$$\psi(r, \theta) = \sum_{l=0}^{\infty}R_l(r)P_l(\cos\theta)$$&lt;p&gt;
+定态薛定谔方程为
+&lt;/p&gt;
+$$\nabla^2 \psi + (k^2-U(r))\psi = 0$$&lt;p&gt;
+其中$U(r) \frac{2\mu}{\hbar^2}V(r)$。做变换$R_l(r) = \frac{u_l(r)}{kr}$把解带入，对于每一种分波得到
+&lt;/p&gt;
+$$\frac{\mathrm{d}^2u_l}{\mathrm{d}r^2}+(k^2-U(r)-\frac{l(l+1)}{r^2})u_l = 0$$&lt;p&gt;
+要求边界条件，$u_l(r=0) = 0$，无穷远处方程成为
+&lt;/p&gt;
+$$\frac{\mathrm{d}^2u_l}{\mathrm{d}r^2}+k^2u_l = 0$$&lt;p&gt;
+解可以表示成
+&lt;/p&gt;
+$$u_l(r) = A_l\sin(kr-\frac{l\pi}{2}+\delta_l)$$&lt;p&gt;
+我们得到的解要满足边界条件，所以把边界条件也按角动量展开
+&lt;/p&gt;
+$$e^{ikr\cos\theta} = \sum_{j=0}^{\infty}(2l+1)i^lj_l(kr)P_l(\cos\theta)$$&lt;p&gt;
+球贝塞尔函数在无穷远处的渐进展开为
+&lt;/p&gt;
+$$j_l(kr) \sim \frac{1}{kr}\sin(kr - \frac{l\pi}{2})$$&lt;p&gt;说明势$V(r)$在无穷远处的影响是对于不同$l$的分量产生了不同的&lt;strong&gt;相移&lt;/strong&gt;$\delta_l$。边界条件相同给出
+&lt;/p&gt;
+$$
+\sum_j(2l+1)i^l\frac{1}{kr}\sin(kr-\frac{l\pi}{2})P_l(\cos\theta)+\frac{f(\theta)}{r}e^{ikr} = \sum_l A_l \frac{1}{kr}\sin(kr-\frac{l\pi}{2}+\delta_l)P_l(\cos\theta)
+$$&lt;p&gt;
+按照$e^{ikr}$和$e^{-ikr}$展开有
+&lt;/p&gt;
+$$2ikf(\theta) = -\sum_l((2l+1)i^l-A_le^{i\delta_l})e^{-il\pi/2}P_l(\cos\theta)$$&lt;p&gt;
+&lt;/p&gt;
+$$0 = -\sum_l((2l+1)i^l-A_le^{i\delta_l})e^{il\pi/2}P_l(\cos\theta)$$&lt;p&gt;
+得到$A_l = (2l+1)i^l - A_l$，并且得到散射振幅
+&lt;/p&gt;
+$$f(\theta) = \frac{1}{k}\sum_l(2l+1)\sin\delta_l e^{i\delta_l}P_l(\cos\theta)$$&lt;p&gt;到这里，我们如果可以知道相移$\delta_l$，散射振幅可以被完全确定。我们实际上不需要计算所有的分波，如果短程力的力程是$a$，我们只要考虑到$l\leq ka$，极端情况下可以只考虑S波散射。&lt;/p&gt;</description></item><item><title>Tensors and Representations of Rotation Groups SO(N)</title><link>https://g0nghu.github.io/2024/11/13/tensors-and-representations-of-rotation-groups-son/</link><pubDate>Wed, 13 Nov 2024 11:45:15 +0800</pubDate><guid>https://g0nghu.github.io/2024/11/13/tensors-and-representations-of-rotation-groups-son/</guid><description>&lt;h3 id="representing-the-rotation-groups"&gt;Representing the rotation groups&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;def.&lt;/strong&gt; SO(N) group is all $N$-by$N$ matrices $R$ satisfying
+&lt;/p&gt;
+$$R^T R = I$$&lt;p&gt;
+&lt;/p&gt;
+$$\mathrm{det}R = 1$$&lt;p&gt;
+A column of number $V$ is a vector if under rotation it becomes $V'^i = R^{ij}V^j$.&lt;/p&gt;
+&lt;h3 id="several-questions-and-some-flying-guesses"&gt;Several questions and some flying guesses&lt;/h3&gt;
+&lt;p&gt;The finite group $Z_N$, generating rotation of angle $2\pi/N$, has $N$ $1$-dimensional irreducible representations, labeled by $k=0, \cdots, N-1$. The group element $e^{i2\pi j/N}$ is represented by $D^{(k)}(e^{i2\pi j/N}) = e^{i2\pi kj/N}$. As $N\rightarrow \infty$, the finite group $Z_N$ turn into the continuous group $SO(2)$. So $SO(2)$ should have an infinite number of irreducible representations corresponding to $k=0,\cdots,\infty$. The rotation is represented by $e^{ik\theta}$.&lt;/p&gt;</description></item><item><title>冬天吃早饭</title><link>https://g0nghu.github.io/2024/10/24/%E5%86%AC%E5%A4%A9%E5%90%83%E6%97%A9%E9%A5%AD/</link><pubDate>Thu, 24 Oct 2024 19:38:32 +0800</pubDate><guid>https://g0nghu.github.io/2024/10/24/%E5%86%AC%E5%A4%A9%E5%90%83%E6%97%A9%E9%A5%AD/</guid><description>&lt;p&gt;&lt;em&gt;公无渡河，公竟渡河。
+渡河而死，将奈公何。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;今天因为考试要早起吃饭早饭，突然在想我没事的时候早起吃早饭的原因，想了半天也没有给出一个可靠的答案，所以觉得这是一种莫名的冲动。就像是《箜篌引》里披发奔流的人，没有原因地做没有好处的事。不过也可能只是我喜欢这个故事，对于《箜篌引》的故事解读主要来自于恐怖文学，后面即使看过李贺的诗也没有纠正回来，有些太中二了。另一方面，真有什么冲动能让我在冬天起床吗？现在应该想的是我到底是缺少想象力，还是治好了也流口水。&lt;/p&gt;
+&lt;p&gt;还有一件事，了解了“窄门”的说法之后感觉这东西适用性太广了所以变得没意思。我最近感觉我的体育课就是窄门，靠自己没法及格只能等着老师捞。但是老师捞不捞是没法明说的，我只能把这看成一种信仰，指望这是一种考验而老师一定回捞我。但真实情况是不清楚的，这种体验的心情是我独享的，简直不能再窄门了。但如果我也能想亚伯拉罕献子一样，献祭我的室友来获得及格，我肯定要去做。&lt;/p&gt;</description></item><item><title>悲剧01</title><link>https://g0nghu.github.io/2024/10/16/%E6%82%B2%E5%89%A701/</link><pubDate>Wed, 16 Oct 2024 14:34:18 +0800</pubDate><guid>https://g0nghu.github.io/2024/10/16/%E6%82%B2%E5%89%A701/</guid><description>&lt;p&gt;&lt;em&gt;他们必大大蒙羞，就是受永不忘记的羞辱，因为他们行事没有智慧。&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;吃错药写出这种鬼东西，&lt;/p&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Block&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self, length, basis_size, operator_dict):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;length &lt;span style="color:#f92672"&gt;=&lt;/span&gt; length
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;basis_size &lt;span style="color:#f92672"&gt;=&lt;/span&gt; basis_size
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;operator_dict &lt;span style="color:#f92672"&gt;=&lt;/span&gt; operator_dict&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;后面发现所有&lt;code&gt;Block&lt;/code&gt;对象都是同一个，以为是复制或者赋值之类的问题，加了深拷贝还是错。调了半天，堪称超级大粪。最后才反应过来。&lt;/p&gt;</description></item><item><title>阶跃函数的傅里叶变换</title><link>https://g0nghu.github.io/2024/10/10/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</link><pubDate>Thu, 10 Oct 2024 11:31:08 +0800</pubDate><guid>https://g0nghu.github.io/2024/10/10/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid><description>&lt;h2 id="阶跃函数的傅里叶变换"&gt;阶跃函数$\theta(t)$的傅里叶变换&lt;/h2&gt;
+&lt;p&gt;阶跃函数
+&lt;/p&gt;
+$$\theta(t) = \left\{
+\begin{aligned}
+1, \ &amp; t \geq 0 \\
+0, \ &amp; t &lt; 0
+\end{aligned}\right.$$&lt;p&gt;此外我们定义
+&lt;/p&gt;
+$$f_a(t) = \left\{
+\begin{aligned}
+e^{-at}, \ &amp; t \geq 0 \\
+0, \ &amp; t &lt; 0
+\end{aligned}\right.$$&lt;p&gt;可以看出
+&lt;/p&gt;
+$$\lim_{a\rightarrow0^+}f_a(t) = \theta(t)$$&lt;p&gt;对$f_a(t)$的F.T.是
+&lt;/p&gt;
+$$\mathcal{F}[f_a(t)] = \int_0^\infty e^{-at-i\omega t} \mathrm{d}t = \frac{1}{a+i\omega}$$&lt;p&gt;
+对它取极限得到$\theta(t)$的F.T.
+&lt;/p&gt;
+$$\mathcal{F}[\theta(t)] = \lim_{a\rightarrow0^+}\mathcal{F[f_a(t)]} = \lim_{a\rightarrow0^+}\frac{1}{a+i\omega}$$&lt;p&gt;
+进一步，将之展开成虚部和实部
+&lt;/p&gt;
+$$\mathcal{F}[\theta(t)]=\lim_{a\rightarrow0^+}\frac{a-i\omega}{a^2+\omega^2}$$&lt;p&gt;
+实部给出一个$Dirac$函数，要确定系数$C = \lim_{a\rightarrow 0^+}\int \frac{a\mathrm{d}\omega}{a^2+\omega^2} = \pi$，所以有
+&lt;/p&gt;
+$$\mathcal{F}[\theta(t)] = \pi\delta(\omega)+\frac{1}{i\omega}$$&lt;p&gt;此外有两个有用的积分
+&lt;/p&gt;
+$$\int_0^\infty e^{-i\omega t}\mathrm{d}t = \pi\delta(\omega)+\frac{1}{i\omega}$$&lt;p&gt;
+&lt;/p&gt;</description></item><item><title>Born-Markov Approximation</title><link>https://g0nghu.github.io/2024/10/07/born-markov-approximation/</link><pubDate>Mon, 07 Oct 2024 23:31:57 +0800</pubDate><guid>https://g0nghu.github.io/2024/10/07/born-markov-approximation/</guid><description>&lt;h2 id="相互作用表象"&gt;相互作用表象&lt;/h2&gt;
+$$H = H_S + H_R + g H_{int}$$&lt;p&gt;
+The evolution for the full system is
+&lt;/p&gt;
+$$\frac{\mathrm{d}\sigma(t)}{\mathrm{d}t}=-i[H,\sigma(t)]$$&lt;p&gt;
+In the interaction picture
+&lt;/p&gt;
+$$\sigma_I(t) = e^{i(H_S+H_R)t} \sigma(t) e^{-i(H_S+H_R)t}$$$$V(t) = e^{i(H_S+H_R)t} H_{int} e^{-i(H_S+H_R)t}$$&lt;p&gt;
+The evolution in the interaction system is controlled by Liouville equation
+&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{\mathrm{d}\sigma_I(t)}{\mathrm{d}t} = &amp; ie^{i(H_S+H_R)t} [H_s+H_R, \sigma(t)] e^{-i(H_S+H_R)t} - ie^{i(H_S+H_R)t} [H, \sigma(t)] e^{-i(H_S+H_R)t} \\
+= &amp; - ie^{i(H_S+H_R)t} [g H_{int}, \sigma(t)] e^{-i(H_S+H_R)t} \\
+= &amp; - i e^{i(H_S+H_R)t} (g H_{int}\sigma(t) - \sigma(t)g H_{int}) e^{-i(H_S+H_R)t} \\
+= &amp; -i[gV, \sigma_I]
+\end{aligned}
+$$&lt;h2 id="约化环境"&gt;约化环境&lt;/h2&gt;
+&lt;p&gt;$\rho(t) = \mathrm{Tr}_R(\sigma(t))$, $\rho_I(t) = e^{iH_St}\rho(t)e^{-iH_St} = \mathrm{Tr}_R(\sigma_I(t))$.
+For small $g$, we write the lowest order by assuming $\mathrm{Tr}_R([V(t), \sigma_I(0)])=0$
+&lt;/p&gt;</description></item><item><title>体育课杂记</title><link>https://g0nghu.github.io/2024/09/30/%E4%BD%93%E8%82%B2%E8%AF%BE%E6%9D%82%E8%AE%B0/</link><pubDate>Mon, 30 Sep 2024 19:24:36 +0800</pubDate><guid>https://g0nghu.github.io/2024/09/30/%E4%BD%93%E8%82%B2%E8%AF%BE%E6%9D%82%E8%AE%B0/</guid><description>&lt;p&gt;一周之前的体育课，正在上课的时候看到有同学一个人坐在地上很久。网球课的组织形式大概是两个人对打，但是他的搭档没有来。过了可能有多半节课，老师才发现他一直坐在地上。之后大概就是关心他为什么一个人，之后又要帮他联系一起打的同学。突然看到其实已经20岁的同学被当成小朋友对待，感到印象很深。&lt;/p&gt;</description></item><item><title>惨剧轮回规则说明</title><link>https://g0nghu.github.io/2024/09/27/%E6%83%A8%E5%89%A7%E8%BD%AE%E5%9B%9E%E8%A7%84%E5%88%99%E8%AF%B4%E6%98%8E/</link><pubDate>Fri, 27 Sep 2024 11:15:44 +0800</pubDate><guid>https://g0nghu.github.io/2024/09/27/%E6%83%A8%E5%89%A7%E8%BD%AE%E5%9B%9E%E8%A7%84%E5%88%99%E8%AF%B4%E6%98%8E/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;g0ghu
+亟待补充&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="胜利条件"&gt;胜利条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;剧作家：赢得每一次轮回且没有被猜中&lt;/li&gt;
+&lt;li&gt;主人中：赢得任意一次轮回或者猜中剧本构成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="开局时主人公可以获得的情报"&gt;开局时主人公可以获得的情报&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;每次轮回的天数&lt;/li&gt;
+&lt;li&gt;轮回次数&lt;/li&gt;
+&lt;li&gt;每天可能发生的事件（当事人未知）&lt;/li&gt;
+&lt;li&gt;剧作家手牌构成&lt;/li&gt;
+&lt;li&gt;剧本的模组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="每次轮回的构成"&gt;每次轮回的构成&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;轮回开始
+主人公讨论信息和对策，剧作家可以听见&lt;/li&gt;
+&lt;li&gt;剧作家出牌
+每个人物或地点最多获得一张手牌。除&lt;em&gt;密谋+1&lt;/em&gt;和&lt;em&gt;密谋+2&lt;/em&gt;之外，其他牌也可以作用在地点上，但是不会有效果。&lt;/li&gt;
+&lt;li&gt;主人公出牌
+从队长开始，每人出牌，每个人物或地点最多获得一张手牌。如果主人公方出了复数的&lt;em&gt;禁止密谋&lt;/em&gt;，则所有&lt;em&gt;禁止密谋&lt;/em&gt;失去效果。如果移动的最终位置禁止进入，角色将完全不移动，即使有多张移动卡作用在该人物上。密谋，不安和友好将在所有人移动之后结算。&lt;/li&gt;
+&lt;li&gt;剧作家能力阶段&lt;/li&gt;
+&lt;li&gt;主人公能力阶段
+在人物获得友好达到技能要求之后，主人公可以发动技能。如果对应角色有&lt;em&gt;无视友好&lt;/em&gt;特性，那么剧作家&lt;strong&gt;可以选择&lt;/strong&gt;技能是否成功发动；如果对应角色有&lt;em&gt;必定无视友好&lt;/em&gt;特性则技能必定无法发动。&lt;/li&gt;
+&lt;li&gt;事件结算
+要求时当事人村存活，且不安值达标。以&lt;em&gt;医院事故&lt;/em&gt;为例，如果当事人不安值达标，但医院区域没有密谋，剧作家需要告知当事人医院事故发生但是没有效果。死亡角色依然保留指示物。&lt;/li&gt;
+&lt;li&gt;直到轮回结束或者剧作家突然宣布轮回结束，主人公更换队长。&lt;/li&gt;
+&lt;li&gt;所有轮回结束之后，进入最终决战，主人公在猜出剧本构成之后可以获胜。&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>《原人歌》节选</title><link>https://g0nghu.github.io/2024/09/21/%E5%8E%9F%E4%BA%BA%E6%AD%8C%E8%8A%82%E9%80%89/</link><pubDate>Sat, 21 Sep 2024 19:09:00 +0800</pubDate><guid>https://g0nghu.github.io/2024/09/21/%E5%8E%9F%E4%BA%BA%E6%AD%8C%E8%8A%82%E9%80%89/</guid><description>&lt;h2 id="原人歌的部分内容和解释"&gt;《原人歌》的部分内容和解释&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;布鲁沙有千头，
+有千眼，有钱足。
+他从四面八方围覆大地，
+还能超出十指的长度。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;布鲁沙就是原人，Purusa。这种说法是Anthropomorphism，使用属于人的特征描述不属于人的事物。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;布鲁沙是这所有的一切，
+包括过去的和将来的，
+他是不死的主宰，
+他超越那些依靠祭食者。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;“不死的”和“依靠祭食者”是众神。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;布鲁沙的四分之三升华了，
+它的四分之一重现世间，
+由此他向四方扩散，
+满编一切食和不食者。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;创世的过程，印度文化中使用“食和不食”，吃不吃东西来区分万物。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;由他生出毗罗阇，
+从毗罗阇生出布鲁沙。
+他一出生，就向着东方和西方，
+扩散到在整个大地。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;描述了布鲁沙的演变进化过程&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;众神举行祭祀时，
+以布鲁沙为牺牲，
+春是那融化的奶油
+夏是柴薪，秋是神圣祭品。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;印度没有冬天。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;从那完备奉献的祭祀，
+长身了颂诗和歌咏；
+由此产生了韵律，
+由此产生了祭词。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;这一段紧接在上面创世神话之后，显得有点奇怪，但是从这里可以看出祭祀活动的重要。此外上面看到世界万物的产生是以布鲁沙的自我献祭为代价的，“创世纪”的内容是一次献祭活动，说明印度文化中祭祀活动的中心地位。《吠陀》意思是“知识”，在种姓的区分中，掌握祭祀知识的是婆罗门。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;当他们分割布鲁沙时，
+把他分割多少部分？
+他的嘴变成了什么？他的双臂又是什么？
+他的双腿和双脚又叫什么？
+他的嘴是婆罗门，
+它的双臂是罗阇尼耶，
+它的双腿成为吠舍，
+从他双脚产生了首陀罗。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;不同种姓的来源。
+&lt;strong&gt;种姓（Caste）的介绍&lt;/strong&gt;：源自葡萄牙语Casta，意思是血缘、种族、类别。葡萄牙殖民者发现印度的社会分层现象。印度人自己可能没有一个&lt;strong&gt;如此明确&lt;/strong&gt;的描述这一现象的文字。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;从他的意念产生了月亮，
+从他的眼睛产生了太阳；
+从他的嘴产生因陀罗和阿耆尼，
+从他的呼吸产生戈由。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;戈由是风神。这一段是众神的产生。对于不同神的地位反映在认知上，高低位的神甚至不能看清。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;他的脐产生了空界，
+从他的头演化了天界，
+从他的双脚深处地界，
+从他的耳产生四方；由此产生了世界。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;创世过程可以看成是创造世界和创造人共同进行的过程，都是布鲁沙变化成的。&lt;/p&gt;
+&lt;h2 id="原人歌的宗教学定位"&gt;《原人歌》的宗教学定位&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;立足于祭祀文化的、具有一神论特征的泛神论（sacrifice-culture-based monotheistic pantheism）&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Hello World</title><link>https://g0nghu.github.io/1/01/01/hello-world/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://g0nghu.github.io/1/01/01/hello-world/</guid><description>&lt;p&gt;Welcome to &lt;a href="https://hexo.io/"&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href="https://hexo.io/docs/"&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href="https://hexo.io/docs/troubleshooting.html"&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href="https://github.com/hexojs/hexo/issues"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="quick-start"&gt;Quick Start&lt;/h2&gt;
+&lt;h3 id="create-a-new-post"&gt;Create a new post&lt;/h3&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ hexo new &lt;span style="color:#e6db74"&gt;&amp;#34;My New Post&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;More info: &lt;a href="https://hexo.io/docs/writing.html"&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="run-server"&gt;Run server&lt;/h3&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ hexo server&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;More info: &lt;a href="https://hexo.io/docs/server.html"&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="generate-static-files"&gt;Generate static files&lt;/h3&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ hexo generate&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;More info: &lt;a href="https://hexo.io/docs/generating.html"&gt;Generating&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MIPT on 酒客临时委员会</title><link>https://g0nghu.github.io/tags/mipt/</link><description>Recent content in MIPT on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 03 Apr 2026 15:25:25 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/tags/mipt/index.xml" rel="self" type="application/rss+xml"/><item><title>Classical model for RUC with weak measurement</title><link>https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/</link><pubDate>Fri, 03 Apr 2026 15:25:25 +0800</pubDate><guid>https://g0nghu.github.io/2026/04/03/classical-model-for-ruc-with-weak-measurement/</guid><description>&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Yimu Bao, Soonwon Choi, &amp;amp; Ehud Altman. Phys. Rev. X 9, 031009 – Published 22 July, 2019.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="weak-measurement"&gt;Weak measurement&lt;/h2&gt;
+&lt;p&gt;最早对于 MIPT 的讨论, 使用的都是投影测量, 一种可能的推广是使用弱测量 (weak measurement), 给每个 qudit 一个 ancilla qudit, 需要测量的时候就作用一个门把系统 qudit 和辅助 qudit 纠缠起来, 在辅助 qudit 上进行测量, 这个测量的强弱取决于施加纠缠的门的参数.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://g0nghu.github.io/images/13c450e1459e404d8b5f.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;具体来说, 对于一个 $q$-qudit 来说, 我们引入的辅助 qudit 的维数是 $q + 1$. 这个门的给的纠缠强弱通过参数 $\alpha$ 控制:
+&lt;/p&gt;
+$$
+\hat R_\alpha = \sum_{i = 1}^q \hat P_i \otimes \mathrm e^{- \mathrm i \alpha \hat X_i},
+$$&lt;p&gt;
+其中 $\hat P_{i} = | i \rangle_s \langle i |_s$ 表示对于系统 qudit 在 computational basis 上的投影, 而 $\hat X_i = |0\rangle_m \langle i |_m + |i \rangle_m \langle 0 |_m$ 表示在辅助 qudit 上的类 Pauli-$X$ 作用, 所有的辅助 qudit 被初始化到 $|0 \rangle_m$.&lt;/p&gt;</description></item><item><title>有关 MIPT 的研究进展</title><link>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</link><pubDate>Mon, 30 Mar 2026 14:18:48 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</guid><description>&lt;p&gt;写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.&lt;/p&gt;
+&lt;p&gt;这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.&lt;/p&gt;
+&lt;p&gt;当然文档多数时候是未完成的.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="measurement-induced-phase-transitions-in-the-dynamics-of-entanglement"&gt;&lt;a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009"&gt;Measurement-Induced Phase Transitions in the Dynamics of Entanglement&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Phys. Rev. X 9, 031009 – Published 22 July, 2019&lt;/p&gt;
+&lt;p&gt;Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum&lt;/p&gt;
+&lt;p&gt;已完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的;&lt;/li&gt;
+&lt;li&gt;使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率;&lt;/li&gt;
+&lt;li&gt;使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率;&lt;/li&gt;
+&lt;li&gt;附录中给出了拟合标度率以及经典计算 percolation 问题的方法.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;未完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;连续时间演化下的结果;&lt;/li&gt;
+&lt;li&gt;大 $q$ (局域自由度)近似的验证;&lt;/li&gt;
+&lt;li&gt;任何对于高维结果的数值验证;&lt;/li&gt;
+&lt;li&gt;高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$;&lt;/li&gt;
+&lt;li&gt;不同 subregion 的纠缠熵.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续:&lt;/p&gt;</description></item><item><title>Measurement Induced Phase Transitions (MIPT)</title><link>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</link><pubDate>Mon, 30 Mar 2026 09:42:17 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/measurement-induced-phase-transitions-mipt/</guid><description>&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;B. Skinner, Introduction to random unitary circuits and measurements (lecture notes, 2023)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;MIPT 是在随机幺正演化的线路上, 以一定的概率$p$对中间线路的结果进行测量. 一般来说, 一个幺正演化会倾向于使得系统中的纠缠增加, 而测量则会即时地把系统投影到一个直积态上从而降低系统的纠缠. 这两种机制之间的竞争使得在某个$p = p_c$的临界概率上, 系统可能会发生一个由体积率到面积率之间纠缠相变.&lt;/p&gt;
+&lt;h2 id="random-unitary-operators-and-minimal-cut"&gt;Random unitary operators and minimal cut&lt;/h2&gt;
+&lt;p&gt;在接下来的讨论中, 我们会使用 Renyi-$0$ 熵, 其被定义为
+&lt;/p&gt;
+$$
+S_0 = \log (\text{\# nonzero terms in the Schmidt decomposition of } |\psi\rangle).
+$$&lt;p&gt;
+尽管这个值对于态的变化并不连续, 但它实际上给其他的 Renyi 熵提供了一个上界和行为上的参考.&lt;/p&gt;
+&lt;p&gt;一个对于随机幺正线路 (RUC) 的问题是: 为什么研究这个系统? 一个比较普遍的回答是, 通过研究随机幺正线路, 我们希望能获得对于一般系统纠缠增长的普适结论, 即使存在一些特例. 这些对于纠缠增长的了解有助于我们进一步了解热化的发生以及控制计算成本.&lt;/p&gt;
+&lt;h3 id="the-minimal-cut"&gt;The minimal cut&lt;/h3&gt;
+&lt;p&gt;对于一个 RUC 来说, 一个可能的对于子系统 A, B 的切割 (cut) 按照下图给出,
+&lt;img src="https://g0nghu.github.io/images/c162cafbacb446c0badb.png" alt=""&gt;&lt;/p&gt;</description></item></channel></rss>

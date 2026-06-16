@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Codes on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/codes/</link><description>Recent content in Codes on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 10 Apr 2025 21:20:10 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/codes/index.xml" rel="self" type="application/rss+xml"/><item><title>代码注意事项</title><link>https://g0nghu.github.io/2025/04/10/%E4%BB%A3%E7%A0%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link><pubDate>Thu, 10 Apr 2025 21:20:10 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/10/%E4%BB%A3%E7%A0%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid><description>&lt;p&gt;把写代码的时候遇见的一些问题和感受贴在这里.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="python中类class的使用"&gt;Python中类(class)的使用&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;定义类的时候应该使用&lt;code&gt;self&lt;/code&gt;关键字而不是类的名字, 典型的错误就是:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Block&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self, length, basis_size, operator_dict):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;length &lt;span style="color:#f92672"&gt;=&lt;/span&gt; length
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;basis_size &lt;span style="color:#f92672"&gt;=&lt;/span&gt; basis_size
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Block&lt;span style="color:#f92672"&gt;.&lt;/span&gt;operator_dict &lt;span style="color:#f92672"&gt;=&lt;/span&gt; operator_dict&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;写出这种东西家里真要请哈基高了.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;关于&lt;code&gt;classmethod&lt;/code&gt;和&lt;code&gt;staticmethod&lt;/code&gt;
+回答参考了&lt;a href="https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner/12179752#12179752"&gt;Meaning of @classmethod and @staticmethod for beginner&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="code-block"&gt;
+ &lt;button class="code-copy" type="button" hidden aria-label="Copy code to clipboard"&gt;
+ &lt;span class="code-copy-label" aria-hidden="true"&gt;Copy&lt;/span&gt;
+ &lt;/button&gt;
+ &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Date&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self, day&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, month&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, year&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;day &lt;span style="color:#f92672"&gt;=&lt;/span&gt; day
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;month &lt;span style="color:#f92672"&gt;=&lt;/span&gt; month
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; year
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;@classmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;from_string&lt;/span&gt;(cls, date_as_string):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; day, month, year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; map(int, date_as_string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;split(&lt;span style="color:#e6db74"&gt;&amp;#39;-&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; date1 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cls(day, month, year)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; date1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;@staticmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;is_date_valid&lt;/span&gt;(date_as_string):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; day, month, year &lt;span style="color:#f92672"&gt;=&lt;/span&gt; map(int, date_as_string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;split(&lt;span style="color:#e6db74"&gt;&amp;#39;-&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; day &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;31&lt;/span&gt; &lt;span style="color:#f92672"&gt;and&lt;/span&gt; month &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; &lt;span style="color:#f92672"&gt;and&lt;/span&gt; year &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3999&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;/div&gt;&lt;p&gt;在&lt;code&gt;__init__()&lt;/code&gt;中, 我们使用了&lt;code&gt;self&lt;/code&gt;作为参数, 表示了对于一个新创建的&lt;strong&gt;实例&lt;/strong&gt;的引用.&lt;/p&gt;</description></item></channel></rss>

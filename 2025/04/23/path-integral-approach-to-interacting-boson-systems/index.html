@@ -1,0 +1,211 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Path integral approach to interacting boson systems | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A note for Sec 3.3 & 3.4 for 文小刚's 多体系统的量子场论.
+
+Path integral approach to interacting boson systems
+Path integral representation of interacting boson systems
+对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成
+
+$$
+\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt
+[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))
+-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)
+-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.
+$$
+如果需要引入相互作用, 只需要在作用量里加入
+"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/><meta property="og:url" content="https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Path integral approach to interacting boson systems"><meta property="og:description" content="A note for Sec 3.3 & 3.4 for 文小刚's 多体系统的量子场论.
+Path integral approach to interacting boson systems Path integral representation of interacting boson systems 对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成 $$\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.$$ 如果需要引入相互作用, 只需要在作用量里加入"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-04-23T17:24:35+08:00"><meta property="article:modified_time" content="2025-04-23T17:24:35+08:00"><meta itemprop=name content="Path integral approach to interacting boson systems"><meta itemprop=description content="A note for Sec 3.3 & 3.4 for 文小刚's 多体系统的量子场论.
+Path integral approach to interacting boson systems Path integral representation of interacting boson systems 对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成 $$\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.$$ 如果需要引入相互作用, 只需要在作用量里加入"><meta itemprop=datePublished content="2025-04-23T17:24:35+08:00"><meta itemprop=dateModified content="2025-04-23T17:24:35+08:00"><meta itemprop=wordCount content="1821"><meta itemprop=keywords content="多体系统的量子场论"><meta name=twitter:card content="summary"><meta name=twitter:title content="Path integral approach to interacting boson systems"><meta name=twitter:description content="A note for Sec 3.3 & 3.4 for 文小刚's 多体系统的量子场论.
+Path integral approach to interacting boson systems Path integral representation of interacting boson systems 对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成 $$\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.$$ 如果需要引入相互作用, 只需要在作用量里加入"></head><body class="ma0 avenir bg-near-white production is-page is-page page-Path-integral-approach-to-interacting-boson-systems"><header class="cover bg-center" style=background-image:url(https://g0nghu.github.io/images/18aae666dbfc47bc9735.png)><div class=bg-black-60><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav><div class="tc-l pv6 ph3 ph4-ns"><div class="f2 f1-l fw2 white-90 mb0 lh-title">Path integral approach to interacting boson systems</div></div></div></header><main class=pb7 role=main><article class="page-Path-integral-approach-to-interacting-boson-systems flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Path integral approach to interacting boson systems</h1><time class="f6 mv4 dib tracked" datetime=2025-04-23T17:24:35+08:00>April 23, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A note for Sec 3.3 & 3.4 for 文小刚's <em>多体系统的量子场论</em>.</p><hr><h2 id=path-integral-approach-to-interacting-boson-systems>Path integral approach to interacting boson systems</h2><h3 id=path-integral-representation-of-interacting-boson-systems>Path integral representation of interacting boson systems</h3><p>对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成</p>$$
+\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt
+[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))
+-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)
+-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.
+$$<p>如果需要引入相互作用, 只需要在作用量里加入</p>$$
+\int \mathrm d^d \bm x \mathrm d^d \bm y \frac{1}{2}a^*(\bm x, t)a(\bm x, t)V(\bm x - \bm y)a^*(\bm y, t) a(\bm y, t).
+$$<p>我们选择最简单的相互作用势$V(\bm x) = V_0\delta(\bm x)$. 改用$\varphi(\bm x, t)$表示boson场, 那么现在相互作用可以写成</p>$$
+S = \int\mathrm d^d \bm x\mathrm dt \left[i\frac{1}{2}\left(\varphi^*\partial_t \varphi - \varphi\partial_{t}\varphi^*\right)
+-\frac{1}{2m}\partial_{\bm x}\varphi \partial_{\bm x}\varphi^*
++\mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4\right].
+$$<p>这个系统的能量是</p>$$
+\Omega = \int \mathrm d^d \bm x \left[\frac{1}{2m}\partial_{\bm x}\varphi \partial_{\bm x}\varphi^*
+-\mu|\varphi|^2 + \frac{V_0}{2}|\varphi|^4\right].
+$$<h3 id=phase-transition-and-spontaneous-symmetry-breaking>Phase transition and spontaneous symmetry breaking</h3><p>首先考虑经典的理论, 系统是均匀的, 那么能量密度是</p>$$
+\frac{\Omega_0}{\mathcal V} = -\mu|\varphi_0|^2 + \frac{V_0}{2}|\varphi_0|^4.
+$$<p>如果$\mu < 0$, 基态是$\varphi_0 = 0$, 表示一个没有bosons的态. 如果$\mu > 0$, 系统有着简并的基态</p>$$
+\varphi_0 = \sqrt{\frac{\mu}{V_0}}e^{i\theta}.
+$$<p>系统的基态能量作为化学势$\mu$的函数是</p>$$
+\Omega_0(\mu) / \mathcal V = \begin{cases} 0, \text{for } \mu < 0,\\
+\frac{\mu^2}{V_0}, \text{for } \mu > 0.
+\end{cases}
+$$<p>在$\mu = 0$处系统的基态能量是奇异的, 这一点是超流相变点. 在这一点上$\varphi_0$从$0$变成非零值, 我们可以取$\varphi_0$作为超流的序参量.</p><p>超流相变体现为$U(1)$对称性的破缺, 在作用量中我们有$\varphi\rightarrow e^{i\theta}\varphi$下的不变性, 但是超流相的基态在这一变换下不保持不变. 此外在超流相中, 有着长程关联$\langle\varphi(t, \bm x)^\dagger\varphi(0, 0)\rangle|_{(t, x)\rightarrow \infty} = |\varphi_0|^2$. 我们可以把非零的序参量或者长程关联作为对称性破缺的标志. 接下来我们要讨论量子涨落是如何影响我们给出的经典结果的.</p><h3 id=low-energy-effective-theory>Low-energy effective theory</h3><p>考虑在对称相中的涨落$\varphi = \delta \varphi$, 系统的运动方程是</p>$$
+\left(i\partial_t + \frac{1}{2m}\partial_{\bm x}^2 + \mu\right)\delta \varphi = 0.
+$$<p>这给出一个有能隙$\Delta = -\mu$的色散关系,</p>$$
+\omega = \frac{k^2}{2m} - \mu.
+$$<p>在对称性破缺相中的涨落要稍微复杂一点, 如果在不同的区域把具有不同相位$\theta$的基态拼在一起, 就得到一个能量较低的态. 这样我们可以把涨落分成能量较低的相位的涨落以及能量较高的密度的涨落:</p>$$
+\varphi = \sqrt{\rho_0 + \delta \rho}e^{i\theta}.
+$$<p>考虑展开到二次的作用量</p>$$
+S = \int \mathrm d^d \bm x \mathrm dt\left[
+-(\rho_0 + \delta \rho)\partial_t \theta - \frac{\rho_0(\partial_{\bm x}\theta)^2}{2m} - \frac{(\partial_{\bm x}\delta \rho)^2}{8m\rho_0} - \frac{V_0}{2}\delta\rho^2
+\right],
+$$<p>因为我们只关心系统的低能行为, 所以希望可以去掉$\delta \rho$表示的高能自由度. 一种粗糙的做法是取$\delta \rho = 0$, 另一种稍好的做法是积掉$\delta\rho$的自由度得到一个有效理论, 考虑配分函数</p>$$\begin{aligned}
+Z = & \int \mathcal D\theta e^{i\int \mathrm d^d \bm x \mathrm dt [-\frac{\rho_0}{2m}(\partial_{\bm x}t)^2 + \frac{1}{2}\partial_t \theta\frac{1}{V_0 - \frac{1}{4m\rho_0}\partial_{\bm x}^2}\partial_{\bm x}\theta]} \\
+\approx & \int \mathcal D\theta e^{i\int d^d \bm x \mathrm dt \left[-\frac{\rho_0}{2m}(\partial_{\bm x}t)^2 + \frac{1}{2V_0}(\partial_t\theta)^2\right]}.
+\end{aligned}$$<p>这样我们就得到了对于低能部分$\theta$的有效理论</p>$$
+S_{\text{eff}} = \int \mathrm d^d\bm x \mathrm dt \left[\frac{1}{2V_0}(\partial_t \theta)^2 - \frac{\rho_0}{2m}(\partial_{\bm x}\theta)^2\right].
+$$<p>在上面的处理中我们假设了$\theta$是缓变的, 并且丢掉了$\theta$的时间导数的一次项(这一项在考虑涡旋时是重要的). $\theta$在$S^1$上取值, 所以我们也可以定义$z = e^{i\theta}$,</p>$$
+S_{\text{eff}} = \int \mathrm d^d\bm x \mathrm dt \left[\frac{1}{2V_0}|\partial_t z|^2 - \frac{\rho_0}{2m}|\partial_{\bm x} z|^2\right].
+$$<p>上面的模型被称为<strong>XY模型</strong>.</p><p>考虑它的经典的运动方程</p>$$
+\left(-\frac{1}{2V_0}\partial_t^2 + \frac{\rho_0}{2m}\partial_{\bm x}^2\right)\theta = 0.
+$$<p>这给出一个无能隙的, 线性的色散$\omega = v|\bm k|$, 这里$v^2 = \frac{\rho_0 V_0}{m}$.</p><p>这里给出的一个有效模型的解释, 我们需要知道原本的理论中的物理量在有效理论中是如何表示的. 如果我们关心的物理量是密度, 那么就在原本的作用量中加一项$-A_0 \rho = -A_0(\rho_0 + \delta \rho)$, 然后如上积掉$\delta \rho$的自由度, 这时可以发现在有效理论中多了一项(只考虑线性项)$-A_0(\rho_0 - \frac{\partial_t \theta}{V_0})$. 那么在有效理论中的密度就是</p>$$
+\rho = \rho_0 - \frac{\partial_t \theta}{V_0}.
+$$<p>类似地我们也可以得到有效的bosons流密度$\bm j = \mathrm{Re} \varphi^\dagger \frac{\partial_{\bm x}}{im}\varphi$,</p>$$
+\bm j = \frac{\rho_0}{m}\partial_{\bm x}\theta.
+$$<h3 id=waves-are-particles>Waves are particles</h3><p>在$\bm k$空间的有效Lagrangian是</p>$$
+L_{\text{eff}} = \sum_{\bm k}\left[\frac{1}{2}A_{\bm k}\dot{\theta}_{\bm k}\dot{\theta}_{-\bm k} - \frac{1}{2}B_{\bm k}\theta_{\bm k}\theta_{-\bm k}\right].
+$$<p>这表示多个没有耦合的谐振子. $\theta_{\bm k}$的共轭动量是</p>$$
+\pi_{\bm k} = \frac{\partial L_{\text{eff}}}{\partial \dot{\theta_{\bm k}}} = A_{\bm k}\theta_{-\bm k}.
+$$<p>那么Hamiltonian是</p>$$
+H = \sum_{\bm k}\pi_{\bm k}\dot{\theta}_{\bm k} - L_{\text{eff}} = \sum_{\bm k}\left[\frac{1}{2A_{\bm k}}\pi_{\bm k}\pi_{-\bm k} + \frac{1}{2}B_{\bm k}\theta_{\bm k}\theta_{-\bm k}\right].
+$$<p>共轭变量之间有关系$[\theta_{\bm k}, \pi_{\bm k'}] = i\delta_{\bm k, \bm k'}$. 我们可以写下谐振子的升降算符</p>$$\begin{gathered}
+\alpha_{\bm k} = u_{\bm k}\theta_{\bm k} + iv_{\bm k}\pi_{\bm k}, \\
+u_{\bm k} = \frac{1}{\sqrt 2}(A_{\bm k}B_{\bm k})^{1/4}, \\
+v_{\bm k} = \frac{1}{\sqrt 2}(A_{\bm k}B_{\bm k})^{-1/4}.
+\end{gathered}$$<p>这些算符满足boson产生湮灭算符的要求. 并且现在Hamiltonian可以写成</p>$$\begin{gathered}
+H = \sum_{\bm k}\epsilon_{\bm k}\alpha_{\bm k}^\dagger \alpha_{\bm k} + \text{const}, \\
+\epsilon_{\bm k} = \sqrt{\frac{B_{\bm k}}{A_{\bm k}}} = \frac{V_0\rho_0}{m}|\bm k|.
+\end{gathered}$$<p>我们看到相位的涨落$\theta$的激发成为了无能隙线性色散的声子.</p><h3 id=superfluid-as-a-toy-universe>Superfluid as a toy universe</h3><p>如果有"声荷", 作为声子流的源, 如果系统是静态的, 能量是$\int \mathrm d^3\bm x \frac{\rho_0}{2m}(\partial_{\bm x}\theta)^2$, 这给出系统的相互作用是平方反比的, $\theta$是产生的场(实际上声子数守恒就给出这个场的Poisson方程).</p><p>实际的超流体中要求粒子数守恒, 所以不允许有局域的声荷出现, 那么最低阶的相互作用是偶极-偶极相互作用, 对应rotons之间的四次方反比的相互作用.</p><h3 id=spontaneous-symmetry-breaking-and-gapless-excitations>Spontaneous symmetry breaking and gapless excitations</h3><p>我们之前的讨论建立在$\delta$势的基础上, 但实际上我们得到声子的三个性质: 无能隙, 线性色散和无相互作用并不依赖于相互作用的细节, 只需要保证是短程相互作用就可以了. 既然无能隙是不依赖于势的形状的普遍特征, 那它应该有一个一般的原因: $U(1)$对称性自发破缺, 我们来说明这一点.</p><p>原本的Lagrangian有$U(1)$对称性, 也就是说在$\varphi \rightarrow e^{i\eta}\varphi$下不变, 如果我们显式地破坏这个$U(1)$对称性, 比如在Lagrangian中加入一项$C\mathrm{Re}\varphi$, 那么在有效理论中就会出现一项$\cos\theta$: $\mathcal L = \frac{1}{2V_0}(\partial_t \theta)^2 - \frac{\rho_0}{2m}(\partial_{\bm x}\theta)^2 + g\cos\theta$. 因为我们考虑的是小的相位涨落$\theta$, 这个Lagrangian密度成为$\mathcal L = \frac{1}{2V_0}(\partial_t \theta)^2 - \frac{\rho_0}{2m}(\partial_{\bm x}\theta)^2 - \frac{g}{2}\theta^2$. 给出的运动方程是$(-\frac{1}{2V_0}\partial_t^2 + \frac{\rho_0}{2m}\partial_{\bm x}^2 - g)\theta = 0$, 这给出一个能隙大小是$\sqrt{2V_0g}$的色散$\omega = \sqrt{2V_0g + \frac{V_0\rho_0}{m}\bm k^2}$. 如果Lagrangian和基态都保持$U(1)$对称性, 那么根据上面的讨论, 也会有有限大的能隙.</p><p>那么也就是说只有在Lagrangian保持$U(1)$对称性, 但基态的$U(1)$对称性自发破缺的时候, 才有无能隙的声子激发. Nambu和Goldstone证明了, 如果在一个相中有连续对称性的自发破缺, 这个相就有无能隙的激发, 这种无能隙的激发叫做Nambu-Goldstone模.</p><p>此外, 不论自发破缺的是连续的的还是离散的对称性, 都会导致基态的简并. 如果是连续对称性被破坏, 我们可以参数化这些简并的基态, 比如取参数为$\theta(\bm x, t)$, 这样我们就可以写下关于$\theta(\bm x, t)$的低能理论, 这种理论被称作<strong>非线性$\sigma$-模型</strong>, 我们给出的XY模型就是最简单的非线性$\sigma$-模型.</p><h3 id=understanding-spontaneous-symmetry-breaking-in-finite-systems>Understanding spontaneous symmetry breaking in finite systems</h3><p>$U(1)$对称性的Wigner幺正算符是$W = e^{-i\hat{N}\theta}$, bosons算符在其作用下的变化是</p>$$
+Wa(x)W^\dagger = e^{i\theta}a(x).
+$$<p>我们的系统具有$U(1)$对称性, 满足$[W, H] = 0$, 这说明存在基态$|\Psi_0\rangle$, 它也是$W$的本征态. 这样
+就有</p>$$
+\langle \Psi_0|a(x)|\Psi_0 \rangle = \langle \Psi_0 |Wa(x)W^{\dagger}| \Psi_0 \rangle = \langle \Psi_0|a(x)|\Psi_0 \rangle e^{i\theta},
+$$<p>说明序参量的值$\varphi_0 = \langle \Phi_0 | a(x) | \Phi_0 \rangle = 0$.</p><p>但是在前面给出的经典情形下, 我们确实看到了在有限大系统中的自发对称性破缺. 这是我们采取了经典处理的结果, 如果我们把$\varphi_0$看成量子的, 那它的量子涨落就会恢复$U(1)$对称性. 但当系统尺寸$\mathcal V \rightarrow \infty$之后, 量子涨落趋于零, 那么又会出现对称性自发破缺.</p><p>我们得到低能部分的物理是由XY模型决定的, 如果我们只关心均匀涨落, 就有如下的Lagrangian</p>$$
+L = \mathcal V\left[\frac{1}{2V_0}(\partial_t\theta_0)^2 - \rho_0\partial_t \theta_0 + \mu\rho_0 - \frac{1}{2}V_0 \rho_0^2\right].
+$$<p>这里我们又加回了$\theta_0$的时间全导数项. 这个Lagrangian描述了一个在$S^1$上运动的粒子, 其质量是$M = \mathcal V/V_0$, 动量是</p>$$
+p = \partial_{\dot{\theta}}L = M\dot{\theta} - \frac{\mu \mathcal V}{V_0}.
+$$<p>Hamiltonian是</p>$$
+H = \frac{p^2}{2M} + \frac{\mu\mathcal V p}{V_0M}.
+$$<p>如果我们经典地看待这个Hamiltonian, 当$p = - \mu \mathcal V / V_0$或者说$\dot{\theta} = 0$的时候系统能量最小, 位置$\theta_0$可以是任意的. 这样在经典下, 我们看到会发生$U(1)$对称性自发破缺, 简并的基态是$|\theta_0\rangle$.</p><p>但如果量子地考虑这个问题, 首先因为$\theta_0$的周期性, 要求$p$是整数, 一个动量$p = -n$的态的能量是</p>$$
+E_n = \frac{n^2}{2M} - \frac{\mu\mathcal V n}{V_0M} = \frac{V_0n^2}{2\mathcal V} - \mu n.
+$$<p>当$-p = n = \mu \mathcal V / V_0$时系统的能量最小, 这给出了系统的唯一基态</p>$$
+|\Phi_0\rangle = \int \mathrm d\theta_0 e^{-i\frac{\mu \mathcal V}{V_0}\theta_0}|\theta_0\rangle.
+$$<p>可以看到并没有自发对称性破缺.</p><p>这个问题还有另一种看法, 系统的总粒子数是$N = \mathcal V (\rho_0 - \frac{\partial_t \theta_0}{V_0}) = -p$, 这给出对易关系$[N, \theta_0] = i$, 说明一个有限大的, 有固定粒子数的系统不可能有确定的相位. 为了给出自发对称性破缺, 我们需要粒子数的涨落.</p><p>在有限大的系统中, 能隙大概是$\mathcal V / V_0$的量级, 当系统的尺寸$\mathcal V\rightarrow \infty$时, 能隙会关闭, 这就是在无限大系统中自发对称性破缺的原因. 如果我们制备处在$|\theta_0\rangle$的态, 那么在系统足够大时, 要经过很长时间才能演化到别的简并基态. 更具体地说, 如果系统初始位于$|\theta_0\rangle$, 有不确定度$\Delta \theta_0$, 随着时间演化这个方差会逐渐增大到$2\pi$, 最后无法分辨具体地位置, 但在一定时间中, 系统可以看作处在$|\theta_0\rangle$上.</p><p>在有限大的系统中, 均匀的量子涨落恢复了$U(1)$对称性, 即使在$\mu > 0$时, 系统的序参量也是$0$, 但这时系统依旧是长程关联的. 也就是说我们可以在有限大的系统中计算关联函数来判断对称性破缺导致的相变.</p><p>在上面的讨论中, 我们使用了均匀涨落的假设. 空间的不均匀涨落对应着声速为$v$的声子, 如果系统的线度是$L$, 那么最小的激发能级是$\frac{2\pi v}{L}$, 只要考虑的能量小于这个值, 我们就可以使用均匀涨落的假设. 为了获得一个对称性自发破缺的态$|\theta_0\rangle = \sum_n e^{in\theta_0}|n\rangle$, 我们需要足够多的在$\frac{2\pi v}{L}$以下的态. 均匀涨落的激发能隙正比于$\frac{V_0}{\mathcal V}$, 如果系统的维度大于等于$2$, 在系统尺寸很大时我们就有在$\frac{2\pi v}{L}$以下的足够多的态, 但在一维中只有有限个态符合要求, 难以出现对称性破缺的态.</p><h3 id=superfluid-phase-in-low-dimensions>Superfluid phase in low dimensions</h3><p>在之前的讨论中, 我们使用了一个经典的基态来计算关联函数并且获得了SSB相中的长程关联, 现在我们关心空间依赖的相位涨落是如何影响关联函数$\langle \varphi^\dagger(t, \bm x)\varphi(0, 0) \rangle$的, 我们的低能有效理论是:</p>$$
+\mathcal L = \frac{\chi}{2}((\partial_t \theta)^2 - v^2(\partial_{\bm x}\theta)^2).
+$$<p>其中$\chi = 1/V_0$表示超流体的压缩系数. 通过路径积分表示, 关联函数可以写成</p>$$
+\langle \varphi^\dagger(t, \bm x)\varphi(t, \bm x) \rangle =
+|\varphi_0^2|\langle e^{-i\theta(t, \bm x)}e^{i\theta(0, 0)}\rangle =
+|\varphi_0^2| \frac{\int \mathcal D\theta e^{-i\theta(t, \bm x)}e^{i\theta(0, 0)}e^{iS}}{\int \mathcal D\theta e^{iS}}.
+$$<p>引入</p>$$
+Z[f(t, x)] = \mathcal D\theta e^{iS} e^{i\int \mathrm dt\mathrm d^d \bm x f(t, \bm x)\theta(t, \bm x)},
+$$<p>我们有</p>$$
+\langle e^{-i\theta(t_0, \bm x_0)}e^{i\theta(0, 0)} \rangle = \frac{Z[-\delta(t-t_0, \bm x-\bm x_0) + \delta(t, \bm x)]}{Z[0]}.
+$$<p>这完全是一个Gaussian型的积分</p>$$
+\frac{Z[f(t, \bm x)]}{Z[0]} = \exp\left\{-i\frac{1}{2}\int \mathrm dt_1 \mathrm dt_2 \mathrm d\bm x_1\mathrm d \bm x_2
+f(t_1, \bm x_1)G_\theta(t_1-t_2, \bm x_1 - \bm x_2)f(t_2, \bm x_2)\right\}.
+$$<p>这里$G_\theta = -i\langle T[\theta(t, \bm x)\theta(0, 0)]\rangle$就是$\chi(-\partial_t^2 + v^2\partial_{\bm x}^2)$的逆. 可以得到</p>$$
+\langle e^{-i\theta(t_0, \bm x_0)}e^{i\theta(0, 0)} \rangle = e^{iG\theta(t, \bm x)}e^{-iG_\theta(0, 0)} \propto e^{\langle (-i \theta(t, \bm x))(i\theta(0, 0))\rangle}.
+$$<h4 id=superfluid-phase-in--dimensions>Superfluid phase in $1+1$ dimensions</h4><p>在频率空间中,</p>$$
+G_\theta(\omega, \bm k) = \frac{\chi^{-1}}{\omega^2 - v^2\bm k^2 + i0^+}.
+$$<p>在$1+1$维的实空间中,</p>$$\begin{aligned}
+G_\theta(t, x) = & \int \frac{\mathrm dk \mathrm d\omega}{(2\pi)^2}G_\theta(\omega, k)e^{i(-\omega t + k x)} \\
+= & \chi^{-1}\int \frac{\mathrm dk\mathrm d\omega}{(2\pi)^2}\frac{1}{2v|k|}\left(\frac{1}{\omega - v|k| + i0^+} - \frac{1}{\omega + v|k| - i0^+}\right)e^{i(-\omega t + kx)} \\
+= & \chi^{-1}\int \frac{\mathrm dk}{(2\pi)^2} \frac{-i\pi}{v|k|} e^{i(-v|k||t| + kx)}.
+\end{aligned}$$<p>在这里我们使用了留数定理处理了对于$\omega$的积分, $t$的符号决定了要计算两个极点中哪一个的留数. 在优先大的系统中, 我们有如下替换$\int \mathrm dk /2\pi \rightarrow L^{-1}\sum_k$:</p>$$\begin{aligned}
+G_\theta(t, x) = & \chi^{-1}L^{-1}\sum_k \frac{-i}{2v|k|}e^{i(-v|k||t| + kx)} \\
+= & \frac{i}{4\pi v\chi}\left(\ln(1-e^{2\pi i\frac{-v|t|+x}{L}-0^+}) + \ln(1-e^{2\pi i\frac{-v|t|-x}{L}-0^+})\right).
+\end{aligned}$$<p>这里我们舍弃了$k = 0$贡献的常数项, 如果考察的尺度远小于系统的尺寸, $v|t|, x \ll L$, 上面的表达式被近似成</p>$$
+G_\theta(t, x) = \frac{i}{4\pi v \chi} \ln 4\pi^2\frac{x^2 - v^2 t^2 + i0^+}{L^2}.
+$$<p>根据之前得到的表达式, 就有</p>$$
+\langle e^{-i\theta(t, x)}e^{i\theta(0, 0)} \rangle = e^{-iG_\theta(0, 0)-i\frac{1}{4v\chi}\Theta(v^2t^2 -x^2)}\left(\frac{L^2}{4\pi^2|x^2 - v^2 t^2|}\right)^{1/4\pi v\chi}.
+$$<p>这个结果有一点问题, 因为$G_\theta(0, 0)\rightarrow -i\infty$, 似乎总有$\langle e^{-i\theta(t, x)e^{i\theta(0, 0)}} \rangle = 0$, 但我们的XY模型实际上是一个低能理论, 在短距离下失效, 所以我们需要给出一个截断的尺度$l$, 并且把$G(0, 0)$更换成$G(0, l)$, 这就有</p>$$
+\langle e^{-i\theta(t, x)}e^{i\theta(0, 0)} \rangle = \left(\frac{l^2}{x^2 - v^2t^2 + i0^+}\right)^{1/4\pi v\chi} = e^{-i\frac{1}{4v\chi}\Theta(v^2t^2 -x^2)}\left(\frac{l^2}{4\pi^2|x^2 - v^2 t^2|}\right)^{1/4\pi v\chi}
+$$<p>上面的结果说明$1+1$维中的量子涨落破坏了长程序, 并且没有对称性破缺. 现在$\varphi$场有准长程序, 关联函数是按照幂律衰减的. 那么现在的基态相图是当$\mu < 0$和$\mu > 0$时都没有$U(1)$对称性自发破缺, 但是当$\mu > 0$时, 系统有准长程关联.</p><p>关于这个结果的另一点说明是, 它无法仅通过低能理论中的参数完全表达, 必须要引入短程的截断参数$l$. 那些在构建低能理论中被舍弃的部分无关其细节都通过参数$l$出现在有效理论中, 反映了这种低能有效理论的普适性.</p><h4 id=superfluid-phase-in--dimensions-1>Superfluid phase in $2+1$ dimensions</h4><p>我们首先计算虚时关联函数</p>$$
+\mathcal G_\theta(x^i) = \langle \theta(x^i)\theta(0) \rangle.
+$$<p>这里$x^i$表示空间两个维度和虚时方向. 为了简化计算, 我们取$v = 1$, 这个值可以通过量纲分析找回来. 这个关联函数就是三维Poisson方程的格林函数,</p>$$
+\mathcal G(x^i) = \frac{1}{4\pi \chi r} = \frac{1}{4\pi \chi \sqrt{\bm x^2 + \tau^2}}.
+$$<p>通过解析延拓, 我们得到实时关联函数</p>$$
+iG_\theta(t, \bm x) = \mathcal G(\tau = it, \bm x) = \frac{1}{4\pi \chi\sqrt{\bm x^2 - t^2}}.
+$$<p>这种延拓方式有点问题, 当$|t|>|\bm x|$的时候, 不能确定开根号出来的是哪一支. 更仔细的处理方式是在$|t|\gg |\bm x|$时考虑$\mathcal G(e^{i\eta}t, \bm x)$, 连续地在$[0, \pi/2]$改变$\eta$的值, 这样可以得到正确的延拓结果,</p>$$
+iG_\theta(t, \bm x) = \frac{1}{4\pi v\chi}\frac{1}{\sqrt{|\bm x^2 - v^2t^2|}}e^{-i\frac{\pi}{2}\Theta(v|t| - |\bm x|)}.
+$$<p>当$|\bm x|\rightarrow \infty$或$|t|\rightarrow \infty$的时候, $G_\theta(t, \bm x)\rightarrow 0$. 这样关联函数在无穷远处的行为几乎是一个常数$e^{-iG_\theta(0, 0)}$. 如果同样引入截断长度$l$,</p>$$
+\langle e^{-i\theta(t, \bm x)}e^{i\theta(0, 0)}\rangle \rightarrow e^{-\frac{1}{4\pi\chi v l}} = \langle e^{-i\theta(t, \bm x)}\rangle \langle e^{i\theta(0, 0)}\rangle.
+$$<p>在$2+1$维中, 量子涨落并没有破环长程序, 只是减小了序参量的值.</p><h4 id=short-distance-cut-off-and-nonlinear-effects>Short-distance cut-off and nonlinear effects</h4><p>在我们分析的$2+1$维的情形中, 序参量减少的程度和截断长度$l$是指数相关的, 这反应了涨落的短程(高能)部分对于序参量的减小是影响显著的. 现在我们想要系统地描述短程涨落带来的影响大小, 以判断我们是不是可以使用之前的经典近似. 当$l\gg (\chi v)^{-1}$时, 涨落的修正可以忽略. 在推导XY模型的过程中, 我们略去了$\frac{\varphi_0^2}{2m}\partial_{\bm x}^2$, 但如果考虑短程的自由度, 这一项就会逐渐变大到达不可忽略的大小, 量级大概是$2V_0\varphi_0^4$, 这样我们就得到一个特征长度</p>$$
+\xi = (4m V_0 \varphi_0^2)^{-1/2}.
+$$<p>这个值称作<strong>相干长度</strong>. 当$l = \xi$时,</p>$$
+e^{-\frac{1}{4\pi \chi v l}} = e^{\frac{-mV_0}{\sqrt 2 \pi}}.
+$$<p>系统的相互作用大小大概是$E_{\text{int}} = \frac{1}{2}V_0 \varphi_0^2$. 在$2+1$维的系统中, $E_{\text{qua}} = \rho_0 /m$也有能量的量纲, 大概表示在这个能级之下, bosons的波函数开始重叠, 我们必须要量子地处理这个系统. 现在可以把缩小的因子写成</p>$$
+e^{-\frac{1}{4\pi \chi v l}} = e^{-\frac{\sqrt 2 E_{\text{int}}}{E_{\text{qua}}}}.
+$$<p>在这种形式下我们能更明显地看出, 当系统地相互作用强度比较小的时候, 经典的处理是合理的.</p><p>更为全面的处理是考虑非线性项的影响, 完整的作用量是</p>$$
+S = \int \mathrm d^d \bm x\mathrm dt \left[
+i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi\partial_t \varphi^*)
+- \frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi
+- \frac{V_0}{2}|\varphi|^2(|\varphi|^2 - 2\rho_0)
+\right].
+$$<p>对作用量进行无量纲化, 得到$S = \tilde{S}/g$,</p>$$
+g = \sqrt{\rho_0^{d-2}(4mV_0)^d}.
+$$<p>如果$g$很小, 可以看作在$\tilde{S}/g$中势很陡, 涨落相对比较小. 当$g$很大的时候涨落就比较大, 经典的处理不太正确. 在相变的临界点$\rho_0 = 0$, 当$d>2$时$g = 0$, 可以经典地处理, 但是当$d<2$时$g$发散, 必须要考虑. $d_c = 2$称作上临界维度, 表明了在什么情况下我们通过经典处理得到的临界点是对的.</p><h2 id=superfluid-phase-at-finite-temperatures>Superfluid phase at finite temperatures</h2><h3 id=path-integral-at-finite-temperatures>Path integral at finite temperatures</h3><p>我们可以用虚时路径积分写下有限温下的配分函数, 注意这时和Berry相有关的项仍是虚的:</p>$$
+Z = \int \mathcal D^2[\varphi(\bm x, \tau)]\exp\left\{
+-\int_0^\beta \mathrm d^d\bm x \mathrm d\tau \left[
+\frac{1}{2}(\varphi^*\partial_\tau \varphi - \varphi\partial_t \varphi^*)
++ \frac{1}{2m}\partial_{\bm x}\varphi^*\partial_{\bm x}\varphi
+-\mu |\varphi|^2
++ \frac{V_0}{2}|\varphi|^4
+\right]
+\right\}.
+$$<p>我们可以把这个理论变成一个统计模型, 首先利用时间方向的周期性引入如下的F.T.,</p>$$
+\varphi_{\omega_n}(\bm x) = \beta^{-1}\int_0^\beta \mathrm d\tau \varphi(\bm x, \tau)e^{i\tau \omega_n}.
+$$<p>现在我们可以把除了零模之外的自由度都积分掉</p>$$
+Z = \int \prod_n \mathcal D^2[\varphi_{\omega_n}]e^{-S} = \int \mathcal D^2[\varphi_c(\bm x)]e^{-S_{\text{eff}}}.
+$$<p>最终得到的有效理论可能比较复杂, 包含$\int \mathrm d^d\bm x\mathrm d^d \bm x' |\varphi_c(x')|^2 K(\bm x - \bm x')|\varphi_c(x')|^2$这种非局域的相互作用. <del>现在有一个好消息</del>, 原本的作用量中包含$i|\varphi_{\omega_n}|^2\omega_n$这种项, 那么$\varphi_{\omega_n}$的传播子大概形如$1/(i\omega_n + ck^2 + \mu)$, 在实空间中这是短程指数衰减的. 我们可以大概把传播子写成$K(\bm x - \bm x') = e^{-|\bm x - \bm x'|/l_T}$. 这里我们可以定义了一个新的特征长度, 在超过这个长度的尺度上考察这个系统, 可以近似认为相互作用是局域的, 这时, 考虑到$U(1)$的对称性限制, 我们可以写下这个有效理论的作用量</p>$$
+S_{\text{eff}} = \beta \int \mathrm d^d \bm x\left[
+\frac{1}{2m}|\partial_x \varphi_c|^2 + V(|\varphi_c|, T) + \cdots
+\right]\dots
+$$<p>和零温下的情形类似, 我们希望在$\mu < 0$时, $V$在$\varphi_c = 0$处有唯一的最小值, 表示一个保留对称性的基态. 而当$\mu > 0$且在低温下时, $V$有一个处在$S^1$上的最小值点的集合, 每个点对应于一个破缺了$U(1)$对称性的基态, 但当温度升高到一定程度$T_c$时, $V$又只有一个在$\varphi_c = 0$处的最小值, 表示在高温下没有对称性的自发破缺.</p><p>在超流相中, 涨落的低能(长程)部分是相位的涨落. 取$\varphi_c(x) = \varphi_0 e^{i\theta(x)}$, 我们可以获得等效的XY模型:</p>$$
+S_{\text{eff}} = \int d^d \bm x \frac{\eta}{2}(\partial_{\bm x}\theta)^2,
+$$<p>其中$\eta = \frac{\varphi_0^2}{mT}$. 等效能量通过$TS_{\text{eff}}$给出, 这样大概$T \eta$量级的能量表明了相位梯度造成的能量大小, 把这个值叫做XY模型的刚度.</p><p>在有限温下, 我们上面给出的对称性破缺的图像还是基于经典理论的, 现在我们需要考虑包含热涨落的情况下, 这些讨论是否还有效. 当空间维度$d<2$的时候, 和零温情形是一样的, 热涨落会破坏长程序:</p>$$
+\langle \theta(\bm x)\theta(0) \rangle - \langle \theta(\bm x) \rangle \langle \theta(0) \rangle = C_d \theta^{-1}(L^{2-d} - |\bm x|^{2-d}) - C_d \theta^{-1}(L^{2-d} - |l|^{2-d}) = -C_d \eta^{-1}|\bm x|^{2 - d}.
+$$<p>那么</p>$$
+\langle e^{in \theta(\bm x)} e^{-in \theta(0)}\rangle = e^{-\frac{n^2}{2}\langle \theta(\bm x) - \theta(0)\rangle^2}
+= e^{n^2(\langle \theta(\bm x)\theta(0)\rangle - \langle \theta(\bm l)\theta(0)\rangle)} = e^{-C_d n^2\eta^{-1}|\bm x|^{2-d}}.
+$$<p>当$d = 1$时, 这给出一个指数衰减的短程序. 当$d = 2$时, $\theta$的联络关联函数是$ - \frac{1}{2\pi \eta}\ln(|\bm x|/l)$, 导致按幂律衰减的准长程序</p>$$
+\langle e^{in\theta(\bm x)e^{-in\theta(0)}} \sim |\bm x|^{-\frac{n^2}{2\pi \eta}}.
+$$<h3 id=the-kosterlitz-thouless-transition>The Kosterlitz-Thouless transition</h3><p>之前我们一直在讨论相位涨落, 还有另一种涡旋涨落也可能破坏长程序. 考虑了涡旋涨落之后, $d = 2$的准长程序在某个临界温度之上会被进一步破坏成短程序, 为了说明这个结果, 我们通过如下方式描述一个涡旋,</p>$$
+\varphi_c(x, y) = f(r)e^{i\phi}, \ \ , f(0) = 0, \ \ , f(\infty) = \varphi_0.
+$$<p>单个涡旋的作用量是</p>$$
+S_v = \int \mathrm d^2 \bm r \frac{\eta}{2r^2} + S_c = h\ln\frac{L}{l} + S_c.
+$$<p>这里$h = \pi \eta$, $S_c$是涡旋内部对于作用量的贡献, $L$和$l$分别表示系统的尺寸和截断长度. 这样, 如果考虑一个涡旋和一个反涡旋, 它们之间的相互作用大小是$2h \ln \frac{r}{l}$. 来考虑一个给定的涡旋$\varphi_c = e^{i\theta_c}$以及它周围的涨落,</p>$$
+Z = \int \mathcal D\delta \theta e^{\int \mathrm d^2\bm x \frac{\eta}{2}(\partial_{\bm x}(\delta \theta + \theta_c))^2}.
+$$<p>我们积掉$\delta \theta$(二次型), 得到$Z = Z_0e^{iS_{\text{eff}}(\theta_c)}$. $Z_0$是没有涡旋的配分函数, $S_{\text{eff}}$是由涡旋之间相互作用给出的, 考虑所有涡旋出现的可能性, 配分函数是</p>$$
+Z = Z_0 \sum_n \frac{1}{(n!)^2}\int \prod_{i = 1}^{2n}\mathrm d^2 \bm r_i
+e^{2nS_c}e^{\sum_{i<j}^{2n}2h q_i q_j \ln \frac{r_{ij}}{l}}. $$<p>
+这里考虑到了涡旋和反涡旋是成对出现的, $q_i = \pm 1$标记了涡旋的正反. 考虑其中有$n$对涡旋的一项, 贡献的作用量是</p>$$
+S_{\text{eff}} \sim 2n\ln n + n(2h\ln \frac{l_n}{l} + 2S_c) - 2n \ln\frac{L^2}{l^2} = \frac{2L^2}{l_n^2}(h - 2)\ln\frac{l_n e^{S_c/(h - 2)}}{l},
+$$<p>其中$L$是系统的线度, $l_n = L/\sqrt n$是有$n$对涡旋时涡旋之间的平均距离. 上面表达式中第一项来自于$\frac{1}{n!^2}$, 第二项是$n$对涡旋-反涡旋贡献的相互作用能和自能, 第三项来自对于涡旋可能出现的位置的积分, 也就是系统的熵. 这个总用量描述了$n$对相会作用的涡旋气体, 能量和熵的竞争, 决定了系统是倾向于有更多涡旋还是更少涡旋. 如果$S_c\ll -1$, 表明产生涡旋很容易, 当$l \sim l_n$时, $S_{\text{eff}}$有最小值, 这时涡旋涨落是重要的, 并且把准长程序破坏成短程序. 当$S_c\gg 1$时, 在$h = 2$处发生相变, 涡旋密度从有有限值变成零, 给出了短程序到准长程序的相变.</p><p>上面描述的相变过程没有破坏$U(1)$对称性, 称作<strong>KT相变</strong>, 不属于Landau对称性自发破缺理论的范畴.</p><ul class=pa0><li class="list di"><a href=/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">多体系统的量子场论</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

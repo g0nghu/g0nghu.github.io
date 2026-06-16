@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>研究进展 on 酒客临时委员会</title><link>https://g0nghu.github.io/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</link><description>Recent content in 研究进展 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 30 Mar 2026 14:18:48 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/index.xml" rel="self" type="application/rss+xml"/><item><title>有关 MIPT 的研究进展</title><link>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</link><pubDate>Mon, 30 Mar 2026 14:18:48 +0800</pubDate><guid>https://g0nghu.github.io/2026/03/30/%E6%9C%89%E5%85%B3-mipt-%E7%9A%84%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</guid><description>&lt;p&gt;写这个文档的原因在于在我做毕设的时候, 越来越意识到即使看了很多文章, 学了一些算法, 还是感觉不能声称自己了解这个领域, 尤其是希望做点新东西的时候, 不能很好地确定改用什么模型, 又使用什么指标作为测试.&lt;/p&gt;
+&lt;p&gt;这里会把读过的一些文献中实际完成的工作 (包括通过计算什么验证了什么结论), 以及它们提到了但是没有解决的问题列出来.&lt;/p&gt;
+&lt;p&gt;当然文档多数时候是未完成的.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="measurement-induced-phase-transitions-in-the-dynamics-of-entanglement"&gt;&lt;a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009"&gt;Measurement-Induced Phase Transitions in the Dynamics of Entanglement&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Phys. Rev. X 9, 031009 – Published 22 July, 2019&lt;/p&gt;
+&lt;p&gt;Authors: Brian Skinner, Jonathan Ruhman, and Adam Nahum&lt;/p&gt;
+&lt;p&gt;已完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理论和数值上证明了 $S_0$ 和 percolation 问题之间的对应, 数值结果是 1D 的;&lt;/li&gt;
+&lt;li&gt;使用经典 percolation 模拟了 1D 下 $S_0$ 和互信息 $I_0$ 的标度率;&lt;/li&gt;
+&lt;li&gt;使用 MPS 模拟了1D 下 $S_n$ 和 $I_n$ 的标度率;&lt;/li&gt;
+&lt;li&gt;附录中给出了拟合标度率以及经典计算 percolation 问题的方法.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;未完成:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;连续时间演化下的结果;&lt;/li&gt;
+&lt;li&gt;大 $q$ (局域自由度)近似的验证;&lt;/li&gt;
+&lt;li&gt;任何对于高维结果的数值验证;&lt;/li&gt;
+&lt;li&gt;高维情形下的 percolation 问题的解, 对应的 $p_c$ 和 $\nu$;&lt;/li&gt;
+&lt;li&gt;不同 subregion 的纠缠熵.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;后续:&lt;/p&gt;</description></item></channel></rss>

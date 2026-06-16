@@ -1,0 +1,130 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Landau's theory of phase transitions | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A note for Nicolas Dupuis's book Field theory of condensed matter and ultracold gases.
+Landau's theory of phase transitions
+Landau's theory as a mean-field theory
+Microscopic Landau's theory
+The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes
+"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2025/02/04/landaus-theory-of-phase-transitions/><meta property="og:url" content="https://g0nghu.github.io/2025/02/04/landaus-theory-of-phase-transitions/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Landau's theory of phase transitions"><meta property="og:description" content="A note for Nicolas Dupuis's book Field theory of condensed matter and ultracold gases.
+Landau's theory of phase transitions Landau's theory as a mean-field theory Microscopic Landau's theory The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-04T15:14:12+08:00"><meta property="article:modified_time" content="2025-02-04T15:14:12+08:00"><meta itemprop=name content="Landau's theory of phase transitions"><meta itemprop=description content="A note for Nicolas Dupuis's book Field theory of condensed matter and ultracold gases.
+Landau's theory of phase transitions Landau's theory as a mean-field theory Microscopic Landau's theory The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes"><meta itemprop=datePublished content="2025-02-04T15:14:12+08:00"><meta itemprop=dateModified content="2025-02-04T15:14:12+08:00"><meta itemprop=wordCount content="1244"><meta itemprop=keywords content="Notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="Landau's theory of phase transitions"><meta name=twitter:description content="A note for Nicolas Dupuis's book Field theory of condensed matter and ultracold gases.
+Landau's theory of phase transitions Landau's theory as a mean-field theory Microscopic Landau's theory The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes"></head><body class="ma0 avenir bg-near-white production is-page is-page page-Landau-s-theory-of-phase-transitions"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-Landau-s-theory-of-phase-transitions flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Landau's theory of phase transitions</h1><time class="f6 mv4 dib tracked" datetime=2025-02-04T15:14:12+08:00>February 4, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A note for Nicolas Dupuis's book <em>Field theory of condensed matter and ultracold gases</em>.</p><h1 id=landaus-theory-of-phase-transitions>Landau's theory of phase transitions</h1><h2 id=landaus-theory-as-a-mean-field-theory>Landau's theory as a mean-field theory</h2><h3 id=microscopic-landaus-theory>Microscopic Landau's theory</h3><p>The order parameter field $\bm{\varphi}$ is usually defined as at a mesoscopic scale $\Lambda^{-1}$ which is much larger than the lattice spacing but small wrt macroscopic scales. By coarse graining, we get such field $\bm\varphi$ to get a low-energy effective description and the partition function becomes</p>$$
+Z = \int \mathcal{D}[\bm\varphi]e^{-S[\bm\varphi]}.
+$$<p>The momentum of the Fourier transformation field $\bm\varphi(\bm p)$ satisfies $|\bm p| < \Lambda$. A example of a $N$-component field with O($N$) symmetry is</p>$$
+S[\bm \varphi] = \int \mathrm{d}^d r \left(\frac{1}{2}(\nabla \bm\varphi)^2 + \frac{r_0}{2}\bm\varphi^2 + \frac{u_0}{4!}\bm \varphi^4 \right).
+$$<p>Such an approach is not appropriate to compute the transition temperature but sufficient to understand the behavior near the critical point. The approach can be done using mean-field (saddle-point) approximation,</p>$$
+Z_{MF} \approx e^{-S[\bm \varphi]},
+$$<p>where $\bm \varphi$ is determined by the saddle-point $\delta S/\delta \bm\varphi=0$. We can also get the free energy,</p>$$
+F = -\frac{1}{\beta}\ln Z_{MF} = \frac{1}{\beta}S[\bm m].
+$$<h3 id=phenomenological-landaus-theory>Phenomenological Landau's theory</h3><p>The free energy density $f=F/V$ is an analytic function of the order parameter and should satisfy the symmetry. Near the critical point, the order parameter is small and $f$ can be expanded,</p>$$
+\beta f = \beta f_0 + \frac{r_0}{2}\bm m^2 + \frac{u_0}{4!}\bm m^4 - \bm h \cdot \bm m.
+$$<p>This is the case when the order is homogeneous. When the order parameter is inhomogeneous, a deviation should be included,</p>$$
+\begin{gathered}
+F[m] = \int \mathrm{d}^d r f(\bm m , \nabla \bm m), \\
+\beta f = \beta f_0 + \frac{1}{2}(\nabla \bm m)^2 + \frac{r_0}{2}\bm m^2 + \frac{u_0}{4!}\bm m^4 - \bm h \cdot \bm m
+\end{gathered}.
+$$<p>This is the Ginzburg-Landau free energy. $f_0$ is free energy density in the disordered phase in the absence of magnetic field. $r_0=\bar{r_0}(T-T_{c0})$ and $u_0$ is a constant. Now we want to calculate the critical exponent of the model. In a uniform field ($\bm h = h \bm e_1$),</p>$$
+\frac{\partial \beta f}{\partial m} = r_0 m + \frac{u_0}{6}m^3 - h = 0.
+$$<p>For a vanishing field,</p>$$
+m = \begin{cases}
+0 & \text{if }\ T \geq T_{c0} \\
+\sqrt{\frac{-6r_0}{u_0}} & \text{if }\ T\leq T_{c0}
+\end{cases}.
+$$<p>At the critical point, the order parameter is</p>$$
+m(T_{c0}, h) = \left(\frac{6h}{u_0}\right)^{1/3}.
+$$<p>The free energy is</p>$$
+f = \begin{cases}
+-\frac{3T\bar{r_0}^2}{2u_0}(T-T_{c0})^2 & \text{if }\ T \leq T_{c0} \\
+0 & \text{if }\ T \geq T_{c0}
+\end{cases}.
+$$<p>The susceptibility is</p>$$
+\chi = \beta \frac{\partial m}{\partial h} = \frac{\beta}{r_0 + u_0 m^2 / 2}
+=\begin{cases}
+\beta / r_0 & \text{if }\ T > T_{c0} \\
+\beta / 2 |r_0| & \text{if }\ T < T_{c0}
+\end{cases}.
+$$<p>The specific heat is</p>$$
+c_V = T\frac{\partial s}{\partial T} = -T \frac{\partial^2 f}{\partial T^2} =
+\begin{cases}
+0 & \text{if }\ T > T_{c0} \\
+3\frac{\bar{r_0}^2}{u_0}T^2 & \text{if }\ T < T_{c0}
+\end{cases}.
+$$<p>So we can get some critical exponent of the system: $\alpha = (\text{discontinuous})$, $\delta = 3$, $\gamma = 1$, $\beta = 1/2$. The rest is the correlation length and correlation function. Consider the case when it is not uniform,</p>$$
+\begin{aligned}
+0 = & \frac{\delta \beta F[\bm m]}{\delta m_i(\bm r)} = \frac{\delta}{\delta m_i(\bm r)}\left(\beta f_0 + \frac{1}{2}(\nabla \bm m)^2 + \frac{r_0}{2}\bm m^2 + \frac{u_0}{4!}\bm m^4 - \bm h \cdot \bm m\right) \\
+= & -\nabla^2 m_i(\bm r) + r_0 m_i(\bm r) + \frac{u_0}{6}\bm m (\bm r)^2 m_i (\bm r) - h_i(\bm r).
+\end{aligned}
+$$<p>Near the critical point, we have $|\bm m| \propto |r_0|^{1/2}$. So $|\bm h| \propto |r_0|^{3/2}$, $|\nabla \bm m| \propto |r_0|^{3/2}$.</p><p>The susceptibility is</p>$$
+\chi_{ij}(\bm r - \bm r') = \frac{\delta m_i(\bm r)}{\delta H_j(\bm r')}\rvert_{\bm H=0} = \beta \frac{\delta m_i(\bm r)}{\delta h_j(\bm r')}\rvert_{\bm h=0}.
+$$<p>Take the deviation of $h_j(\bm r')$ and set $\bm h(\bm r) = 0$,</p>$$
+\left(r_0 - \nabla^2 + \frac{u_0}{6}m^2 + \delta_{i1}\frac{u_0}{3}m^2\right)\chi_{ij}(\bm r - \bm r') = \beta \delta_{ij}\delta(\bm r -\bm r').
+$$<p>In the Fourier space, if $T > T_{c0}$,</p>$$
+\chi_\parallel(\bm p) = \chi_\perp(\bm p) = \frac{\beta}{\bm p^2 + r_0},
+$$<p>if $T < T_{c0}$,</p>$$
+\begin{gathered}
+\chi_\parallel(\bm p) = \frac{\beta}{\bm p^2 + 2|r_0|}, \\
+\chi_\perp(\bm p) = \frac{\beta}{\bm p^2}.
+\end{gathered}
+$$<p>The longitudinal and transverse component can be gotten from</p>$$
+G_{ij}(\bm p) = \frac{m_im_j}{m^2}G_\parallel(p) + \left(\delta_{ij} - \frac{m_im_j}{m^2}\right)G_\perp(\bm p).
+$$<p>From this we get $\nu = 1/2$ and $\eta = 0$.</p><h3 id=effective-action--within-the-landau-approximation>Effective action $\Gamma[\bm m]$ within the Landau approximation</h3><p>Sometimes it seems better to use the effective action $\Gamma[\bm m]$ (or the Gibbs free energy $G[\bm m] = \beta ^{-1}\Gamma[\bm m]$). When the system is coupled to an external field, the partition function reads</p>$$
+Z[\bm h] = \int \mathcal{D} \mathrm e^{-S[\bm \varphi]+\int \mathrm d ^d r \bm h \cdot \bm \varphi}
+$$<p>and the order parameter is given by</p>$$
+m_i(\bm r) = \langle \varphi_i(\bm r)\rangle = \frac{\delta \ln Z[\bm h]}{\delta h_i(\bm r)}.
+$$<p>The effective action is defined as the Legendre transform</p>$$
+\Gamma[\bm m] = -\ln Z[\bm h] + \int \mathrm d^d r \bm h \cdot \bm m
+$$<p>and it satisfies</p>$$
+\frac{\Gamma [\bm m]}{\delta m_i(\bm r)} = h_i(\bm r).
+$$<p>In the mean-field approximation, $\bm m(\bm r) = \bm \varphi (\bm r)$ and $\Gamma[\bm m ] = S[\bm m].$ The zero-field (connected) correlation function is given by the inverse of the two-point vertex</p>$$
+\Gamma_{ij}^{(2)}(\bm r - \bm r') = \frac{\delta^2\Gamma[\bm m]}{\delta m_i(\bm r)\delta m_j(\bm r')}\vert_{\bm m(\bm r) = \bm m}.
+$$<h3 id=universality-and-breakdown>Universality and breakdown</h3><p>The mean-field theory shows that the systems with the same symmetry share the same critical exponents. But this only holds when the dimension $d > d_c$. For our $\varphi^4$ theory,</p>$$
+\frac{\Delta M^2}{M^2} \sim \xi^{4-d}
+$$<p>So the critical dimension is $d_c = 4$. For lower dimension, the exponents depend on the dimension and the number of components of the order parameter.</p><h2 id=theory-for-classical-spin-model>$\varphi^4$ theory for classical spin model</h2><p>The Hamiltonian of Ising model is</p>$$
+\beta H = -\frac{1}{2}\sum_{i,j}\sigma_i K_{ij}\sigma_j - \sum_i h_i \sigma_i.
+$$<p>The mean-field method is to write $\sigma_i = (\sigma_i - m_i) + m_i$ where $m_i = \langle \sigma_i \rangle$,</p>$$
+\beta H_{MF} = -\sum_i(h_i + \sum_j K_{ij}m_j)\sigma_i - \frac{1}{2}\sum_{ij}m_i K_{ij} m_j.
+$$<p>The self-consistent equation is</p>$$
+m_i = \frac{\mathrm{Tr}(\sigma_i \mathrm e^{-\beta H_{MF}})}{\mathrm{Tr}\mathrm (e^{-\beta H_{MF}})} = \tanh\left(h_i + \sum_j K_{ij} m_j\right).
+$$<p>Now we want to rewrite the partition function through a continuous field $\varphi_i$ using the Hubbard-Stratonovich transformation</p>$$
+\mathrm e^{\frac{1}{2}\sum_{ij}\sigma_i K_{ij} \sigma_j} = \int_{-\infty}^{\infty} \mathrm e^{-\frac{1}{2}\sum_{ij}\varphi_i K^{-1}_{ij} \varphi_j + \sum_i \varphi_i \sigma_i}.
+$$<p>Then sum over $\sigma_i$. The partition function is</p>$$
+Z = \int_{-\infty}^{\infty} \prod_i \mathrm d\varphi_i \mathrm e^{-\frac{1}{2}\sum_{ij}(\varphi_i - h_i) K^{-1}_{ij} (\varphi_j - h_j) + \sum_i \ln 2\cosh \varphi_i}.
+$$<p>In our case, $K_{ij}$ only exists for nearest neighbor interaction. The F-T is</p>$$
+\begin{aligned}
+K(\bm p) = & \sum_{ij}K_{ij}\mathrm e^{i \bm p \cdot (\bm r_i - \bm r_j)} \\
+= & 2 K \sum_\nu \cos p_\nu \\
+= & 2 K (d - \frac{\bm p^2}{2})
+\end{aligned}.
+$$<p>Here only long wave length is considered. We can get the inverse</p>$$
+K^{-1}(\bm p) = \frac{1}{2Kd}(1+\frac{\bm p^2}{2d}).
+$$<p>By now we get the effective action for low energy case and it is indeed a $\varphi^4$ theory.</p>$$
+S[\varphi] = \int \mathrm d^d r \left((\frac{1}{4Kd}-\frac{1}{2})\varphi^2 + \frac{1}{8Kd^2}(\nabla \varphi)^2 + \frac{1}{12}\varphi^4 \right).
+$$<p>The behavior of the $\varphi^4$ theory and the spin model is not the same. The $\varphi^4$ theory describes the property of the spin model in long distance and could be used for a critical system.</p><ul class=pa0><li class="list di"><a href=/categories/notes/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Notes</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

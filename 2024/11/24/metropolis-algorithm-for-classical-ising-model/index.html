@@ -1,0 +1,160 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Metropolis algorithm for classical Ising model | 酒客临时委员会</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Metropolis-Hasting algorithm
+Algorithm
+Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.
+The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.
+Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$"><meta name=generator content="Hugo 0.163.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.e6a38bf5603e00308753704b8c8bebf534ebeab8b544aef2d34bdb7bf65215a4.css integrity="sha256-5qOL9WA+ADCHU3BLjIvr9TTr6ri1RK7y00vbe/ZSFaQ=" crossorigin=anonymous><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{"\\Tr":"\\operatorname{Tr}","\\tr":"\\operatorname{Tr}","\\rank":"\\operatorname{rank}","\\i":"\\mathrm{i}","\\e":"\\mathrm{e}","\\norm":"\\left\\lVert{#1}\\right\\rVert"},throwOnError:!1})'></script><link rel=canonical href=https://g0nghu.github.io/2024/11/24/metropolis-algorithm-for-classical-ising-model/><meta property="og:url" content="https://g0nghu.github.io/2024/11/24/metropolis-algorithm-for-classical-ising-model/"><meta property="og:site_name" content="酒客临时委员会"><meta property="og:title" content="Metropolis algorithm for classical Ising model"><meta property="og:description" content="Metropolis-Hasting algorithm Algorithm Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.
+The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.
+Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-11-24T10:34:55+08:00"><meta property="article:modified_time" content="2024-11-24T10:34:55+08:00"><meta itemprop=name content="Metropolis algorithm for classical Ising model"><meta itemprop=description content="Metropolis-Hasting algorithm Algorithm Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.
+The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.
+Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$"><meta itemprop=datePublished content="2024-11-24T10:34:55+08:00"><meta itemprop=dateModified content="2024-11-24T10:34:55+08:00"><meta itemprop=wordCount content="907"><meta itemprop=keywords content="Notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="Metropolis algorithm for classical Ising model"><meta name=twitter:description content="Metropolis-Hasting algorithm Algorithm Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.
+The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.
+Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$"></head><body class="ma0 avenir bg-near-white production is-page is-page page-Metropolis-algorithm-for-classical-Ising-model"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">酒客临时委员会</a><div class="flex-l items-center"><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-Metropolis-algorithm-for-classical-Ising-model flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://g0nghu.github.io/posts/>Posts</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Metropolis algorithm for classical Ising model</h1><time class="f6 mv4 dib tracked" datetime=2024-11-24T10:34:55+08:00>November 24, 2024</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h2 id=metropolis-hasting-algorithm>Metropolis-Hasting algorithm</h2><h3 id=algorithm>Algorithm</h3><p>Metroplis-Hasting algorithm is to get an equilibrium probability distribution using a Markov chain.</p><p>The transition matrix $W(x\rightarrow y)$ defines a Markov chain and it's the probability that the state goes to state $y$ in the next state when it's in the state $x$. The Markov chain finally becomes the equilibrium state with a distribution $P(x)$.</p><p>Equilibrium condition need to be satisfied: $\sum_y P(x)W(x\rightarrow y) = \sum_y P(y)W(y\rightarrow x)$</p><ul><li>$\sum_y W(x\rightarrow y) = 1$</li></ul><p>The question is that <strong>if we want to get the equilibrium, what markov chain should we construct</strong>. The transition matrix need to be satisfy the following conditions(not necessary):</p><ul><li>$\sum_y W(x\rightarrow y) = 1$</li><li>ergodicity: it should be possible to reach any state from any other state</li><li>detailed balance: $P(x)W(x\rightarrow y) = P(y)W(y\rightarrow x)$</li></ul><p>Now we start to construct the transition matrix. Break the transition probability into two parts, $W(x\rightarrow y) = Q(x\rightarrow y)A(x\rightarrow y)$. So the transition is done in two steps(suppose the state is now in $x$): 1. first generate a new state $y$ according to a probability distribution $Q(x\rightarrow y)$(this distribution is decided by us so it may not satisfy the detailed balance condition); 2. decide whether we accept the transition according to $A(x\rightarrow y)$, then the total transition probability satisfies the detailed balance probability.</p><p>Then the problem changes to how to find $A(x\rightarrow y)$ according to a given $Q(x\rightarrow y)$. We choose</p>$$A(x\rightarrow y) = \min(1, \frac{P(y)Q(y\rightarrow x)}{P(x)Q(x\rightarrow y)})$$<p>If $Q(x\rightarrow y)$ is symmetric, it can be simplified and is called Metropolis algorithm,</p>$$A(x\rightarrow y) = \min(1, \frac{P(y)}{P(x)})$$<p>By now we have constructed the markov chain $W(x\rightarrow y)$. By iteration, we can get the distribution we want.</p><h3 id=application-to-classical-ising-model>Application to classical Ising model</h3><h4 id=ising-model>Ising model</h4><p>The classical Ising model</p>$$\mathcal{H} = -J\sum_{<i, j>}\sigma_i\sigma_j+H\sum_i \sigma_i$$<p>The average energy</p>$$\langle E \rangle = \frac{1}{Z}\sum_{\{\sigma_i\}}E(\{\sigma_i\})e^{-\beta E(\{\sigma_i\})}$$<p>The specific heat</p>$$
+\begin{aligned}
+C = & \frac{\partial E}{\partial T} = -\frac{1}{kT^2}\frac{\partial E}{\partial \beta} \\
+= & -\frac{1}{kT^2}(-\frac{\frac{\partial Z}{\partial \beta}}{Z}\langle E\rangle - \frac{1}{Z}\sum_{\{\sigma_i\}}E(\{\sigma_i\})^2 e^{-\beta E(\{\sigma_i\})}) \\
+= & \frac{1}{kT^2}(\langle E^2\rangle - \langle E\rangle^2)
+\end{aligned}
+$$<p>The average magnetization</p>$$\langle M\rangle = \frac{1}{Z}\sum_{\{\sigma_i\}}m(\{\sigma_i\})e^{-\beta E(\{\sigma_i\})}$$<p>The magnetic susceptibility</p>$$
+\begin{aligned}
+\chi = & \frac{\partial \langle M\rangle}{\partial H} \\
+= & -\frac{1}{Z}\langle M \rangle \frac{\partial Z}{\partial H} + \frac{1}{Z} \sum_{\{\sigma_i\}}m(\{\sigma_i\})\frac{\partial e^{-\beta E(\{\sigma_i\})}}{\partial H} \\
+= & -\frac{1}{Z}\langle M \rangle \sum_{\{\sigma_i\}}\frac{\partial Z}{\partial E(\{\sigma_i\})}\frac{\partial E(\{\sigma_i\})}{\partial H} \\
+& + \frac{1}{Z} \sum_{\{\sigma_i\}}m(\{\sigma_i\})\frac{\partial e^{-\beta E(\{\sigma_i\})}}{\partial E(\{\sigma_i\})}\frac{\partial E(\{\sigma_i\})}{\partial H} \\
+= & \frac{1}{Z}\langle M\rangle \sum_{\{\sigma_i\}}\beta m(\{\sigma_i\})e^{-\beta E(\{\sigma_i\})} \\
+& - \frac{1}{Z}\sum_{\{\sigma_i\}}\beta m(\{\sigma_i\})^2e^{-\beta E(\{\sigma_i\})} \\
+= & -\frac{1}{kT}(\langle M^2\rangle - \langle M\rangle^2)
+\end{aligned}
+$$<p>The phase transition happens at $T_c = \frac{2J}{\ln(1+\sqrt{2})}$ for $2$D Ising model.</p><h4 id=monte-carlo-simulation>Monte Carlo simulation</h4><p>We choose the transition to change states as flipping a spin. We choose $Q(x\rightarrow y)$ to be uniform. Then</p>$$A(x\rightarrow y) = \min(1, \frac{P(\{\sigma_{\text{trival}}\})}{P(\{\sigma_{\text{old}}\})})$$<p>We evaluate the number</p>$$\alpha = \frac{P(\{\sigma_{\text{trival}}\})}{P(\{\sigma_{\text{old}}\})} = \exp(-\beta \Delta E)$$$$\Delta E = 2\sigma_j(J\sum \sigma_{\text{near}} - H)$$<p>By now we get how to do iteration. The algorithm is</p><ul><li><ol><li>initialization a configuration</li></ol></li><li><ol start=2><li>take some steps to warm up and get to the equilibrium then the state is indeed in the probability distribution as stat. mech. shows</li></ol></li><li><ol start=3><li>sparse averaging</li></ol></li></ul><h2 id=code>Code</h2><div class=code-block><button class=code-copy type=button hidden aria-label="Copy code to clipboard">
+<span class=code-copy-label aria-hidden=true>Copy</span></button><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>InitSpin</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;Initialization of an arbitrary configuration&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>choice([<span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>], size<span style=color:#f92672>=</span>[L, L])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>Acceptation</span>(Sigma, pos, args, beta):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Judge whether a flip can happen
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Sigma: the initial configuration
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    pos = (x, y), where the flip happens
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    args = (J, H), parameters for the Hamiltonian
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    beta: the inverse temperature
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#39;&#39;&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    L <span style=color:#f92672>=</span> Sigma<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>    (J, H) <span style=color:#f92672>=</span> args
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># energy change for the flip</span>
+</span></span><span style=display:flex><span>    deltaE <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> Sigma[pos] <span style=color:#f92672>*</span> (
+</span></span><span style=display:flex><span>        <span style=color:#f92672>-</span> H <span style=color:#f92672>+</span> J <span style=color:#f92672>*</span> (Sigma[np<span style=color:#f92672>.</span>mod(pos[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, L), pos[<span style=color:#ae81ff>1</span>]] <span style=color:#f92672>+</span> Sigma[np<span style=color:#f92672>.</span>mod(pos[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, L), pos[<span style=color:#ae81ff>1</span>]] <span style=color:#f92672>+</span> 
+</span></span><span style=display:flex><span>                   Sigma[pos[<span style=color:#ae81ff>0</span>], np<span style=color:#f92672>.</span>mod(pos[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, L)] <span style=color:#f92672>+</span> Sigma[pos[<span style=color:#ae81ff>0</span>], np<span style=color:#f92672>.</span>mod(pos[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, L)])
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    alpha <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span>beta <span style=color:#f92672>*</span> deltaE) <span style=color:#75715e># the acceptation probability</span>
+</span></span><span style=display:flex><span>    r <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>random()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    if_goon <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> deltaE <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>or</span> r <span style=color:#f92672>&lt;</span> alpha:
+</span></span><span style=display:flex><span>        if_goon <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> if_goon
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>Sample</span>(L, args, beta, n_sample, n_iter, n_get):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    A whole algorithm including initialization, warming up and sampling
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    L: system size
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    args: parameters of the Ising model
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    beta: inverse temperature
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    n_sample: the size of sample we want to get
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    n_iter: the time of iteration for warming up
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    n_get: after `n_get` steps of Markov chain we take up a sample
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#39;&#39;&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># initialization</span>
+</span></span><span style=display:flex><span>    Sigma <span style=color:#f92672>=</span> InitSpin(L)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    SampleList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty([n_sample, L, L])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    iter <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    n_sample_getten <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> n_sample_getten <span style=color:#f92672>&lt;</span> n_sample:
+</span></span><span style=display:flex><span>        <span style=color:#75715e># trival move</span>
+</span></span><span style=display:flex><span>        pos <span style=color:#f92672>=</span> (np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>randint(<span style=color:#ae81ff>0</span>, L), np<span style=color:#f92672>.</span>random<span style=color:#f92672>.</span>randint(<span style=color:#ae81ff>0</span>, L))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        if_goon <span style=color:#f92672>=</span> Acceptation(Sigma, pos, args, beta)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> if_goon:
+</span></span><span style=display:flex><span>            Sigma[pos] <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>Sigma[pos]
+</span></span><span style=display:flex><span>        iter <span style=color:#f92672>=</span> iter <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> iter <span style=color:#f92672>&gt;</span> n_iter <span style=color:#f92672>and</span> iter <span style=color:#f92672>%</span> n_get <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            SampleList[n_sample_getten] <span style=color:#f92672>=</span> Sigma
+</span></span><span style=display:flex><span>            n_sample_getten <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> SampleList
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    args <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>) <span style=color:#75715e># (J, H)</span>
+</span></span><span style=display:flex><span>    L <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    n_iter <span style=color:#f92672>=</span> <span style=color:#ae81ff>100000</span> <span style=color:#75715e># n for warming up</span>
+</span></span><span style=display:flex><span>    n_sample <span style=color:#f92672>=</span> <span style=color:#ae81ff>10000</span> <span style=color:#75715e># sample size</span>
+</span></span><span style=display:flex><span>    n_get <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span> <span style=color:#75715e># steps to get a new size</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    N <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span><span style=color:#f92672>**</span><span style=color:#ae81ff>7</span>
+</span></span><span style=display:flex><span>    TList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#ae81ff>1.0</span>, <span style=color:#ae81ff>3.5</span>, N)
+</span></span><span style=display:flex><span>    BetaList <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> TList
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Tc <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> args[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>/</span> np<span style=color:#f92672>.</span>log(<span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>np<span style=color:#f92672>.</span>sqrt(<span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    EnergyList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(N)
+</span></span><span style=display:flex><span>    SpecificHeatList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(N)
+</span></span><span style=display:flex><span>    MList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(N)
+</span></span><span style=display:flex><span>    SusceptibilityList <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>empty(N)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> tqdm(range(N)):
+</span></span><span style=display:flex><span>        beta <span style=color:#f92672>=</span> BetaList[i]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        sample_list <span style=color:#f92672>=</span> Sample(L, args, beta, n_sample, n_iter, n_get)
+</span></span><span style=display:flex><span>        m_list <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sum(sample_list, axis<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>        energy_list <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sum(sample_list <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>roll(sample_list, <span style=color:#ae81ff>1</span>, axis<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>), axis<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>)) <span style=color:#f92672>+</span>\
+</span></span><span style=display:flex><span>                      np<span style=color:#f92672>.</span>sum(sample_list <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>roll(sample_list, <span style=color:#ae81ff>1</span>, axis<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>), axis<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>        energy_list <span style=color:#f92672>=</span> args[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> m_list <span style=color:#f92672>-</span> args[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> energy_list
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        EnergyList[i] <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>mean(energy_list) <span style=color:#f92672>/</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        MList[i] <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>mean(m_list) <span style=color:#f92672>/</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        SpecificHeatList[i] <span style=color:#f92672>=</span> (np<span style=color:#f92672>.</span>mean(energy_list <span style=color:#f92672>**</span> <span style=color:#ae81ff>2</span>) <span style=color:#f92672>/</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>-</span> EnergyList[i]<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>*</span> beta<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        SusceptibilityList[i] <span style=color:#f92672>=</span> (np<span style=color:#f92672>.</span>mean(m_list<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>/</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>-</span> MList[i]<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> L<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>*</span> beta
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;data.pkl&#39;</span>, <span style=color:#e6db74>&#39;wb&#39;</span>) <span style=color:#66d9ef>as</span> opt:
+</span></span><span style=display:flex><span>        pickle<span style=color:#f92672>.</span>dump((TList, EnergyList, MList, SpecificHeatList, SusceptibilityList), opt)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;Done&#39;</span>)</span></span></code></pre></div></div><ul class=pa0><li class="list di"><a href=/categories/notes/ class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Notes</a></li></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://g0nghu.github.io/>&copy; 酒客临时委员会 2026</a><div><div class=ananke-socials><a href=https://github.com/%25s/ target=_blank rel=noopener class="ananke-social-link link-transition github link dib z-999 pt3 pt0-l mr1" title="follow on GitHub - Opens in a new window" aria-label="follow on GitHub - Opens in a new window"><span class=icon><svg role="img" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577.0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93.0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176.0.0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22.0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22.0 1.606-.015 2.896-.015 3.286.0.315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

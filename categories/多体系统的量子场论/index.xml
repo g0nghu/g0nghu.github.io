@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>多体系统的量子场论 on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/</link><description>Recent content in 多体系统的量子场论 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 09 Sep 2025 09:28:48 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/%E5%A4%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>RG analysis of the nonlinear sigma model</title><link>https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/</link><pubDate>Tue, 09 Sep 2025 09:28:48 +0800</pubDate><guid>https://g0nghu.github.io/2025/09/09/rg-analysis-of-the-nonlinear-sigma-model/</guid><description>&lt;p&gt;A note for Chap 6.4 of Alexander Altland &amp;amp; Ben Simons' &lt;em&gt;Condensed Matter Field Theory&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果有一个多分量的场, 被限制在非线性的约束上, 就被称作是非线性$\sigma$模型(nonlinear $\sigma$-model). 这些约束一般反应了在相变点附近连续对称性的破缺. 接下来我们希望在低临界维度$d = 2$附近, 使用RG分析可能发生的对称性破缺.&lt;/p&gt;
+&lt;p&gt;考虑如下模型
+&lt;/p&gt;
+$$\begin{gathered}
+\mathcal Z = \int \mathcal Dg e^{-S[g]},\\
+S[g] = \frac{1}{\lambda}\int \mathrm d^dr \mathrm{Tr}(\nabla g \nabla g^{-1}),
+\end{gathered}$$&lt;p&gt;
+其中$g\in G$, 而$G$是某个紧致的李群(这使得我们可以定义Haar测度).&lt;/p&gt;
+&lt;p&gt;在临界维度$d = 2$以及其之下, Goldstone模式的涨落很大, 在临界维度之上则较小. 在我们的模型中, 涨落的相对大小通过参数$\lambda$控制. $\lambda \rightarrow 0$对应于弱耦合的情况, 涨落较小, $\lambda \rightarrow \infty$对应于强耦合, 几乎所有流形上的$g$均匀地贡献了这个配分函数, 表示最大程度的涨落. 我们希望能理解$d_c = 2$时在这两种情况之间的相变, 并且拓展到$d = 2 + \epsilon$.&lt;/p&gt;</description></item><item><title>Superfluidity and superconductivity</title><link>https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/</link><pubDate>Sun, 20 Jul 2025 12:39:34 +0800</pubDate><guid>https://g0nghu.github.io/2025/07/20/superfluidity-and-superconductivity/</guid><description>&lt;p&gt;A note for Sec 3.7 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="superfluidity-and-superconductivity"&gt;Superfluidity and superconductivity&lt;/h1&gt;
+&lt;h2 id="coupling-to-a-gauge-field-and-conserved-current"&gt;Coupling to a gauge field and conserved current&lt;/h2&gt;
+&lt;p&gt;一个简单的玻色子模型如下:
+&lt;/p&gt;
+$$
+L(\varphi) = i\frac{1}{2}(\varphi^* \partial_t \varphi - \varphi \partial_t \varphi^*) -
+\frac{1}{2m}\partial_{\bm x}\varphi^* \partial_{\bm x}\varphi + \mu |\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$&lt;p&gt;
+这个模型有着全局$U(1)$对称性, 在$\varphi \rightarrow \varphi e^{if}$的变换下Lagrangian不变, 当然它并没有一个局域的$U(1)$对称性. 如果令$\varphi \rightarrow \varphi e^{if(\bm x, t)}$, 那么有
+&lt;/p&gt;
+$$
+L(\varphi e^{if(\bm x, t)}) = i\frac{1}{2}(\varphi^* (\partial_0 + i\partial_0 f)\varphi - \varphi(\partial_0 - i\partial_0 f)\varphi^*) -
+\frac{1}{2m}|(\partial_i + i\partial_i f)\varphi|^2 + \mu|\varphi|^2 - \frac{V_0}{2}|\varphi|^4.
+$$&lt;p&gt;
+如果这些玻色子是带电的, 那么它们可以和一个电磁规范场耦合. 如果我们想要一个满足$U(1)$规范不变的Lagrangian, 就把$\partial_\mu f$替换成$A_\mu$, 得到(当然这样只是一种构造的方式)
+&lt;/p&gt;</description></item><item><title>Boson superfluid to Mott insulator transition</title><link>https://g0nghu.github.io/2025/07/17/boson-superfluid-to-mott-insulator-transition/</link><pubDate>Thu, 17 Jul 2025 18:58:04 +0800</pubDate><guid>https://g0nghu.github.io/2025/07/17/boson-superfluid-to-mott-insulator-transition/</guid><description>&lt;p&gt;A note for Sec 3.6 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一个玻色超流系统的低能行为可以用XY模型来描述. 零温下的$1 + 1$-D量子XY模型, 可以被一个$2-$D的XY模型描述(如果取$v = 1$), $S = \int \mathrm d^2x \chi (\partial \theta)^2$. 在虚时下的vortices可以看作是在实时下的一些instantons, 如果$\chi &lt; \pi / 2$, 那么这些instantons (vortices)会破坏系统的长程序, 这意味这系统会打开一个能隙. 但是上面的讨论并不符合事实, 对于一个超流体来说, 应该总是有无能隙的密度波的激发才对.&lt;/p&gt;
+&lt;p&gt;为了讨论这个问题, 先考虑在超流体中的两种激发, 局域激发和全局激发(粒子数的变动, Galileo boost). 以自由玻色子为例, 基态是$| k_1, k_2, \cdots, k_n \rangle = |0, 0, \cdots, 0\rangle$, 如果把其中一些$k$的值变成非零值, 这就是一个局域激发; 如果在其中添加一些或者移除一些玻色子, 就是全局激发, 另一种全局激发是让所有$k$偏离一点, 称作Galileo boost. 一种Galileo boost的方法就是把波函数从$\varphi(x) = \varphi_0$变成$\varphi(x) = e^{i2\pi nx/L}\varphi_0$.&lt;/p&gt;
+&lt;p&gt;最小的Galileo boost就是按$k = 2\pi/L$平移所有的$k$, 这会给出一个总的动量是$K_1 = 2\pi N / L = 2\pi \rho$, 总的能量是$E_1 = K_1^2 / 2mN$. 能看出一个Galileo boost对于动量的贡献要比对于能量的贡献显著很多, 说明Galileo boost并不是声波的起源. 那么这个系统的谱就是在不同的Galileo boost附近的声波所贡献的.&lt;/p&gt;</description></item><item><title>Path integral approach to interacting boson systems</title><link>https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/</link><pubDate>Wed, 23 Apr 2025 17:24:35 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/23/path-integral-approach-to-interacting-boson-systems/</guid><description>&lt;p&gt;A note for Sec 3.3 &amp;amp; 3.4 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="path-integral-approach-to-interacting-boson-systems"&gt;Path integral approach to interacting boson systems&lt;/h2&gt;
+&lt;h3 id="path-integral-representation-of-interacting-boson-systems"&gt;Path integral representation of interacting boson systems&lt;/h3&gt;
+&lt;p&gt;对于自由boson系统$H_0 = \sum_{\bm k} (\epsilon_{\bm k} - \mu)a_{\bm k}^\dagger a_{\bm k}$来说, 使用相干态的路径积分可以写成
+&lt;/p&gt;
+$$
+\int \mathcal D^2[a]\exp\left\{i\int \mathrm d^d\bm x \mathrm dt
+[i\frac{1}{2}(a^*(\bm x, t)\partial_t a(\bm x, t) - a(\bm x, t)\partial_{t}a^*(\bm x, t))
+-\frac{1}{2m}\partial_{\bm x}a^*(\bm x, t)\partial_{\bm x}a(\bm x, t)
+-\mu a^*(\bm x, t)a(\bm x, t)]\right\}.
+$$&lt;p&gt;
+如果需要引入相互作用, 只需要在作用量里加入
+&lt;/p&gt;</description></item><item><title>Applications of the path integral formulation</title><link>https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/</link><pubDate>Thu, 10 Apr 2025 15:26:42 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/10/applications-of-the-path-integral-formulation/</guid><description>&lt;p&gt;A note for Sec 2.4 for 文小刚's &lt;em&gt;多体系统的量子场论&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="applications-of-the-path-integral-formulation"&gt;Applications of the path integral formulation&lt;/h2&gt;
+&lt;h3 id="tunneling-through-a-barrier"&gt;Tunneling through a barrier&lt;/h3&gt;
+&lt;p&gt;我们试图使用量子场论去计算一些非微扰的结果, 一个例子就是隧穿. 考虑一个对称的双势阱, 就像我们在讨论经典的对称性自发破缺时候常画的那种(很遗憾这里没有图片, 加图片会严重增加工作量, 我可能宁可选一张有意思的封面).&lt;/p&gt;
+&lt;p&gt;如果不允许隧穿的话, 在两个局部最小值$x_0, -x_0$附近, 势的形状可以用一个频率为$\omega_0$的谐振子描述, 那么我们可以计算下面的传播子
+&lt;/p&gt;
+$$\begin{gathered}
+\langle x_0 |e^{-TH} |x_0 \rangle = \langle -x_0 |e^{-TH} | -x_0 \rangle = e^{-T\omega_0/2}, \\
+\langle x_0 | e^{-TH} | -x_0 \rangle = 0.
+\end{gathered}$$&lt;p&gt;如果我们考虑隧穿的话, 这个结果显然不正确, 因为除了稳定路径, 还有那些在两个极值点之间变换的路径需要考虑. 这显然是非微扰的结果, 因为当我们考虑在稳定路径周围的微扰时, 不可能得到隧穿.&lt;/p&gt;
+&lt;p&gt;我们使用虚时路径积分和驻点近似. 除了$x_c(t) = x_0$和$x_c(t) = -x_0$这两个路径之外, 还有从$x_0$到$-x_0$的稳定路径, 这条路径最小化了作用量$\int\mathrm d\tau (\frac{1}{2}m\dot{x}^2 + V(x))$, 那么它应该满足了运动方程$\frac{\mathrm d^2 x}{\mathrm d\tau^2} = V'(x)$. 这个路径就好像在虚时$\tau$下按$-V(x)$的运动, 一种可能的解是前半段时间$x = x_0$, 然后在短时间内位置从$x_0$变到$-x_0$, 之后一直待在$-x_0$. 这种在$x_0$和$-x_0$之间的移动叫做&lt;em&gt;instanton&lt;/em&gt;. 那么实际上的稳定路径可以有多个instanton.&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>minimal_cut_percolation.png - 清华大学云盘</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="File, Collaboration, Team, Organization" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+
+<meta property="og:type" content="object" />
+<meta property="og:site_name" content="Tsinghua Cloud Storage">
+<meta property="og:url" content="https://cloud.tsinghua.edu.cn/f/fc66d7d5a5bb46b3b2f0/" />
+<meta property="og:title" content="minimal_cut_percolation.png" />
+<meta property="og:image" content="https://cloud.tsinghua.edu.cn/media/img/file/192/pic.png" />
+<meta property="og:description" content="Share link for minimal_cut_percolation.png." />
+
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<link rel="icon" href="/media/favicons/favicon.png" type="image/x-icon" id="favicon">
+<link rel="apple-touch-icon" href="/media/favicons/favicon.png">
+<link rel="stylesheet" type="text/css" href="/media/fontawesome/css/fontawesome-all.min.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/sf_font3/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/seafile-ui.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/seahub_react.css?t=1398068110" />
+
+
+    <link href="/media/assets/frontend/static/css/commons.85b372e7.css" rel="stylesheet" />
+
+
+
+
+
+</head>
+
+<body>
+    <div id="wrapper" class="en"></div>
+    <div id="modal-wrapper" class="en"></div>
+    
+
+<script type="text/javascript">
+    window.app = {
+        config: {
+            mediaUrl: '/media/',
+            logoPath: 'custom/mylogo.png',
+            logoWidth: '',
+            logoHeight: '32',
+            faviconPath: 'favicons/favicon.png',
+            loginBGPath: 'img/login-bg.jpg',
+            siteTitle: '清华大学云盘',
+            siteName: 'Tsinghua Cloud Storage',
+            siteRoot: '/',
+            loginUrl: '/accounts/login/',
+            isPro: 'True',
+            isDBSqlite3:  false ,
+            isDocs: 'False',
+            lang: 'en',
+            fileServerRoot: 'https://cloud.tsinghua.edu.cn/seafhttp/',
+            enableRepoAutoDel:  false ,
+            useGoFileserver:  false ,
+            serviceURL: 'https://cloud.tsinghua.edu.cn',
+            seafileVersion: '11.0.21',
+            avatarURL: 'https://cloud.tsinghua.edu.cn/media/avatars/default.png'
+        },
+        pageOptions: {
+            csrfToken: "uZHfOL75QZ7Zt9ZgiYCcqaHEhsXcqlSCXTI6RTVmZ2f68qznzYzgrzo4XnugZxnB",
+            seafileCollabServer: '',
+            name: "",
+            contactEmail: "",
+            username: "",
+            guideEnabled:  false ,
+            trashReposExpireDays:  null ,
+            canAddRepo:  false ,
+            canShareRepo:  false ,
+            canAddGroup:  false ,
+            groupImportMembersExtraMsg: "",
+            canGenerateShareLink:  false ,
+            canGenerateUploadLink:  false ,
+            canSendShareLinkEmail:  false ,
+            canViewOrg:'',
+            fileAuditEnabled:  false ,
+            enableFileComment:  false ,
+            folderPermEnabled:  false ,
+            enableResetEncryptedRepoPassword: '',
+            isEmailConfigured: '',
+            enableUploadFolder: 'True',
+            enableResumableFileUpload: 'False',
+            resumableUploadFileBlockSize: '',
+            // storage backends
+            storages: (function () {
+              var storages = [];
+              
+              return storages;
+            })(),
+            // library template
+            libraryTemplates: (function () {
+              var libraryTemplates = [];
+              
+              return libraryTemplates;
+            })(),
+            enableRepoSnapshotLabel:  false ,
+            shareLinkForceUsePassword:  false ,
+            shareLinkPasswordMinLength: 10,
+            shareLinkPasswordStrengthLevel: 1,
+            sideNavFooterCustomHtml: "",
+            aboutDialogCustomHtml: "",
+            maxFileName: "255",
+            canPublishRepo:  false ,
+            enableEncryptedLibrary:  false ,
+            enableRepoHistorySetting:  false ,
+            isSystemStaff:  false ,
+            thumbnailSizeForOriginal: 1024,
+            repoPasswordMinLength: 8,
+            canAddPublicRepo:  false ,
+            enableOCMViaWebdav:  false ,
+            enableOCM:  false ,
+            ocmRemoteServers: (function () {
+              var servers = [];
+              
+              return servers;
+            })(),
+            canInvitePeople:  false ,
+            customNavItems:  [] ,
+            enableShowContactEmailWhenSearchUser:  false ,
+            enableShowLoginIDWhenSearchUser:  false ,
+            
+            
+            
+            enableTC:  true ,
+            enableSSOToThirdpartWebsite:  false ,
+            enableVideoThumbnail:  false ,
+            showLogoutIcon:  false ,
+            additionalShareDialogNote:  null ,
+            additionalAppBottomLinks:  null ,
+            additionalAboutDialogLinks:  null ,
+            enableOnlyoffice:  false ,
+            onlyofficeConverterExtensions:  ['.docm', '.doc', '.dotx', '.dotm', '.dot', '.odt', '.fodt', '.ott', '.xlsm', '.xls', '.xltx', '.xltm', '.xlt', '.ods', '.fods', '.ots', '.pptm', '.ppt', '.ppsx', '.ppsm', '.pps', '.potx', '.potm', '.pot', '.odp', '.fodp', '.otp', '.rtf', '.mht', '.html', '.htm', '.xml', '.epub', '.fb2'] ,
+            enableSeadoc:  false ,
+            enableSeafileAI:  false ,
+            canSetExProps:  false ,
+            enableSeaTableIntegration:  false ,
+            isOrgContext:  false ,
+            enableMultipleOfficeSuite:  false ,
+        }
+     };
+</script>
+<script src="/media/assets/scripts/i18n/en/djangojs.js?v=11.0.21"></script>
+
+<script type="text/javascript">
+  window.shared = {
+    pageOptions: {
+      repoID: '686f3731-248e-4dc9-a8a8-d119987d0e8a',
+      filePath: '/blog/MiPT/minimal_cut_percolation.png',
+      sharedToken: 'fc66d7d5a5bb46b3b2f0',
+      trafficOverLimit: false,
+      fileName: 'minimal_cut_percolation.png',
+      fileSize: 126208,
+      rawPath: 'https://cloud.tsinghua.edu.cn/seafhttp/files/5f6d651f\u002D3374\u002D401c\u002Dbeb7\u002D31b106b06095/minimal_cut_percolation.png',
+      sharedBy: '屈蔚翔',
+      siteName: 'Tsinghua Cloud Storage',
+      enableWatermark: false,
+      canDownload: true,
+      canEdit: false,
+      fileContent: '',
+      err: '',
+      fileType: 'Image',
+      fileExt: 'png',
+      commitID: '' || '0aa4f7f322dca2c0284cae329254f09863ff0bc3',
+      enableShareLinkReportAbuse: false,
+      
+      // for 'view file in shared dir'
+      
+      prevImgPath: '',
+      nextImgPath: '',
+      assetsUrl: '',
+
+      
+    }
+  };
+</script>
+
+    <script src="/media/assets/frontend/static/js/runtime.86db51cf.js" ></script>
+<script src="/media/assets/frontend/static/js/commons.d8b6472f.js" ></script>
+<script src="/media/assets/frontend/static/js/sharedFileViewImage.bd650551.js" ></script>
+
+
+</body>
+</html>
