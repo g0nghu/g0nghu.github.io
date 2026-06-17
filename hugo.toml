@@ -3,7 +3,7 @@ baseURL = 'https://g0nghu.github.io/'
 locale = 'zh-CN'
 title = '酒客临时委员会'
 timeZone = 'Asia/Shanghai'
-theme = 'ananke'
+theme = 'stack'
 paginate = 10
 
 # Author
@@ -47,23 +47,77 @@ paginate = 10
     lineNos = false
     wrap = true
 
-# Ananke theme parameters
+# Stack theme parameters
 [params]
+  mainSections = ['posts']
   description = '谓经海底问无由，恍惚使人愁'
-
-  [params.ananke]
-    show_recent_posts = true
-    show_categories = true
-    copy_code = true
-
-    [params.ananke.home]
-      content_alignment = 'center'
-
-    [params.ananke.social.follow]
-      networks = ['github']
-
-    custom_css = ['/css/katex-custom.css']
-
-  github = 'g0nghu'
   favicon = '/images/favicon.png'
-  default_featured_image = '/images/top.jpg'
+
+  [params.sidebar]
+    avatar = '/images/head.jpg'
+    subtitle = '谓经海底问无由，恍惚使人愁'
+
+  [params.colorScheme]
+    toggle = true
+    default = 'auto'
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = false
+
+    [params.article.license]
+      enabled = false
+
+  [params.imageProcessing]
+    [params.imageProcessing.content]
+      enabled = true
+    [params.imageProcessing.thumbnail]
+      enabled = true
+
+  [params.comments]
+    enabled = false
+
+  [params.widgets]
+    homepage = [
+      { type = 'search' },
+      { type = 'archives', params = { limit = 5 } },
+      { type = 'categories' },
+      { type = 'tag-cloud', params = { limit = 10 } },
+    ]
+    page = [
+      { type = 'toc' },
+    ]
+
+# Main navigation menu
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = '首页'
+    url = '/'
+    weight = 1
+    [menu.main.params]
+      icon = 'home'
+  [[menu.main]]
+    identifier = 'archives'
+    name = '归档'
+    url = '/archives/'
+    weight = 2
+    [menu.main.params]
+      icon = 'archives'
+  [[menu.main]]
+    identifier = 'search'
+    name = '搜索'
+    url = '/search/'
+    weight = 3
+    [menu.main.params]
+      icon = 'search'
+
+  # Social links
+  [[menu.social]]
+    identifier = 'github'
+    name = 'GitHub'
+    url = 'https://github.com/g0nghu'
+    [menu.social.params]
+      icon = 'brand-github'
+      newTab = true
