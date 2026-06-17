@@ -62,7 +62,7 @@ paginate = 10
     default = 'auto'
 
   [params.article]
-    math = false
+    math = true
     toc = true
     readingTime = false
 
@@ -85,9 +85,7 @@ paginate = 10
       { type = 'categories' },
       { type = 'tag-cloud', params = { limit = 10 } },
     ]
-    page = [
-      { type = 'toc' },
-    ]
+    page = []
 
 # Main navigation menu
 [menu]

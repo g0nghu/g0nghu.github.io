@@ -1,0 +1,23 @@
+/*
+*   Custom CSS overrides for the Stack theme.
+*/
+
+/* Show inline collapsible TOC on all screen sizes (not just mobile) */
+.article-toc {
+    @include respond(lg) {
+        display: block;
+    }
+}
+
+/* Wider article content for Chinese / dense math content */
+.article-content {
+    /* Override the default max-width constraint */
+    p {
+        line-height: 1.9;
+    }
+}
+
+/* TOC nav: make links wrap nicely */
+.toc-nav li {
+    margin: 8px 0 8px 12px;
+}
