@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>广义相对论 on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</link><description>Recent content in 广义相对论 on 酒客临时委员会</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 28 May 2025 15:29:07 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>The geometric approach to gravitational waves</title><link>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</link><pubDate>Wed, 28 May 2025 15:29:07 +0800</pubDate><guid>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</guid><description>&lt;p&gt;A note for Chap 1-4, Vol 1 of Michele Maggioore's &lt;em&gt;Gravitational waves&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>广义相对论 on 酒客临时委员会</title><link>https://g0nghu.github.io/categories/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/</link><description>Recent content in 广义相对论 on 酒客临时委员会</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 28 May 2025 15:29:07 +0800</lastBuildDate><atom:link href="https://g0nghu.github.io/categories/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>The geometric approach to gravitational waves</title><link>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</link><pubDate>Wed, 28 May 2025 15:29:07 +0800</pubDate><guid>https://g0nghu.github.io/2025/05/28/the-geometric-approach-to-gravitational-waves/</guid><description>&lt;p&gt;A note for Chap 1-4, Vol 1 of Michele Maggioore's &lt;em&gt;Gravitational waves&lt;/em&gt;.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id="the-geometric-approach-to-gws"&gt;The geometric approach to GWs&lt;/h1&gt;
-&lt;h2 id="expansion-around-flat-space"&gt;Expansion around flat space&lt;/h2&gt;
-&lt;p&gt;一个引力系统的作用量是$S = S_E + S_M$, 其中
+&lt;h1 id="the-geometric-approach-to-gws"&gt;The geometric approach to GWs
+&lt;/h1&gt;&lt;h2 id="expansion-around-flat-space"&gt;Expansion around flat space
+&lt;/h2&gt;&lt;p&gt;一个引力系统的作用量是$S = S_E + S_M$, 其中
 &lt;/p&gt;
 $$
 S_E = \frac{c^3}{16\pi G} \int \mathrm d^4 x \sqrt{-g}R
@@ -19,12 +19,438 @@ R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = \frac{8\pi G}{c^4}T_{\mu\nu}.
 $$&lt;p&gt;
 上面的理论有一个很大的规范对称性, 对应于任意一个坐标变换(应该是一个微分同胚)$x^\mu \rightarrow x'^{\mu}(x)$.&lt;/p&gt;
 &lt;p&gt;现在我们的目标是得到波动方程, 一个想法是&lt;strong&gt;线性化&lt;/strong&gt;Einstein方程, 我们把度规在平直空间附近展开,
-&lt;/p&gt;</description></item><item><title>Rotating Black Holes</title><link>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</link><pubDate>Wed, 09 Apr 2025 10:57:35 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</guid><description>&lt;p&gt;A note for Chap 15 of James.B.Hartle's &lt;em&gt;An Introduction to Einstein's General Relativity&lt;/em&gt;.&lt;/p&gt;
+&lt;/p&gt;
+$$
+g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \quad |h_{\mu\nu}| \ll 1. 
+$$&lt;p&gt;
+实际上这一步意味着我们在问题所关心的一定区域里, 选取了一个很接近惯性系的参考系. 这种做法消除了一定的规范自由度, 但是还不能得到完全独立的变量, 为了验证这一点, 考虑如下的规范变换,
+&lt;/p&gt;
+$$
+x^\mu \rightarrow x'^\mu = x^\mu + \xi^\mu(x).
+$$&lt;p&gt;
+这里$|\partial_\mu \xi_\nu|$最高和$|h_{\mu\nu}|$是一个量级. 这个坐标变换诱导了度规的变换,
+&lt;/p&gt;
+$$
+h_{\mu\nu} \rightarrow h'_{\mu\nu}(x') = h_{\mu\nu}(x) - (\partial_\mu \xi_\nu + \partial_\nu \xi_\mu).
+$$&lt;p&gt;
+特别地, 考虑一个Lorentz变换, $x^\mu \rightarrow \Lambda^\mu_\nu x^\nu$, 满足$\Lambda_\mu^\rho \Lambda^\sigma_\nu \eta_{\rho\sigma} = \eta_{\mu\nu}$, 给出的度规的变换是
+&lt;/p&gt;
+$$\begin{aligned}
+g_{\mu\nu}(x) \rightarrow g'_{\mu\nu}(x') = &amp; \Lambda_\mu^\rho \Lambda_\nu^\sigma g_{\rho\sigma}(x) \\
+= &amp; \Lambda_\mu^\rho \Lambda_\nu^\sigma (\eta_{\rho\sigma} + h_{\rho\sigma}(x))\\
+= &amp; \eta_{\mu\nu} + \Lambda_\mu^\rho \Lambda_\nu^\sigma h_{\rho\sigma}(x).
+\end{aligned}$$&lt;p&gt;
+这样我们就得到在Lorentz变换下$h$的变换方式,
+&lt;/p&gt;
+$$
+h'_{\mu\nu}(x') = \Lambda_{\mu}^{\rho}\Lambda_{\nu}^{\sigma} h_{\rho\sigma}(x).
+$$&lt;p&gt;
+这说明$h$是一个在Lorentz变换下的张量, Lorentz变换不会破坏$|h_{\mu\nu}| \ll 1$的条件. 此外, 对于时空平移$x^\mu \rightarrow x'\mu = x^\mu + a^\mu$, $h_{\mu\nu}$不变. 这说明我们线性化的理论有着完整的有限Poincare变换对称性.&lt;/p&gt;
+&lt;p&gt;现在我们要把方程中剩下的量也线性化了, 首先是Riemann张量,
+&lt;/p&gt;
+$$
+R_{\mu\nu\rho\sigma} = \frac{1}{2}(\partial_\nu\partial_\rho h_{\mu\sigma} +
+\partial_\mu\partial_\sigma h_{\nu\rho} -
+\partial_\mu \partial_\rho h_{\nu\sigma} -
+\partial_\nu\partial_\sigma h_{\nu\rho}
+).
+$$&lt;p&gt;
+能看出Riemann张量在$h_{\mu\nu}$的变换下是不变的.&lt;/p&gt;
+&lt;p&gt;我们可以把线性化的理论以一种更紧凑的方式写下来, 首先定义
+&lt;/p&gt;
+$$
+h = \eta^{\mu\nu} h_{\mu\nu}.
+$$&lt;p&gt;
+然后令
+&lt;/p&gt;
+$$
+\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu}h.
+$$&lt;p&gt;
+这给出$\bar{h} = -h$. 那么反过来也有
+&lt;/p&gt;
+$$
+h_{\mu\nu} = \bar{h}_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu}\bar{h}.
+$$&lt;p&gt;
+可以注意到在线性化的理论中我们只需要平直时空度规$\eta_{\mu\nu}$. 那么现在我们可以写下线性化的Einstein方程,
+&lt;/p&gt;
+$$
+\partial_\rho\partial^\rho \bar{h}_{\mu\nu} +
+\eta_{\mu\nu}\partial^{\rho}\partial^{\sigma}\bar{h}_{\rho\sigma} -
+\partial^\rho\partial_\nu \bar{h}_{\mu\rho} - 
+\partial^\rho \partial_\mu \bar{h}_{\nu\rho} =
+-\frac{16\pi G}{c^4}T_{\mu\nu}.
+$$&lt;p&gt;
+为了解这个方程, 我们需要彻底移除规范自由度, 为此我们还需要坐标条件. 这里我们使用Lorentz规范(或称Hilbert规范, 和谐规范, De Donder规范)
+&lt;/p&gt;
+$$
+\partial^\nu \bar{h}_{\mu\nu} = 0.
+$$&lt;p&gt;
+上边的场方程能确定$6$个自由度(因为方程左边自动满足$\partial^\mu G_{\mu\nu} = 0$), 那么剩下的四个自由度就由坐标条件给出.&lt;/p&gt;
+&lt;p&gt;$\bar{h}$的变换由下式给出
+&lt;/p&gt;
+$$
+\bar{h}_{\mu\nu} \rightarrow \bar{h}'_{\mu\nu} = \bar{h}_{\mu\nu} - (\partial_\mu \xi_\nu + \partial_\nu \xi_\mu - \eta_{\mu\nu}\partial_\rho\xi^\rho).
+$$&lt;p&gt;
+那么
+&lt;/p&gt;
+$$
+\partial^\nu \bar{h}_{\mu\nu} \rightarrow (\partial^\nu \bar{h}_{\mu\nu})' = \partial^\nu \bar{h}_{\mu\nu} - \partial^\rho\partial_\rho \xi_\mu.
+$$&lt;p&gt;
+如果某个坐标下, $\partial^\nu \bar{h}_{\mu\nu} = f_\mu(x)$, 我们只需要取坐标变换$\xi^\mu$满足$\partial_\nu\partial^\nu \xi_\mu = f_\mu(x)$即可使得$(\partial^\nu \bar{h}_{\mu\nu})' = 0$. 这说明&lt;strong&gt;总是可以取合适的坐标变换以使度规满足和谐坐标条件&lt;/strong&gt;. 这在这个坐标条件下, 线性化的Einstein方程得以大大简化
+&lt;/p&gt;
+$$
+\partial^\rho \partial_\rho \bar{h}_{\mu\nu} = -\frac{16\pi G}{c^4}T_{\mu\nu}.
+$$&lt;h2 id="the-transverse-traceless-gauge"&gt;The transverse-traceless gauge
+&lt;/h2&gt;&lt;p&gt;我们考虑无源引力波, 对应的波动方程是
+&lt;/p&gt;
+$$
+\square \bar{h}_{\mu\nu} = 0.
+$$&lt;p&gt;
+类似于在电磁场中考虑平面波的解, 这时即使时和谐坐标条件也没有完全确定规范: 考虑坐标变换$x^\mu \rightarrow x^\mu + \xi^\mu$, 如果$\square \xi_\mu = 0$, 那么$\square \xi_{\mu\nu} = 0$, 这里$\xi_{\mu\nu}$被定义为
+&lt;/p&gt;
+$$
+\xi_{\mu\nu} \equiv \partial_\mu \xi_\nu + \partial_\nu\xi_\mu - \eta_{\mu\nu}\partial_\rho \xi^\rho.
+$$&lt;p&gt;
+这说明我们可以任意地变换$\bar{h}_{\mu\nu} \rightarrow \bar{h}_{\mu\nu} - \xi_{\mu\nu}$, 依旧满足上面的波动方程. 为了方便起见, 我们使用这种规范: 首先, 选择$\xi^0$使得$\bar{h} = 0$, 这使得$\bar{h}_{\mu\nu} = h_{\mu\nu}$; 然后我们可以选取$\xi^{i}$使得$h^{0i} = 0$. 现在和谐坐标条件($\mu = 0$)给出
+&lt;/p&gt;
+$$
+\partial^0 h_{00} = 0.
+$$&lt;p&gt;
+这说明$h_{00}$是不随时变的, 因为我们考虑的引力波是时变的, 所以取$h_{00} = 0$. 现在$h_{\mu\nu}$只剩下空间分量可能非零. 结合和谐坐标条件, 我们得到$h_{\mu\nu}$需要满足的要求
+&lt;/p&gt;
+$$
+h^{0\mu} = 0, \quad h^i_{\ i} = 0, \quad \partial^j h_{ij} = 0.
+$$&lt;p&gt;
+上面的规范称作&lt;strong&gt;横向无迹规范(transverse-traceless gauge)&lt;/strong&gt;, 或者简称TT规范, 满足TT规范的度规记作$h^{\mathrm{TT}}_{ij}$, 只有$2$个自由度. 如此少的自由度是无源方程的特性, 在有源的情况下$\square \bar{h}^{\mu\nu} \neq 0$, 在选取了和谐坐标条件之后, 我们还是可以选择$\square \xi^\mu=0$的坐标变换, 这并不影响波动方程, 但是不能使得通过坐标变换使得$\bar{h}^{\mu\nu}$中某些元素成为$0$.&lt;/p&gt;
+&lt;p&gt;现在来具体看波动方程解的形式, $h_{ij}^{\mathrm{TT}}(x) = e_{ij}(k)e^{ikx}$, 其中的$e_{ij}$称作极化张量. TT规范要求$k^j h_{ij} = 0$, 如果选取$\hat{n} = k / |k|$, $h^{\mathrm{TT}}_{ij}$应该有如下的形式
+&lt;/p&gt;
+$$
+h^{\mathrm{TT}}_{ij}(t, z) = \begin{pmatrix}
+h_+ &amp; h_\times &amp; 0 \\
+h_\times &amp; -h_+ &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}_{ij} \cos(\omega(t - z/c)).
+$$&lt;p&gt;
+或者更紧凑地, 我们可以取$a, b = 1, 2$来表示非零分量. 现在线元表示为
+&lt;/p&gt;
+$$\begin{aligned}
+\mathrm ds^2 = &amp; -c^2 \mathrm dt^2 + \mathrm dz^2 \\
+&amp; + (1 + h_+\cos(\omega(t - z/c)))\mathrm dx^2 + (1 - h_+\cos(\omega(t - z/c)))\mathrm dy^2 \\
+&amp; + 2h_\times \cos(\omega(t - z/c))\mathrm dx \mathrm dy.
+\end{aligned}$$&lt;p&gt;现在如果有一个沿着$\hat{n}$方向传播的平面波$h_{\mu\nu}(x)$, 满足和谐坐标条件, 但是并不满足TT规范, 我们可以把它投影到满足TT规范的波上. 首先构造如下的投影算符
+&lt;/p&gt;
+$$
+P_{ij}(\hat{n}) = \delta_{ij} - n_in_j, 
+$$&lt;p&gt;
+这个算符是对称的, 并且是横向的($n^i P_{ij}(\hat{n}) = 0$), 它的迹是$P_{ii} = 2$. 然后可以构造另一个投影算符
+&lt;/p&gt;
+$$
+\Lambda_{ij, kl}(\hat{n}) = P_{ik}P_{jl} - \frac{1}{2}P_{ij}P_{kl}.
+$$&lt;p&gt;
+具有如下的性质&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;投影算符: 满足$\Lambda_{ij, kl}\Lambda_{kl, mn} = \Lambda_{jl, mn}$;&lt;/li&gt;
+&lt;li&gt;在所有指标上都是横向的: $n^{i}\Lambda_{ij, kl} = 0$;&lt;/li&gt;
+&lt;li&gt;它的$(i, j)$和$(k, l)$的偏迹都是$0$: $\Lambda_{ii, kl} = \Lambda_{ij, kk} = 0$;&lt;/li&gt;
+&lt;li&gt;在指标交换$(i, j) \leftrightarrow (k, l)$下是对称的.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个投影算符叫做Lambda张量, 具体地把它用$\hat{n}$写下的形式为
+&lt;/p&gt;
+$$\begin{aligned}
+\Lambda_{ij, kl}(\hat{n}) = &amp; \delta_{ik}\delta_{jl} - \frac{1}{2}\delta_{ij}\delta_{kl} - n_jn_l\delta_{ik} - n_in_k\delta_{jl} \\
+&amp; + \frac{1}{2}n_kn_l\delta_{ij} + \frac{1}{2}n_in_j\delta_{kl} + \frac{1}{2}n_in_jn_kn_l.
+\end{aligned}$$&lt;p&gt;Lambda的作用是把一个平面波投影到TT规范上,
+&lt;/p&gt;
+$$
+h^{\mathrm{TT}}_{ij} = \Lambda_{ij, kl}h_{kl}.
+$$&lt;p&gt;
+根据$\Lambda_{ij, kl}$的性质, 可以明显地看出来, 方程的右边是无迹且横向的, 并且也满足波动方程.&lt;/p&gt;
+&lt;p&gt;把一般的满足$\square h^{\mathrm{TT}}_{ij} = 0$的$h^{\mathrm{TT}}_{ij}$按照平面波展开得到
+&lt;/p&gt;
+$$
+h^{\mathrm{TT}}_{ij}(x) = \int \frac{\mathrm d^3 k}{(2\pi)^3}
+\left(\mathcal A_{ij}(k)e^{ikx} + \mathcal A^*_{ij}(k)e^{-ikx}\right).
+$$&lt;p&gt;
+用频率$f$表示$k$的模长, $\hat{n}$表示方向, 上式写成
+&lt;/p&gt;
+$$
+h^{\mathrm{TT}}_{ij}(x) = \frac{1}{c^3} \int_0^\infty \mathrm df f^2 \int \mathrm d^2 \hat{n}
+\left(\mathcal A_{ij}(f, \hat{n})e^{-2\pi i f(t - \hat{n}\cdot x/c)} + h.c.\right)
+$$&lt;p&gt;
+TT规范中的横向条件给出$k^i \mathcal A_{ij}(k) = 0$. 对于多个平面波叠加的解来说, $h_{ij}$并不会约化成$2\times 2$矩阵. 但是当观察远方信号源发出的引力波的时候, $\hat{n}$对于不同成分是确定的, 我们可以取
+&lt;/p&gt;
+$$
+\mathcal A_{ij}(k) = A_{ij}(f)\delta^{(2)}(\hat n - \hat n_0).
+$$&lt;p&gt;
+在这种情况下, $h_{ij}$又会约化成$2\times 2$矩阵,
+&lt;/p&gt;
+$$\begin{gathered}
+h_{ab}(t, x) = \int_0^\infty \mathrm df
+\left(\tilde{h}_{ab}(f, x)e^{-2\pi i ft} + h.c.\right), \\
+\tilde{h}_{ab}(f, x) = \frac{f^2}{c^3}\mathcal A_{ab}(f)e^{2\pi i f \hat n_0 \cdot x/c}.
+\end{gathered}$$&lt;p&gt;对于地面上的&lt;strong&gt;单一&lt;/strong&gt;探测器来说, 其线度远小于引力波的波长, 在这种情况下可以忽略引力波对于$x$的依赖.&lt;/p&gt;
+&lt;p&gt;另一种常见的表示方式是利用极化张量$e^{A}_{ij}(\hat{n})$,
+&lt;/p&gt;
+$$
+e^+_{ij}(\hat{n}) = \hat{u}_i\hat{u}_j - \hat{v}_i\hat{v}_j, \quad
+e^\times_{ij}(\hat{n}) = \hat{u}_i\hat{v}_j + \hat{v}_i\hat{u}_j.
+$$&lt;p&gt;
+上面的$\hat{u}, \hat{v}, \hat{n}$构成一组正交坐标架. 极化张量有如下的归一化关系
+&lt;/p&gt;
+$$
+e^A_{ij}(\hat{n})e^{A', ij}(\hat{n}) = 2\delta^{AA'}.
+$$&lt;p&gt;
+最简单的情况是$\hat{n} = \hat{z}$, 那么就取$\hat{u} = \hat{x}$, $\hat{v} = \hat{y}$. 这样$e^+ = \sigma^z$, $e^\times = \sigma^x$. 我们可以定义$\tilde{h}_A(f, \hat n)$,
+&lt;/p&gt;
+$$
+\frac{f^2}{c^3}\mathcal A_{ij}(f, \hat n) = \sum_{A}\tilde{h}_A(f, \hat n)e^A_{ij}(\hat n).
+$$&lt;p&gt;
+完整的波动可以利用此写成
+&lt;/p&gt;
+$$
+h_{ab}(t, x) = \sum_A \int \mathrm df \int \mathrm d^2 \hat n
+\tilde{h}_A(f, \hat n)e^A_{ab}(\hat n)e^{-2\pi i f(t - \hat n \cdot x/c)}.
+$$&lt;h2 id="interaction-of-gws-with-test-masses"&gt;Interaction of GWs with test masses
+&lt;/h2&gt;&lt;p&gt;接下来我们考虑引力波和有质量物体的相互作用, 作为探测引力波的手段. 考虑到在TT规范下, 引力波的形式很简单, 我们希望知道TT规范对应于什么坐标系.&lt;/p&gt;
+&lt;h3 id="geodesic-equation-and-geodesic-deviation"&gt;Geodesic equation and geodesic deviation
+&lt;/h3&gt;&lt;p&gt;考虑两条近邻的测地线
+&lt;/p&gt;
+$$\begin{gathered}
+\frac{\mathrm d u^\mu}{\mathrm d\tau} + \Gamma_{\nu \rho}^{\mu}u^\nu u^\rho = 0,\\
+\frac{\mathrm d^2 (x^\mu + \xi^\mu)}{\mathrm d\tau^2} + \Gamma_{\nu \rho}^{\mu}(x + \xi)\frac{\mathrm d(x^\nu + \xi^\nu)}{\mathrm d\tau} \frac{\mathrm d(x^\rho + \xi^\rho)}{\mathrm d\tau} = 0.
+\end{gathered}$$&lt;p&gt;
+上面的两条测地线有各自的$\tau$, $\xi^\mu$把两条测地线上有相同$\tau$的点对应起来. 如果$\xi$很小, 得到
+&lt;/p&gt;
+$$
+\frac{\mathrm d^2 \xi^\mu}{\mathrm d\tau^2} + 2\Gamma^\mu_{\nu\rho}\frac{\mathrm dx^\nu}{\mathrm d\tau}\frac{\mathrm d\xi^\rho}{\mathrm d\tau} + 
+\xi^\sigma \partial_\sigma \Gamma^\mu_{\nu\rho}\frac{\mathrm d x^\nu}{\mathrm d\tau} \frac{\mathrm dx^\rho}{\mathrm d\tau} = 0
+$$&lt;p&gt;
+这就是测地微分方程, 如果引入协变导数
+&lt;/p&gt;
+$$
+\frac{\mathrm D V^\mu}{\mathrm D\tau} \equiv \frac{\mathrm dV^\mu}{\mathrm d\tau} + \Gamma^\mu_{\nu\rho}V^\nu\frac{\mathrm dx^\rho}{\mathrm d\tau},
+$$&lt;p&gt;
+可以以更简洁的方式写出
+&lt;/p&gt;
+$$
+\frac{\mathrm D^2 \xi^\mu}{\mathrm D\tau^2} = -R^\mu_{\ \ \nu\rho\sigma}\xi^\rho\frac{\mathrm dx^\nu}{\mathrm d\tau}\frac{\mathrm d x^\sigma}{\mathrm d\tau}.
+$$&lt;h3 id="local-inertial-frames-and-freely-falling-frames"&gt;Local inertial frames and freely falling frames
+&lt;/h3&gt;&lt;p&gt;在时空中的一点$P$, 总存在一个坐标变换, 使得$\Gamma^\mu_{\nu\rho}(P) = 0$, 在这样的坐标下, 点$P$处的测地微分方程成为
+&lt;/p&gt;
+$$
+\left.\frac{\mathrm d^2 x^\mu}{\mathrm d\tau^2}\right|_P = 0.
+$$&lt;p&gt;
+这样的坐标系就是局域惯性系(local inertial frame, LIF).&lt;/p&gt;
+&lt;p&gt;对于这种坐标, 显示的构造是如下. 在$P$处, 选择一组局部正交基$e_\alpha$, $\eta_{\mu\nu}e^\mu_\alpha e^\nu_\beta = \eta_{\alpha\beta}$. 考虑一条在$P$处切方向是$n$的类空测地线, 以及这条测地线上距离$P$为$s$的一点$Q$. 可以把$Q$的坐标写成$x_Q = (sn^0, sn^1, sn^2, sn^3)$. 类似地, 如果是一条类时测地线, $Q$的坐标参数化为$(\tau n^0, \tau n^1, \tau n^2, \tau n^3)$. 我们现在可以把整个时空使用类时的或者类空的测地线填满, 在$P$的附近的一个小区域中, 测地线之间并不相交(bananice!), 这样在这个小区域中, 每个点都有且只有一条测地线经过, 在这个小区域中我们可以通过上面的方法参数化每个点. 这样的坐标叫做Riemann正规坐标(Riemann normal coordinates), 给出了局域惯性系的一个实现:&lt;/p&gt;
+&lt;p&gt;首先$\eta_{\mu\nu}e^\mu_{\alpha}e^\nu_\beta = \eta_{\alpha\beta}$给出了$g_{\mu\nu} = \eta_{\mu\nu}$. 此外Riemann正规坐标, 对于固有时间(长度)是线性的, $\frac{\mathrm dx^\mu}{\mathrm d\tau} = n^\mu$, 这样测地线方程是
+&lt;/p&gt;
+$$
+\Gamma^\mu_{\nu\rho}(P)n^\nu n^\rho = 0.
+$$&lt;p&gt;
+上面的结果对于任意$n$都成立, 说明$\Gamma^\mu_{\nu\rho} = 0$. 这说明Riemann正规坐标提供了一个局域惯性系.&lt;/p&gt;
+&lt;p&gt;现在我们可以进一步在一整条测地线上都定义局域惯性系. 考虑一个自由物体(比如陀螺仪), 其运动满足
+&lt;/p&gt;
+$$
+\frac{\mathrm ds^\mu}{\mathrm d\tau} + \Gamma^\mu_{\nu\rho}s^\nu\frac{\mathrm dx^\rho}{\mathrm d\tau} = 0,
+$$&lt;p&gt;
+其中$s$是一个自旋4-矢量(spin four-vector), 在静止系中约化成$s^\mu = (0, \bm s)$, 上面的方程是$\mathrm ds^\mu/ \mathrm d\tau = 0$的协变形式. 我们先在$P$点处构建一个局域惯性系, 然后根据3个陀螺仪, 可以确定空间方向. 然后可以沿着测地线移动参考系, 空间方向始终指向陀螺仪. 这样定义的一组坐标中$\mathrm ds^\mu / \mathrm d\tau = 0$, 这种定义下$\Gamma^\mu_{\nu\rho}$的值始终为零. 这样的坐标称作自由落体系, 或者Fermi正规坐标.&lt;/p&gt;
+&lt;h3 id="tt-frame-and-proper-detector-frame"&gt;TT frame and proper detector frame
+&lt;/h3&gt;&lt;h4 id="the-tt-frame"&gt;The TT frame
+&lt;/h4&gt;&lt;p&gt;如果一个质点在$\tau = 0$时是静止的, 它的运动由测地线方程给出
+&lt;/p&gt;
+$$
+\left.\frac{\mathrm d^2 x^i}{\mathrm d\tau^2}\right|_{\tau=0} = -
+\left[\Gamma^i_{\nu\rho}(x)\frac{\mathrm dx^\nu}{\mathrm d\tau}\frac{\mathrm dx^\rho}{\mathrm d\tau}\right]_{\tau=0} = -\left[\Gamma^i_{00}\left(\frac{\mathrm d x^0}{\mathrm d\tau}\right)^2\right]_{\tau = 0}.
+$$&lt;p&gt;把上面的方程展开到线性阶, 联络展开到线性阶是
+&lt;/p&gt;
+$$
+\Gamma^\mu_{\nu\rho} = \frac{1}{2}\eta^{\mu\sigma}(\partial_\nu h_{\rho\sigma} + \partial_\rho h_{\nu\sigma} - \partial_\sigma h_{\nu\rho}).
+$$&lt;p&gt;
+那么
+&lt;/p&gt;
+$$
+\Gamma^{i}_{00} = \frac{1}{2}\left(2\partial_0 h_{0i} - \partial_i h_{00}\right).
+$$&lt;p&gt;
+在TT规范下, $h_{00} = h_{i0} = 0$, 那么$\Gamma^i_{00} = 0$. 那么在TT规范下, 一个静止质点的$\mathrm d^2 x^i / \mathrm d\tau^2 = 0$, 因此它将永远静止. 这意味这在TT规范下, 在引力波到达之前静止的粒子, 在引力波到达之后仍然是静止的, 起码到线性阶是如此. 这样我们可以在使用质点, 作为TT规范下空间坐标的标记, 它们在有引力波的情况下, 也是不动的.&lt;/p&gt;
+&lt;p&gt;我们还可以利用测地线微分方程说明, 在TT参考系下, 两个静止质点之间的距离$\xi^i$是不变的:
+&lt;/p&gt;
+$$
+\left.\frac{\mathrm d^2 \xi^2}{\mathrm d\tau^2}\right|_{\tau = 0} = - \left[2c\Gamma^i_{0\rho}\frac{\mathrm d\xi^\rho}{\mathrm d\tau} + c^2\xi^\sigma \partial_\sigma \Gamma^i_{00}\right].
+$$&lt;p&gt;
+考虑到在$TT$规范下$\Gamma^i_{00} = 0$, 以及$\Gamma^i_{0j} = \frac{1}{2}\partial_0 h_{ij}$, 上面的方程变成:
+&lt;/p&gt;
+$$
+\left.\frac{\mathrm d^2 \xi^i}{\mathrm d\tau^2}\right|_{\tau = 0} = -\left[ \dot{h}_{ij}\frac{\mathrm d\xi^i}{\mathrm d\tau}\right],
+$$&lt;p&gt;
+只要在$\tau = 0$时$\mathrm d\xi^i / \mathrm d\tau = 0$, 那么这个值将永远都是零.&lt;/p&gt;
+&lt;p&gt;在TT规范下, 我们能说的, 只是自由质点的位置, 以及相对位置不变, 但是它们之间的固有时间(长度)并非如此. 两个质点, 坐标差$x_2 - x_1 = L$保持不变. 但是如果有一个沿$z$轴传播的引力平面波, 它们之间的固有长度变成
+&lt;/p&gt;
+$$
+s = (x_2 - x_1)[1 + h_+\cos\omega t]^{1/2} \approx L(1 + \frac{1}{2}h_+\cos\omega t).
+$$&lt;p&gt;
+作为一个更普遍的讨论, 如果两个点之间的相对位置是$\bm L$, 那么它们之间的固有长度是
+&lt;/p&gt;
+$$
+s^2 = L^2 + h_{ij}(t)L_iL_j.
+$$&lt;p&gt;
+如果展开到线性项就是
+&lt;/p&gt;
+$$
+\ddot{s} \approx \frac{1}{2L}\ddot h_{ij}L_iL_j.
+$$&lt;p&gt;
+可以定义$L_i / L$以及$s = n_i s_i$, 就有
+&lt;/p&gt;
+$$
+\ddot s_i \approx \frac{1}{2}\ddot h_{ij} L_j \approx \frac{1}{2}\ddot h_{ij}s_j.
+$$&lt;p&gt;
+这就是测地线方程在固有长度下的表达方式.&lt;/p&gt;
+&lt;h4 id="the-proper-detector-frame"&gt;The proper detector frame
+&lt;/h4&gt;&lt;p&gt;TT坐标系在实验中是难以运用的. 利用Fermi正规坐标, 我们可以写下在一整条测地线上都是惯性系的坐标. 在此附近, 起码在$x^i$的线性阶, 不需要对于度规$\mathrm d s^2 \approx -c^2 \mathrm dt^2 + \delta_{ij}\mathrm dx^i \mathrm dx^j$的修正. 如果展开到二阶(利用$P$点的联络是零), 得到
+&lt;/p&gt;
+$$
+\mathrm ds^2 \approx -c^2 \mathrm dt^2 (1 + R_{0i0j}x^ix^j) -
+2c\mathrm dt\mathrm dx^i \left(\frac{2}{3}R_{0ijk}x^jx^k\right) +
+\mathrm dx^i \mathrm dx^j \left(\delta_{ij} - \frac{1}{3}R_{ikjl}x^kx^l\right).
+$$&lt;p&gt;对于一个在地表的探测器, 情况要复杂很多, 一方面它不是自由落体的, 另一方面相对地面上的陀螺仪会旋转. 通过直接写出从局域惯性系到地面的坐标变换, 我们可以写下展开到二阶的度规
+&lt;/p&gt;
+$$\begin{aligned}
+\mathrm ds^2 \approx &amp; -c^2 \mathrm dt^2\left[1 + \frac{2}{c^2}\bm a \cdot \bm x + \frac{1}{c^4}(\bm a \cdot \bm x)^2 - \frac{1}{c^2}(\bm \Omega \times \bm x)^2 + R_{0i0j}x^ix^j\right] \\ &amp;+
+2c\mathrm dt\mathrm dx^i \left[\frac{1}{c}\epsilon_{ijk}\Omega^j x^k - \frac{2}{3}R_{0jik}x^jx^k\right] \\&amp; +
+\mathrm dx^i \mathrm dx^j \left[\delta_{ij} - \frac{1}{3}R_{ikjl}x^kx^l\right].
+\end{aligned}$$&lt;p&gt;具有上面形式度规的参考系称作固有探测器参考系(proper detector frame), 实际上在地面实验中使用的总是这种参考系. 如果规定$L_B$是度规变化的尺度, $r$是我们所关心的尺度, 那么$R_{ijkl} \sim 1/L_B^2$, 在$r \ll L_B$的范围内, 上面的度规退化成平直时空中的牛顿度规.&lt;/p&gt;
+&lt;p&gt;在这个度规下, 测地线方程的线性部分成为地表粒子的运动方程
+&lt;/p&gt;
+$$
+\frac{\mathrm d^2 x^i}{\mathrm d\tau} = -a^i - 2(\bm \Omega \times v)^i + \frac{f_i}{m} + O(x^i).
+$$&lt;p&gt;
+$O(x^i)$项中包含了离心力. 引力波的探测限制在一定频率范围内, 过低的频率受到地表的其他作用影响过大, 过高的频率受到仪器噪声的影响太大. 在这样的频率范围内, 我们可以忽略Newton力学下给出的项, 只关心那些涉及Riemann张量的项, 也就是说我们又回到了自由落体系的度规.&lt;/p&gt;
+&lt;p&gt;分析引力波的影响, 我们可以使用测地线微分方程, 考虑到仪器的运动是非相对论性的, 一阶导中我们只需要考虑时间方向导数项, 这给出
+&lt;/p&gt;
+$$
+\frac{\mathrm d^2 \xi^i}{\mathrm d\tau^2} + \xi^\sigma \partial_\sigma \Gamma^i_{00} \left(\frac{\mathrm dx^0}{\mathrm d \tau}\right)^2 = 0
+$$&lt;p&gt;
+度规中只含有空间坐标的修正, 这给出$\partial_0\Gamma^i_{0j} = 0$. 利用$R^i_{\ \ 0j0} = \partial_j \Gamma^i_{00} - \partial_0 \Gamma^{i}_{0j} = \partial_j \Gamma^{i}_{00}$, 上面的方程改写成
+&lt;/p&gt;
+$$
+\frac{\mathrm d^2 \xi^i}{\mathrm d \tau^2} = - R^i_{\ \ 0j0}\xi^j\left(\frac{\mathrm dx^0}{\mathrm d\tau}\right)^2.
+$$&lt;p&gt;
+假如有一个质点开始静止, 在引力波经过之后获得了$\mathrm dx^i /\mathrm d\tau \sim cO(1)$的速度, 那么
+&lt;/p&gt;
+$$
+\mathrm dt^2 = \mathrm d\tau^2\left(1 + \frac{1}{c^2}\frac{\mathrm dx^i}{\mathrm d\tau}\frac{\mathrm dx^i}{\mathrm d\tau}\right) \sim \mathrm d\tau^2(1 + O(h^2)).
+$$&lt;p&gt;
+这说明我们可以在线性阶忽略$\mathrm d\tau$和$\mathrm dt$的区别, 并且$\mathrm dx^0 /\mathrm d\tau = c$, 这给出
+&lt;/p&gt;
+$$
+\frac{\mathrm d^2 \xi^i}{\mathrm d \tau^2} = -c^2 R^i_{\ \ 0j0}\xi^j.
+$$&lt;p&gt;
+现在需要计算Riemann张量, 根据我们之前的讨论, 只到线性阶, 坐标变换不影响Riemann张量的值, 我们可以在TT规范下计算:
+&lt;/p&gt;
+$$
+R^{i}_{\ \ 0j0} = R_{i0j0} = -\frac{1}{2c^2}\ddot h^{\mathrm{TT}}_{ij},
+$$&lt;p&gt;
+现在测地线微分方程是
+&lt;/p&gt;
+$$
+\ddot \xi^i = \frac{1}{2}\ddot h^{\mathrm{TT}}_{ij}\xi^j.
+$$&lt;p&gt;
+说明引力波的影响是给地面上的质点带来一个等效作用力, $F^i = \frac{m}{2}\ddot h^{TT}_{ij}\xi^j$. 如果我们关心固有长度的分量$s^i$, 那么上式在TT规范下也成立. 注意到$\partial_i F^i = \frac{m}{2}\ddot h^{\mathrm{TT}}_{ij}\delta_{ij}$, 由于$h^{\mathrm{TT}}_{ij}$是无迹的, 所以$\partial_i F^i = 0$, 它是一个无源场.&lt;/p&gt;
+&lt;h2 id="the-energy-of-gws"&gt;The energy of GWs
+&lt;/h2&gt;&lt;p&gt;考虑到引力波在固有探测器系中表现处类似于牛顿重力的形式, 我们可以考虑定义引力波的能量, 并且考虑两种不同的路径:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引力波自身携带有能量, 它自己是否也是时空曲率的源头;&lt;/li&gt;
+&lt;li&gt;把线性化的引力波按经典场论处理, 使用Noether定理得到守恒流.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在这里我们先关注第一种&lt;/p&gt;
+&lt;h3 id="separation-of-gws-from-the-background"&gt;Separation of GWs from the background
+&lt;/h3&gt;&lt;p&gt;在之前的部分中, 我们考虑引力波是把它的看作在平直时空中的涨落. 但是如果要分析它对于背景时空的影响, 我们需要把背景时空也考虑成动力学的:
+&lt;/p&gt;
+$$
+g_{\mu\nu}(x) = \bar g_{\mu\nu}(x) + h_{\mu\nu}(x)
+$$&lt;p&gt;
+现在的问题是把度规分成背景和涨落两个部分, 一种是把依赖于$x$的部分全部放进其中一项里, 这就是我们在线性化理论中的处理方式. 另一种处理方式是根据不同的尺度, 把大尺度$L_B$的部分放进背景中, 小尺度$\lambda$的部分放进引力波中. 这样我们把引力波看作是静态或者缓变的时空背景中的高频扰动.&lt;/p&gt;
+&lt;h3 id="how-gws-curve-the-background"&gt;How GWs curve the background
+&lt;/h3&gt;&lt;p&gt;我们把Einstein方程
+&lt;/p&gt;
+$$
+R_{\mu\nu} = \frac{8\pi G}{c^4}\left(T_{\mu\nu} - \frac{1}{2}g_{\mu\nu}T\right)
+$$&lt;p&gt;
+在$\bar g_{\mu\nu}$附近展开到二阶$R_{\mu\nu} = \bar R_{\mu\nu} + R^{(1)}_{\mu\nu} + R^{(2)}_{\mu\nu}$. $\bar R_{\mu\nu}$就是由$g_{\mu\nu}$贡献的低频部分, $R^{(1)}_{\mu\nu}$是由$h_{\mu\nu}$贡献的线性阶, 是高频贡献, $R^{(2)}_{\mu\nu}$是$h_{\mu\nu}$的二次型, 同时有高频和低频部分. 现在我们针对高频和低频部分写下Einstein方程
+&lt;/p&gt;
+$$\begin{gathered}
+ \bar R_{\mu\nu} = - [R^{(2)}_{\mu\nu}]^{\text{Low}} + \frac{8\pi G}{c^4}\left(T_{\mu\nu} - \frac{1}{2}g_{\mu\nu}T\right)^{\text{Low}} \\
+ R^{(1)}_{\mu\nu} = - [R^{(2)}_{\mu\nu}]^{\text{High}} + \frac{8\pi G}{c^4}\left(T_{\mu\nu} - \frac{1}{2}g_{\mu\nu}T\right)^{\text{High}} 
+\end{gathered}
+$$&lt;p&gt;
+我们可以具体地写出$R_{\mu\nu}$对于$h_{\mu\nu}$的展开
+&lt;/p&gt;
+$$
+R^{(1)}_{\mu\nu} = \frac{1}{2}\left(\bar{\mathrm D}^\alpha \bar{\mathrm D}_\mu h_{\nu\alpha} + \bar{\mathrm D}^\alpha \bar{\mathrm D}_\nu h_{\mu\alpha} - \bar{\mathrm D}^\alpha\bar{\mathrm D}_\alpha h_{\mu\nu} - \bar{\mathrm D}_\nu \bar{\mathrm D}_\mu h\right),
+$$&lt;p&gt;
+&lt;/p&gt;
+$$\begin{aligned}
+R^{(2)}_{\mu\nu} = &amp; \frac{1}{2}\bar g^{\rho\sigma} \bar g^{\alpha\beta}\left[
+ \frac{1}{2}\bar{\mathrm D}_\mu h_{\rho\alpha}\bar{\mathrm D}_\nu h_{\sigma \beta} +
+ (\bar{\mathrm D}_\rho h_{\nu \alpha})(\bar{\mathrm D}_{\sigma}h_{\mu\beta} - \bar{\mathrm D}_{\beta}h_{\mu\sigma}) \right.\\
+ &amp; + h_{\rho\alpha}(\bar{\mathrm D}_{\nu}\bar{\mathrm D}_{\mu} h_{\sigma\beta} + \bar{\mathrm D}_\beta\bar{\mathrm D}_\sigma h_{\mu\nu} - \bar{\mathrm D}_\beta \bar{\mathrm D}_\nu h_{\mu\sigma} - \bar{\mathrm D}_\beta \bar{\mathrm D}_\mu h_{\nu\sigma})\\
+ &amp; + \left.(\frac{1}{2}\bar{\mathrm D}_{\alpha}h_{\rho\sigma} - \bar{\mathrm D}_{\rho}h_{\alpha\sigma})(\bar{\mathrm D}_\nu h_{\mu\beta} + \bar{\mathrm D}_\mu h_{\nu\beta} - \bar{\mathrm D}_\beta h_{\mu\nu}) \right].
+\end{aligned}$$&lt;p&gt;
+其中的$\bar{\mathrm D}$表示相对于$\bar{g}_{\mu\nu}$的协变微分. 这里$R^{(1)}_{\mu\nu}$包含了引力波的能动量张量, $R^{(2)}_{\mu\nu}$包含了引力波如何在背景时空中传播的信息.&lt;/p&gt;
+&lt;p&gt;对于平直的背景时空$T_{\mu\nu} = 0$, $\bar R_{\mu\nu}$的全部来自于$R^{(2)}_{\mu\nu}$(由形如$(\partial h)^2$以及$h\partial^2 h$的项组成), 这两项对于低频部分的贡献在同一个数量级$\bar R_{\mu\nu} \sim (\partial h)^2 \sim (h/\lambda)^2$, 另一方面, 考虑到$R$来源于度规的二阶导, $\bar R \sim 1/ L_B^2$, 这样我们得到
+&lt;/p&gt;
+$$
+\frac{1}{L_B} \sim \frac{h}{\lambda}.
+$$&lt;p&gt;
+这说明对于引力波主导的曲率, 应该满足上面的关系. 如果$T_{\mu\nu} \neq 0$, 那么曲率应该是物质主导的, 上面的关系变成$h \ll \frac{\lambda}{L_B}$. 具体考虑如何把场方程投影到低频的自由度上, 我们可以取一个中间的尺度$\bar l$满足$\lambda \ll \bar l \ll L_B$, 然后在尺度为$\bar l$的体积内取平均, 得到
+&lt;/p&gt;
+$$
+\bar R_{\mu\nu} = - \langle R^{(2)}_{\mu\nu} \rangle + \frac{8\pi G}{c^4}\langle T_{\mu\nu} - \frac{1}{2}g_{\mu\nu}T\rangle.
+$$&lt;p&gt;
+这种投影可以看成是一种RG. 现在定义$\bar T^{\mu\nu}$, 满足$\bar T_{\mu\nu} - \frac{1}{2}\bar g_{\mu\nu}\bar T$, 其中$\bar T = \bar{g_{\mu\nu}}\bar T^{\mu\nu}$, 此外定义
+&lt;/p&gt;
+$$
+t_{\mu\nu} = -\frac{c^4}{8\pi G}\langle R^{(2)}_{\mu\nu} - \frac{1}{2}\bar g_{\mu\nu}R^{(2)}\rangle
+$$&lt;p&gt;
+以及它的迹$t = \bar{g}^{\mu\nu}t_{\mu\nu} = \frac{c^4}{8\pi G} \langle R^{(2)} \rangle$. 使用$t$重写$\langle R^{(2)}\rangle$:
+&lt;/p&gt;
+$$
+\ - \langle R^{(2)}_{\mu\nu} \rangle = \frac{8\pi G}{c^4}\left(t_{\mu\nu} - \frac{1}{2}\bar g_{\mu\nu}t\right).
+$$&lt;p&gt;
+现在我们可以重写Einstein场方程的低频部分
+&lt;/p&gt;
+$$
+\bar{R}_{\mu\nu} - \frac{1}{2}\bar g_{\mu\nu}\bar R = \frac{8\pi G}{c^4}(\bar T_{\mu\nu} + t_{\mu\nu}).
+$$&lt;p&gt;
+注意其中正比于$g_{\mu\nu}$的项既可以出现在方程左边作为曲率, 也可以出现在方程右边作为能量, 类似于Einstein方程的两种写法. 很显然我们能看出$t_{\mu\nu}$就是引力波的能动量张量, 它以平均的形式出现, 因为要把引力波从时空背景中区分出来, 我们很自然要引入某种&amp;quot;粗粒化&amp;quot;.&lt;/p&gt;
+&lt;h3 id="the-energy-momentum-tensor-of-gws"&gt;The energy-momentum tensor of GWs
+&lt;/h3&gt;&lt;p&gt;考虑足够平坦的时空, 我们可以使用$\partial^\mu$替换$\bar{\mathrm D}^\mu$. 取平均的时候, 我们可以使用分部积分, 利用TT规范下的条件, 以及作为一种更严格的和谐坐标条件给出的运动方程$\square^2 h_{ij} = 0$, 可以得到(为什么可以使用$TT$规范? 因为我们只关心物理自由度.)
+&lt;/p&gt;
+$$
+\langle R^{((2))}_{\mu\nu} \rangle = -\frac{1}{4}\langle \partial_\mu h_{\alpha\beta} \partial_\nu h^{\alpha \beta}\rangle.
+$$&lt;p&gt;
+进一步可以可以得到
+&lt;/p&gt;
+$$
+t_{\mu\nu} = \frac{c^4}{32\pi G}\langle \partial_\mu h_{\alpha\beta} \partial_\nu h^{\alpha \beta}\rangle.
+$$&lt;p&gt;
+在规范变换$x^\mu \rightarrow x^\mu + \xi^\mu$下, $t_{\mu\nu}$的变化是
+&lt;/p&gt;
+$$
+\delta t_{\mu\nu} = \frac{c^4}{16\pi G}\left[\langle \partial_\mu h_{\alpha\beta} \partial_\nu\partial^\alpha \xi^\beta \rangle + (\mu\leftrightarrow \nu)\right].
+$$&lt;p&gt;
+通过对于$\partial^\alpha$的分部积分, 能看出$\delta t_{\mu\nu} = 0$. 这说明我们得到的结果确实是仅依赖于物理自由度的. 具体地写下能量密度是
+&lt;/p&gt;
+$$
+t^{00} = \frac{c^2}{32\pi G}\langle \dot h^{\mathrm{TT}}_{ij} \dot h^{\mathrm{TT}}_{ij} \rangle = \frac{c^2}{16\pi G}\langle \dot h_{+}^2 + \dot h_{\times}^2 \rangle.
+$$&lt;p&gt;
+对于沿$z$方向传播的平面波来说, $h^{\mathrm{TT}}_{ij}$仅依赖于$t - z/c$, 这样得到$t^{01} = t^{02} = 0$, 而利用$\partial_z h^{\mathrm{TT}}_{ij} = -\partial_0 h^{\mathrm{TT}}_{ij}$, 可以得到$t^{03} = t^{00}$.&lt;/p&gt;
+&lt;h2 id="propagation-in-curved-space-time"&gt;Propagation in curved space-time
+&lt;/h2&gt;&lt;p&gt;在弯曲时空中引力波的传播和我们在平直时空中的线性化处理得到的结果是相同的, 只是波动方程和和谐坐标条件都需要改成协变形式, $h_{\mu\nu}$需要使用$\bar h_{\mu\nu}$代替. 引力波的传播是横向的, 并且沿着类光曲线传播.&lt;/p&gt;</description></item><item><title>Rotating Black Holes</title><link>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</link><pubDate>Wed, 09 Apr 2025 10:57:35 +0800</pubDate><guid>https://g0nghu.github.io/2025/04/09/rotating-black-holes/</guid><description>&lt;p&gt;A note for Chap 15 of James.B.Hartle's &lt;em&gt;An Introduction to Einstein's General Relativity&lt;/em&gt;.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id="rotating-black-holes"&gt;Rotating black holes&lt;/h1&gt;
-&lt;p&gt;Schwarzchild黑洞并非是广义相对论预言的最普遍的黑洞, Schwarzchild黑洞只有一个参数$M$. Roy Kerr在1963年给出了Einstein场方程的另一个真空解, 可以描述另一种更一般的黑洞, 它有两个参数质量$M$和角动量$J$, 叫做Kerr黑洞.&lt;/p&gt;
-&lt;h2 id="the-kerr-geometry"&gt;The Kerr Geometry&lt;/h2&gt;
-&lt;p&gt;我们使用单位制$c = G = 1$. 这样Kerr度规可以写成
+&lt;h1 id="rotating-black-holes"&gt;Rotating black holes
+&lt;/h1&gt;&lt;p&gt;Schwarzchild黑洞并非是广义相对论预言的最普遍的黑洞, Schwarzchild黑洞只有一个参数$M$. Roy Kerr在1963年给出了Einstein场方程的另一个真空解, 可以描述另一种更一般的黑洞, 它有两个参数质量$M$和角动量$J$, 叫做Kerr黑洞.&lt;/p&gt;
+&lt;h2 id="the-kerr-geometry"&gt;The Kerr Geometry
+&lt;/h2&gt;&lt;p&gt;我们使用单位制$c = G = 1$. 这样Kerr度规可以写成
 &lt;/p&gt;
 $$
 \mathrm ds^2 = - \left(1 - \frac{2Mr}{\rho^2}\right) \mathrm dt^2
@@ -40,4 +466,169 @@ a \equiv J/M, \\
 \rho^2 \equiv r^2 + a^2 \cos^2\theta,\\
 \Delta \equiv r^2 - 2Mr + a^2.
 \end{gathered}$$&lt;p&gt;
-这里$a$称作&lt;em&gt;Kerr参数&lt;/em&gt;, 量纲是$1$, 使用的坐标称作&lt;em&gt;Boyer-Lindquist-coordinates坐标&lt;/em&gt;. 我们接下来考察Kerr几何的一些性质:&lt;/p&gt;</description></item></channel></rss>
+这里$a$称作&lt;em&gt;Kerr参数&lt;/em&gt;, 量纲是$1$, 使用的坐标称作&lt;em&gt;Boyer-Lindquist-coordinates坐标&lt;/em&gt;. 我们接下来考察Kerr几何的一些性质:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Asymptotically flat&lt;/strong&gt;. 对于$r\gg M$并且$r\gg a$, 这个线元变成
+
+$$
+\mathrm ds^2 \approx -\left(1 - \frac{2M}{r}\right)\mathrm dt^2
++\left(1 + \frac{2M}{r}\right)\mathrm dr^2
++r^2\left(\mathrm d\theta^2 + \sin^2\theta \mathrm d\phi^2\right)
+-\frac{4Ma}{r^2}\sin^2\theta r\mathrm d\phi \mathrm dt.
+$$
+在远离黑洞的位置处, 时空是接近平直的. 通过远处卫星的轨道可以确定$M$的大小, 而通过远处陀螺仪的进动可以确定$J$的大小.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stationary, axisymmetric&lt;/strong&gt;. 上面给出的Kerr度规和时间$t$无关(stationary), 也和取向$\phi$无关(axisymmetric). 我们可以找到两个Killing vector
+
+$$\begin{gathered}
+\xi^\alpha = (1, 0, 0, 0), \\
+\eta^\alpha = (0, 0, 0, 1).
+\end{gathered}$$
+此外如果按$\theta=\pi/2$的平面反射$\theta\rightarrow\pi-\theta$, 这个度规是不变的.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schwarzschild when not rotating&lt;/strong&gt;. 令$a = 0$, Kerr度规完全变成Schwarzchild度规, 也就是说Schawarzchild黑洞是一种零角动量的Kerr黑洞.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Coordinate singularities, real singularities and horizon&lt;/strong&gt;. $\Delta = 0$或者$\rho = 0$都对应了Kerr度规的奇点. $\rho = 0$对应$r = 0, \theta = \pi/2$, 这个点时空曲率无穷大, 对应于Schwarzchild几何中$r = 0$的奇点. $\Delta = 0$给出
+
+$$
+r_\pm = M \pm \sqrt{M^2 - a^2}.
+$$
+当$a&lt;M$时有这两个奇点. $r_+$成为Kerr黑洞的视界. 也就是说, 如果想要成为一个Kerr黑洞, 必须满足$a&lt;M$. 当物质落入黑洞时, 它的角动量也带给黑洞, 在这个过程中黑洞的角动量逐渐接近$J = M^2$的极限, 这种接近极限情况的黑洞可以自然形成.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="the-horizon-of-a-rotating-black-hole"&gt;The horizon of a rotating black hole
+&lt;/h2&gt;&lt;p&gt;视界(horizon)是光能逃逸到无穷远的区域的内表面, 限制了无穷远观察者能获得信息的范围. 对于一个Schwarzchild黑洞来说, 视界是$r = 2M$. 我们说一个曲面是&lt;em&gt;null&lt;/em&gt;的, 如果在这个曲面上存在一个类光的切向量场, 并且存在两个与之正交的类空的切向量场. 对于Kerr度规来说, 我们可以证明视界$r = r_+$是null的: 首先, 这个视界的切向量应该写成
+&lt;/p&gt;
+$$
+t^\alpha = (t^t, 0, t^\theta, t^\phi).
+$$&lt;p&gt;
+如果有一个类光的(null)的切向量场, 应该满足
+&lt;/p&gt;
+$$
+g_{\mu\nu}l^\nu l^\mu =
+\left(\frac{2Mr_+\sin\theta}{\rho_+}\right)^2\left(l^\phi - \frac{a}{2Mr_+}l^t\right)^2 + \rho_+^2(l^\theta)^2 = 0. 
+$$&lt;p&gt;
+这个方程的唯一解是$l^\theta = 0, l^\phi = \frac{a}{2Mr_+}l^t$. 在最多相差一个常数因子的情况下, 在$r = r_+$曲面上唯一的null切向量场是
+&lt;/p&gt;
+$$
+l^\alpha = (1, 0, 0, \Omega_H),\ \ \Omega_H = \frac{a}{2Mr_+}.
+$$&lt;p&gt;
+$(0, 0, 1, 0)$和$(0, 0, 0, 1)$是两个和$\bm l$正交的类空切向量. 这样就说明了$r = r_+$是null的, $\bm l$同时也是一个法向量场, 也是视界上的某条类光曲线的切向量, 按这个角度发出的光线会被限制在这个曲面上, 以$\Omega_H$的角速度旋转($\mathrm d\phi/\mathrm dt = l^\phi/l^t$).&lt;/p&gt;
+&lt;p&gt;尽管视界由$r = r_+$完全确定, 其上的几何并不是完全球对称的,
+&lt;/p&gt;
+$$
+\mathrm d\Sigma^2 = \rho_+^2\mathrm d\theta^2 + \left(\frac{2Mr_+}{\rho_+}\right)^2\sin^2\theta \mathrm d\phi^2.
+$$&lt;p&gt;
+也可以由此得到视界的面积$A = \int 2Mr_+\sin\theta \mathrm d\theta d\phi = 8\pi M(M + \sqrt{M^2 - a^2})$. 这个视界是单向的, 可以从外界进入视界, 但是不能离开.&lt;/p&gt;
+&lt;h2 id="orbits-in-the-equatorial-plane"&gt;Orbits in the equatorial plane
+&lt;/h2&gt;&lt;p&gt;在Kerr度规下, 运动轨道不再和Schwarzchild度规下一样一定保持在一个平面内, 并且现在只有沿旋转轴方向的角动量是是守恒的. 作为一个简单的例子, 我们来考虑赤道面内的轨道.&lt;/p&gt;
+&lt;p&gt;首先考虑到$\theta\rightarrow \pi - \theta$的对称性, $4$-速度的$\theta$的分量是$0$. 这样限制在$\theta = \pi/2$赤道面里的线元就是
+&lt;/p&gt;
+$$
+\mathrm ds^2 = -\left(1 - \frac{2M}{r}\right)\mathrm dt^2 - \frac{4aM}{r}\mathrm dt\mathrm d\phi
++\frac{r^2}{\Delta}\mathrm dr^2 + \left(r^2 + a^2 + \frac{2Ma^2}{r}\right)\mathrm d\phi^2.
+$$&lt;p&gt;
+通过之前我们构造的两个killing vector, 可以给出两个守恒量,
+&lt;/p&gt;
+$$\begin{gathered}
+e \equiv - \bm \xi \cdot \bm u,\\
+l \equiv \bm \eta \cdot \bm u.
+\end{gathered}$$&lt;p&gt;
+赤道面里的轨道通过这两个守恒量完全参数化, 此外$4$-速度还应该满足$u^\mu u_\mu = -1$. 现在可以写一部分运动方程
+&lt;/p&gt;
+$$\begin{gathered}
+\frac{\mathrm dt}{\mathrm d\tau} = \frac{1}{\Delta}\left[
+ \left(r^2 + a^2 + \frac{2Ma^2}{r}e - \frac{2Ma}{r}l\right)
+\right], \\
+\frac{\mathrm d\phi}{\mathrm d\tau} = \frac{1}{\Delta}\left[
+ \left(1 - \frac{2M}{r}\right)l + \frac{2Ma}{r}e
+\right].
+\end{gathered}$$&lt;p&gt;
+$r$方向的运动方程可以通过$\bm u$的归一化条件得到,
+&lt;/p&gt;
+$$\begin{gathered}
+\frac{e^2 - 1}{2} = \frac{1}{2}\left(\frac{\mathrm dr}{\mathrm d\tau}\right)^2 + V_{\text{eff}}(r, e, l),\\
+V_{\text{eff}} = - \frac{M}{r} + \frac{l^2 - a^2(e^2 - 1)}{2r^2} - \frac{M(l - ae)^2}{r^3}.
+\end{gathered}$$&lt;p&gt;
+对于光来说, 只需要把只需要修改条件为$u^\mu u_\mu = 0$就可以, 它的有效势依赖于$r, b \equiv |l/e|, \sigma \equiv \mathrm{sign}(l)$.&lt;/p&gt;
+&lt;p&gt;Kerr黑洞和Schwarzchild黑洞对于$r$的依赖势类似的, 但是Kerr黑洞会拖曳周围的时空, 具体来说, $l$的符号会应影响感受到的有效势.&lt;/p&gt;
+&lt;p&gt;作为一个例子, 对光来说, 考虑$M = a$的极端Kerr黑洞, 存在一个$r = 2M$的corotating的不稳定轨道和一个$r = 4M$的counterrotating的不稳定轨道. 对一个一般的粒子, 在一个$r = R$的圆形轨道上, 满足
+&lt;/p&gt;
+$$
+\frac{e^2 - 1}{2} = V_{\text{eff}}(R, e, l).
+$$&lt;p&gt;
+此外在圆轨道应该是一个驻点,
+&lt;/p&gt;
+$$
+\left.\frac{\partial V_{\text{eff}(r, e, l)}}{\partial r}\right|_{r=R} = 0.
+$$&lt;p&gt;
+如果同时还要求这个轨道是稳定的, 应该有二阶导大于$0$. 如果是一个最内层的稳定轨道, 也就是处在临界状态, 会要求二阶导等于零. 这些方程完全确定了所有可能的圆轨道. 也可以计算这些轨道的结合能$1 - e$: 轨道上的能量和处在无穷远的能量差.&lt;/p&gt;
+&lt;h3 id="the-orbit-of-a-radially-infalling-particle"&gt;The orbit of a radially infalling particle
+&lt;/h3&gt;&lt;p&gt;考虑一个零动能, 从无穷远开始落入黑洞的粒子$e = 1$, $l = 0$. 轨道的形状由下面的微分方程决定
+&lt;/p&gt;
+$$
+\frac{\mathrm d\phi}{\mathrm dr} = \frac{\mathrm d\phi/\mathrm d\tau}{\mathrm dr/\mathrm d\tau} 
+= -\frac{2Ma}{r\Delta}\left[\frac{2M}{r}\left(1 - \frac{a^2}{r^2}\right)\right]^{-1/2}.
+$$&lt;p&gt;
+尽管下落的物体自身并没有角动量, 由于旋转黑洞的存在, 它仍然在下落过程中产生角位移.&lt;/p&gt;
+&lt;h2 id="the-ergoshpere"&gt;The ergoshpere
+&lt;/h2&gt;&lt;h3 id="stationary-observers"&gt;Stationary observers
+&lt;/h3&gt;&lt;p&gt;我们定义一个静止的观察者, 如果其$4$-速度只有时间分量,
+&lt;/p&gt;
+$$
+u_{\text{obs}}^\alpha = (u^t_{obs}, 0, 0, 0).
+$$&lt;p&gt;
+并且满足$u_\mu u^\mu = -1$, 这意味着
+&lt;/p&gt;
+$$
+u_{\text{obs}\mu}u^\mu_{\text{obs}} = - \left(1 - \frac{2Mr}{\rho^2}\right)(u^t_{\text{obs}})^2 = -1.
+$$&lt;p&gt;
+当靠近Kerr黑洞的视界到一定程度的时候, $g_{tt}$就会变成$0$, 再往里就给不出一个$u_{\text{obs}^t}$的解了, 具体地, 这个边界是
+&lt;/p&gt;
+$$
+r = r_e(\theta) = M + \sqrt{M^2 - a^2\cos^2\theta}.
+$$&lt;p&gt;
+这个曲面内部是不允许有静止观察者的. 这个曲面和视界之间的区域叫做能层(ergosphere). 在能层中不允许有一个静止的观察者, 但或许可以允许观察者的$r, \theta$坐标固定, $\phi$方向上有一个角速度,
+&lt;/p&gt;
+$$
+u^\alpha_{\text{obs}} = u_{\text{obs}}^t(1, 0, 0, \Omega_{\text{obs}}) 
+= u^t_{\text{obs}}(\xi^\alpha + \Omega_{\text{obs}}\eta^\alpha).
+$$&lt;p&gt;
+对于能层内的每一组坐标$r, \theta$, 都有一个最小的$\Omega_{\text{obs}}$作为允许上面描述的这种观察者出现的下界.&lt;/p&gt;
+&lt;h3 id="extracting-rotational-energy"&gt;Extracting rotational energy
+&lt;/h3&gt;&lt;p&gt;我们来考虑Penrose过程: 一个粒子从无穷远飞进能层, 然后衰变成两个粒子, 其中一个粒子掉进视界内, 而另一个粒子又飞回无穷远. 通过这种过程, 我们有可能从一个Kerr黑洞中获得能量.&lt;/p&gt;
+&lt;p&gt;在衰变过程中能动量应该是守恒的, 并且衰变是一个局部过程, 小范围内时空是平直的, 满足
+&lt;/p&gt;
+$$
+\bm p_{\text{in}} = \bm p_{\text{out}} + \bm p_{\text{bh}}.
+$$&lt;p&gt;
+飞出来的粒子的静止质量是$m_{\text{out}}$, 它的能量是$E_{\text{out}} = m_{out}e$. 我们有
+&lt;/p&gt;
+$$
+E_{\text{out}} = E_{\text{in}} - E_{\text{bh}}.
+$$&lt;p&gt;
+在能层里$g_{tt} &gt; 0$, 这样$\xi^\alpha$就是类空的. 在这种情况下$E_{\text{bh}}$不再有能量的含义, 它只是动量的某个分量, 并且可能正, 可能负, 这样我们就可以通过这个过程从黑洞中获得能量.&lt;/p&gt;
+&lt;p&gt;在这个过程中不但黑洞的能量会减少, 黑洞的角动量也会减少, 考虑一个corotating的在能层里面的观察者,
+&lt;/p&gt;
+$$
+u^\alpha_{\text{obs}} = u^t_{\text{obs}}(\xi^\alpha + \Omega_{\text{obs}}\eta^\alpha).
+$$&lt;p&gt;
+这个观察者观察到的落入黑洞的粒子应该有正的能量,
+&lt;/p&gt;
+$$
+-(\xi^\alpha + \Omega_{\text{obs}\eta^\alpha})p_\alpha \geq 0.
+$$&lt;p&gt;
+这样就有
+&lt;/p&gt;
+$$
+E_{bh} \geq \Omega_{\text{obs}}L_{bh}.
+$$&lt;p&gt;
+因为$E_{bh}$是负的, 所以$L_{bh}$也是负的. 通过Penrose过程, 我们可以不断地把Kerr黑洞的旋转部分的能量降低到$0$, 但是不可能使整个黑洞消失, 黑洞的视界面积在这个过程中是不减的(实际上黑洞的视界面积在各种情况下都是不减的), 我们考虑视界面积的变化
+&lt;/p&gt;
+$$\begin{gathered}
+\Delta A = \frac{8\pi}{\kappa}\left(\Delta M - \Omega_H\Delta J\right), \\
+\kappa \equiv \frac{(M^2 - a^2)^{1/2}}{2Mr_+}.
+\end{gathered}$$&lt;p&gt;
+在视界附近的观察者, 如果和前面得到的null切向量场相同的运动的话, 有着最大的角速度$\Omega_H$, 也就是说$\Delta M &gt; \Omega_H \Delta J$, 这就说明在Penrose过程会增大Kerr黑洞的视界面积.&lt;/p&gt;
+&lt;p&gt;我们定义约化质量$M_{\text{ir}} = \left(\frac{A}{16\pi}\right)^{-1/2}$, 这个值是不减的, 利用黑洞视界面积的表达式我们有
+&lt;/p&gt;
+$$
+M^2 = M_{\text{ir}}^2 + \frac{J^2}{2M_{\text{ir}}^2}.
+$$&lt;p&gt;
+这给出了黑洞能量的组成, Penrose过程降低的是第二项, 第一项是不减的.&lt;/p&gt;</description></item></channel></rss>
