@@ -1,0 +1,6 @@
+{{- /* Support both Stack's `image` and Ananke's `featured_image` frontmatter */ -}}
+{{- $imgParam := .Params.image | compare.Default .Params.featured_image -}}
+{{- $image := partial "helper/image" (dict "Image" $imgParam "Resources" .Resources "Context" .) -}}
+<article class="{{ if $image }}has-image{{ end }}">
+    {{ partial "article/components/header" (dict "Page" . "IsList" true) }}
+</article>
